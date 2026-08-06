@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="module"> 
+    {
+      // NOTE: embedding the script is the way to go if you want to test locally without a http server and that's my thing at this point
+      const btn = document.getElementById("button");
+	btn.addEventListener("click", () => {
+	  btn.textContent = "you clicked me";
+	  setTimeout(()=>{
+	    btn.textContent = "press me again";
+	  }, 1000)
+	});
+    }
+    </script>
+    <title>Landing Page</title>
+  </head>
+  <body>
+    <button id="button">Ok</button>
+  </body>
+</html>
