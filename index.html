@@ -6,18 +6,39 @@
     <script type="module"> 
     {
       // NOTE: embedding the script is the way to go if you want to test locally without a http server and that's my thing at this point
-      const btn = document.getElementById("button");
-	btn.addEventListener("click", () => {
-	  btn.textContent = "you clicked me";
-	  setTimeout(()=>{
-	    btn.textContent = "press me again";
-	  }, 1000)
-	});
+      const dialog = document.getElementById("dialog");
+      const openButton = document.getElementById("open");
+      const closeButton = document.getElementById("close");
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+//
+      openButton.addEventListener("click", () => {
+	dialog.showModal();
+	console.log("dialog openned");
+    });
+// TODO: would be nice to hide the dialog after submit, feels more natural that way
+      closeButton.addEventListener("click", () => {
+	console.log("user clicked submit button");
+	console.log(`name: ${name.value} email: ${email.value}`)
+	setTimeout(()=>{
+	  dialog.close();
+	  console.log("dialog-closed");
+	}, 1000)
+      });
     }
     </script>
     <title>Landing Page</title>
   </head>
   <body>
-    <button id="button">Ok</button>
+    <dialog id="dialog" closedby="none">
+      <form method="dialog">
+	<label for="name">Name:</label>
+	<input type="text" name="name" id="name" required/>
+	<label for="email">Email:</label>
+	<input type="email" name="email" id="email" required/>
+	<button id="close" type="button">Submit</button>
+      </form>
+    </dialog>
+    <button id="open" type="button">Subscribe</button>
   </body>
 </html>
