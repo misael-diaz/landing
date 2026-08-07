@@ -28,6 +28,7 @@
 	div.classList.remove("visible");
     });
 // NOTE: setting the closedby attribute of the dialog element to "none" means that the event listener is responsible for closing the dialog
+// TODO: validate user input because it seems that having the required field has no effect the responsibility is now ours (meaning that the dialog will close even if the user did not fill the fields)
       closeButton.addEventListener("click", () => {
 	console.log("user clicked submit button");
 	console.log(`name: ${name.value} email: ${email.value}`)
