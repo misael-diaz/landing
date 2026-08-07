@@ -3,20 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <style>
+      .hidden {
+	content-visibility: hidden;
+      }
+      .visible {
+	content-visibility: visible;
+      }
+    </style>
     <script type="module"> 
     {
       // NOTE: embedding the script is the way to go if you want to test locally without a http server and that's my thing at this point
+      const div = document.getElementById("div");
       const dialog = document.getElementById("dialog");
       const openButton = document.getElementById("open");
       const closeButton = document.getElementById("close");
       const name = document.getElementById("name");
       const email = document.getElementById("email");
-//
+// NOTE: has the side-effect of hiding the subcribe button on clicking
       openButton.addEventListener("click", () => {
 	dialog.showModal();
 	console.log("dialog openned");
+	div.classList.remove("visible");
     });
-// TODO: would be nice to hide the dialog after submit, feels more natural that way
 // NOTE: setting the closedby attribute of the dialog element to "none" means that the event listener is responsible for closing the dialog
       closeButton.addEventListener("click", () => {
 	console.log("user clicked submit button");
@@ -40,6 +49,8 @@
 	<button id="close" type="button">Submit</button>
       </form>
     </dialog>
-    <button id="open" type="button">Subscribe</button>
+    <div class="hidden visible" id="div">
+      <button id="open" type="button">Subscribe</button>
+    </div>
   </body>
 </html>
