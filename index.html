@@ -32,10 +32,15 @@
       closeButton.addEventListener("click", () => {
 	console.log("user clicked submit button");
 	console.log(`name: ${name.value} email: ${email.value}`)
-	setTimeout(()=>{
-	  dialog.close();
-	  console.log("dialog-closed");
-	}, 1000)
+	if (name.value && email.value) {
+	  setTimeout(()=>{
+	      dialog.close();
+	      console.log("dialog-closed");
+	  }, 1000);
+	}
+	else {
+	      console.log("user did not fill in the fields");
+	}
       });
     }
     </script>
