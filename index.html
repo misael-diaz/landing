@@ -24,6 +24,7 @@
       openButton.addEventListener("click", () => {
 	dialog.showModal();
 	console.log("dialog openned");
+	// removing "visible" from the class list leaves "hidden" as the only element in the list and so the `div` becomes invisible along everything it contains, see for instance https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
 	div.classList.remove("visible");
     });
 // NOTE: setting the closedby attribute of the dialog element to "none" means that the event listener is responsible for closing the dialog
