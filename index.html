@@ -10,6 +10,9 @@
       .visible {
 	content-visibility: visible;
       }
+      .required {
+	text-decoration: red wavy underline;
+      }
     </style>
     <script type="module"> 
     {
@@ -20,6 +23,8 @@
       const closeButton = document.getElementById("close");
       const name = document.getElementById("name");
       const email = document.getElementById("email");
+      const labelName = document.getElementById("label-name");
+      const labelEmail = document.getElementById("label-email");
 // NOTE: has the side-effect of hiding the subcribe button on clicking
       openButton.addEventListener("click", () => {
 	dialog.showModal();
@@ -28,18 +33,30 @@
 	div.classList.remove("visible");
     });
 // NOTE: setting the closedby attribute of the dialog element to "none" means that the event listener is responsible for closing the dialog
-// TODO: validate user input because it seems that having the required field has no effect the responsibility is now ours (meaning that the dialog will close even if the user did not fill the fields)
       closeButton.addEventListener("click", () => {
 	console.log("user clicked submit button");
 	console.log(`name: ${name.value} email: ${email.value}`)
 	if (name.value && email.value) {
+	  labelName.classList.remove("required");
+	  labelEmail.classList.remove("required");
 	  setTimeout(()=>{
 	      dialog.close();
 	      console.log("dialog-closed");
 	  }, 1000);
 	}
 	else {
-	      console.log("user did not fill in the fields");
+	  if (!name.value) {
+	    labelName.classList.add("required");
+	  }
+	  else {
+	    labelName.classList.remove("required");
+	  }
+	  if (!email.value) {
+	    labelEmail.classList.add("required");
+	  }
+	  else {
+	    labelEmail.classList.remove("required");
+	  }
 	}
       });
     }
@@ -50,11 +67,11 @@
     <dialog id="dialog" closedby="none">
       <form method="dialog">
 	<p>
-	  <label for="name">Name:</label>
+	  <label for="name" id="label-name">Name:</label>
 	  <input type="text" name="name" id="name" autocomplete="on" required/>
 	</p>
 	<p>
-	  <label for="email">Email:</label>
+	  <label for="email" id="label-email">Email:</label>
 	  <input type="email" name="email" id="email" autocomplete="on" required/>
 	</p>
 	<p>
