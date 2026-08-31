@@ -19,6 +19,11 @@ NAV
       margin-bottom: 2px;
     }
     nav {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 1;
     }
     nav menu {
       display: flex;
@@ -29,6 +34,11 @@ NAV
       cursor: pointer;
       padding: 0px;
       margin: 0px;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 2;
     }
     .notice {
       display: flex;
@@ -37,9 +47,19 @@ NAV
     .menu-item {
       display: flex;
       flex-direction: column;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 3;
     }
     .menu-item-label {
       display: flex;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 4;
     }
     .dropdown {
       visibility: hidden;
@@ -47,13 +67,25 @@ NAV
     .dropdown-list {
       display: flex;
       flex-direction: column;
-      justify-content: start;
+      justify-content: space-between;
       list-style: none;
       padding: 0px;
       padding-left: 10px;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 5;
     }
     .dropdown-item {
       display: flex;
+      padding: 0px;
+      padding-top: 4px;
+      position: relative;
+      top: 8px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 6;
     }
     </style>
     <script type="module">
@@ -67,8 +99,12 @@ NAV
 	}
 	div.classList.toggle('dropdown');
       }
+      const services = document.getElementById("services-dropdown");
+      const publications = document.getElementById("publications-dropdown");
       const blogs = document.getElementById("blogs-dropdown");
       const series = document.getElementById("series-dropdown");
+      services.addEventListener("click", onOnClickListener);
+      publications.addEventListener("click", onOnClickListener);
       blogs.addEventListener("click", onOnClickListener);
       series.addEventListener("click", onOnClickListener);
     }
@@ -86,23 +122,47 @@ NAV
     </iframe>
     <nav>
       <menu>
-	<li class="menu-item">Services</li>
-	<li class="menu-item">Publications</li>
-	<li class="menu-item">Seminars</li>
+	<li class="menu-item" id="services-dropdown">
+	  <span class="menu-item-label">Professional Services</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">STEM Tutoring</li>
+	      <li class="dropdown-item">Thesis Reviewing</li>
+	      <li class="dropdown-item">Scientific Article Reviewing</li>
+	      <li class="dropdown-item">Scientific Modelling and Simulation</li>
+	      <li class="dropdown-item">Software Development</li>
+	      <li class="dropdown-item">Code Reviewing</li>
+	    </ul>
+	  </div>
+	</li>
+	<li class="menu-item" id="publications-dropdown">
+	  <span class="menu-item-label">Publications</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">Reactive Distillation Modelling</li>
+	      <li class="dropdown-item">Micro-Fireworks Dynamics</li>
+	      <li class="dropdown-item">Streaming Janus Droplets</li>
+	      <li class="dropdown-item">Shearing Janus Droplets</li>
+	      <li class="dropdown-item">Janus Droplets Rheology</li>
+	      <li class="dropdown-item">Janus Droplets Dissertation</li>
+	      <li class="dropdown-item">Computational Chemistry AI Agents</li>
+	    </ul>
+	  </div>
+	</li>
+	<li class="menu-item" id="series-dropdown">
+	  <span class="menu-item-label">Tech Series</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">xinput driver</li>
+	      <li class="dropdown-item">http-server</li>
+	    </ul>
+	  </div>
+	</li>
 	<li class="menu-item" id="blogs-dropdown">
 	  <span class="menu-item-label">Blogs</span>
 	  <div class="dropdown">
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">Handmade Hero</li>
-	    </ul>
-	  </div>
-	</li>
-	<li class="menu-item" id="series-dropdown">
-	  <span class="menu-item-label">Series</span>
-	  <div class="dropdown">
-	    <ul class="dropdown-list">
-	      <li class="dropdown-item">xinput driver</li>
-	      <li class="dropdown-item">http-server</li>
 	    </ul>
 	  </div>
 	</li>
