@@ -34,16 +34,26 @@ NAV
       display: flex;
       justify-content: center;
     }
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-item-label {
+      display: flex;
+    }
     .dropdown {
       visibility: hidden;
     }
-    div ul {
+    .dropdown-list {
       display: flex;
       flex-direction: column;
       justify-content: start;
       list-style: none;
       padding: 0px;
       padding-left: 10px;
+    }
+    .dropdown-item {
+      display: flex;
     }
     </style>
     <script type="module">
@@ -76,23 +86,23 @@ NAV
     </iframe>
     <nav>
       <menu>
-	<li>Services</li>
-	<li>Publications</li>
-	<li>Seminars</li>
-	<li id="blogs-dropdown">
-	  <span>Blogs</span>
+	<li class="menu-item">Services</li>
+	<li class="menu-item">Publications</li>
+	<li class="menu-item">Seminars</li>
+	<li class="menu-item" id="blogs-dropdown">
+	  <span class="menu-item-label">Blogs</span>
 	  <div class="dropdown">
-	    <ul>
-	      <li>Handmade Hero</li>
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">Handmade Hero</li>
 	    </ul>
 	  </div>
 	</li>
-	<li id="series-dropdown">
-	  <span>Series</span>
+	<li class="menu-item" id="series-dropdown">
+	  <span class="menu-item-label">Series</span>
 	  <div class="dropdown">
-	    <ul>
-	      <li>xinput driver</li>
-	      <li>http-server</li>
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">xinput driver</li>
+	      <li class="dropdown-item">http-server</li>
 	    </ul>
 	  </div>
 	</li>
