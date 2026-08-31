@@ -6,6 +6,9 @@
     <style>
 /*
 TODO:
+NAV
+[ ] study stacking context to figure out how to create the navbar that you have in mind https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context
+[x] lookup into aria-expanded to add widgets to the webpage: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded
 [ ] tech talks https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/
 */
     html {
@@ -16,21 +19,107 @@ TODO:
       margin-bottom: 2px;
     }
     nav {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 1;
     }
-    nav ul {
+    nav menu {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-around;
       list-style: none;
+      cursor: pointer;
       padding: 0px;
       margin: 0px;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 2;
     }
     .notice {
       display: flex;
       justify-content: center;
     }
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 3;
+    }
+    .menu-item-label {
+      display: flex;
+      font-weight: bolder;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 4;
+    }
+    .dropdown {
+      visibility: hidden;
+    }
+    .dropdown-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0px;
+      padding-left: 10px;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 5;
+    }
+    .dropdown-item {
+      display: flex;
+      padding: 0px;
+      padding-top: 4px;
+      position: relative;
+      top: 8px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 6;
+    }
     </style>
+    <script type="module">
+    {
+      // NOTE: we stop propagation of the mouseover event when it reaches the span element, which is what we want otherwise the event would continue to bubble up to the root. We use mouseover because it's more efficient than mouseenter. Reference: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
+      function onMouseOverListener(e) {
+	const div = this.children[1];
+	if ("SPAN" === e.target.tagName) {
+	  div.classList.remove('dropdown');
+	  e.stopPropagation();
+	}
+      }
+
+      // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
+      function onMouseLeaveListener(e) {
+	const div = this.children[1];
+	div.classList.add('dropdown');
+      }
+      const services = document.getElementById("services-dropdown");
+      const publications = document.getElementById("publications-dropdown");
+      const blogs = document.getElementById("blogs-dropdown");
+      const series = document.getElementById("series-dropdown");
+      services.addEventListener("mouseover", onMouseOverListener);
+      publications.addEventListener("mouseover", onMouseOverListener);
+      blogs.addEventListener("mouseover", onMouseOverListener);
+      series.addEventListener("mouseover", onMouseOverListener);
+
+      services.addEventListener("mouseleave", onMouseLeaveListener);
+      publications.addEventListener("mouseleave", onMouseLeaveListener);
+      blogs.addEventListener("mouseleave", onMouseLeaveListener);
+      series.addEventListener("mouseleave", onMouseLeaveListener);
+    }
+    </script>
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
@@ -43,12 +132,52 @@ TODO:
     >
     </iframe>
     <nav>
-      <ul>
-	<li>Dissertation</li>
-	<li>Publications</li>
-	<li>Projects</li>
-	<li>Seminars</li>
-      </ul>
+      <menu>
+	<li class="menu-item" id="services-dropdown">
+	  <span class="menu-item-label">Professional Services</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">STEM Tutoring</li>
+	      <li class="dropdown-item">Thesis Reviewing</li>
+	      <li class="dropdown-item">Scientific Article Reviewing</li>
+	      <li class="dropdown-item">Scientific Modelling and Simulation</li>
+	      <li class="dropdown-item">Software Development</li>
+	      <li class="dropdown-item">Code Reviewing</li>
+	    </ul>
+	  </div>
+	</li>
+	<li class="menu-item" id="publications-dropdown">
+	  <span class="menu-item-label">Publications</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">Reactive Distillation Modelling</li>
+	      <li class="dropdown-item">Micro-Fireworks Dynamics</li>
+	      <li class="dropdown-item">Streaming Janus Droplets</li>
+	      <li class="dropdown-item">Shearing Janus Droplets</li>
+	      <li class="dropdown-item">Janus Droplets Rheology</li>
+	      <li class="dropdown-item">Janus Droplets Dissertation</li>
+	      <li class="dropdown-item">Computational Chemistry AI Agents</li>
+	    </ul>
+	  </div>
+	</li>
+	<li class="menu-item" id="series-dropdown">
+	  <span class="menu-item-label">Tech Series</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">xinput driver</li>
+	      <li class="dropdown-item">http-server</li>
+	    </ul>
+	  </div>
+	</li>
+	<li class="menu-item" id="blogs-dropdown">
+	  <span class="menu-item-label">Blogs</span>
+	  <div class="dropdown">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">Handmade Hero</li>
+	    </ul>
+	  </div>
+	</li>
+      </menu>
     </nav>
     <h3 class="notice">Page under construction.</h3>
   </body>
