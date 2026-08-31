@@ -41,6 +41,8 @@ NAV
       flex-direction: column;
       justify-content: start;
       list-style: none;
+      padding: 0px;
+      padding-left: 10px;
     }
     </style>
     <script type="module">
@@ -54,7 +56,9 @@ NAV
 	}
 	div.classList.toggle('dropdown');
       }
+      const blogs = document.getElementById("blogs-dropdown");
       const series = document.getElementById("series-dropdown");
+      blogs.addEventListener("click", onOnClickListener);
       series.addEventListener("click", onOnClickListener);
     }
     </script>
@@ -75,7 +79,14 @@ NAV
 	<li>Publications</li>
 	<li>Projects</li>
 	<li>Seminars</li>
-	<li>Blogs</li>
+	<li id="blogs-dropdown">
+	  <span>Blogs</span>
+	  <div class="dropdown">
+	    <ul>
+	      <li>Handmade Hero</li>
+	    </ul>
+	  </div>
+	</li>
 	<li id="series-dropdown">
 	  <span>Series</span>
 	  <div class="dropdown">
