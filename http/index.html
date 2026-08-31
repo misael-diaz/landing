@@ -90,23 +90,33 @@ NAV
     </style>
     <script type="module">
     {
-      // NOTE: prevents event-bubbling from children https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
-      function onOnClickListener(e) {
+      // NOTE: we stop propagation of the mouseover event when it reaches the span element, which is what we want otherwise the event would continue to bubble up to the root. We use mouseover because it's more efficient than mouseenter. Reference: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
+      function onMouseOverListener(e) {
 	const div = this.children[1];
-	if ("LI" === e.target.tagName) {
+	if ("SPAN" === e.target.tagName) {
+	  div.classList.remove('dropdown');
 	  e.stopPropagation();
-	  return;
 	}
-	div.classList.toggle('dropdown');
+      }
+
+      // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
+      function onMouseLeaveListener(e) {
+	const div = this.children[1];
+	div.classList.add('dropdown');
       }
       const services = document.getElementById("services-dropdown");
       const publications = document.getElementById("publications-dropdown");
       const blogs = document.getElementById("blogs-dropdown");
       const series = document.getElementById("series-dropdown");
-      services.addEventListener("click", onOnClickListener);
-      publications.addEventListener("click", onOnClickListener);
-      blogs.addEventListener("click", onOnClickListener);
-      series.addEventListener("click", onOnClickListener);
+      services.addEventListener("mouseover", onMouseOverListener);
+      publications.addEventListener("mouseover", onMouseOverListener);
+      blogs.addEventListener("mouseover", onMouseOverListener);
+      series.addEventListener("mouseover", onMouseOverListener);
+
+      services.addEventListener("mouseleave", onMouseLeaveListener);
+      publications.addEventListener("mouseleave", onMouseLeaveListener);
+      blogs.addEventListener("mouseleave", onMouseLeaveListener);
+      series.addEventListener("mouseleave", onMouseLeaveListener);
     }
     </script>
   </head>
