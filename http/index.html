@@ -7,7 +7,7 @@
 /*
 TODO:
 NAV
-[ ] lookup into aria-expanded to add widgets to the webpage: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded
+[x] lookup into aria-expanded to add widgets to the webpage: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded
 [ ] tech talks https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/
 */
     html {
@@ -33,7 +33,31 @@ NAV
       display: flex;
       justify-content: center;
     }
+    .dropdown {
+      visibility: hidden;
+    }
+    div ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      list-style: none;
+    }
     </style>
+    <script type="module">
+    {
+      // NOTE: prevents event-bubbling from children https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
+      function onOnClickListener(e) {
+	const div = this.children[1];
+	if ("LI" === e.target.tagName) {
+	  e.stopPropagation();
+	  return;
+	}
+	div.classList.toggle('dropdown');
+      }
+      const series = document.getElementById("series-dropdown");
+      series.addEventListener("click", onOnClickListener);
+    }
+    </script>
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
@@ -52,6 +76,15 @@ NAV
 	<li>Projects</li>
 	<li>Seminars</li>
 	<li>Blogs</li>
+	<li id="series-dropdown">
+	  <span>Series</span>
+	  <div class="dropdown">
+	    <ul>
+	      <li>xinput driver</li>
+	      <li>http-server</li>
+	    </ul>
+	  </div>
+	</li>
       </menu>
     </nav>
     <h3 class="notice">Page under construction.</h3>
