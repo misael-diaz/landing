@@ -43,6 +43,7 @@
       margin-bottom: 10px;
     }
     .outline {
+      background-color: white;
       outline: 1px solid black;
       z-index: 2;
     }
@@ -65,8 +66,8 @@
       position: relative;
       top: 0px;
       left: 0px;
-      opacity: 0.95;
-      background-color: white;
+      opacity: 1.0;
+      transition: outline 0.2s, background-color 0.2s;
     }
     #notice {
       display: flex;
