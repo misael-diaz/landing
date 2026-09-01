@@ -18,14 +18,25 @@ NAV
       margin: 0px;
       margin-bottom: 2px;
     }
-    nav {
+    #wrapper {
       position: relative;
       top: 0px;
       left: 0px;
       opacity: 0.95;
       z-index: 1;
     }
-    nav menu {
+    #panel {
+      display: flex;
+      position: relative;
+      top: -130px;
+      left: 0px;
+      opacity: 0.99;
+      z-index: 3;
+      background-color: white;
+      height: 150px;
+      outline: 1px solid black;
+    }
+    #menubar {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -38,32 +49,32 @@ NAV
       top: 0px;
       left: 0px;
       opacity: 0.95;
-      z-index: 2;
+      z-index: 4;
     }
-    .notice {
+    #notice {
       display: flex;
       justify-content: center;
+      position: relative;
+      top: -220px;
+      left: 0px;
+      opacity: 0.95;
+      z-index: 2;
     }
     .menu-item {
       display: flex;
       flex-direction: column;
       position: relative;
-      top: 0px;
-      left: 0px;
-      opacity: 0.95;
-      z-index: 3;
     }
     .menu-item-label {
       display: flex;
       font-weight: bolder;
       position: relative;
-      top: 0px;
-      left: 0px;
-      opacity: 0.95;
-      z-index: 4;
+    }
+    .dropdown-container {
+      visibility: hidden;
     }
     .dropdown {
-      visibility: hidden;
+      position: relative;
     }
     .dropdown-list {
       display: flex;
@@ -73,10 +84,6 @@ NAV
       padding: 0px;
       padding-left: 10px;
       position: relative;
-      top: 0px;
-      left: 0px;
-      opacity: 0.95;
-      z-index: 5;
     }
     .dropdown-item {
       display: flex;
@@ -85,8 +92,6 @@ NAV
       position: relative;
       top: 8px;
       left: 0px;
-      opacity: 0.95;
-      z-index: 6;
     }
     </style>
     <script type="module">
@@ -95,7 +100,9 @@ NAV
       function onMouseOverListener(e) {
 	const div = this.children[1];
 	if ("SPAN" === e.target.tagName) {
-	  div.classList.remove('dropdown');
+	  const panel = document.getElementById("panel");
+	  panel.classList.remove('dropdown-container');
+	  div.classList.remove('dropdown-container');
 	  e.stopPropagation();
 	}
       }
@@ -103,7 +110,9 @@ NAV
       // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
       function onMouseLeaveListener(e) {
 	const div = this.children[1];
-	div.classList.add('dropdown');
+	const panel = document.getElementById("panel");
+	panel.classList.add('dropdown-container');
+	div.classList.add('dropdown-container');
       }
       const services = document.getElementById("services-dropdown");
       const publications = document.getElementById("publications-dropdown");
@@ -131,11 +140,12 @@ NAV
       loading="eager"
     >
     </iframe>
+    <div id="wrapper">
     <nav>
-      <menu>
+      <menu id="menubar">
 	<li class="menu-item" id="services-dropdown">
 	  <span class="menu-item-label">Professional Services</span>
-	  <div class="dropdown">
+	  <div class="dropdown dropdown-container">
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">STEM Tutoring</li>
 	      <li class="dropdown-item">Thesis Reviewing</li>
@@ -148,7 +158,7 @@ NAV
 	</li>
 	<li class="menu-item" id="publications-dropdown">
 	  <span class="menu-item-label">Publications</span>
-	  <div class="dropdown">
+	  <div class="dropdown dropdown-container">
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">
 		<a href="https://doi.org/10.1021/ie0716159">
@@ -186,7 +196,7 @@ NAV
 	</li>
 	<li class="menu-item" id="series-dropdown">
 	  <span class="menu-item-label">Tech Series</span>
-	  <div class="dropdown">
+	  <div class="dropdown dropdown-container">
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">
 		<a href="https://youtu.be/HNfI1e8vWCY">
@@ -203,7 +213,7 @@ NAV
 	</li>
 	<li class="menu-item" id="blogs-dropdown">
 	  <span class="menu-item-label">Blogs</span>
-	  <div class="dropdown">
+	  <div class="dropdown dropdown-container">
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">
 		<a href="https://misael-diaz.github.io/handmade-hero/">
@@ -215,6 +225,9 @@ NAV
 	</li>
       </menu>
     </nav>
-    <h3 class="notice">Page under construction.</h3>
+    <div class="dropdown-container" id="panel">
+    </div>
+    <h3 id="notice">Page under construction.</h3>
+    </div>
   </body>
 </html>
