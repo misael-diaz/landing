@@ -3,22 +3,47 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
     <style>
-/*
-TODO:
-NAV
-[ ] study stacking context to figure out how to create the navbar that you have in mind https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context
-[x] lookup into aria-expanded to add widgets to the webpage: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded
-[ ] tech talks https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/
-*/
+    :root {
+      --img-logo-height: 80px;
+    }
     html {
       font-family: sans-serif;
     }
+    .head-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: var(--img-logo-height);
+    }
+    .head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0px;
+      margin-left: 2px;
+      height: var(--img-logo-height);
+    }
+    .logo {
+      display: flex;
+      height: var(--img-logo-height);
+    }
+    .brand {
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px black;
+      background-color: white;
+    }
     .title {
       margin: 0px;
-      margin-bottom: 2px;
+    }
+    .subtitle {
+      margin: 0px;
+      margin-bottom: 10px;
     }
     .outline {
+      background-color: white;
       outline: 1px solid black;
       z-index: 2;
     }
@@ -26,7 +51,6 @@ NAV
       position: relative;
       top: 0px;
       left: 0px;
-      opacity: 0.95;
       z-index: 1;
     }
     #menubar {
@@ -41,8 +65,7 @@ NAV
       position: relative;
       top: 0px;
       left: 0px;
-      opacity: 0.95;
-      background-color: white;
+      transition: outline 0.2s, background-color 0.2s;
     }
     #notice {
       display: flex;
@@ -50,7 +73,6 @@ NAV
       position: relative;
       top: -40px;
       left: 0px;
-      opacity: 0.95;
       z-index: 1;
     }
     .menu-item {
@@ -125,7 +147,22 @@ NAV
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
-    <h2 class="title">Misael Díaz-Maldonado, PhD</h2>
+    <div class="head-wrapper">
+      <div class="head">
+	<h2 class="title">Misael Díaz-Maldonado, PhD</h2>
+	<p class="subtitle">
+	  Computational Physicist | STEM Educator | Software Developer
+	</p>
+      </div>
+      <div class="logo">
+	<img
+	  class="brand"
+	  src="https://avatars.githubusercontent.com/u/20134959"
+	  alt="shows brand logo, a Janus droplet under shear flow"
+	>
+	</img>
+      </div>
+    </div>
     <iframe
       src="https://youtube.com/embed/BrQCCio_Z5c?playlist=BrQCCio_Z5c&autoplay=1&mute=1&loop=1"
       height=256px
@@ -193,12 +230,12 @@ NAV
 	    <ul class="dropdown-list">
 	      <li class="dropdown-item">
 		<a href="https://youtu.be/HNfI1e8vWCY">
-		  xinput driver
+		  Legacy Code Hero
 		</a>
 	      </li>
 	      <li class="dropdown-item">
 		<a href="https://youtu.be/OV4K8YWnI3Y">
-		  http-server
+		  Framework Beater
 		</a>
 	      </li>
 	    </ul>
@@ -211,6 +248,11 @@ NAV
 	      <li class="dropdown-item">
 		<a href="https://misael-diaz.github.io/handmade-hero/">
 		  Handmade Hero
+		</a>
+	      </li>
+	      <li class="dropdown-item">
+		<a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
+		  Matlab
 		</a>
 	      </li>
 	    </ul>
