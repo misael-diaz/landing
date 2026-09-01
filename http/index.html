@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
     <style>
+    :root {
+      --img-logo-height: 80px;
+    }
     html {
       font-family: sans-serif;
+    }
+    .head-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: var(--img-logo-height);
+    }
+    .head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0px;
+      margin-left: 2px;
+      height: var(--img-logo-height);
+    }
+    .logo {
+      display: flex;
+      height: var(--img-logo-height);
     }
     .title {
       margin: 0px;
     }
     .subtitle {
       margin: 0px;
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
     .outline {
       outline: 1px solid black;
@@ -123,8 +144,19 @@
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
+    <div class="head-wrapper">
+    <div class="head">
     <h2 class="title">Misael Díaz-Maldonado, PhD</h2>
     <p class="subtitle">Computational Physicist | STEM Educator | Software Developer</p>
+    </div>
+    <div class="logo">
+    <img
+      src="https://avatars.githubusercontent.com/u/20134959"
+      alt="shows brand logo, a Janus droplet under shear flow"
+    >
+    </img>
+    </div>
+    </div>
     <iframe
       src="https://youtube.com/embed/BrQCCio_Z5c?playlist=BrQCCio_Z5c&autoplay=1&mute=1&loop=1"
       height=256px
