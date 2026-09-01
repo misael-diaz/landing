@@ -18,23 +18,16 @@ NAV
       margin: 0px;
       margin-bottom: 2px;
     }
+    .outline {
+      outline: 1px solid black;
+      z-index: 2;
+    }
     #wrapper {
       position: relative;
       top: 0px;
       left: 0px;
       opacity: 0.95;
       z-index: 1;
-    }
-    #panel {
-      display: flex;
-      position: relative;
-      top: -130px;
-      left: 0px;
-      opacity: 0.99;
-      z-index: 3;
-      background-color: white;
-      height: 150px;
-      outline: 1px solid black;
     }
     #menubar {
       display: flex;
@@ -49,16 +42,16 @@ NAV
       top: 0px;
       left: 0px;
       opacity: 0.95;
-      z-index: 4;
+      background-color: white;
     }
     #notice {
       display: flex;
       justify-content: center;
       position: relative;
-      top: -220px;
+      top: -40px;
       left: 0px;
       opacity: 0.95;
-      z-index: 2;
+      z-index: 1;
     }
     .menu-item {
       display: flex;
@@ -90,7 +83,7 @@ NAV
       padding: 0px;
       padding-top: 4px;
       position: relative;
-      top: 8px;
+      top: 0px;
       left: 0px;
     }
     </style>
@@ -100,8 +93,8 @@ NAV
       function onMouseOverListener(e) {
 	const div = this.children[1];
 	if ("SPAN" === e.target.tagName) {
-	  const panel = document.getElementById("panel");
-	  panel.classList.remove('dropdown-container');
+	  const menu = document.getElementById("menubar");
+	  menu.classList.add('outline');
 	  div.classList.remove('dropdown-container');
 	  e.stopPropagation();
 	}
@@ -110,8 +103,8 @@ NAV
       // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
       function onMouseLeaveListener(e) {
 	const div = this.children[1];
-	const panel = document.getElementById("panel");
-	panel.classList.add('dropdown-container');
+	const menu = document.getElementById("menubar");
+	menu.classList.remove('outline');
 	div.classList.add('dropdown-container');
       }
       const services = document.getElementById("services-dropdown");
@@ -141,7 +134,7 @@ NAV
     >
     </iframe>
     <div id="wrapper">
-    <nav>
+    <nav id="navbar">
       <menu id="menubar">
 	<li class="menu-item" id="services-dropdown">
 	  <span class="menu-item-label">Professional Services</span>
@@ -225,8 +218,6 @@ NAV
 	</li>
       </menu>
     </nav>
-    <div class="dropdown-container" id="panel">
-    </div>
     <h3 id="notice">Page under construction.</h3>
     </div>
   </body>
