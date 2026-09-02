@@ -33,12 +33,27 @@ SRV_BIN = hydrogen.bin
 # normally you would compile these in a separate project but it does not hurt to recompile the whole thing
 FAVICON_CXX = favicon.cpp
 HERO_CXX = hero.cpp
+UPRM_CXX = uprm.cpp
+PUPR_CXX = pupr.cpp
+ICMM_CXX = icmm.cpp
+PSU_CXX = psu.cpp
+UN_CXX = un.cpp
 ROOT_CXX = root.cpp
 
 FAVICON_SO = modules/favicon.so
 HERO_SO = modules/hero.so
+UPRM_SO = modules/uprm.so
+PUPR_SO = modules/pupr.so
+ICMM_SO = modules/icmm.so
+PSU_SO = modules/psu.so
+UN_SO = modules/un.so
 ROOT_SO = modules/root.so
 
 MODULES = $(FAVICON_SO) \
 	  $(HERO_SO) \
+	  $(UPRM_SO) \
+	  $(PUPR_SO) \
+	  $(ICMM_SO) \
+	  $(PSU_SO) \
+	  $(UN_SO) \
 	  $(ROOT_SO)

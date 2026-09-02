@@ -30,6 +30,26 @@ $(HERO_SO): $(HERO_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(HERO_CXX) -o $(HERO_SO)
 
+$(UPRM_SO): $(UPRM_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(UPRM_CXX) -o $(UPRM_SO)
+
+$(PUPR_SO): $(PUPR_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(PUPR_CXX) -o $(PUPR_SO)
+
+$(ICMM_SO): $(ICMM_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(ICMM_CXX) -o $(ICMM_SO)
+
+$(PSU_SO): $(PSU_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(PSU_CXX) -o $(PSU_SO)
+
+$(UN_SO): $(UN_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(UN_CXX) -o $(UN_SO)
+
 $(ROOT_SO): $(ROOT_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(ROOT_CXX) -o $(ROOT_SO)

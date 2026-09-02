@@ -35,6 +35,11 @@
       box-shadow: 0 0 0 1px black;
       background-color: white;
     }
+    .banner {
+      display: flex;
+      margin: 0px;
+      margin-right: 2px;
+    }
     .title {
       margin: 0px;
     }
@@ -111,6 +116,8 @@
     }
     .dropdown-item {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 0px;
       padding-top: 5px;
       padding-bottom: 5px;
@@ -140,15 +147,18 @@
 	div.classList.add('dropdown-container');
       }
       const services = document.getElementById("services-dropdown");
+      const experience = document.getElementById("experience-dropdown");
       const publications = document.getElementById("publications-dropdown");
       const blogs = document.getElementById("blogs-dropdown");
       const series = document.getElementById("series-dropdown");
       services.addEventListener("mouseover", onMouseOverListener);
+      experience.addEventListener("mouseover", onMouseOverListener);
       publications.addEventListener("mouseover", onMouseOverListener);
       blogs.addEventListener("mouseover", onMouseOverListener);
       series.addEventListener("mouseover", onMouseOverListener);
 
       services.addEventListener("mouseleave", onMouseLeaveListener);
+      experience.addEventListener("mouseleave", onMouseLeaveListener);
       publications.addEventListener("mouseleave", onMouseLeaveListener);
       blogs.addEventListener("mouseleave", onMouseLeaveListener);
       series.addEventListener("mouseleave", onMouseLeaveListener);
@@ -197,6 +207,88 @@
 	    </ul>
 	  </div>
 	</li>
+
+	<li class="menu-item" id="experience-dropdown">
+	  <span class="menu-item-label">Experience</span>
+	  <div class="dropdown dropdown-container">
+	    <ul class="dropdown-list">
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  loading="eager"
+		  src="public/logos/UPRM.png"
+		  alt="banner of the University of Puerto Rico -- Mayaguez"
+		  height=32px
+		>
+		</img>
+		<span>Software Developer<span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  loading="eager"
+		  src="public/logos/UN.png"
+		  alt="banner of Universidad del Norte"
+		  height=32px
+		>
+		</img>
+		<span>Auxiliary Professor</span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  loading="eager"
+		  src="public/logos/PUPR.png"
+		  alt="banner of the Polytechnic University of Puerto Rico"
+		  height=32px
+		>
+		</img>
+		<span>Fulltime Professor</span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  src="public/logos/UPRM.png"
+		  alt="banner of the University of Puerto Rico -- Mayaguez"
+		  height=32px
+		>
+		</img>
+		<span>Post-Doctoral Researcher</span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  src="public/logos/ICMM.png"
+		  alt="banner of Institute of the Continuous Media Mechanics"
+		  height=32px
+		>
+		</img>
+		<span>Research Internship</span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  src="public/logos/PSU.png"
+		  alt="banner of Penn State University"
+		  height=32px
+		>
+		</img>
+		<span>Research Internship</span>
+	      </li>
+	      <li class="dropdown-item">
+		<img
+		  class="banner"
+		  src="public/logos/UPRM.png"
+		  alt="banner of the University of Puerto Rico -- Mayaguez"
+		  height=32px
+		>
+		</img>
+		<span>Teaching Assistant</span>
+	      </li>
+	    </ul>
+	  </div>
+	</li>
+
 	<li class="menu-item" id="publications-dropdown">
 	  <span class="menu-item-label">Publications</span>
 	  <div class="dropdown dropdown-container">
