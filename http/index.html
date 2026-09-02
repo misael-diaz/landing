@@ -7,6 +7,8 @@
     <style>
     :root {
       --img-logo-height: 80px;
+      --nav-bar-height: 24px;
+      --div-dropdown-height: 128px;
     }
     html {
       font-family: sans-serif;
@@ -59,6 +61,8 @@
     }
     #nav-wrapper {
       position: relative;
+      width: 100%;
+      height: var(--nav-bar-height);
       top: 0px;
       left: 0px;
       z-index: 1;
@@ -77,12 +81,25 @@
       left: 0px;
       transition: outline 0.2s, background-color 0.2s;
     }
+    .dropdown-wrapper {
+      display: flex;
+      width: 100%;
+      height: var(--div-dropdown-height);
+      position: absolute;
+      top: var(--nav-bar-height);
+      background-color: white;
+      z-index: 2;
+    }
     #notice {
       display: flex;
+      width: 100%;
+      height: var(--div-dropdown-height);
       justify-content: center;
+      align-items: center;
       position: relative;
       top: 0px;
       left: 0px;
+      background-color: white;
       z-index: 1;
     }
     .menu-item {
@@ -99,28 +116,32 @@
     .menu-item-label:hover {
       background-color: #d0d0d0;
     }
-    .dropdown-container {
+    .dropdown-visibility {
       visibility: hidden;
     }
     .dropdown {
+      display: flex;
       position: relative;
+      width: 100%;
+      top: 0px;
     }
     .dropdown-list {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
       list-style: none;
+      margin: 0px;
       padding: 0px;
       padding-left: 10px;
       position: relative;
+      width: 100%;
     }
     .dropdown-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0px;
-      padding-top: 5px;
-      padding-bottom: 5px;
       position: relative;
       top: 0px;
       left: 0px;
@@ -130,21 +151,57 @@
     {
       // NOTE: we stop propagation of the mouseover event when it reaches the span element, which is what we want otherwise the event would continue to bubble up to the root. We use mouseover because it's more efficient than mouseenter. Reference: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
       function onMouseOverListener(e) {
-	const div = this.children[1];
 	if ("SPAN" === e.target.tagName) {
 	  const menu = document.getElementById("menubar");
 	  menu.classList.add('outline');
-	  div.classList.remove('dropdown-container');
-	  e.stopPropagation();
+	  const { innerText: name } = e.target;
+	  if ("Professional Services" === name) {
+	    const services = document.getElementById("services");
+	    services.classList.remove("dropdown-visibility");
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if ("Experience" === name) {
+	    const experience = document.getElementById("experience");
+	    experience.classList.remove("dropdown-visibility");
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if ("Publications" === name) {
+	    const publications = document.getElementById("publications");
+	    publications.classList.remove("dropdown-visibility");
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if ("Tech Series" === name) {
+	    const series = document.getElementById("series");
+	    series.classList.remove("dropdown-visibility");
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if ("Blogs" === name) {
+	    const blogs = document.getElementById("blogs");
+	    blogs.classList.remove("dropdown-visibility");
+	    e.stopPropagation();
+	    return;
+	  }
 	}
       }
 
       // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
       function onMouseLeaveListener(e) {
-	const div = this.children[1];
 	const menu = document.getElementById("menubar");
 	menu.classList.remove('outline');
-	div.classList.add('dropdown-container');
+	const services = document.getElementById("services");
+	const experience = document.getElementById("experience");
+	const publications = document.getElementById("publications");
+	const series = document.getElementById("series");
+	const blogs = document.getElementById("blogs");
+	services.classList.add('dropdown-visibility');
+	experience.classList.add('dropdown-visibility');
+	publications.classList.add('dropdown-visibility');
+	series.classList.add('dropdown-visibility');
+	blogs.classList.add('dropdown-visibility');
       }
       const services = document.getElementById("services-dropdown");
       const experience = document.getElementById("experience-dropdown");
@@ -196,7 +253,7 @@
       <menu id="menubar">
 	<li class="menu-item" id="services-dropdown">
 	  <span class="menu-item-label">Professional Services</span>
-	  <!--<div class="dropdown dropdown-container">-->
+	  <!--<div class="dropdown dropdown-visibility">-->
 	    <!--<ul class="dropdown-list">-->
 	      <!--<li class="dropdown-item">STEM Tutoring</li>-->
 	      <!--<li class="dropdown-item">Thesis Reviewing</li>-->
@@ -210,7 +267,7 @@
 
 	<li class="menu-item" id="experience-dropdown">
 	  <span class="menu-item-label">Experience</span>
-	  <!--<div class="dropdown dropdown-container">-->
+	  <!--<div class="dropdown dropdown-visibility">-->
 	    <!--<ul class="dropdown-list">-->
 	      <!--<li class="dropdown-item">-->
 		<!--<img-->
@@ -284,7 +341,7 @@
 
 	<li class="menu-item" id="publications-dropdown">
 	  <span class="menu-item-label">Publications</span>
-	  <!--<div class="dropdown dropdown-container">-->
+	  <!--<div class="dropdown dropdown-visibility">-->
 	    <!--<ul class="dropdown-list">-->
 	      <!--<li class="dropdown-item">-->
 		<!--<a href="https://doi.org/10.1021/ie0716159">-->
@@ -322,7 +379,7 @@
 	</li>
 	<li class="menu-item" id="series-dropdown">
 	  <span class="menu-item-label">Tech Series</span>
-	  <!--<div class="dropdown dropdown-container">-->
+	  <!--<div class="dropdown dropdown-visibility">-->
 	    <!--<ul class="dropdown-list">-->
 	      <!--<li class="dropdown-item">-->
 		<!--<a href="https://youtu.be/HNfI1e8vWCY">-->
@@ -339,7 +396,7 @@
 	</li>
 	<li class="menu-item" id="blogs-dropdown">
 	  <span class="menu-item-label">Blogs</span>
-	  <!--<div class="dropdown dropdown-container">-->
+	  <!--<div class="dropdown dropdown-visibility">-->
 	    <!--<ul class="dropdown-list">-->
 	      <!--<li class="dropdown-item">-->
 		<!--<a href="https://misael-diaz.github.io/handmade-hero/">-->
@@ -356,6 +413,163 @@
 	</li>
       </menu>
     </nav>
+    <div id="services" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">STEM Tutoring</li>
+	  <li class="dropdown-item">Thesis Reviewing</li>
+	  <li class="dropdown-item">Scientific Article Reviewing</li>
+	  <li class="dropdown-item">Scientific Modelling and Simulation</li>
+	  <li class="dropdown-item">Software Development</li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="experience" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/UPRM.png"
+	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      height=32px>
+	    </img>
+	    <span>Software Developer<span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/UN.png"
+	      alt="banner of Universidad del Norte"
+	      height=32px>
+	    </img>
+	    <span>Auxiliary Professor</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/PUPR.png"
+	      alt="banner of the Polytechnic University of Puerto Rico"
+	      height=32px>
+	    </img>
+	    <span>Fulltime Professor</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      src="public/logos/UPRM.png"
+	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      height=32px>
+	    </img>
+	    <span>Post-Doctoral Researcher</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      src="public/logos/ICMM.png"
+	      alt="banner of Institute of the Continuous Media Mechanics"
+	      height=32px>
+	    </img>
+	    <span>Research Internship</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      src="public/logos/PSU.png"
+	      alt="banner of Penn State University"
+	      height=32px>
+	    </img>
+	    <span>Research Internship</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      src="public/logos/UPRM.png"
+	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      height=32px>
+	    </img>
+	    <span>Teaching Assistant</span>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="publications" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <a href="https://doi.org/10.1021/ie0716159">
+	      Reactive Distillation Modelling
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://doi.org/10.1002/adfm.201000063">
+	      Micro-Fireworks Dynamics
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://doi.org/10.1063/1.4817541">
+	      Streaming Janus Droplets
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://doi.org/10.1017/jfm.2015.148">
+	      Shearing Janus Droplets
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://doi.org/10.1016/j.ijmultiphaseflow.2016.05.003">
+	      Janus Droplets Rheology
+	    </a>
+	  </li>
+	  <!-- NOTE: resource not available through the UPRM portal and so it's best to keep it hidden for now<li class="dropdown-item">Janus Droplets Dissertation</li>-->
+	  <li class="dropdown-item">
+	    <a href="http://dx.doi.org/10.1039/D5ME00062A">
+	      Computational Chemistry Agents
+	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="series" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <a href="https://youtu.be/HNfI1e8vWCY">
+	      Legacy Code Hero
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://youtu.be/OV4K8YWnI3Y">
+	      Framework Beater
+	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="blogs" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <a href="https://misael-diaz.github.io/handmade-hero/">
+	      Handmade Hero
+	    </a>
+	  </li>
+	  <li class="dropdown-item">
+	    <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
+	      Matlab
+	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
     <h3 id="notice">Page under construction.</h3>
     </div>
   </body>
