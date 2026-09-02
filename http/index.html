@@ -13,20 +13,24 @@
     html {
       font-family: sans-serif;
     }
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+    }
     .head-wrapper {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: var(--img-logo-height);
     }
     .head {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       margin: 0px;
       margin-left: 2px;
-      height: var(--img-logo-height);
     }
     .logo {
       display: flex;
@@ -47,7 +51,8 @@
     }
     .subtitle {
       margin: 0px;
-      margin-bottom: 10px;
+      margin-top: 6px;
+      margin-bottom: 4px;
     }
     .sim {
       border: 0px;
@@ -224,6 +229,7 @@
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
+  <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
 	<h2 class="title">Misael Díaz-Maldonado, PhD</h2>
@@ -248,6 +254,7 @@
       loading="eager"
     >
     </iframe>
+  </div>
     <div id="nav-wrapper">
     <nav id="navbar">
       <menu id="menubar">
