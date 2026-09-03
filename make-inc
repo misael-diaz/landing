@@ -42,6 +42,7 @@ GAMEPAD_CXX = gamepad.cpp
 GITHUB_CXX = github.cpp
 THESIS_CXX = thesis.cpp
 NEXTJS_CXX = nextjs.cpp
+GMAIL_CXX = gmail.cpp
 HERO_CXX = hero.cpp
 UPRM_CXX = uprm.cpp
 STEM_CXX = stem.cpp
@@ -65,6 +66,7 @@ GAMEPAD_SO = modules/gamepad.so
 GITHUB_SO = modules/github.so
 THESIS_SO = modules/thesis.so
 NEXTJS_SO = modules/nextjs.so
+GMAIL_SO = modules/gmail.so
 HERO_SO = modules/hero.so
 UPRM_SO = modules/uprm.so
 STEM_SO = modules/stem.so
@@ -88,6 +90,7 @@ MODULES = $(FAVICON_SO) \
 	  $(GAMEPAD_SO) \
 	  $(GITHUB_SO) \
 	  $(THESIS_SO) \
+	  $(GMAIL_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
 	  $(STEM_SO) \
