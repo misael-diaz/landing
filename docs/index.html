@@ -6,7 +6,8 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
     <style>
     :root {
-      --img-logo-height: 80px;
+      --img-logo-width: 80px;
+      --img-logo-height: var(--img-logo-width);
       --nav-bar-height: 48px;
       --div-dropdown-height: 256px;
     }
@@ -34,6 +35,7 @@
     }
     .logo {
       display: flex;
+      width: var(--img-logo-width);
       height: var(--img-logo-height);
     }
     .brand {
@@ -108,7 +110,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      top: 0px;
+      top: 2px;
       left: 0px;
       background-color: white;
       z-index: 1;
@@ -156,6 +158,14 @@
       position: relative;
       top: 0px;
       left: 0px;
+    }
+    .whatsapp {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      position: relative;
+      width: 100%;
+      top: 2px;
     }
     </style>
     <script type="module">
@@ -279,7 +289,10 @@
       <div class="head">
 	<h2 class="title">Misael Díaz-Maldonado, PhD</h2>
 	<p class="subtitle">
-	  Computational Physicist | STEM Educator | Software Developer
+	  Computational Physicist |
+	  Chemical Engineer |
+	  Software Developer |
+	  STEM Educator
 	</p>
       </div>
       <div class="logo">
@@ -326,11 +339,60 @@
     <div id="services" class="dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
-	  <li class="dropdown-item">STEM Tutoring</li>
-	  <li class="dropdown-item">Thesis Reviewing</li>
-	  <li class="dropdown-item">Scientific Article Reviewing</li>
-	  <li class="dropdown-item">Scientific Modelling and Simulation</li>
-	  <li class="dropdown-item">Software Development</li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/stem.png"
+	      alt="drawing of Einstein's famous equation written on a green chalk board"
+	      height=32px
+	    >
+	    </img>
+	    <span>STEM Tutoring</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/thesis.png"
+	      alt="drawing of a stack of papers, that's how thesis look like when submitted to graduate school for the final review"
+	      height=32px
+	    >
+	    </img>
+	    <span>Thesis Reviewing</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/scientific.png"
+	      alt="drawing of a scientific article draft"
+	      height=32px
+	    >
+	    </img>
+	    <span>Scientific Article Reviewing</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="https://avatars.githubusercontent.com/u/20134959"
+	      alt="shows brand logo, a Janus droplet under shear flow"
+	      height=32px
+	    >
+	    </img>
+	    <span>Scientific Modelling and Simulation</span>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/terminal.png"
+	      alt="drawing of a Linux terminal or console"
+	      height=32px
+	    >
+	    <span>Software Development</span>
+	  </li>
 	</ul>
       </div>
     </div>
@@ -432,6 +494,7 @@
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="https://doi.org/10.1021/ie0716159">
 	      Reactive Distillation Modelling
 	    </a>
@@ -443,12 +506,14 @@
 	      src="public/logos/PSU.png"
 	      alt="banner of Penn State University"
 	      height=32px>
+	    </img>
 	    <img
 	      class="banner"
 	      loading="eager"
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="https://doi.org/10.1002/adfm.201000063">
 	      Micro-Fireworks Dynamics
 	    </a>
@@ -460,12 +525,14 @@
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
+	    </img>
 	    <img
 	      class="banner"
 	      loading="eager"
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="https://doi.org/10.1063/1.4817541">
 	      Streaming Janus Droplets
 	    </a>
@@ -477,12 +544,14 @@
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
+	    </img>
 	    <img
 	      class="banner"
 	      loading="eager"
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="https://doi.org/10.1017/jfm.2015.148">
 	      Shearing Janus Droplets
 	    </a>
@@ -494,6 +563,7 @@
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="https://doi.org/10.1016/j.ijmultiphaseflow.2016.05.003">
 	      Janus Droplets Rheology
 	    </a>
@@ -506,12 +576,14 @@
 	      src="public/logos/UND.png"
 	      alt="banner of University of Notre Dame"
 	      height=32px>
+	    </img>
 	    <img
 	      class="banner"
 	      loading="eager"
 	      src="public/logos/UPRM.png"
 	      alt="banner of the University of Puerto Rico - Mayaguez"
 	      height=32px>
+	    </img>
 	    <a href="http://dx.doi.org/10.1039/D5ME00062A">
 	      Computational Chemistry Agents
 	    </a>
@@ -524,11 +596,25 @@
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/Xorg.png"
+	      alt="Logo of freedesktop.org"
+	      height=32px>
+	    </img>
 	    <a href="https://youtu.be/HNfI1e8vWCY">
 	      Legacy Code Hero
 	    </a>
 	  </li>
 	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/NextJS.png"
+	      alt="Logo of NextJS web-framework"
+	      height=32px>
+	    </img>
 	    <a href="https://youtu.be/OV4K8YWnI3Y">
 	      Framework Beater
 	    </a>
@@ -541,11 +627,25 @@
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/gamepad.png"
+	      alt="Drawing of a gamepad with a d-pad and two-buttons."
+	      height=32px>
+	    </img>
 	    <a href="https://misael-diaz.github.io/handmade-hero/">
 	      Handmade Hero
 	    </a>
 	  </li>
 	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/mathworks.png"
+	      alt="Logo of Matlab"
+	      height=32px>
+	    </img>
 	    <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
 	      Matlab
 	    </a>
@@ -554,7 +654,24 @@
       </div>
     </div>
 
-    <h3 id="notice">Page under construction.</h3>
+    <section id="notice">
+      <p>Building this webpage with <strong>Real Intelligence</strong>.</p>
+    </section>
+
+    <footer>
+      <div class="whatsapp">
+	<a href="https://api.whatsapp.com/send?phone=3052396265">
+	  <img
+	    style="display: block"
+	    loading="eager"
+	    src="public/logos/whatsapp.png"
+	    alt="Logo of WhatsApp"
+	    height=32px
+	  >
+	  </img>
+	</a>
+      </div>
+    </footer>
     </div>
   </body>
 </html>
