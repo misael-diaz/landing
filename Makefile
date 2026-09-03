@@ -26,9 +26,17 @@ $(FAVICON_SO): $(FAVICON_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(FAVICON_CXX) -o $(FAVICON_SO)
 
+$(SCIENTIFIC_SO): $(SCIENTIFIC_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(SCIENTIFIC_CXX) -o $(SCIENTIFIC_SO)
+
 $(MATHWORKS_SO): $(MATHWORKS_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(MATHWORKS_CXX) -o $(MATHWORKS_SO)
+
+$(TERMINAL_SO): $(TERMINAL_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(TERMINAL_CXX) -o $(TERMINAL_SO)
 
 $(WHATSAPP_SO): $(WHATSAPP_CXX)
 	@mkdir -p modules
@@ -37,6 +45,10 @@ $(WHATSAPP_SO): $(WHATSAPP_CXX)
 $(GAMEPAD_SO): $(GAMEPAD_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(GAMEPAD_CXX) -o $(GAMEPAD_SO)
+
+$(THESIS_SO): $(THESIS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(THESIS_CXX) -o $(THESIS_SO)
 
 $(NEXTJS_SO): $(NEXTJS_CXX)
 	@mkdir -p modules
@@ -49,6 +61,10 @@ $(HERO_SO): $(HERO_CXX)
 $(UPRM_SO): $(UPRM_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(UPRM_CXX) -o $(UPRM_SO)
+
+$(STEM_SO): $(STEM_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(STEM_CXX) -o $(STEM_SO)
 
 $(PUPR_SO): $(PUPR_CXX)
 	@mkdir -p modules
