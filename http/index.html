@@ -7,8 +7,8 @@
     <style>
     :root {
       --img-logo-height: 80px;
-      --nav-bar-height: 24px;
-      --div-dropdown-height: 128px;
+      --nav-bar-height: 48px;
+      --div-dropdown-height: 256px;
     }
     html {
       font-family: sans-serif;
@@ -75,7 +75,7 @@
     #menubar {
       display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-between;
       list-style: none;
       cursor: pointer;
@@ -91,7 +91,7 @@
       width: 100%;
       height: var(--div-dropdown-height);
       position: absolute;
-      top: var(--nav-bar-height);
+      top: calc(1.25 * var(--nav-bar-height));
       background-color: white;
       z-index: 2;
     }
