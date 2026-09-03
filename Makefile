@@ -82,6 +82,10 @@ $(PUPR_SO): $(PUPR_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(PUPR_CXX) -o $(PUPR_SO)
 
+$(GMAIL_SO): $(GMAIL_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(GMAIL_CXX) -o $(GMAIL_SO)
+
 $(XORG_SO): $(XORG_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(XORG_CXX) -o $(XORG_SO)
