@@ -243,34 +243,26 @@
 
       // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
       function onMouseLeaveListener(e) {
-	const services = document.getElementById("services");
-	const experience = document.getElementById("experience");
-	const publications = document.getElementById("publications");
-	const series = document.getElementById("series");
-	const blogs = document.getElementById("blogs");
-/*
-	services.classList.add('dropdown-visibility');
-	experience.classList.add('dropdown-visibility');
-	publications.classList.add('dropdown-visibility');
-	series.classList.add('dropdown-visibility');
-	blogs.classList.add('dropdown-visibility');
-	services.classList.remove('outline');
-	experience.classList.remove('outline');
-	publications.classList.remove('outline');
-	series.classList.remove('outline');
-	blogs.classList.remove('outline');
-*/
+	this.classList.add('dropdown-visibility');
+	this.classList.remove('outline');
       }
-      const services = document.getElementById("services-menu");
-      const experience = document.getElementById("experience-menu");
-      const publications = document.getElementById("publications-menu");
-      const blogs = document.getElementById("blogs-menu");
-      const series = document.getElementById("series-menu");
-      services.addEventListener("mouseover", onMouseOverListener);
-      experience.addEventListener("mouseover", onMouseOverListener);
-      publications.addEventListener("mouseover", onMouseOverListener);
-      blogs.addEventListener("mouseover", onMouseOverListener);
-      series.addEventListener("mouseover", onMouseOverListener);
+      const servicesMenu = document.getElementById("services-menu");
+      const experienceMenu = document.getElementById("experience-menu");
+      const publicationsMenu = document.getElementById("publications-menu");
+      const blogsMenu = document.getElementById("blogs-menu");
+      const seriesMenu = document.getElementById("series-menu");
+
+      const services = document.getElementById("services");
+      const experience = document.getElementById("experience");
+      const publications = document.getElementById("publications");
+      const blogs = document.getElementById("blogs");
+      const series = document.getElementById("series");
+
+      servicesMenu.addEventListener("mouseover", onMouseOverListener);
+      experienceMenu.addEventListener("mouseover", onMouseOverListener);
+      publicationsMenu.addEventListener("mouseover", onMouseOverListener);
+      blogsMenu.addEventListener("mouseover", onMouseOverListener);
+      seriesMenu.addEventListener("mouseover", onMouseOverListener);
 
       services.addEventListener("mouseleave", onMouseLeaveListener);
       experience.addEventListener("mouseleave", onMouseLeaveListener);
