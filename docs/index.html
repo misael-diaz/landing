@@ -7,26 +7,37 @@
     <style>
     :root {
       --img-logo-height: 80px;
-      --nav-bar-height: 24px;
-      --div-dropdown-height: 128px;
+      --nav-bar-height: 48px;
+      --div-dropdown-height: 256px;
     }
     html {
       font-family: sans-serif;
+    }
+/*
+TODO: remove anchor styling after addressing the dropdown disapearing issue
+*/
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
     }
     .head-wrapper {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: var(--img-logo-height);
     }
     .head {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       margin: 0px;
       margin-left: 2px;
-      height: var(--img-logo-height);
     }
     .logo {
       display: flex;
@@ -47,39 +58,46 @@
     }
     .subtitle {
       margin: 0px;
-      margin-bottom: 10px;
+      margin-top: 6px;
+      margin-bottom: 4px;
     }
     .sim {
-      border: 0px;
       margin: 0px;
       margin-top: 2px;
     }
     .outline {
       background-color: white;
       outline: 1px solid black;
-      z-index: 2;
     }
     #nav-wrapper {
       position: relative;
+      align-items: center;
       width: 100%;
       height: var(--nav-bar-height);
       top: 0px;
       left: 0px;
       z-index: 1;
     }
+    #navbar {
+      display: block;
+      width: 100%;
+      height: var(--nav-bar-height);
+    }
     #menubar {
       display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
       list-style: none;
       cursor: pointer;
       padding: 0px;
       margin: 0px;
+      height: var(--nav-bar-height);
       position: relative;
       top: 0px;
       left: 0px;
-      transition: outline 0.2s, background-color 0.2s;
+      outline: 1px solid black;
     }
     .dropdown-wrapper {
       display: flex;
@@ -87,8 +105,8 @@
       height: var(--div-dropdown-height);
       position: absolute;
       top: var(--nav-bar-height);
-      background-color: white;
       z-index: 2;
+      transition: outline 0.2s, background-color 0.2s;
     }
     #notice {
       display: flex;
@@ -152,36 +170,39 @@
       // NOTE: we stop propagation of the mouseover event when it reaches the span element, which is what we want otherwise the event would continue to bubble up to the root. We use mouseover because it's more efficient than mouseenter. Reference: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
       function onMouseOverListener(e) {
 	if ("SPAN" === e.target.tagName) {
-	  const menu = document.getElementById("menubar");
-	  menu.classList.add('outline');
 	  const { innerText: name } = e.target;
 	  if ("Professional Services" === name) {
 	    const services = document.getElementById("services");
 	    services.classList.remove("dropdown-visibility");
+	    services.classList.add("outline");
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Experience" === name) {
 	    const experience = document.getElementById("experience");
 	    experience.classList.remove("dropdown-visibility");
+	    experience.classList.add("outline");
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Publications" === name) {
 	    const publications = document.getElementById("publications");
 	    publications.classList.remove("dropdown-visibility");
+	    publications.classList.add("outline");
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Tech Series" === name) {
 	    const series = document.getElementById("series");
 	    series.classList.remove("dropdown-visibility");
+	    series.classList.add("outline");
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Blogs" === name) {
 	    const blogs = document.getElementById("blogs");
 	    blogs.classList.remove("dropdown-visibility");
+	    blogs.classList.add("outline");
 	    e.stopPropagation();
 	    return;
 	  }
@@ -190,8 +211,6 @@
 
       // NOTE: mouseleave events do not bubble, that's why we do not call stop-propagation
       function onMouseLeaveListener(e) {
-	const menu = document.getElementById("menubar");
-	menu.classList.remove('outline');
 	const services = document.getElementById("services");
 	const experience = document.getElementById("experience");
 	const publications = document.getElementById("publications");
@@ -202,6 +221,11 @@
 	publications.classList.add('dropdown-visibility');
 	series.classList.add('dropdown-visibility');
 	blogs.classList.add('dropdown-visibility');
+	services.classList.remove('outline');
+	experience.classList.remove('outline');
+	publications.classList.remove('outline');
+	series.classList.remove('outline');
+	blogs.classList.remove('outline');
       }
       const services = document.getElementById("services-menu");
       const experience = document.getElementById("experience-menu");
@@ -224,6 +248,7 @@
   </head>
   <title>Misael Díaz-Maldonado, PhD</title>
   <body>
+  <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
 	<h2 class="title">Misael Díaz-Maldonado, PhD</h2>
@@ -248,6 +273,7 @@
       loading="eager"
     >
     </iframe>
+  </div>
     <div id="nav-wrapper">
     <nav id="navbar">
       <menu id="menubar">
