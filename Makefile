@@ -46,6 +46,10 @@ $(PSU_SO): $(PSU_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(PSU_CXX) -o $(PSU_SO)
 
+$(UND_SO): $(UND_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(UND_CXX) -o $(UND_SO)
+
 $(UN_SO): $(UN_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(UN_CXX) -o $(UN_SO)

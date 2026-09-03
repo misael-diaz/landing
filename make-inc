@@ -37,6 +37,7 @@ UPRM_CXX = uprm.cpp
 PUPR_CXX = pupr.cpp
 ICMM_CXX = icmm.cpp
 PSU_CXX = psu.cpp
+UND_CXX = und.cpp
 UN_CXX = un.cpp
 ROOT_CXX = root.cpp
 
@@ -46,6 +47,7 @@ UPRM_SO = modules/uprm.so
 PUPR_SO = modules/pupr.so
 ICMM_SO = modules/icmm.so
 PSU_SO = modules/psu.so
+UND_SO = modules/und.so
 UN_SO = modules/un.so
 ROOT_SO = modules/root.so
 
@@ -55,5 +57,6 @@ MODULES = $(FAVICON_SO) \
 	  $(PUPR_SO) \
 	  $(ICMM_SO) \
 	  $(PSU_SO) \
+	  $(UND_SO) \
 	  $(UN_SO) \
 	  $(ROOT_SO)
