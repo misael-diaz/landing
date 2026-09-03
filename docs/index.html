@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
     <style>
+/*
+contact section:
+[ ] add GMAIL account for this business and show the icon at the footer
+youtube channel:
+[ ] add description
+[ ] add hero image
+[ ] create playlists for the tech-series, those are the links that you should share
+*/
     :root {
       --img-logo-width: 80px;
       --img-logo-height: var(--img-logo-width);
@@ -159,13 +167,59 @@
       top: 0px;
       left: 0px;
     }
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      top: 2px;
+    }
     .whatsapp {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      margin: 0px;
+      margin-bottom: 8px;
       position: relative;
       width: 100%;
       top: 2px;
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-around;
+      margin: 0px;
+      margin-top: 24px;
+      width: 100%;
+    }
+    .platforms {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      border: 0px;
+      border-top: 1px solid black;
+      position: relative;
+      width: 80%;
+      top: 2px;
+    }
+    .icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 1.5px solid #808080;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background-color: #dfdfdf;
+      margin: 0px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      width: 48px;
+      height: 48px;
+      transition: background-color 0.4s ease-in;
+    }
+    .icon:hover {
+      background-color: white;
     }
     </style>
     <script type="module">
@@ -670,6 +724,62 @@
 	  >
 	  </img>
 	</a>
+      </div>
+      <div class="bottom">
+      <div class="platforms">
+	<a 
+	  class="icon"
+	  href="https://www.linkedin.com/in/misael-diaz-maldonado-bab7a226a/"
+	>
+	  <img
+	    style="display: block"
+	    loading="eager"
+	    src="public/logos/linkedin.png"
+	    alt="Logo of Linkedin"
+	    height=16px
+	  >
+	  </img>
+	</a>
+	<a 
+	  class="icon"
+	  href="https://www.youtube.com/@misaeldiazmaldonado8702"
+	>
+	  <img
+	    style="display: block"
+	    loading="eager"
+	    src="public/logos/youtube.png"
+	    alt="Logo of YouTube"
+	    height=16px
+	  >
+	  </img>
+	</a>
+	<a 
+	  class="icon"
+	  href="https://github.com/misael-diaz/"
+	>
+	  <img
+	    style="display: block"
+	    loading="eager"
+	    src="public/logos/github.png"
+	    alt="Logo of GitHub"
+	    height=16px
+	  >
+	  </img>
+	</a>
+	<a 
+	  class="icon"
+	  href="https://dev.to/misaeldiaz/handmade-hero-a-systems-programming-odyssey-26j5"
+	>
+	  <img
+	    style="display: block"
+	    loading="eager"
+	    src="public/logos/DEV.png"
+	    alt="Logo of dev.to, a platform for software developers"
+	    height=16px
+	  >
+	  </img>
+	</a>
+      </div>
       </div>
     </footer>
     </div>
