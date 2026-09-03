@@ -26,6 +26,10 @@ $(FAVICON_SO): $(FAVICON_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(FAVICON_CXX) -o $(FAVICON_SO)
 
+$(NEXTJS_SO): $(NEXTJS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(NEXTJS_CXX) -o $(NEXTJS_SO)
+
 $(HERO_SO): $(HERO_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(HERO_CXX) -o $(HERO_SO)
@@ -37,6 +41,10 @@ $(UPRM_SO): $(UPRM_CXX)
 $(PUPR_SO): $(PUPR_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(PUPR_CXX) -o $(PUPR_SO)
+
+$(XORG_SO): $(XORG_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(XORG_CXX) -o $(XORG_SO)
 
 $(ICMM_SO): $(ICMM_CXX)
 	@mkdir -p modules

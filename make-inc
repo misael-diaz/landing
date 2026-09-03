@@ -32,9 +32,11 @@ SRV_BIN = hydrogen.bin
 
 # normally you would compile these in a separate project but it does not hurt to recompile the whole thing
 FAVICON_CXX = favicon.cpp
+NEXTJS_CXX = nextjs.cpp
 HERO_CXX = hero.cpp
 UPRM_CXX = uprm.cpp
 PUPR_CXX = pupr.cpp
+XORG_CXX = xorg.cpp
 ICMM_CXX = icmm.cpp
 PSU_CXX = psu.cpp
 UND_CXX = und.cpp
@@ -42,9 +44,11 @@ UN_CXX = un.cpp
 ROOT_CXX = root.cpp
 
 FAVICON_SO = modules/favicon.so
+NEXTJS_SO = modules/nextjs.so
 HERO_SO = modules/hero.so
 UPRM_SO = modules/uprm.so
 PUPR_SO = modules/pupr.so
+XORG_SO = modules/xorg.so
 ICMM_SO = modules/icmm.so
 PSU_SO = modules/psu.so
 UND_SO = modules/und.so
@@ -52,9 +56,11 @@ UN_SO = modules/un.so
 ROOT_SO = modules/root.so
 
 MODULES = $(FAVICON_SO) \
+	  $(NEXTJS_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
 	  $(PUPR_SO) \
+	  $(XORG_SO) \
 	  $(ICMM_SO) \
 	  $(PSU_SO) \
 	  $(UND_SO) \
