@@ -32,6 +32,7 @@ SRV_BIN = hydrogen.bin
 
 # normally you would compile these in a separate project but it does not hurt to recompile the whole thing
 FAVICON_CXX = favicon.cpp
+MATHWORKS_CXX = mathworks.cpp
 WHATSAPP_CXX = whatsapp.cpp
 NEXTJS_CXX = nextjs.cpp
 HERO_CXX = hero.cpp
@@ -45,6 +46,7 @@ UN_CXX = un.cpp
 ROOT_CXX = root.cpp
 
 FAVICON_SO = modules/favicon.so
+MATHWORKS_SO = modules/mathworks.so
 WHATSAPP_SO = modules/whatsapp.so
 NEXTJS_SO = modules/nextjs.so
 HERO_SO = modules/hero.so
@@ -59,6 +61,7 @@ ROOT_SO = modules/root.so
 
 MODULES = $(FAVICON_SO) \
 	  $(NEXTJS_SO) \
+	  $(MATHWORKS_SO) \
 	  $(WHATSAPP_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \

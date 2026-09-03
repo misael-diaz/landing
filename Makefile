@@ -26,6 +26,10 @@ $(FAVICON_SO): $(FAVICON_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(FAVICON_CXX) -o $(FAVICON_SO)
 
+$(MATHWORKS_SO): $(MATHWORKS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(MATHWORKS_CXX) -o $(MATHWORKS_SO)
+
 $(WHATSAPP_SO): $(WHATSAPP_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(WHATSAPP_CXX) -o $(WHATSAPP_SO)
