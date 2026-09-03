@@ -13,13 +13,6 @@
     html {
       font-family: sans-serif;
     }
-/*
-TODO: remove anchor styling after addressing the dropdown disapearing issue
-*/
-    a {
-      color: black;
-      text-decoration: none;
-    }
     .main-wrapper {
       display: flex;
       flex-direction: column;
@@ -173,38 +166,77 @@ TODO: remove anchor styling after addressing the dropdown disapearing issue
 	  const { innerText: name } = e.target;
 	  if ("Professional Services" === name) {
 	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
 	    services.classList.remove("dropdown-visibility");
 	    services.classList.add("outline");
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Experience" === name) {
+	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
 	    experience.classList.remove("dropdown-visibility");
 	    experience.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Publications" === name) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
 	    publications.classList.remove("dropdown-visibility");
 	    publications.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Tech Series" === name) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
 	    series.classList.remove("dropdown-visibility");
 	    series.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
 	  else if ("Blogs" === name) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    blogs.classList.remove("dropdown-visibility");
 	    blogs.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
 	    e.stopPropagation();
-	    return;
 	  }
 	}
       }
@@ -216,6 +248,7 @@ TODO: remove anchor styling after addressing the dropdown disapearing issue
 	const publications = document.getElementById("publications");
 	const series = document.getElementById("series");
 	const blogs = document.getElementById("blogs");
+/*
 	services.classList.add('dropdown-visibility');
 	experience.classList.add('dropdown-visibility');
 	publications.classList.add('dropdown-visibility');
@@ -226,6 +259,7 @@ TODO: remove anchor styling after addressing the dropdown disapearing issue
 	publications.classList.remove('outline');
 	series.classList.remove('outline');
 	blogs.classList.remove('outline');
+*/
       }
       const services = document.getElementById("services-menu");
       const experience = document.getElementById("experience-menu");
