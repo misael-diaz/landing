@@ -34,6 +34,10 @@ $(WHATSAPP_SO): $(WHATSAPP_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(WHATSAPP_CXX) -o $(WHATSAPP_SO)
 
+$(GAMEPAD_SO): $(GAMEPAD_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(GAMEPAD_CXX) -o $(GAMEPAD_SO)
+
 $(NEXTJS_SO): $(NEXTJS_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(NEXTJS_CXX) -o $(NEXTJS_SO)

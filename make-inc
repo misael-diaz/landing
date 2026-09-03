@@ -34,6 +34,7 @@ SRV_BIN = hydrogen.bin
 FAVICON_CXX = favicon.cpp
 MATHWORKS_CXX = mathworks.cpp
 WHATSAPP_CXX = whatsapp.cpp
+GAMEPAD_CXX = gamepad.cpp
 NEXTJS_CXX = nextjs.cpp
 HERO_CXX = hero.cpp
 UPRM_CXX = uprm.cpp
@@ -48,6 +49,7 @@ ROOT_CXX = root.cpp
 FAVICON_SO = modules/favicon.so
 MATHWORKS_SO = modules/mathworks.so
 WHATSAPP_SO = modules/whatsapp.so
+GAMEPAD_SO = modules/gamepad.so
 NEXTJS_SO = modules/nextjs.so
 HERO_SO = modules/hero.so
 UPRM_SO = modules/uprm.so
@@ -63,6 +65,7 @@ MODULES = $(FAVICON_SO) \
 	  $(NEXTJS_SO) \
 	  $(MATHWORKS_SO) \
 	  $(WHATSAPP_SO) \
+	  $(GAMEPAD_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
 	  $(PUPR_SO) \
