@@ -36,7 +36,10 @@ SCIENTIFIC_CXX = scientific.cpp
 MATHWORKS_CXX = mathworks.cpp
 TERMINAL_CXX = terminal.cpp
 WHATSAPP_CXX = whatsapp.cpp
+LINKEDIN_CXX = linkedin.cpp
+YOUTUBE_CXX = youtube.cpp
 GAMEPAD_CXX = gamepad.cpp
+GITHUB_CXX = github.cpp
 THESIS_CXX = thesis.cpp
 NEXTJS_CXX = nextjs.cpp
 HERO_CXX = hero.cpp
@@ -46,6 +49,7 @@ PUPR_CXX = pupr.cpp
 XORG_CXX = xorg.cpp
 ICMM_CXX = icmm.cpp
 PSU_CXX = psu.cpp
+DEV_CXX = dev.cpp
 UND_CXX = und.cpp
 UN_CXX = un.cpp
 ROOT_CXX = root.cpp
@@ -55,7 +59,10 @@ SCIENTIFIC_SO = modules/scientific.so
 MATHWORKS_SO = modules/mathworks.so
 TERMINAL_SO = modules/terminal.so
 WHATSAPP_SO = modules/whatsapp.so
+LINKEDIN_SO = modules/linkedin.so
+YOUTUBE_SO = modules/youtube.so
 GAMEPAD_SO = modules/gamepad.so
+GITHUB_SO = modules/github.so
 THESIS_SO = modules/thesis.so
 NEXTJS_SO = modules/nextjs.so
 HERO_SO = modules/hero.so
@@ -65,6 +72,7 @@ PUPR_SO = modules/pupr.so
 XORG_SO = modules/xorg.so
 ICMM_SO = modules/icmm.so
 PSU_SO = modules/psu.so
+DEV_SO = modules/dev.so
 UND_SO = modules/und.so
 UN_SO = modules/un.so
 ROOT_SO = modules/root.so
@@ -75,7 +83,10 @@ MODULES = $(FAVICON_SO) \
 	  $(MATHWORKS_SO) \
 	  $(TERMINAL_SO) \
 	  $(WHATSAPP_SO) \
+	  $(LINKEDIN_SO) \
+	  $(YOUTUBE_SO) \
 	  $(GAMEPAD_SO) \
+	  $(GITHUB_SO) \
 	  $(THESIS_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
@@ -84,6 +95,7 @@ MODULES = $(FAVICON_SO) \
 	  $(XORG_SO) \
 	  $(ICMM_SO) \
 	  $(PSU_SO) \
+	  $(DEV_SO) \
 	  $(UND_SO) \
 	  $(UN_SO) \
 	  $(ROOT_SO)

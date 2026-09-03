@@ -42,6 +42,18 @@ $(WHATSAPP_SO): $(WHATSAPP_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(WHATSAPP_CXX) -o $(WHATSAPP_SO)
 
+$(YOUTUBE_SO): $(YOUTUBE_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(YOUTUBE_CXX) -o $(YOUTUBE_SO)
+
+$(LINKEDIN_SO): $(LINKEDIN_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(LINKEDIN_CXX) -o $(LINKEDIN_SO)
+
+$(GITHUB_SO): $(GITHUB_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(GITHUB_CXX) -o $(GITHUB_SO)
+
 $(GAMEPAD_SO): $(GAMEPAD_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(GAMEPAD_CXX) -o $(GAMEPAD_SO)
@@ -81,6 +93,10 @@ $(ICMM_SO): $(ICMM_CXX)
 $(PSU_SO): $(PSU_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(PSU_CXX) -o $(PSU_SO)
+
+$(DEV_SO): $(DEV_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(DEV_CXX) -o $(DEV_SO)
 
 $(UND_SO): $(UND_CXX)
 	@mkdir -p modules
