@@ -12,9 +12,11 @@
     <title>Misael Díaz-Maldonado, PhD</title>
     <style>
 /*
-TODO
+TODO:
+tooltip:
+[ ] would be nice to provide a brief description when the user has the pointer on top of thumbnails and text; for example, it would be ideal to provide a description of the Legacy Code Hero series when the user has the pointer on top of that text.
 [x] add computer vision engine to Demos, and this means adding another menu-item
-[ ] add gamedev demos as well
+[x] add gamedev demos as well
 contact section:
 [x] add GMAIL account for this business and show the icon at the footer
 youtube channel:
@@ -22,6 +24,17 @@ youtube channel:
 [ ] add hero image
 [x] create playlists for the tech-series, those are the links that you should share
 [ ] make playlists of gamedev demos
+Youtube:
+[ ] if you ever wanted to link to a specific section of a youtube video you can easily do this with an anchor like this:
+
+<a href="/watch?v=m8tQLMyUruc&amp;t=474s" aria-label="7 minutes, 54 seconds">07:54</a>
+
+this is what youtube uses to create links, note that this is just a HTTP Get request with query parameters and v=m8tQLMyUruc is the video ID and of course t is the time and the math adds up, there are 474 seconds in 7 minutes and 54 seconds. Just bear in mind that the ampersand needs to be replaced with the actual symbol `&` if you are copying the URL on your browser:
+
+https://www.youtube.com/watch?v=m8tQLMyUruc&t=474s
+
+that's how it would look like.
+
 BLOGS:
 [ ] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
 STEM:
@@ -180,6 +193,13 @@ STEM:
       position: relative;
       top: 0px;
       left: 0px;
+    }
+    .dropdown-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      color: #606060;
     }
     footer {
       display: flex;
@@ -703,9 +723,12 @@ STEM:
 	      alt="Logo of freedesktop.org"
 	      height=32px>
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
-	      Legacy Code Hero
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
+		Legacy Code Hero
+	      </a>
+	      <span>Developing a Gamepad X11 Input Driver</span>
+	    <div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -715,9 +738,12 @@ STEM:
 	      alt="Logo of NextJS web-framework"
 	      height=32px>
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
-	      Framework Beater
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
+		Framework Beater
+	      </a>
+	      <span>Http-Server Development</span>
+	    </div>
 	  </li>
 	</ul>
       </div>
@@ -734,9 +760,14 @@ STEM:
 	      alt="Drawing of a gamepad with a d-pad and two-buttons."
 	      height=32px>
 	    </img>
-	    <a href="https://misael-diaz.github.io/handmade-hero/">
-	      Handmade Hero
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://misael-diaz.github.io/handmade-hero/">
+		Handmade Hero Odyssey
+	      </a>
+	      <span>
+		A blog about porting Casey Muratori's Handmade Hero game to Linux
+	      </span>
+	    </div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -746,9 +777,14 @@ STEM:
 	      alt="Logo of Matlab"
 	      height=32px>
 	    </img>
-	    <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
-	      Matlab
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
+		Matlab
+	      </a>
+	      <span>
+		Workshop for engineering students
+	      </span>
+	    </div>
 	  </li>
 	</ul>
       </div>
@@ -766,9 +802,14 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLMH4REoO6mGU">
-	     Computer Vision Engine
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLMH4REoO6mGU">
+	       Computer Vision Engine
+	      </a>
+	      <span>
+		Collection of demos on leveraging performant C/C++ code from Python
+	      <span>
+	    </div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -778,9 +819,12 @@ STEM:
 	      alt="Sonic The Hedgehog Running at Max Speed."
 	      height=32px>
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">
-	     Sonic The Hedgehog: Infinity Level Game
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">
+	       Sonic The Hedgehog: Infinity Level Game
+	      </a>
+	      <span>Progressive demos of game written in C</span>
+	    </div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -791,9 +835,12 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <div class="dropdown-description">
 	    <a href="https://youtu.be/MSf5etK1ojw">
 	     Space Invaders
 	    </a>
+	    <span>My first attempt of developing a game in C</span>
+	    </div>
 	  </li>
 	</ul>
       </div>
