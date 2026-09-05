@@ -194,6 +194,13 @@ STEM:
       top: 0px;
       left: 0px;
     }
+    .dropdown-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      color: #606060;
+    }
     footer {
       display: flex;
       flex-direction: column;
@@ -716,9 +723,12 @@ STEM:
 	      alt="Logo of freedesktop.org"
 	      height=32px>
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
-	      Legacy Code Hero
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
+		Legacy Code Hero
+	      </a>
+	      <span>Developing a Gamepad X11 Input Driver</span>
+	    <div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -728,9 +738,12 @@ STEM:
 	      alt="Logo of NextJS web-framework"
 	      height=32px>
 	    </img>
-	    <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
-	      Framework Beater
-	    </a>
+	    <div class="dropdown-description">
+	      <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
+		Framework Beater
+	      </a>
+	      <span>Http-Server Development</span>
+	    </div>
 	  </li>
 	</ul>
       </div>
