@@ -22,6 +22,17 @@ youtube channel:
 [ ] add hero image
 [x] create playlists for the tech-series, those are the links that you should share
 [ ] make playlists of gamedev demos
+Youtube:
+[ ] if you ever wanted to link to a specific section of a youtube video you can easily do this with an anchor like this:
+
+<a href="/watch?v=m8tQLMyUruc&amp;t=474s" aria-label="7 minutes, 54 seconds">07:54</a>
+
+this is what youtube uses to create links, note that this is just a HTTP Get request with query parameters and v=m8tQLMyUruc is the video ID and of course t is the time and the math adds up, there are 474 seconds in 7 minutes and 54 seconds. Just bear in mind that the ampersand needs to be replaced with the actual symbol `&` if you are copying the URL on your browser:
+
+https://www.youtube.com/watch?v=m8tQLMyUruc&t=474s
+
+that's how it would look like.
+
 BLOGS:
 [ ] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
 STEM:
