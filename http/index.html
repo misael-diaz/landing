@@ -243,12 +243,14 @@ youtube channel:
 	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
 	    services.classList.remove("dropdown-visibility");
 	    services.classList.add("outline");
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
@@ -258,12 +260,14 @@ youtube channel:
 	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
 	    experience.classList.remove("dropdown-visibility");
 	    experience.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
@@ -273,12 +277,14 @@ youtube channel:
 	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
 	    publications.classList.remove("dropdown-visibility");
 	    publications.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
@@ -288,12 +294,14 @@ youtube channel:
 	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
 	    series.classList.remove("dropdown-visibility");
 	    series.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
@@ -303,12 +311,30 @@ youtube channel:
 	    const publications = document.getElementById("publications");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
 	    blogs.classList.remove("dropdown-visibility");
 	    blogs.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
+	    e.stopPropagation();
+	  }
+	  else if ("Demos" === name) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
+	    demos.classList.remove("dropdown-visibility");
+	    demos.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	  }
 	}
@@ -323,24 +349,28 @@ youtube channel:
       const experienceMenu = document.getElementById("experience-menu");
       const publicationsMenu = document.getElementById("publications-menu");
       const blogsMenu = document.getElementById("blogs-menu");
+      const demosMenu = document.getElementById("demos-menu");
       const seriesMenu = document.getElementById("series-menu");
 
       const services = document.getElementById("services");
       const experience = document.getElementById("experience");
       const publications = document.getElementById("publications");
       const blogs = document.getElementById("blogs");
+      const demos = document.getElementById("demos");
       const series = document.getElementById("series");
 
       servicesMenu.addEventListener("mouseover", onMouseOverListener);
       experienceMenu.addEventListener("mouseover", onMouseOverListener);
       publicationsMenu.addEventListener("mouseover", onMouseOverListener);
       blogsMenu.addEventListener("mouseover", onMouseOverListener);
+      demosMenu.addEventListener("mouseover", onMouseOverListener);
       seriesMenu.addEventListener("mouseover", onMouseOverListener);
 
       services.addEventListener("mouseleave", onMouseLeaveListener);
       experience.addEventListener("mouseleave", onMouseLeaveListener);
       publications.addEventListener("mouseleave", onMouseLeaveListener);
       blogs.addEventListener("mouseleave", onMouseLeaveListener);
+      demos.addEventListener("mouseleave", onMouseLeaveListener);
       series.addEventListener("mouseleave", onMouseLeaveListener);
     }
     </script>
@@ -395,6 +425,9 @@ youtube channel:
 	</li>
 	<li class="menu-item" id="blogs-menu">
 	  <span class="menu-item-label">Blogs</span>
+	</li>
+	<li class="menu-item" id="demos-menu">
+	  <span class="menu-item-label">Demos</span>
 	</li>
       </menu>
     </nav>
@@ -710,6 +743,25 @@ youtube channel:
 	    </img>
 	    <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
 	      Matlab
+	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="demos" class="dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="https://img.youtube.com/vi/sbTZkZByafw/hqdefault.jpg"
+	      alt="Sonic The Hedgehog Running at Max Speed."
+	      height=32px>
+	    </img>
+	    <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">
+	     Sonic The Hedgehog: Infinity Level
 	    </a>
 	  </li>
 	</ul>
