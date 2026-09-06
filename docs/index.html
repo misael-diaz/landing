@@ -14,7 +14,8 @@
 /*
 TODO:
 tooltip:
-[ ] would be nice to provide a brief description when the user has the pointer on top of thumbnails and text; for example, it would be ideal to provide a description of the Legacy Code Hero series when the user has the pointer on top of that text.
+[-] read https://inclusive-components.design/tooltips-toggletips/
+[x] would be nice to provide a brief description when the user has the pointer on top of thumbnails and text; for example, it would be ideal to provide a description of the Legacy Code Hero series when the user has the pointer on top of that text.
 [x] add computer vision engine to Demos, and this means adding another menu-item
 [x] add gamedev demos as well
 contact section:
@@ -23,7 +24,7 @@ youtube channel:
 [x] add description
 [ ] add hero image
 [x] create playlists for the tech-series, those are the links that you should share
-[ ] make playlists of gamedev demos
+[x] make playlists of gamedev demos
 Youtube:
 [ ] if you ever wanted to link to a specific section of a youtube video you can easily do this with an anchor like this:
 
@@ -200,6 +201,23 @@ STEM:
       justify-content: space-between;
       align-items: start;
       color: #606060;
+    }
+    [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: 2px;
+    }
+    [aria-describedby]:hover {
+      position: relative;
+    }
+    [aria-describedby]:hover + [role="tooltip"],
+    [role="tooltip"]:hover {
+      visibility: visible;
     }
     footer {
       display: flex;
@@ -534,70 +552,98 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-developer-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-developer-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Software Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-UN"
 	      src="public/logos/UN.png"
 	      alt="banner of Universidad del Norte"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-UN">
+	      <span>Universidad del Norte</span>
+	    </div>
 	    <span>Auxiliary Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-PUPR"
 	      src="public/logos/PUPR.png"
 	      alt="banner of the Polytechnic University of Puerto Rico"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-PUPR">
+	      <span>Polytechnic University of Puerto Rico</span>
+	    </div>
 	    <span>Fulltime Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-postdoc-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-postdoc-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Post-Doctoral Researcher</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-ICMM"
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-ICMM">
+	      <span>Institute of the Continuous Media Mechanics</span>
+	    </div>
 	    <span>Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-PSU"
 	      src="public/logos/PSU.png"
 	      alt="banner of Penn State University"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-PSU">
+	      <span>Penn State University</span>
+	    </div>
 	    <span>Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-teaching-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-teaching-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Teaching Assistant</span>
 	  </li>
 	</ul>
@@ -611,10 +657,14 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-reactive-distillation-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-reactive-distillation-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="https://doi.org/10.1021/ie0716159">
 	      Reactive Distillation Modelling
 	    </a>
@@ -623,17 +673,25 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-microfireworks-PSU"
 	      src="public/logos/PSU.png"
 	      alt="banner of Penn State University"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-microfireworks-PSU">
+	      <span>Penn State University</span>
+	    </div>
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-microfireworks-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-microfireworks-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="https://doi.org/10.1002/adfm.201000063">
 	      Micro-Fireworks Dynamics
 	    </a>
@@ -642,17 +700,25 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-streaming-ICMM"
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-streaming-ICMM">
+	      <span>Institute of the Continuous Media Mechanics</span>
+	    </div>
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-streaming-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-streaming-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="https://doi.org/10.1063/1.4817541">
 	      Streaming Janus Droplets
 	    </a>
@@ -661,17 +727,25 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-shrearing-ICMM"
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-shearing-ICMM">
+	      <span>Institute of the Continuous Media Mechanics</span>
+	    </div>
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-shearing-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-shearing-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="https://doi.org/10.1017/jfm.2015.148">
 	      Shearing Janus Droplets
 	    </a>
@@ -680,10 +754,14 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-rheology-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-rheology-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="https://doi.org/10.1016/j.ijmultiphaseflow.2016.05.003">
 	      Janus Droplets Rheology
 	    </a>
@@ -693,17 +771,25 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-agents-UND"
 	      src="public/logos/UND.png"
 	      alt="banner of University of Notre Dame"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-agents-UND">
+	      <span>University of Notre Dame</span>
+	    </div>
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="publication-agents-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="publication-agents-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <a href="http://dx.doi.org/10.1039/D5ME00062A">
 	      Computational Chemistry Agents
 	    </a>
