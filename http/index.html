@@ -202,6 +202,23 @@ STEM:
       align-items: start;
       color: #606060;
     }
+    [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: 2px;
+    }
+    [aria-describedby]:hover {
+      position: relative;
+    }
+    [aria-describedby]:hover + [role="tooltip"],
+    [role="tooltip"]:hover {
+      visibility: visible;
+    }
     footer {
       display: flex;
       flex-direction: column;
@@ -535,70 +552,98 @@ STEM:
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-developer-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-developer-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Software Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-UN"
 	      src="public/logos/UN.png"
 	      alt="banner of Universidad del Norte"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-UN">
+	      <span>Universidad del Norte</span>
+	    </div>
 	    <span>Auxiliary Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-PUPR"
 	      src="public/logos/PUPR.png"
 	      alt="banner of the Polytechnic University of Puerto Rico"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-PUPR">
+	      <span>Polytechnic University of Puerto Rico</span>
+	    </div>
 	    <span>Fulltime Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-postdoc-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-postdoc-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Post-Doctoral Researcher</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-ICMM"
 	      src="public/logos/ICMM.png"
 	      alt="banner of Institute of the Continuous Media Mechanics"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-ICMM">
+	      <span>Institute of the Continuous Media Mechanics</span>
+	    </div>
 	    <span>Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-PSU"
 	      src="public/logos/PSU.png"
 	      alt="banner of Penn State University"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-PSU">
+	      <span>Penn State University</span>
+	    </div>
 	    <span>Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
 	      class="banner"
 	      loading="eager"
+	      aria-describedby="experience-teaching-UPRM"
 	      src="public/logos/UPRM.png"
-	      alt="banner of the University of Puerto Rico - Mayaguez"
+	      alt="banner of the University of Puerto Rico - Mayagüez"
 	      height=32px>
 	    </img>
+	    <div role="tooltip" id="experience-teaching-UPRM">
+	      <span>University of Puerto Rico &ndash; Mayagüez</span>
+	    </div>
 	    <span>Teaching Assistant</span>
 	  </li>
 	</ul>
