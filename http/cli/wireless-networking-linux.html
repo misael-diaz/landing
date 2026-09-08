@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Misael Díaz-Maldonado">
+    <meta
+      name="description"
+      content="Connecting to wireless network in Linux through the command-line."
+    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
+    <title>Connecting to a Wireless Network on Linux</title>
+    <style>
+/*
+TODO:
+[ ] break the article into sections and add a navigation panel on the left to see
+    the contents
+*/
+    html {
+      font-family: sans-serif;
+    }
+    .wrapper {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: start;
+      top: 0px;
+    }
+    nav {
+      position: sticky;
+      top: 0px;
+    }
+    .panel {
+      list-style: none;
+      padding: 0px;
+    }
+    article {
+      position: relative;
+      top: 0px;
+      width: 85%;
+    }
+    .inline {
+      background: #e0e0e0;
+    }
+    .console {
+      background: black;
+      color: #f8f8f2;
+      border-radius: 0.5rem;
+      padding: 0px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 4px;
+    }
+    .output {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .item {
+      display: flex;
+      padding: 0px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+    <nav>
+      <h2>Contents</h2>
+      <ul class="panel">
+	<li>
+	  <a href="#motivation">Motivation</a>
+	</li>
+	<li>
+	  <a href="#connecting_wireless_network">Connecting to a Wireless Network</a>
+	</li>
+	<li>
+	  <a href="#listing_wireless_networks">
+	    Listing Wireless Capable Network Interfaces
+	  </a>
+	</li>
+	<li>
+	  <a href="#scanning_wireless_networks">
+	    Scanning for Available Wireless Networks
+	  </a>
+	</li>
+      </ul>
+    </nav>
+    <article>
+      <h2 id="motivation">Motivation</h2>
+      <p>
+	Recently, I have stopped relying on the network manager provided by the
+	Linux desktop environment because it was failing sometimes. This signaled
+	me to find an alternate approach to connect to the wireless network.
+      </p>
+      <p>
+	On Linux knowing command-line tools is more important than knowing your way
+	around the Graphical User Interface (GUI). It's on times like this when the
+	linux desktop manager fails you that you can leverage the command-line tools
+	to connect to the wireless network. Talk about empowering the users of a platform,
+	this is one of the reasons I have been using linux for over a decade and probably
+	will continue to do so.
+      </p>
+      <p>
+	One last thing, this is a practical guide that only tries to walk you through
+	the process of connecting to a wireless network from the command-line interface.
+	There's much to learn about linux and so my recommendation is that you read the
+	man pages of the commands that caught your attention because I am not writing
+	everything that you might want to know about networking, instead I am writing
+	the bear minimum to get you going.
+      </p>
+      <h2 id="connecting_wireless_network">Connecting to a Wireless Network</h2>
+      <p>
+	Open up your terminal, we are going to connect to the WiFi network through
+	command-line however this is not necessarily a walk in the park in general.
+      </p>
+      <h3 id="listing_wireless_networks">Listing Wireless Capable Network Interfaces</h3>
+      <p>
+	The fastest way to know if your system has a wireless capable interface is to
+	execute <code class="inline">iwconfig</code> without arguments, you may even
+	perform this step as a regular user:
+      </p>
+      <div class="console">
+	<pre><code>iwconfig</code></pre>
+      </div>
+      <p>
+	The output could be something similar to this:
+      </p>
+      <div class="console">
+	<ul class="output">
+	  <li class="item">
+	    <pre><code>enp0s31f6  no wireless extensions.</code></pre>
+	  </li>
+	  <li class="item">
+	    <pre><code>wlp0s20f3  IEEE 802.11  ESSID:off/any</code></pre>
+	  </li>
+	<li class="item">
+	  <pre><code>lo  no wireless extensions.</code></pre>
+	</li>
+      </div>
+      <p>
+	Some of the output was omitted for brevity but surely you have noticed that
+	in this example the only wireless capable interface is the
+	<code class="inline">wlp0s20f3</code> interface.
+      </p>
+      <h3 id="scanning_wireless_networks">Scanning for Available Wireless Networks</h3>
+      <p>
+	Now that you know the name of the wireless capable interface you can bring it up
+	so that you can scan what wireless networks are available near your linux machine.
+	However to achieve that you will need system administration privileges and so now
+	it's the time to do so via:
+      </p>
+      <div class="console">
+      <pre><code>sudo su</code></pre>
+      </div>
+      <p>
+      I am assuming that your user is in the sudoers list, if not you will need to know
+      the <code class="inline">root</code> password to login as the
+      <code class="inline">root</code> user via:
+      </p>
+      <div class="console">
+      <pre><code>su -l root</code></pre>
+      </div>
+      <p>
+	Experienced linux users know that they can use a shorter version (they would not
+	be reading this blog anyways because they already know), I decided to show the
+	most verbose way of doing it to make it evident to new linux users.
+      </p>
+      <p>
+	The first thing you need to do is to bring the wireless network capable interface
+	up so that you can scan for wireless networks in your area:
+      </p>
+      <div class="console">
+      <pre><code>ip link set wlp0s20f3 up</code></pre>
+      </div>
+      <p>
+	Note that you would be replacing <code class="inline">wlp0s20f3</code> in the
+	command line string with the name of the wireless capable network interface of
+	your linux machine.
+      </p>
+      <p>
+	Now you can scan for wireless networks via:
+      </p>
+      <div class="console">
+      <pre><code>iwlist wlp0s20f3 scan</code></pre>
+      </div>
+      <p>
+	Again experienced linux users know that you can omit the network interface name
+	from the command-line string but again for the benefit of the new linux users I
+	am writing the longer version. The output of that command is going to be lengthy
+	so probably you would want to match <code class="inline">essid</code>'s and you
+	can do that in this way:
+      </p>
+      <div class="console">
+      <pre><code>iwlist wlp0s20f3 scan | grep -i essid</code></pre>
+      </div>
+      <p>
+	What we are doing here is to effectively filter the output of the wireless scan
+	so that any output line containing the <code class="inline">essid</code> string
+	will match and will be present on the output, anything else will be filtered out
+	and so it will not be shown. The output would be something like this:
+      </p>
+      <div class="console">
+	<ul class="output">
+	<li class="item"><code>ESSID:"Wireless-Network-1"</code></li>
+	<li class="item"><code>ESSID:"Wireless-Network-2"</code></li>
+	<li class="item"><code>ESSID:"Wireless-Network-3"</code></li>
+	</ul>
+      </div>
+      <p>
+	The wireless network that you may want to connect to is probably going to show up
+	in that list. <strong>TO ADD MORE</strong>
+      </p>
+    </article>
+    </div>
+  </body>
+</html>
