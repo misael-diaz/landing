@@ -19,6 +19,11 @@ TODO:
     html {
       font-family: sans-serif;
     }
+    h2 {
+      margin: 0px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
     .wrapper {
       position: absolute;
       display: flex;
@@ -33,8 +38,21 @@ TODO:
       top: 0px;
     }
     .panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       list-style: none;
       padding: 0px;
+      margin: 0px;
+    }
+    .panel-item {
+      padding: 0px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    .panel-text {
+      text-decoration: none;
+      color: inherit !important;
     }
     article {
       position: relative;
@@ -42,16 +60,20 @@ TODO:
       width: 85%;
     }
     .inline {
+      border-radius: 0.25rem;
       background: #e0e0e0;
+      padding: 0px;
+      padding-left: 3px;
+      padding-right: 3px;
     }
     .console {
       background: black;
       color: #f8f8f2;
-      border-radius: 0.5rem;
+      border-radius: 0.35rem;
       padding: 0px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      padding-left: 4px;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
     .output {
       display: flex;
@@ -60,14 +82,18 @@ TODO:
       list-style: none;
       padding: 0px;
       margin: 0px;
-      margin-top: 8px;
-      margin-bottom: 8px;
     }
     .item {
       display: flex;
       padding: 0px;
       padding-top: 2px;
       padding-bottom: 2px;
+    }
+    .item-packed {
+      display: flex;
+    }
+    pre {
+      margin: 0px;
     }
     </style>
   </head>
@@ -76,19 +102,19 @@ TODO:
     <nav>
       <h2>Contents</h2>
       <ul class="panel">
-	<li>
-	  <a href="#motivation">Motivation</a>
+	<li class="panel-item">
+	  <a class="panel-text" href="#motivation">Motivation</a>
 	</li>
-	<li>
-	  <a href="#connecting_wireless_network">Connecting to a Wireless Network</a>
+	<li class="panel-item">
+	  <a class="panel-text" href="#connecting_wireless_network">Connecting to a Wireless Network</a>
 	</li>
-	<li>
-	  <a href="#listing_wireless_networks">
+	<li class="panel-item">
+	  <a class="panel-text" href="#listing_wireless_networks">
 	    Listing Wireless Capable Network Interfaces
 	  </a>
 	</li>
-	<li>
-	  <a href="#scanning_wireless_networks">
+	<li class="panel-item">
+	  <a class="panel-text" href="#scanning_wireless_networks">
 	    Scanning for Available Wireless Networks
 	  </a>
 	</li>
@@ -217,8 +243,39 @@ TODO:
       </div>
       <p>
 	The wireless network that you may want to connect to is probably going to show up
-	in that list. <strong>TO ADD MORE</strong>
+	in that list. At this point you are ready to write the configuration file that
+	the WPA supplicant, which is the client that will use to connect to the wireless
+	network.
       </p>
+      <p>
+	It's likely that the configuration file for the WPA supplicant is already present
+	in your system. The file I am referring to is
+	<code class="inline">/etc/wpa_supplicant/example.conf</code>.
+	If not you can always create it, I am assuming that if you are
+	here you know your way with creating files and editing them with a text editor.
+      </p>
+      <div class="console">
+	<ul class="output">
+	<li >
+	  <code>network={</code>
+	</li>
+	<li >
+	  <pre><code>  ssid="home"</code></pre>
+	</li>
+	<li >
+	  <pre><code>  scan_ssid=1</code></pre>
+	</li>
+	<li >
+	  <pre><code>  key_mgmt=WPA-PSK</code></pre>
+	</li>
+	<li >
+	  <pre><code>  psk="very secret passphrase"</code></pre>
+	</li>
+	<li >
+	  <code>}</code>
+	</li>
+	</ul>
+      </div>
     </article>
     </div>
   </body>
