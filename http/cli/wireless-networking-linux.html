@@ -16,6 +16,11 @@ TODO:
 [ ] break the article into sections and add a navigation panel on the left to see
     the contents
 */
+    :root {
+      --img-logo-width: 80px;
+      --img-logo-height: var(--img-logo-width);
+      --header-height: calc(2.5 * var(--img-logo-height));
+    }
     html {
       font-family: sans-serif;
     }
@@ -24,18 +29,65 @@ TODO:
       margin-top: 8px;
       margin-bottom: 8px;
     }
-    .wrapper {
+    .main-wrapper {
       position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: white;
+      margin-top: 0px;
+      width: 100%;
+      top: 0px;
+      z-index: 2;
+    }
+    .head-wrapper {
+      position: sticky;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      top: 0px;
+      z-index: 3;
+    }
+    .head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0px;
+      margin-left: 2px;
+    }
+    .title {
+    }
+    .subtitle {
+      margin-top: 2px;
+    }
+    .logo {
+      display: flex;
+      width: var(--img-logo-width);
+      height: var(--img-logo-height);
+      margin-top: 4px;
+      margin-right: 16px;
+    }
+    .brand {
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px black;
+      background-color: white;
+    }
+    .wrapper {
+      position: relative;
+      top: 0px;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-between;
       align-items: start;
-      top: 0px;
+      z-index: 1;
     }
     nav {
       position: sticky;
-      top: 0px;
+      top: var(--header-height);
     }
     .panel {
       display: flex;
@@ -98,6 +150,27 @@ TODO:
     </style>
   </head>
   <body>
+    <div class="main-wrapper">
+      <header class="head-wrapper">
+	<div class="head">
+	  <h2 class=title>Misael Díaz-Maldonado, PhD</h2>
+	  <p class="subtitle">
+	    Computational Physicist |
+	    Chemical Engineer |
+	    Software Developer |
+	    STEM Educator
+	  </p>
+	</div>
+	<div class="logo">
+	<img
+	  class="brand"
+	  loading="eager"
+	  src="https://avatars.githubusercontent.com/u/20134959"
+	  alt="shows brand logo, a Janus droplet under shear flow"
+	>
+	</img>
+	</div>
+      </header>
     <div class="wrapper">
     <nav>
       <h2>Contents</h2>
@@ -277,6 +350,7 @@ TODO:
 	</ul>
       </div>
     </article>
+    </div>
     </div>
   </body>
 </html>
