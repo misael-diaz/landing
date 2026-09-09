@@ -19,7 +19,7 @@ TODO:
     :root {
       --img-logo-width: 80px;
       --img-logo-height: var(--img-logo-width);
-      --header-height: calc(2.5 * var(--img-logo-height));
+      --header-height: calc(1.5 * var(--img-logo-height));
     }
     html {
       font-family: sans-serif;
@@ -81,6 +81,7 @@ TODO:
     .wrapper {
       position: relative;
       top: 0px;
+      width: 100%;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -91,6 +92,9 @@ TODO:
     nav {
       position: sticky;
       top: var(--header-height);
+      padding-left: 8px;
+      padding-right: 8px;
+      width: 20%;
     }
     .panel {
       display: flex;
@@ -112,8 +116,10 @@ TODO:
     article {
       outline: 1px solid black;
       position: relative;
+      padding-left: 8px;
+      padding-right: 8px;
       top: 0px;
-      width: 85%;
+      width: 80%;
     }
     .inline {
       border-radius: 0.25rem;
