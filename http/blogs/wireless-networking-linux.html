@@ -19,13 +19,22 @@ TODO:
     :root {
       --img-logo-width: 80px;
       --img-logo-height: var(--img-logo-width);
-      --header-height: calc(1.5 * var(--img-logo-height));
+      --header-height: calc(2.0 * var(--img-logo-height));
     }
     html {
       font-family: sans-serif;
     }
     body {
       overflow-x: hidden;
+    }
+    header {
+      position: sticky;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      outline: 1px solid black;
+      top: 0px;
+      z-index: 3;
     }
     h2 {
       margin: 0px;
@@ -45,15 +54,22 @@ TODO:
       z-index: 2;
     }
     .head-wrapper {
-      position: sticky;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       background-color: white;
       outline: 1px solid black;
-      top: 0px;
-      z-index: 3;
+    }
+    .breadcrumbs {
+      width: 100;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      padding: 0px;
+      padding-left: 2px;
     }
     .head {
       display: flex;
@@ -123,6 +139,7 @@ TODO:
       padding-right: 8px;
       top: 0px;
       width: 80%;
+      z-index: 4;
     }
     .inline {
       border-radius: 0.25rem;
@@ -164,7 +181,8 @@ TODO:
   </head>
   <body>
     <div class="main-wrapper">
-      <header class="head-wrapper">
+      <header>
+      <div class="head-wrapper">
 	<div class="head">
 	  <h2 class=title>Misael Díaz-Maldonado, PhD</h2>
 	  <p class="subtitle">
@@ -183,6 +201,11 @@ TODO:
 	>
 	</img>
 	</div>
+      </div>
+      <ul class="breadcrumbs">
+	<li>Blogs<pre style="display: inline"> &gt; </pre></li>
+	<li>Connecting to a Wireless Network on Linux</li>
+      </ul>
       </header>
     <div class="wrapper">
     <nav>
