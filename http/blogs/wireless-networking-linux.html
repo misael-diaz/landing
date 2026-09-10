@@ -60,16 +60,29 @@ TODO:
       align-items: center;
       background-color: white;
       outline: 1px solid black;
+      z-index: 3;
     }
     .breadcrumbs {
-      width: 100;
+      width: 100%;
       list-style: none;
       display: flex;
       flex-direction: row;
       justify-content: start;
+      background-color: #f7f7f8;
       align-items: center;
+      margin: 0px;
       padding: 0px;
       padding-left: 2px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      z-index: 2;
+    }
+    .crumb {
+      text-decoration: none;
+      color: inherit !important;
+    }
+    .crumb:hover {
+      text-decoration: underline;
     }
     .head {
       display: flex;
@@ -204,12 +217,13 @@ TODO:
       </div>
       <ul class="breadcrumbs">
 	<li>
-	  <a href="/blogs">
-	    Blogs<pre style="display: inline"> &gt; </pre>
+	  <a class="crumb" href="/blogs">
+	    Blogs
 	  </a>
+	  <pre style="display: inline"> &gt; </pre>
 	</li>
 	  <li>
-	    <a href="/blogs/wireless-networking-linux.html">
+	    <a class="crumb" href="/blogs/wireless-networking-linux.html">
 	      Connecting to a Wireless Network on Linux
 	    </a>
 	  </li>
