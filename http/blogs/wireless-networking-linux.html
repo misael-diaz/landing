@@ -108,8 +108,14 @@ TODO:
     .brand {
       display: block;
       border-radius: 50%;
-      box-shadow: 0 0 0 1px black;
       background-color: white;
+    }
+    .brand-effect {
+      box-shadow: 0 0 0 1px black;
+      transition: box-shadow 0.5s;
+    }
+    .brand-effect:hover {
+      box-shadow: 0 0 0 1px blue;
     }
     .wrapper {
       position: relative;
@@ -209,7 +215,7 @@ TODO:
 	<a href="/">
 	<div class="logo">
 	<img
-	  class="brand"
+	  class="brand brand-effect"
 	  loading="eager"
 	  src="https://avatars.githubusercontent.com/u/20134959"
 	  alt="shows brand logo, a Janus droplet under shear flow"
