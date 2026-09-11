@@ -110,6 +110,14 @@ $(UN_SO): $(UN_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(UN_CXX) -o $(UN_SO)
 
+$(WIRELESS_SO): $(WIRELESS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(WIRELESS_CXX) -o $(WIRELESS_SO)
+
+$(BLOGS_SO): $(BLOGS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(BLOGS_CXX) -o $(BLOGS_SO)
+
 $(ROOT_SO): $(ROOT_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(ROOT_CXX) -o $(ROOT_SO)

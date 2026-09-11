@@ -53,6 +53,8 @@ PSU_CXX = psu.cpp
 DEV_CXX = dev.cpp
 UND_CXX = und.cpp
 UN_CXX = un.cpp
+WIRELESS_CXX = wireless.cpp
+BLOGS_CXX = blogs.cpp
 ROOT_CXX = root.cpp
 
 FAVICON_SO = modules/favicon.so
@@ -77,6 +79,8 @@ PSU_SO = modules/psu.so
 DEV_SO = modules/dev.so
 UND_SO = modules/und.so
 UN_SO = modules/un.so
+WIRELESS_SO = modules/wireless.so
+BLOGS_SO = modules/blogs.so
 ROOT_SO = modules/root.so
 
 MODULES = $(FAVICON_SO) \
@@ -101,4 +105,6 @@ MODULES = $(FAVICON_SO) \
 	  $(DEV_SO) \
 	  $(UND_SO) \
 	  $(UN_SO) \
+	  $(WIRELESS_SO) \
+	  $(BLOGS_SO) \
 	  $(ROOT_SO)
