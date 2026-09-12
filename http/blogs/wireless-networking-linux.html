@@ -16,6 +16,7 @@ TODO:
 [x] link the brand to the landing page
 [ ] break the article into sections and add a navigation panel on the left to see
     the contents
+[ ] add learning outcomes or what they will achieve in a list fashion
 */
     :root {
       --img-logo-width: 80px;
@@ -278,9 +279,9 @@ TODO:
       </ul>
     </nav>
     <article>
-      <h2 id="connecting_wireless_network_linux">
+      <h1 id="connecting_wireless_network_linux">
 	Connecting to a Wireless Network on Linux
-      </h2>
+      </h1>
       <p>
 	In this article you will learn how to connect to a wireless network on GNU/Linux
 	through the command-line interface. It is assumed that you have basic familiarity
@@ -365,6 +366,39 @@ TODO:
 	Experienced linux users know that they can use a shorter version (they would not
 	be reading this blog anyways because they already know), I have decided to show
 	the most verbose way of doing it to make it evident to new linux users.
+      </p>
+      <p>
+      <strong>TODO TALK ABOUT RFKILL AND HOW TO FIX IT AND ALSO USE BLOG/ETC FOR THE LINKS INSTEAD OF THE FULL PATH. YOU SHOULD ADD LEARNING OUTCOMES AND USE SECTIONS</strong>
+	It's a good idea to verify if the wireless device has a software level block
+	because as long the blocking remains you won't be able to proceed any further.
+	To verify if there is a software block use <code class="inline">rfkill</code>
+	to list the wireless devices that have been blocked:
+      </p>
+      <div class="console">
+      <pre><code>rfkill list</code></pre>
+      </div>
+      <p>
+      If there's a software block you will see an output similar to this one:
+      </p>
+      <div class="console">
+	<ul class="output">
+	<li class="item"><code>0: phy0: Wireless LAN</code></li>
+	<li class="item">
+	  <pre style="display: inline"><code>  Soft blocked: yes</code></pre>
+	</li>
+	<li class="item">
+	  <pre style="display: inline"><code>  Hard blocked: no</code></pre>
+	</li>
+	</ul>
+      </div>
+      <p>
+	If there's a hardware block you will need to find out what button on your machine
+	has the toggling functionality for the wireless device.
+      </p>
+      <p>
+	The <code class="inline">rfkill</code> tool not only shows the status of network
+	devices but also bluetooth devices as well just so you know if you ever encounter
+	a software block on bluetooth devices (and so you would know how to address that).
       </p>
       <p>
 	The first thing you need to do is to bring the wireless network capable interface
