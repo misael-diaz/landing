@@ -238,296 +238,296 @@ TODO:
 	    </li>
 	</ul>
       </header>
-    <div class="content-layout">
-    <nav>
-      <h2>Contents</h2>
-      <ul class="panel">
-	<li class="panel-item">
-	  <a class="panel-text" href="/blogs/wireless-networking-linux.html">
-	   Header
-	  </a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#connecting_wireless_network_linux">
-	   Connecting to a Wireless Network on Linux
-	  </a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#motivation">Motivation</a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#connecting_wireless_network">
-	    Connecting to a Wireless Network
-	  </a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#listing_wireless_networks">
-	    Listing Wireless Capable Network Interfaces
-	  </a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#scanning_wireless_networks">
-	    Scanning for Available Wireless Networks
-	  </a>
-	</li>
-	<li class="panel-item">
-	  <a class="panel-text" href="#wpa_supplicant">
-	    Connecting to the Wireless Network with WPA Supplicant
-	  </a>
-	</li>
-      </ul>
-    </nav>
-    <article>
-      <h1 id="connecting_wireless_network_linux">
-	Connecting to a Wireless Network on Linux
-      </h1>
-      <p>
-	In this article you will learn how to connect to a wireless network on GNU/Linux
-	through the command-line interface. It is assumed that you have basic familiarity
-	with the linux terminal and that you know how to manipulate files with a text
-	editor.
-      </p>
-      <h2 id="motivation">Motivation</h2>
-      <p>
-	Recently, I have stopped relying on the network manager provided by the
-	Linux desktop environment because it was failing sometimes. This signaled
-	me to find an alternate approach to connect to the wireless network.
-      </p>
-      <p>
-	On Linux knowing command-line tools is more important than knowing your way
-	around the Graphical User Interface (GUI). It's on times like this when the
-	linux desktop manager fails you that you can leverage the command-line tools
-	to connect to the wireless network. Talk about empowering the users of a platform,
-	this is one of the reasons I have been using linux for over a decade and probably
-	will continue to do so.
-      </p>
-      <p>
-	One last thing, this is a practical guide that only tries to walk you through
-	the process of connecting to a wireless network from the command-line interface.
-	There's much to learn about linux and so my recommendation is that you read the
-	man pages of the commands that caught your attention because I am not writing
-	everything that you might want to know about networking, instead I am writing
-	the bare minimum to get you going.
-      </p>
-      <h2 id="connecting_wireless_network">Connecting to a Wireless Network</h2>
-      <p>
-	Open up your terminal, we are going to connect to the WiFi network through
-	command-line however this is not necessarily a walk in the park in general.
-      </p>
-      <h3 id="listing_wireless_networks">Listing Wireless Capable Network Interfaces</h3>
-      <p>
-	The fastest way to know if your system has a wireless capable interface is to
-	execute <code class="inline">iwconfig</code> without arguments, you may even
-	perform this step as a regular user:
-      </p>
-      <div class="console">
-	<pre><code>iwconfig</code></pre>
-      </div>
-      <p>
-	The output could be something similar to this:
-      </p>
-      <div class="console">
-	<ul class="output">
+      <div class="content-layout">
+      <nav>
+	<h2>Contents</h2>
+	<ul class="panel">
+	  <li class="panel-item">
+	    <a class="panel-text" href="/blogs/wireless-networking-linux.html">
+	     Header
+	    </a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#connecting_wireless_network_linux">
+	     Connecting to a Wireless Network on Linux
+	    </a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#motivation">Motivation</a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#connecting_wireless_network">
+	      Connecting to a Wireless Network
+	    </a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#listing_wireless_networks">
+	      Listing Wireless Capable Network Interfaces
+	    </a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#scanning_wireless_networks">
+	      Scanning for Available Wireless Networks
+	    </a>
+	  </li>
+	  <li class="panel-item">
+	    <a class="panel-text" href="#wpa_supplicant">
+	      Connecting to the Wireless Network with WPA Supplicant
+	    </a>
+	  </li>
+	</ul>
+      </nav>
+      <article>
+	<h1 id="connecting_wireless_network_linux">
+	  Connecting to a Wireless Network on Linux
+	</h1>
+	<p>
+	  In this article you will learn how to connect to a wireless network on GNU/Linux
+	  through the command-line interface. It is assumed that you have basic familiarity
+	  with the linux terminal and that you know how to manipulate files with a text
+	  editor.
+	</p>
+	<h2 id="motivation">Motivation</h2>
+	<p>
+	  Recently, I have stopped relying on the network manager provided by the
+	  Linux desktop environment because it was failing sometimes. This signaled
+	  me to find an alternate approach to connect to the wireless network.
+	</p>
+	<p>
+	  On Linux knowing command-line tools is more important than knowing your way
+	  around the Graphical User Interface (GUI). It's on times like this when the
+	  linux desktop manager fails you that you can leverage the command-line tools
+	  to connect to the wireless network. Talk about empowering the users of a platform,
+	  this is one of the reasons I have been using linux for over a decade and probably
+	  will continue to do so.
+	</p>
+	<p>
+	  One last thing, this is a practical guide that only tries to walk you through
+	  the process of connecting to a wireless network from the command-line interface.
+	  There's much to learn about linux and so my recommendation is that you read the
+	  man pages of the commands that caught your attention because I am not writing
+	  everything that you might want to know about networking, instead I am writing
+	  the bare minimum to get you going.
+	</p>
+	<h2 id="connecting_wireless_network">Connecting to a Wireless Network</h2>
+	<p>
+	  Open up your terminal, we are going to connect to the WiFi network through
+	  command-line however this is not necessarily a walk in the park in general.
+	</p>
+	<h3 id="listing_wireless_networks">Listing Wireless Capable Network Interfaces</h3>
+	<p>
+	  The fastest way to know if your system has a wireless capable interface is to
+	  execute <code class="inline">iwconfig</code> without arguments, you may even
+	  perform this step as a regular user:
+	</p>
+	<div class="console">
+	  <pre><code>iwconfig</code></pre>
+	</div>
+	<p>
+	  The output could be something similar to this:
+	</p>
+	<div class="console">
+	  <ul class="output">
+	    <li class="item">
+	      <pre><code>enp0s31f6  no wireless extensions.</code></pre>
+	    </li>
+	    <li class="item">
+	      <pre><code>wlp0s20f3  IEEE 802.11  ESSID:off/any</code></pre>
+	    </li>
 	  <li class="item">
-	    <pre><code>enp0s31f6  no wireless extensions.</code></pre>
+	    <pre><code>lo  no wireless extensions.</code></pre>
+	  </li>
+	</div>
+	<p>
+	  Some of the output was omitted for brevity but surely you have noticed that
+	  in this example the only wireless capable interface is the
+	  <code class="inline">wlp0s20f3</code> interface.
+	</p>
+	<h3 id="scanning_wireless_networks">Scanning for Available Wireless Networks</h3>
+	<p>
+	  Now that you know the name of the wireless capable interface you can bring it up
+	  so that you can scan what wireless networks are available near your linux machine.
+	  However to achieve that you will need system administration privileges and so now
+	  it's the time to do so via:
+	</p>
+	<div class="console">
+	<pre><code>sudo su</code></pre>
+	</div>
+	<p>
+	I am assuming that your user is in the sudoers list, if not you will need to know
+	the <code class="inline">root</code> password to login as the
+	<code class="inline">root</code> user via:
+	</p>
+	<div class="console">
+	<pre><code>su -l root</code></pre>
+	</div>
+	<p>
+	  Experienced linux users know that they can use a shorter version (they would not
+	  be reading this blog anyways because they already know), I have decided to show
+	  the most verbose way of doing it to make it evident to new linux users.
+	</p>
+	<p>
+	<strong>TODO TALK ABOUT RFKILL AND HOW TO FIX IT AND ALSO USE BLOG/ETC FOR THE LINKS INSTEAD OF THE FULL PATH. YOU SHOULD ADD LEARNING OUTCOMES AND USE SECTIONS</strong>
+	  It's a good idea to verify if the wireless device has a software level block
+	  because as long the blocking remains you won't be able to proceed any further.
+	  To verify if there is a software block use <code class="inline">rfkill</code>
+	  to list the wireless devices that have been blocked:
+	</p>
+	<div class="console">
+	<pre><code>rfkill list</code></pre>
+	</div>
+	<p>
+	If there's a software block you will see an output similar to this one:
+	</p>
+	<div class="console">
+	  <ul class="output">
+	  <li class="item"><code>0: phy0: Wireless LAN</code></li>
+	  <li class="item">
+	    <pre style="display: inline"><code>  Soft blocked: yes</code></pre>
 	  </li>
 	  <li class="item">
-	    <pre><code>wlp0s20f3  IEEE 802.11  ESSID:off/any</code></pre>
+	    <pre style="display: inline"><code>  Hard blocked: no</code></pre>
 	  </li>
-	<li class="item">
-	  <pre><code>lo  no wireless extensions.</code></pre>
-	</li>
+	  </ul>
+	</div>
+	<p>
+	  If there's a hardware block you will need to find out what button on your machine
+	  has the toggling functionality for the wireless device.
+	</p>
+	<p>
+	  The <code class="inline">rfkill</code> tool not only shows the status of network
+	  devices but also bluetooth devices as well just so you know if you ever encounter
+	  a software block on bluetooth devices (and so you would know how to address that).
+	</p>
+	<p>
+	  The first thing you need to do is to bring the wireless network capable interface
+	  up so that you can scan for wireless networks in your area:
+	</p>
+	<div class="console">
+	<pre><code>ip link set wlp0s20f3 up</code></pre>
+	</div>
+	<p>
+	  Note that you would be replacing <code class="inline">wlp0s20f3</code> in the
+	  command line string with the name of the wireless capable network interface of
+	  your linux machine.
+	</p>
+	<p>
+	  Now you can scan for wireless networks via:
+	</p>
+	<div class="console">
+	<pre><code>iwlist wlp0s20f3 scan</code></pre>
+	</div>
+	<p>
+	  Again experienced linux users know that you can omit the network interface name
+	  from the command-line string but again for the benefit of the new linux users I
+	  am writing the longer version. The output of that command is going to be lengthy
+	  so probably you would want to match <code class="inline">essid</code>'s and you
+	  can do that in this way:
+	</p>
+	<div class="console">
+	<pre><code>iwlist wlp0s20f3 scan | grep -i essid</code></pre>
+	</div>
+	<p>
+	  What we are doing here is to effectively filter the output of the wireless scan
+	  so that any output line containing the <code class="inline">essid</code> string
+	  will match and will be present on the output, anything else will be filtered out
+	  and so it will not be shown. The output would be something like this:
+	</p>
+	<div class="console">
+	  <ul class="output">
+	  <li class="item"><code>ESSID:"Wireless-Network-1"</code></li>
+	  <li class="item"><code>ESSID:"Wireless-Network-2"</code></li>
+	  <li class="item"><code>ESSID:"Wireless-Network-3"</code></li>
+	  </ul>
+	</div>
+	<p>
+	  The wireless network that you may want to connect to is probably going to show up
+	  in that list. At this point you are ready to write the configuration file that
+	  the WPA supplicant, which is the client that will use to connect to the wireless
+	  network.
+	</p>
+	<h3 id="wpa_supplicant">Connecting to the Wireless Network with WPA Supplicant</h3>
+	<p>
+	  It's likely that the configuration file for the WPA supplicant is already present
+	  in your system. The file I am referring to is
+	  <code class="inline">/etc/wpa_supplicant/example.conf</code>.
+	  If not you can always create it, I am assuming that if you are familiar
+	  with creating files and editing them with a text editor. Here are the key-value
+	  pairs that you have to set for most home networks:
+	</p>
+	<div class="console">
+	  <ul class="output">
+	  <li >
+	    <code>network={</code>
+	  </li>
+	  <li >
+	    <pre><code>  ssid="home"</code></pre>
+	  </li>
+	  <li >
+	    <pre><code>  scan_ssid=1</code></pre>
+	  </li>
+	  <li >
+	    <pre><code>  key_mgmt=WPA-PSK</code></pre>
+	  </li>
+	  <li >
+	    <pre><code>  psk="very secret passphrase"</code></pre>
+	  </li>
+	  <li >
+	    <code>}</code>
+	  </li>
+	  </ul>
+	</div>
+	<p>
+	  You would be setting the network name, <code class="inline">ssid</code>, and the
+	  passphrase, <code class="inline">psk</code>. If you are not simply connecting to
+	  a home network I strongly recommend you to consult the man page for
+	  <code class="inline">wpa_supplicant.conf</code>, for it has various examples
+	  from which you can adapt to your case.
+	</p>
+	<p>
+	  After writing the configuration file you can now try to connect to the
+	  wirless network via:
+	</p>
+	<div class="console">
+	  <pre><code>wpa_supplicant -c wpa_supplicant.conf -i wlp0s20f3</code></pre>
+	</div>
+	<p>
+	  Note that in practice you would be providing the full path to the configuration
+	  file, don't forget to modify the interface name (if needed) and consult the
+	  man page of <code class="inline">wpa_supplicant</code> for more information.
+	</p>
+	<p>
+	  If that went well you will know from the console output, and it would probably
+	  look like this near the end:
+	</p>
+	<div class="console">
+	  <pre><code>wlp0s20f3: CTRL-EVENT-CONNECTED</code></pre>
+	</div>
+	<p>
+	  Of course there's more output than that but you don't need to be concerned about
+	  it in most cases (probably). Note that all that you have achieved so far is to
+	  authenticate, you cannot yet use the internet without obtaining an
+	  <strong>ip address</strong>. To finalize your connection to the network you may
+	  use <code class="inline">DHCP</code> client:
+	</p>
+	<div class="console">
+	  <pre><code>dhclient -d -i wlp0s20f3</code></pre>
+	</div>
+	<p>
+	  You are free to omit the <code class="inline">-d</code> flag which forces the
+	  client to execute on the foreground. This is just my preference because I like
+	  to see the client output on the calling console. Hopefully by now you have
+	  been able to connect to your wireless network and now can browse the web,
+	  connect to remote servers, or whatever else your business may be. Bear in mind
+	  that all these commands must be run with system administrator privileges, or
+	  simply runs as root.
+	</p>
+	<p>
+	  Hope that this article has been useful to you. See you in my next blog post.
+	  Cheers!
+	</p>
+      </article>
       </div>
-      <p>
-	Some of the output was omitted for brevity but surely you have noticed that
-	in this example the only wireless capable interface is the
-	<code class="inline">wlp0s20f3</code> interface.
-      </p>
-      <h3 id="scanning_wireless_networks">Scanning for Available Wireless Networks</h3>
-      <p>
-	Now that you know the name of the wireless capable interface you can bring it up
-	so that you can scan what wireless networks are available near your linux machine.
-	However to achieve that you will need system administration privileges and so now
-	it's the time to do so via:
-      </p>
-      <div class="console">
-      <pre><code>sudo su</code></pre>
-      </div>
-      <p>
-      I am assuming that your user is in the sudoers list, if not you will need to know
-      the <code class="inline">root</code> password to login as the
-      <code class="inline">root</code> user via:
-      </p>
-      <div class="console">
-      <pre><code>su -l root</code></pre>
-      </div>
-      <p>
-	Experienced linux users know that they can use a shorter version (they would not
-	be reading this blog anyways because they already know), I have decided to show
-	the most verbose way of doing it to make it evident to new linux users.
-      </p>
-      <p>
-      <strong>TODO TALK ABOUT RFKILL AND HOW TO FIX IT AND ALSO USE BLOG/ETC FOR THE LINKS INSTEAD OF THE FULL PATH. YOU SHOULD ADD LEARNING OUTCOMES AND USE SECTIONS</strong>
-	It's a good idea to verify if the wireless device has a software level block
-	because as long the blocking remains you won't be able to proceed any further.
-	To verify if there is a software block use <code class="inline">rfkill</code>
-	to list the wireless devices that have been blocked:
-      </p>
-      <div class="console">
-      <pre><code>rfkill list</code></pre>
-      </div>
-      <p>
-      If there's a software block you will see an output similar to this one:
-      </p>
-      <div class="console">
-	<ul class="output">
-	<li class="item"><code>0: phy0: Wireless LAN</code></li>
-	<li class="item">
-	  <pre style="display: inline"><code>  Soft blocked: yes</code></pre>
-	</li>
-	<li class="item">
-	  <pre style="display: inline"><code>  Hard blocked: no</code></pre>
-	</li>
-	</ul>
-      </div>
-      <p>
-	If there's a hardware block you will need to find out what button on your machine
-	has the toggling functionality for the wireless device.
-      </p>
-      <p>
-	The <code class="inline">rfkill</code> tool not only shows the status of network
-	devices but also bluetooth devices as well just so you know if you ever encounter
-	a software block on bluetooth devices (and so you would know how to address that).
-      </p>
-      <p>
-	The first thing you need to do is to bring the wireless network capable interface
-	up so that you can scan for wireless networks in your area:
-      </p>
-      <div class="console">
-      <pre><code>ip link set wlp0s20f3 up</code></pre>
-      </div>
-      <p>
-	Note that you would be replacing <code class="inline">wlp0s20f3</code> in the
-	command line string with the name of the wireless capable network interface of
-	your linux machine.
-      </p>
-      <p>
-	Now you can scan for wireless networks via:
-      </p>
-      <div class="console">
-      <pre><code>iwlist wlp0s20f3 scan</code></pre>
-      </div>
-      <p>
-	Again experienced linux users know that you can omit the network interface name
-	from the command-line string but again for the benefit of the new linux users I
-	am writing the longer version. The output of that command is going to be lengthy
-	so probably you would want to match <code class="inline">essid</code>'s and you
-	can do that in this way:
-      </p>
-      <div class="console">
-      <pre><code>iwlist wlp0s20f3 scan | grep -i essid</code></pre>
-      </div>
-      <p>
-	What we are doing here is to effectively filter the output of the wireless scan
-	so that any output line containing the <code class="inline">essid</code> string
-	will match and will be present on the output, anything else will be filtered out
-	and so it will not be shown. The output would be something like this:
-      </p>
-      <div class="console">
-	<ul class="output">
-	<li class="item"><code>ESSID:"Wireless-Network-1"</code></li>
-	<li class="item"><code>ESSID:"Wireless-Network-2"</code></li>
-	<li class="item"><code>ESSID:"Wireless-Network-3"</code></li>
-	</ul>
-      </div>
-      <p>
-	The wireless network that you may want to connect to is probably going to show up
-	in that list. At this point you are ready to write the configuration file that
-	the WPA supplicant, which is the client that will use to connect to the wireless
-	network.
-      </p>
-      <h3 id="wpa_supplicant">Connecting to the Wireless Network with WPA Supplicant</h3>
-      <p>
-	It's likely that the configuration file for the WPA supplicant is already present
-	in your system. The file I am referring to is
-	<code class="inline">/etc/wpa_supplicant/example.conf</code>.
-	If not you can always create it, I am assuming that if you are familiar
-	with creating files and editing them with a text editor. Here are the key-value
-	pairs that you have to set for most home networks:
-      </p>
-      <div class="console">
-	<ul class="output">
-	<li >
-	  <code>network={</code>
-	</li>
-	<li >
-	  <pre><code>  ssid="home"</code></pre>
-	</li>
-	<li >
-	  <pre><code>  scan_ssid=1</code></pre>
-	</li>
-	<li >
-	  <pre><code>  key_mgmt=WPA-PSK</code></pre>
-	</li>
-	<li >
-	  <pre><code>  psk="very secret passphrase"</code></pre>
-	</li>
-	<li >
-	  <code>}</code>
-	</li>
-	</ul>
-      </div>
-      <p>
-	You would be setting the network name, <code class="inline">ssid</code>, and the
-	passphrase, <code class="inline">psk</code>. If you are not simply connecting to
-	a home network I strongly recommend you to consult the man page for
-	<code class="inline">wpa_supplicant.conf</code>, for it has various examples
-	from which you can adapt to your case.
-      </p>
-      <p>
-	After writing the configuration file you can now try to connect to the
-	wirless network via:
-      </p>
-      <div class="console">
-	<pre><code>wpa_supplicant -c wpa_supplicant.conf -i wlp0s20f3</code></pre>
-      </div>
-      <p>
-	Note that in practice you would be providing the full path to the configuration
-	file, don't forget to modify the interface name (if needed) and consult the
-	man page of <code class="inline">wpa_supplicant</code> for more information.
-      </p>
-      <p>
-	If that went well you will know from the console output, and it would probably
-	look like this near the end:
-      </p>
-      <div class="console">
-	<pre><code>wlp0s20f3: CTRL-EVENT-CONNECTED</code></pre>
-      </div>
-      <p>
-	Of course there's more output than that but you don't need to be concerned about
-	it in most cases (probably). Note that all that you have achieved so far is to
-	authenticate, you cannot yet use the internet without obtaining an
-	<strong>ip address</strong>. To finalize your connection to the network you may
-	use <code class="inline">DHCP</code> client:
-      </p>
-      <div class="console">
-	<pre><code>dhclient -d -i wlp0s20f3</code></pre>
-      </div>
-      <p>
-	You are free to omit the <code class="inline">-d</code> flag which forces the
-	client to execute on the foreground. This is just my preference because I like
-	to see the client output on the calling console. Hopefully by now you have
-	been able to connect to your wireless network and now can browse the web,
-	connect to remote servers, or whatever else your business may be. Bear in mind
-	that all these commands must be run with system administrator privileges, or
-	simply runs as root.
-      </p>
-      <p>
-	Hope that this article has been useful to you. See you in my next blog post.
-	Cheers!
-      </p>
-    </article>
-    </div>
     </div>
   </body>
 </html>
