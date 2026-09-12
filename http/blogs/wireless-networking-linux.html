@@ -281,13 +281,16 @@ TODO:
 	  <h1 id="connecting_wireless_network_linux">
 	    Connecting to a Wireless Network on Linux
 	  </h1>
+	  <section>
 	  <p>
 	    In this article you will learn how to connect to a wireless network on GNU/Linux
 	    through the command-line interface. It is assumed that you have basic familiarity
 	    with the linux terminal and that you know how to manipulate files with a text
 	    editor.
 	  </p>
+	  </section>
 	  <h2 id="motivation">Motivation</h2>
+	  <section>
 	  <p>
 	    Recently, I have stopped relying on the network manager provided by the
 	    Linux desktop environment because it was failing sometimes. This signaled
@@ -309,12 +312,16 @@ TODO:
 	    everything that you might want to know about networking, instead I am writing
 	    the bare minimum to get you going.
 	  </p>
+	  </section>
 	  <h2 id="connecting_wireless_network">Connecting to a Wireless Network</h2>
+	  <section>
 	  <p>
 	    Open up your terminal, we are going to connect to the WiFi network through
 	    command-line however this is not necessarily a walk in the park in general.
 	  </p>
+	  </section>
 	  <h3 id="listing_wireless_networks">Listing Wireless Capable Network Interfaces</h3>
+	  <section>
 	  <p>
 	    The fastest way to know if your system has a wireless capable interface is to
 	    execute <code class="inline">iwconfig</code> without arguments, you may even
@@ -343,7 +350,9 @@ TODO:
 	    in this example the only wireless capable interface is the
 	    <code class="inline">wlp0s20f3</code> interface.
 	  </p>
+	  </section>
 	  <h3 id="scanning_wireless_networks">Scanning for Available Wireless Networks</h3>
+	  <section>
 	  <p>
 	    Now that you know the name of the wireless capable interface you can bring it up
 	    so that you can scan what wireless networks are available near your linux machine.
@@ -366,7 +375,9 @@ TODO:
 	    be reading this blog anyways because they already know), I have decided to show
 	    the most verbose way of doing it to make it evident to new linux users.
 	  </p>
+	  </section>
 	  <h3 id="#handling_software_blocks">Handling Software Blocks</h3>
+	  <section>
 	  <p>
 	  <strong>TODO TALK ABOUT RFKILL AND HOW TO FIX IT AND ALSO USE BLOG/ETC FOR THE LINKS INSTEAD OF THE FULL PATH. YOU SHOULD ADD LEARNING OUTCOMES AND USE SECTIONS</strong>
 	    It's a good idea to verify if the wireless device has a software level block
@@ -447,7 +458,9 @@ TODO:
 	    the WPA supplicant, which is the client that will use to connect to the wireless
 	    network.
 	  </p>
+	  </section>
 	  <h3 id="wpa_supplicant">Connecting to the Wireless Network with WPA Supplicant</h3>
+	  <section>
 	  <p>
 	    It's likely that the configuration file for the WPA supplicant is already present
 	    in your system. The file I am referring to is
@@ -527,6 +540,7 @@ TODO:
 	    Hope that this article has been useful to you. See you in my next blog post.
 	    Cheers!
 	  </p>
+	  </section>
 	</article>
       </div>
     </div>
