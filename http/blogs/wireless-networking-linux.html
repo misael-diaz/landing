@@ -16,6 +16,10 @@ TODO:
 [x] link the brand to the landing page
 [x] break the article into sections and add a navigation panel on the left to see
     the contents
+[x] use the html element scroll() method to make sure that the HTML element is at 0, 0
+    and this way when you use anchoring from the nav panel a listener should make sure
+    of that. The overall effect is that the header section will always be shown. Of
+    course you need to experiment with this.
 [ ] add learning outcomes or what they will achieve in a list fashion
 */
     :root {
@@ -198,6 +202,21 @@ TODO:
       margin: 0px;
     }
     </style>
+    <script type="module">
+      {
+	// NOTES: This is the simplest way to keep the header bar visible, especially
+	//        when the user clicks on the navigations elements (anchors in the
+	//        navigation panel). The anchoring will scroll the article and thus
+	//        the listener will execute after the scrolling is complete to do
+	//        the final scrolling (of the html element) to bring it back to its
+	//        initial position.
+	const article = document.querySelector("article");
+	article.addEventListener("scrollend", (e) => {
+	  const html = document.querySelector("html");
+	  html.scroll(0, 0);
+	});
+      }
+    </script>
   </head>
   <body>
     <div class="page-layout">
