@@ -14,17 +14,79 @@
     html {
       font-family: sans-serif;
     }
+    .layout {
+      display: grid;
+      grid-template-areas: 
+	"header header header"
+	"nav    .      main";
+	grid-template-columns: 0.20fr 0.05fr 0.75fr;
+    }
+    header {
+      grid-area: header;
+    }
+    nav {
+      grid-area: nav;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      overflow-y: auto;
+    }
+    .panel {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 0px;
+    }
+    .panel-element {
+      padding: 0px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    main {
+      grid-area: main;
+      overflow-y: scroll;
+      height: 80px;
+    }
     </style>
   </head>
   <body>
-    <h1>Currently under construction</h1>
-    <h2>Blogs</h2>
+    <div class="layout">
+    <header>
+      <h1>Header</h1>
+    </header>
+    <nav>
+      <h2>Contents</h2>
+      <ul class="panel">
+	<li class="panel-element">
+	  <a href="#notice">
+	   Notice
+	  </a>
+	</li>
+	<li class="panel-element">
+	  <a href="#blogs">
+	    Blogs
+	  </a>
+	</li>
+	<li class="panel-element">
+	  <a href="#connecting_wireless_network_linux">
+	    Connecting to a Wireless Network on Linux
+	  </a>
+	</li>
+      </ul>
+    </nav>
+    <main>
+    <h1 id="notice">Currently under construction</h1>
+    <h2 id="blogs">Blogs</h2>
     <ul>
-      <li>
+      <li id="connecting_wireless_network_linux">
 	<a href="/blogs/wireless-networking-linux.html">
 	  Connecting to a Wireless Network on Linux
 	</a>
       </li>
     </ul>
+    </main>
+    </div>
   </body>
 </html>
