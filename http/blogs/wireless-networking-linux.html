@@ -288,6 +288,11 @@ TODO:
 	      </a>
 	    </li>
 	    <li class="panel-item">
+	      <a class="panel-text" href="#handling_software_blocks">
+		Handling Software Blocks on Wireless Devices
+	      </a>
+	    </li>
+	    <li class="panel-item">
 	      <a class="panel-text" href="#scanning_wireless_networks">
 		Scanning for Available Wireless Networks
 	      </a>
@@ -384,6 +389,53 @@ TODO:
 	      <code class="inline">wlp0s20f3</code> interface.
 	    </p>
 	  </section>
+	  <h3 id="handling_software_blocks">
+	    Handling Software Blocks on Wireless Devices
+	  </h3>
+	  <section>
+	    <p>
+	      It's a good idea to verify if the wireless device has a software level
+	      block because as long as the blocking remains you won't be able to proceed
+	      any further. To verify if there is a software block use
+	      <code class="inline">rfkill</code> to list the wireless devices that have
+	      been blocked:
+	    </p>
+	    <div class="console">
+	      <pre><code>rfkill list</code></pre>
+	    </div>
+	    <p>
+	    If there's a software block you will see an output similar to this one:
+	    </p>
+	    <div class="console">
+	      <ul class="output">
+	      <li class="item"><code>0: phy0: Wireless LAN</code></li>
+	      <li class="item">
+		<pre style="display: inline"><code>  Soft blocked: yes</code></pre>
+	      </li>
+	      <li class="item">
+		<pre style="display: inline"><code>  Hard blocked: no</code></pre>
+	      </li>
+	      </ul>
+	    </div>
+	    <p>
+	      If there's a hardware block you will need to find out what button on your
+	      machine has the toggling functionality for the wireless device and that
+	      should be easy to do. To disable the software block in this example we
+	      would be using the device id that preceeds the device info. The command
+	      to unblock the wireless device would look like this in this particular
+	      example (note the index zero just prior to the device info):
+	    </p>
+	    <div class="console">
+	      <pre><code>rfkill unblock 0</code></pre>
+	    </div>
+	    <p>
+	      It's useful to know that the <code class="inline">rfkill</code> tool does
+	      not only shows the status of
+	      network devices but also bluetooth devices as well. If you
+	      ever encounter a software block on bluetooth devices you would know
+	      how to address that.
+	    </p>
+	  </section>
 	  <h3 id="scanning_wireless_networks">
 	    Scanning for Available Wireless Networks
 	  </h3>
@@ -411,50 +463,9 @@ TODO:
 	      have decided to show the most verbose way of doing it to make it evident
 	      to new linux users.
 	    </p>
-	  </section>
-	  <h3 id="#handling_software_blocks">Handling Software Blocks</h3>
-	  <section>
 	    <p>
-	      <strong>
-		TODO TALK ABOUT RFKILL AND HOW TO FIX IT AND ALSO USE BLOG/ETC FOR THE
-		LINKS INSTEAD OF THE FULL PATH. YOU SHOULD ADD LEARNING OUTCOMES AND USE
-		SECTIONS
-	      </strong>
-	      It's a good idea to verify if the wireless device has a software level
-	      block because as long the blocking remains you won't be able to proceed
-	      any further. To verify if there is a software block use
-	      <code class="inline">rfkill</code> to list the wireless devices that have
-	      been blocked:
-	    </p>
-	    <div class="console">
-	      <pre><code>rfkill list</code></pre>
-	    </div>
-	    <p>
-	    If there's a software block you will see an output similar to this one:
-	    </p>
-	    <div class="console">
-	      <ul class="output">
-	      <li class="item"><code>0: phy0: Wireless LAN</code></li>
-	      <li class="item">
-		<pre style="display: inline"><code>  Soft blocked: yes</code></pre>
-	      </li>
-	      <li class="item">
-		<pre style="display: inline"><code>  Hard blocked: no</code></pre>
-	      </li>
-	      </ul>
-	    </div>
-	    <p>
-	      If there's a hardware block you will need to find out what button on your
-	      machine has the toggling functionality for the wireless device.
-	    </p>
-	    <p>
-	      The <code class="inline">rfkill</code> tool not only shows the status of
-	      network devices but also bluetooth devices as well just so you know if you
-	      ever encounter a software block on bluetooth devices (and so you would know
-	      how to address that).
-	    </p>
-	    <p>
-	      The first thing you need to do is to bring the wireless network capable
+	      Now that you have the required system administration privileges
+	      the first thing you need to do is to bring the wireless network capable
 	      interface up so that you can scan for wireless networks in your area:
 	    </p>
 	    <div class="console">
