@@ -49,7 +49,9 @@ TODO:
       display: grid;
       grid-template-areas:
 	"heading"
-	"content";
+	"content"
+	"footing";
+      grid-template-rows: 1fr 320px 32px;
     }
     .head-wrapper {
       display: flex;
@@ -125,9 +127,9 @@ TODO:
       display: grid;
       grid-template-areas: "navigation . blog";
       grid-template-columns: 1fr 0.25fr 4fr;
+      grid-template-rows: auto;
       outline: 1px solid black;
       z-index: 1;
-      height: 720px;
       top: 0px;
     }
     nav {
@@ -200,6 +202,12 @@ TODO:
     }
     pre {
       margin: 0px;
+    }
+    .footer {
+      grid-area: footing;
+      background-color: white;
+      outline: 1px solid black;
+      z-index: 2;
     }
     </style>
     <script type="module">
@@ -287,6 +295,11 @@ TODO:
 	    <li class="panel-item">
 	      <a class="panel-text" href="#wpa_supplicant">
 		Connecting to the Wireless Network with WPA Supplicant
+	      </a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#conclusions">
+		Conclusions
 	      </a>
 	    </li>
 	  </ul>
@@ -574,7 +587,20 @@ TODO:
 	      Cheers!
 	    </p>
 	  </section>
+	  <h2 id="conclusions">Conclusions</h2>
+	  <section>
+	    <p>
+	      In this blog post you learned that Linux provides robust command line tools
+	      to connect to wireless networks. And that the complexity of doing so depends
+	      on the nature of the network you are attempting to connect. Due to that
+	      inherent nature we considered home networks because the intention of this
+	      blog post is not to show you how to connect to every network you may need
+	      but to guide you in the right direction.
+	    </p>
+	  </section>
 	</article>
+      </div>
+      <div class="footer">
       </div>
     </div>
   </body>
