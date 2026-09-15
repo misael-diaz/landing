@@ -12,24 +12,23 @@
     <title>Blogs</title>
     <style>
     html {
-      font-family: sans-serif;
+      font-family: Noto Sans, sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0px;
     }
     .layout {
       display: grid;
       grid-template-areas: 
-	"header header header"
-	"nav    .      main";
-	grid-template-columns: 0.20fr 0.05fr 0.75fr;
-    }
-    header {
-      grid-area: header;
+	"nav . main";
+      grid-template-columns: 1fr 0.5fr 3fr;
     }
     nav {
       grid-area: nav;
       display: flex;
       flex-direction: column;
       justify-content: start;
-      overflow-y: auto;
     }
     .panel {
       list-style: none;
@@ -46,29 +45,17 @@
     }
     main {
       grid-area: main;
-      overflow-y: scroll;
-      height: 80px;
     }
     </style>
   </head>
   <body>
-    <div class="layout">
     <header>
       <h1>Header</h1>
     </header>
+    <div class="layout">
     <nav>
       <h2>Contents</h2>
       <ul class="panel">
-	<li class="panel-element">
-	  <a href="#notice">
-	   Notice
-	  </a>
-	</li>
-	<li class="panel-element">
-	  <a href="#blogs">
-	    Blogs
-	  </a>
-	</li>
 	<li class="panel-element">
 	  <a href="#connecting_wireless_network_linux">
 	    Connecting to a Wireless Network on Linux
