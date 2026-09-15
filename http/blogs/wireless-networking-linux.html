@@ -27,11 +27,17 @@ TODO:
       --img-logo-height: var(--img-logo-width);
     }
     html {
-      font-family: sans-serif;
-      overflow: hidden;
+      font-family: Noto Sans, sans-serif;
+      overflow: auto;
+    }
+    .page-layout {
+      display: grid;
+      grid-template-areas:
+	"header"
+	"content";
     }
     header {
-      grid-area: heading;
+      grid-area: header;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -44,14 +50,6 @@ TODO:
       margin: 0px;
       margin-top: 8px;
       margin-bottom: 8px;
-    }
-    .page-layout {
-      display: grid;
-      grid-template-areas:
-	"heading"
-	"content"
-	"footing";
-      grid-template-rows: 1fr 320px 32px;
     }
     .head-wrapper {
       display: flex;
@@ -123,21 +121,22 @@ TODO:
     }
     .content-layout {
       grid-area: content;
-      position: relative;
       display: grid;
-      grid-template-areas: "navigation . blog";
-      grid-template-columns: 1fr 0.25fr 4fr;
-      grid-template-rows: auto;
+      grid-template-areas:
+	"nav . blog"
+	".   . blog";
+      grid-template-columns: 1fr 0.5fr 3fr;
+      position: relative;
       outline: 1px solid black;
       z-index: 1;
       top: 0px;
     }
     nav {
-      grid-area: navigation;
+      grid-area: nav;
       position: sticky;
       padding-left: 8px;
       padding-right: 8px;
-      top: 0px;
+      top: 160px;
     }
     .panel {
       display: flex;
@@ -159,12 +158,11 @@ TODO:
       color: inherit !important;
     }
     article {
-      position: relative;
       grid-area: blog;
+      position: relative;
       outline: 1px solid black;
       padding-left: 8px;
       padding-right: 8px;
-      overflow-y: scroll;
       top: 0px;
     }
     figure {
@@ -215,28 +213,7 @@ TODO:
     pre {
       margin: 0px;
     }
-    .footer {
-      grid-area: footing;
-      background-color: white;
-      outline: 1px solid black;
-      z-index: 2;
-    }
     </style>
-    <script type="module">
-      {
-	// NOTES: This is the simplest way to keep the header bar visible, especially
-	//        when the user clicks on the navigations elements (anchors in the
-	//        navigation panel). The anchoring will scroll the article and thus
-	//        the listener will execute after the scrolling is complete to do
-	//        the final scrolling (of the html element) to bring it back to its
-	//        initial position.
-	const article = document.querySelector("article");
-	article.addEventListener("scrollend", (e) => {
-	  const html = document.querySelector("html");
-	  html.scroll(0, 0);
-	});
-      }
-    </script>
   </head>
   <body>
     <div class="page-layout">
@@ -265,7 +242,7 @@ TODO:
 	</div>
 	<ul class="breadcrumbs">
 	  <li>
-	    <div style="display: flex; flex-wrap: nowrap">
+	    <div style="display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center">
 	      <a class="crumb" href="/blogs">
 		Blogs
 	      </a>
@@ -668,8 +645,6 @@ TODO:
 	    </p>
 	  </section>
 	</article>
-      </div>
-      <div class="footer">
       </div>
     </div>
   </body>
