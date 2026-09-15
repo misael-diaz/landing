@@ -167,6 +167,17 @@ TODO:
       overflow-y: scroll;
       top: 0px;
     }
+    figure {
+      margin: 16px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+    table {
+      border-spacing: 0px;
+    }
+    table, tr, th, td {
+      border: 0.5px solid black;
+    }
     .inline {
       border-radius: 0.25rem;
       background: #e0e0e0;
@@ -319,10 +330,39 @@ TODO:
 	  <section>
 	    <p>
 	      In this article you will learn how to connect to a wireless network on
-	      GNU/Linux through the command-line interface. It is assumed that you have
-	      basic familiarity with the linux terminal and that you know how to
-	      manipulate files with a text editor.
+	      GNU/Linux through the command-line interface.
 	    </p>
+	    <figure>
+	      <table>
+		<tbody>
+		<tr style="background-color: #f7f7f8">
+		  <th scope="row">
+		    Prerequisites:
+		  </th>
+		  <td>
+		    Basic familiarity with the linux
+		    command-line and text editors.
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row">
+		    Learning Outcomes:
+		  </th>
+		  <td>
+		    <ul>
+		      <li>List wireless capable devices.</li>
+		      <li>Release software blocks on wireless devices.</li>
+		      <li>Bring up wireless devices.</li>
+		      <li>Scan wireless networks.</li>
+		      <li>Basic WPA supplicant client configuration.</li>
+		      <li>Authenticate with the wireless network router.</li>
+		      <li>Obtain an IP address with a DHCP client.</li>
+		    </ul>
+		  </td>
+		</tr>
+		</tbody>
+	      </table>
+	    </figure>
 	  </section>
 	  <h2 id="motivation">Motivation</h2>
 	  <section>
@@ -407,7 +447,7 @@ TODO:
 	      <pre><code>rfkill list</code></pre>
 	    </div>
 	    <p>
-	    If there's a software block you will see an output similar to this one:
+	      If there's a software block you will see an output similar to this one:
 	    </p>
 	    <div class="console">
 	      <ul class="output">
@@ -497,7 +537,8 @@ TODO:
 	    </div>
 	    <p>
 	      What we are doing here is to effectively filter the output of the wireless
-	      scan so that any output line containing the <code class="inline">essid</code>
+	      scan so that any output line containing the
+	      <code class="inline">essid</code>
 	      string will match and will be present on the output, anything else will be
 	      filtered out and so it will not be shown. The output would be something
 	      like this:
@@ -522,11 +563,15 @@ TODO:
 	  <section>
 	    <p>
 	      It's likely that the configuration file for the WPA supplicant is already
-	      present in your system. The file I am referring to is
-	      <code class="inline">/etc/wpa_supplicant/example.conf</code>.
-	      If not you can always create it, I am assuming that if you are familiar
-	      with creating files and editing them with a text editor. Here are the
-	      key-value pairs that you have to set for most home networks:
+	      present in your system. The file I am referring to is:
+	    </p>
+	    <div class="console">
+	      <pre><code>/etc/wpa_supplicant/example.conf</code></pre>
+	    </div>
+	    <p>
+	      If not present, you can always create it, I am assuming that if you are
+	      familiar with creating files and editing them with a text editor.
+	      Here are the key-value pairs that you have to set for most home networks:
 	    </p>
 	    <div class="console">
 	      <ul class="output">
@@ -606,12 +651,11 @@ TODO:
 	    <p>
 	      In this blog post you learned that Linux provides robust command line tools
 	      to connect to wireless networks. And that the complexity of doing so
-	      mostly depends
-	      on the nature of the network you are attempting to connect. Due to that
-	      inherent nature we just considered home networks because the intention of
-	      this
-	      blog post is not to show you how to connect to every network there is
-	      but to guide you in the right direction. As mentioned in the blog post
+	      mostly depends on the nature of the network you are attempting to connect.
+	      Due to that inherent nature we just considered home networks because
+	      the intention of this blog post is not to show you how to connect to
+	      every network there is but to guide you in the right direction.
+	      As mentioned in the blog post
 	      the WPA client man page probably has the information that you need to
 	      connect to networks other than home networks. Other than that other
 	      pitfalls were mentioned like software blocks and bringing up the device
