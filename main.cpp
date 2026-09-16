@@ -199,6 +199,7 @@ int HttpRespondGetFile(
 	char content_type[256];
 	char imagepng[] = "Content-Type: image/png\r\n";
 	char texthtml[] = "Content-Type: text/html\r\n";
+	char textcss[] = "Content-Type: text/css\r\n";
 	struct stat st = {};
 
 	bytes_contentType = 0;
@@ -220,6 +221,12 @@ int HttpRespondGetFile(
 		bytes_contentType = sizeof(texthtml);
 		len_contentType = bytes_contentType - 1;
 		memcpy(content_type, texthtml, sizeof(texthtml));
+	}
+	else if (strstr(filename, ".css")) {
+		sbytes_contentType = sizeof(textcss);
+		bytes_contentType = sizeof(textcss);
+		len_contentType = bytes_contentType - 1;
+		memcpy(content_type, textcss, sizeof(textcss));
 	}
 	else {
 		fprintf(stderr, "HttpRespondGetFile: %s\n", "error unsupported file type");

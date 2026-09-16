@@ -45,6 +45,7 @@ NEXTJS_CXX = nextjs.cpp
 GMAIL_CXX = gmail.cpp
 HERO_CXX = hero.cpp
 UPRM_CXX = uprm.cpp
+STYLEBLOGS_CXX = styleblogs.cpp
 STEM_CXX = stem.cpp
 PUPR_CXX = pupr.cpp
 XORG_CXX = xorg.cpp
@@ -70,6 +71,7 @@ THESIS_SO = modules/thesis.so
 NEXTJS_SO = modules/nextjs.so
 GMAIL_SO = modules/gmail.so
 HERO_SO = modules/hero.so
+STYLEBLOGS_SO = modules/styleblogs.so
 UPRM_SO = modules/uprm.so
 STEM_SO = modules/stem.so
 PUPR_SO = modules/pupr.so
@@ -97,6 +99,7 @@ MODULES = $(FAVICON_SO) \
 	  $(GMAIL_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
+	  $(STYLEBLOGS_SO) \
 	  $(STEM_SO) \
 	  $(PUPR_SO) \
 	  $(XORG_SO) \
