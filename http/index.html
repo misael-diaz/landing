@@ -13,6 +13,11 @@
     <style>
 /*
 TODO:
+CONTENT:
+[ ] people interested in your services should be able to see an overview for each service,
+consider using a tooltip, dialog, or another element to achieve this
+STYLE:
+[ ] add padding to navbar items, this will probably mean to adjust the navbar height
 PROJECTS:
 [ ] microbit projects with C/C++, I think it would be a great experience for teaching
 students about the cool stuff that they can do with microbit and so I am liking here
@@ -47,7 +52,7 @@ https://www.youtube.com/watch?v=m8tQLMyUruc&t=474s
 that's how it would look like.
 
 BLOGS:
-[ ] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
+[x] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
 STEM:
 [ ] add solved exercises so that users interested in STEM tutoring services can see your craft
 */
@@ -221,6 +226,7 @@ STEM:
       border-radius: 0.25rem;
       padding: 0.3rem;
       top: 2px;
+      z-index: 4;
     }
     [aria-describedby]:hover {
       position: relative;
@@ -282,6 +288,33 @@ STEM:
     }
     .icon:hover {
       background-color: white;
+    }
+    div [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -64px;
+      left: -32px;
+      z-index: 4;
+    }
+    .stem-services {
+      list-style: none;
+      display: grid;
+      grid-gap: 8px;
+      grid-template-columns: 1fr 1fr;
+      padding: 0px;
+    }
+    .stem-service {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: 0.5px solid white;
+      text-align: center;
     }
     </style>
     <script type="module">
@@ -496,7 +529,26 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>STEM Tutoring</span>
+	    <div>
+	    <span aria-describedby="stem-tutoring-services">STEM Tutoring</span>
+	    <div role="tooltip" id="stem-tutoring-services">
+	      <ul class="stem-services">
+		<li class="stem-service">
+		  <span>
+		    theory
+		  </span>
+		</li>
+		<li class="stem-service">
+		  <span>practice problems</span>
+		<li class="stem-service">
+		  <span>science projects</span>
+		</li>
+		<li class="stem-service">
+		  <span>software development projects</span>
+		</li>
+	      </ul>
+	    </div>
+	    </div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
