@@ -133,6 +133,9 @@ nav {
   text-decoration: none;
   color: inherit !important;
 }
+.panel-text:hover {
+  text-decoration: underline;
+}
 article {
   grid-area: blog;
   position: relative;
