@@ -343,14 +343,14 @@ STEM:
       left: -32px;
       z-index: 4;
     }
-    .stem-services {
+    .stem-services, .software-services {
       list-style: none;
       display: grid;
       grid-gap: 8px;
       grid-template-columns: 1fr 1fr;
       padding: 0px;
     }
-    .stem-service {
+    .stem-service, .software-service {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -652,7 +652,27 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Software Development</span>
+	    <section>
+	    <span aria-describedby="software-development-services">
+	      Software Development
+	    </span>
+	    <div role="tooltip" id="software-development-services">
+	      <ul class="software-services">
+		<li class="software-service">
+		  <span>web development</span>
+		</li>
+		<li class="software-service">
+		  <span>scientific computing</span>
+		</li>
+		<li class="software-service">
+		  <span>low-level programming</span>
+		</li>
+		<li class="software-service">
+		  <span>game development</span>
+		</li>
+	      </ul>
+	    </div>
+	  </section>
 	  </li>
 	</ul>
       </div>
