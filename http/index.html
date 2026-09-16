@@ -63,9 +63,10 @@ STEM:
       --div-dropdown-height: 256px;
       --container-color: #000000;
       --inner-color: #b8b8b8;
+      --header-color: #f4c3cb;
     }
     html {
-      font-family: sans-serif;
+      font-family: Noto Sans, sans-serif;
     }
     .container {
       background-color: var(--container-color);
@@ -101,6 +102,9 @@ STEM:
     .head-wrapper {
       display: flex;
       flex-direction: row;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      background-color: var(--header-color);
       justify-content: space-between;
       align-items: center;
     }
@@ -130,6 +134,7 @@ STEM:
       margin: 0px;
     }
     .subtitle {
+      font-weight: 600;
       margin: 0px;
       margin-top: 6px;
       margin-bottom: 4px;
@@ -137,6 +142,7 @@ STEM:
     .sim {
       margin: 0px;
       margin-top: 2px;
+      border-width: 0px;
       box-sizing: border-box;
     }
     .outline {
@@ -148,6 +154,7 @@ STEM:
       flex-flow: row wrap;
       justify-content: space-around;
       align-items: center;
+      background-color: black;
     }
     #nav-wrapper {
       position: relative;
