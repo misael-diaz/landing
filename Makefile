@@ -74,6 +74,10 @@ $(UPRM_SO): $(UPRM_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(UPRM_CXX) -o $(UPRM_SO)
 
+$(STYLEBLOGS_SO): $(STYLEBLOGS_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(STYLEBLOGS_CXX) -o $(STYLEBLOGS_SO)
+
 $(STEM_SO): $(STEM_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(STEM_CXX) -o $(STEM_SO)
