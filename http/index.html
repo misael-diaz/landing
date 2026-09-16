@@ -61,15 +61,41 @@ STEM:
       --img-logo-height: var(--img-logo-width);
       --nav-bar-height: 48px;
       --div-dropdown-height: 256px;
+      --container-color: #000000;
+      --inner-color: #b8b8b8;
     }
     html {
       font-family: sans-serif;
+    }
+    .container {
+      background-color: var(--container-color);
+      border: 8px solid var(--container-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+      top: 0px;
+      z-index: 1;
+    }
+    .inner {
+      background-color: var(--inner-color);
+      border: 16px solid var(--inner-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+      top: 0px;
+      z-index: 1;
     }
     .main-wrapper {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 100%;
+      background-color: white;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 8px;
+      position: relative;
+      top: 0px;
+      z-index: 1;
     }
     .head-wrapper {
       display: flex;
@@ -110,6 +136,7 @@ STEM:
     .sim {
       margin: 0px;
       margin-top: 2px;
+      box-sizing: border-box;
     }
     .outline {
       background-color: white;
@@ -118,10 +145,22 @@ STEM:
     #nav-wrapper {
       position: relative;
       align-items: center;
-      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      box-sizing: border-box;
       height: var(--nav-bar-height);
       top: 0px;
       left: 0px;
+      z-index: 2;
+    }
+    .footer {
+      background-color: white;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      position: relative;
+      top: 0px;
       z-index: 1;
     }
     #navbar {
@@ -143,7 +182,6 @@ STEM:
       position: relative;
       top: 0px;
       left: 0px;
-      outline: 1px solid black;
     }
     .dropdown-wrapper {
       display: flex;
@@ -156,7 +194,7 @@ STEM:
     }
     #notice {
       display: flex;
-      width: 100%;
+      box-sizing: border-box;
       height: var(--div-dropdown-height);
       justify-content: center;
       align-items: center;
@@ -240,9 +278,6 @@ STEM:
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      width: 100%;
-      top: 2px;
     }
     .whatsapp {
       display: flex;
@@ -297,7 +332,7 @@ STEM:
       transition: visibility 0.5s;
       border-radius: 0.25rem;
       padding: 0.3rem;
-      top: -64px;
+      top: -80px;
       left: -32px;
       z-index: 4;
     }
@@ -462,6 +497,8 @@ STEM:
     </script>
   </head>
   <body>
+  <div class="container">
+  <div class="inner">
   <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
@@ -487,7 +524,6 @@ STEM:
       class="sim"
       src="https://youtube.com/embed/BrQCCio_Z5c?playlist=BrQCCio_Z5c&autoplay=1&mute=1&loop=1"
       height=256px
-      width=100%
       loading="eager"
     >
     </iframe>
@@ -1012,11 +1048,11 @@ STEM:
 	</ul>
       </div>
     </div>
-
+    </div>
+    <div class="footer">
     <section id="notice">
       <p>Building this webpage with <strong>Real Intelligence</strong>.</p>
     </section>
-
     <footer>
       <div class="whatsapp">
 	<a href="https://api.whatsapp.com/send?phone=3052396265">
@@ -1100,6 +1136,8 @@ STEM:
       </div>
       </div>
     </footer>
+    </div>
+    </div>
     </div>
   </body>
 </html>
