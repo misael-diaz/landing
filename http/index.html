@@ -13,6 +13,15 @@
     <style>
 /*
 TODO:
+CONTENT:
+[-] people interested in your services should be able to see an overview for each service,
+consider using a tooltip, dialog, or another element to achieve this. ADD DIALOG TO SHOW
+INFO FOR INTERESTED VIEWERS
+[ ] for experience you may also want to use a tooltip to give visitors a better idea
+of your roles and responsibilities (for instance)
+[ ] add About Me section
+STYLE:
+[x] add padding to navbar items, this will probably mean to adjust the navbar height
 PROJECTS:
 [ ] microbit projects with C/C++, I think it would be a great experience for teaching
 students about the cool stuff that they can do with microbit and so I am liking here
@@ -47,7 +56,7 @@ https://www.youtube.com/watch?v=m8tQLMyUruc&t=474s
 that's how it would look like.
 
 BLOGS:
-[ ] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
+[x] write short blogs of command-line tools that you use often (networking, gdb cmds, nodejs update, etc.)
 STEM:
 [ ] add solved exercises so that users interested in STEM tutoring services can see your craft
 */
@@ -56,19 +65,50 @@ STEM:
       --img-logo-height: var(--img-logo-width);
       --nav-bar-height: 48px;
       --div-dropdown-height: 256px;
+      --container-color: #000000;
+      --inner-color: #b8b8b8;
+      --header-color: #f4c3cb;
     }
     html {
-      font-family: sans-serif;
+      font-family: Noto Sans, sans-serif;
+    }
+    .container {
+      background-color: var(--container-color);
+      border: 8px solid var(--container-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+      top: 0px;
+      z-index: 1;
+    }
+    .inner {
+      background-color: var(--inner-color);
+      border: 16px solid var(--inner-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+      top: 0px;
+      z-index: 1;
     }
     .main-wrapper {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 100%;
+      background-color: white;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      position: relative;
+      top: 0px;
+      z-index: 1;
     }
     .head-wrapper {
       display: flex;
       flex-direction: row;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      background-color: var(--header-color);
       justify-content: space-between;
       align-items: center;
     }
@@ -98,6 +138,7 @@ STEM:
       margin: 0px;
     }
     .subtitle {
+      font-weight: 600;
       margin: 0px;
       margin-top: 6px;
       margin-bottom: 4px;
@@ -105,18 +146,39 @@ STEM:
     .sim {
       margin: 0px;
       margin-top: 2px;
+      border-width: 0px;
+      box-sizing: border-box;
     }
     .outline {
       background-color: white;
       outline: 1px solid black;
     }
+    .videos {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+      background-color: black;
+    }
     #nav-wrapper {
       position: relative;
       align-items: center;
-      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      box-sizing: border-box;
       height: var(--nav-bar-height);
       top: 0px;
       left: 0px;
+      z-index: 2;
+    }
+    .footer {
+      background-color: white;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      position: relative;
+      top: 0px;
       z-index: 1;
     }
     #navbar {
@@ -138,7 +200,6 @@ STEM:
       position: relative;
       top: 0px;
       left: 0px;
-      outline: 1px solid black;
     }
     .dropdown-wrapper {
       display: flex;
@@ -151,7 +212,7 @@ STEM:
     }
     #notice {
       display: flex;
-      width: 100%;
+      box-sizing: border-box;
       height: var(--div-dropdown-height);
       justify-content: center;
       align-items: center;
@@ -171,6 +232,7 @@ STEM:
       font-weight: bolder;
       position: relative;
       transition: background-color 0.5s;
+      padding: 2px;
     }
     .menu-item-label:hover {
       background-color: #d0d0d0;
@@ -221,6 +283,7 @@ STEM:
       border-radius: 0.25rem;
       padding: 0.3rem;
       top: 2px;
+      z-index: 4;
     }
     [aria-describedby]:hover {
       position: relative;
@@ -234,9 +297,6 @@ STEM:
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      width: 100%;
-      top: 2px;
     }
     .whatsapp {
       display: flex;
@@ -282,6 +342,44 @@ STEM:
     }
     .icon:hover {
       background-color: white;
+    }
+    button {
+      background-color: white;
+      border: 0px;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+    button [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -80px;
+      left: -32px;
+      z-index: 4;
+    }
+    dialog {
+      border: 1px solid black;
+      border-radius: 16px;
+    }
+    .stem-services, .software-services {
+      list-style: none;
+      display: grid;
+      grid-gap: 8px;
+      grid-template-columns: 1fr 1fr;
+      padding: 0px;
+    }
+    .stem-service, .software-service {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: 0.5px solid white;
+      text-align: center;
     }
     </style>
     <script type="module">
@@ -429,6 +527,8 @@ STEM:
     </script>
   </head>
   <body>
+  <div class="container">
+  <div class="inner">
   <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
@@ -450,14 +550,30 @@ STEM:
 	</img>
       </div>
     </div>
+    <div class="videos">
+    <iframe
+      class="sim"
+      https://youtu.be/MSf5etK1ojw
+      src="https://youtube.com/embed/MSf5etK1ojw?playlist=MSf5etK1ojw&autoplay=1&mute=1&loop=1"
+      height=256px
+      loading="eager"
+    >
+    </iframe>
     <iframe
       class="sim"
       src="https://youtube.com/embed/BrQCCio_Z5c?playlist=BrQCCio_Z5c&autoplay=1&mute=1&loop=1"
       height=256px
-      width=100%
       loading="eager"
     >
     </iframe>
+    <iframe
+      class="sim"
+      src="https://youtube.com/embed/sG_bC1cu2FA?playlist=sG_bC1cu2FA&autoplay=1&mute=1&loop=1"
+      height=256px
+      loading="eager"
+    >
+    </iframe>
+    </div>
   </div>
     <div id="nav-wrapper">
     <nav id="navbar">
@@ -496,7 +612,67 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>STEM Tutoring</span>
+	    <button command="show-modal" commandfor="stem-dialog">
+	    <span aria-describedby="stem-tutoring-services">STEM Tutoring</span>
+	    <div role="tooltip" id="stem-tutoring-services">
+	      <ul class="stem-services">
+		<li class="stem-service">
+		  <span>
+		    theory
+		  </span>
+		</li>
+		<li class="stem-service">
+		  <span>practice problems</span>
+		<li class="stem-service">
+		  <span>science projects</span>
+		</li>
+		<li class="stem-service">
+		  <span>tech projects</span>
+		</li>
+	      </ul>
+	    </div>
+	    </button>
+	    <dialog id="stem-dialog" closedby="any">
+	      <h2 style="text-align: center">STEM Tutoring</h2>
+	      <div style="display: flex; align-items: center; justify-content: space-around; border-top: 1px solid black; border-bottom: 1px solid black; width: 80%; justify-self: center">
+	      <h3 style="text-align: center; margin: 16px">Teaching Philosophy</h3>
+	      <p style="text-align: justify; width: 90%; margin: 16px">
+		Students are eager to learn what interest them, and thus, the key to
+		teaching them is to persuade them about the importance of the
+		field of study. After that understanding is easier and the
+		drive to solve problems comes off naturally. In spirit, that's how
+		approach teaching, and that's how I have been teaching over the years
+		because it just works.
+	      </p>
+	      </div>
+	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
+	      <ul style="list-style: none; padding: 0px; display: grid; grid-template-columns: 1fr 1fr">
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One hour session for concept learning and reinforcement
+		    with the student.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One hour session for problem solving with the student.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One to two-hour sessions dedicated to the development of scientific
+		    fair or engineering projects.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    STEM lab projects that could encompass a combination of web
+		    development, embedded devices programming, game development and
+		    other areas of interest to the student.
+		  </span>
+		</li>
+	      </ul>
+	    </dialog>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -540,7 +716,27 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Software Development</span>
+	    <button>
+	    <span aria-describedby="software-development-services">
+	      Software Development
+	    </span>
+	    <div role="tooltip" id="software-development-services">
+	      <ul class="software-services">
+		<li class="software-service">
+		  <span>web development</span>
+		</li>
+		<li class="software-service">
+		  <span>scientific computing</span>
+		</li>
+		<li class="software-service">
+		  <span>low-level programming</span>
+		</li>
+		<li class="software-service">
+		  <span>game development</span>
+		</li>
+	      </ul>
+	    </div>
+	  </button>
 	  </li>
 	</ul>
       </div>
@@ -960,11 +1156,11 @@ STEM:
 	</ul>
       </div>
     </div>
-
+    </div>
+    <div class="footer">
     <section id="notice">
       <p>Building this webpage with <strong>Real Intelligence</strong>.</p>
     </section>
-
     <footer>
       <div class="whatsapp">
 	<a href="https://api.whatsapp.com/send?phone=3052396265">
@@ -1048,6 +1244,8 @@ STEM:
       </div>
       </div>
     </footer>
+    </div>
+    </div>
     </div>
   </body>
 </html>
