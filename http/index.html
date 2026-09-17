@@ -404,6 +404,12 @@ STEM:
       width: 80%;
       justify-self: center;
     }
+    .stem-services-dialog {
+      list-style: none;
+      padding: 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr
+    }
     .stem-service-dialog {
       display: flex;
       flex-direction: row;
@@ -681,7 +687,7 @@ STEM:
 	      </p>
 	      </div>
 	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
-	      <ul style="list-style: none; padding: 0px; display: grid; grid-template-columns: 1fr 1fr">
+	      <ul class="stem-services-dialog">
 		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One hour session for concept learning and reinforcement
