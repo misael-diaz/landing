@@ -13,6 +13,13 @@
     <style>
 /*
 TODO:
+[ ] consider adding some description to the youtube videos like an alt for images,
+something that helps users know what these videos are about from the webpage itself
+[ ] consider adding a background image, only the border gap of the page would be visible,
+think about it
+[x] show only one video, the Brownian dynamics video on mobile devices instead of three which is fine for desktop
+[x] tooltips for STEM and software development need also to be adjusted for desktop, the
+current style looks good on mobile
 CONTENT:
 [-] people interested in your services should be able to see an overview for each service,
 consider using a tooltip, dialog, or another element to achieve this. ADD DIALOG TO SHOW
@@ -65,7 +72,7 @@ STEM:
       --img-logo-height: var(--img-logo-width);
       --nav-bar-height: 48px;
       --div-dropdown-height: 256px;
-      --container-color: #000000;
+      --container-color: #ffffff;
       --inner-color: #ffffff;
       --header-color: #ffffff;
     }
@@ -96,7 +103,7 @@ STEM:
       justify-content: space-between;
       background-color: white;
       box-sizing: border-box;
-      border: 1px solid black;
+      border: 2px solid black;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       position: relative;
@@ -151,7 +158,9 @@ STEM:
     }
     .outline {
       background-color: white;
-      outline: 1px solid black;
+      outline: 1.5px solid black;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
     .videos {
       display: flex;
@@ -160,11 +169,18 @@ STEM:
       align-items: center;
       background-color: black;
     }
+    @media screen and (width <= 650px) {
+      .video-mobile {
+	position: absolute;
+	visibility: hidden;
+      }
+    }
     #nav-wrapper {
       position: relative;
       align-items: center;
-      background-color: white;
-      border: 1px solid black;
+      background-color: #cbe9ac;
+      border-left: 2px solid black;
+      border-right: 2px solid black;
       box-sizing: border-box;
       height: var(--nav-bar-height);
       top: 0px;
@@ -174,7 +190,7 @@ STEM:
     .footer {
       background-color: white;
       box-sizing: border-box;
-      border: 1px solid black;
+      border: 2px solid black;
       border-bottom-right-radius: 8px;
       border-bottom-left-radius: 8px;
       position: relative;
@@ -210,16 +226,17 @@ STEM:
       z-index: 2;
       transition: outline 0.2s, background-color 0.2s;
     }
-    #notice {
+    #aboutme {
       display: flex;
-      box-sizing: border-box;
+      flex-direction: column;
       height: var(--div-dropdown-height);
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      background-color: white;
       position: relative;
       top: 2px;
       left: 0px;
-      background-color: white;
       z-index: 1;
     }
     .menu-item {
@@ -235,7 +252,7 @@ STEM:
       padding: 2px;
     }
     .menu-item-label:hover {
-      background-color: #d0d0d0;
+      text-decoration: underline;
     }
     .dropdown-visibility {
       visibility: hidden;
@@ -303,10 +320,20 @@ STEM:
       flex-direction: row;
       justify-content: space-around;
       margin: 0px;
+      margin-top: 4px;
       margin-bottom: 8px;
       position: relative;
       width: 100%;
       top: 2px;
+    }
+    .whatsapp-img {
+      display: block;
+      box-shadow: 0 0 0 2px white;
+      border-radius: 4px;
+    }
+    .whatsapp-img:hover {
+      box-shadow: 0 0 0 2px #0fd805;
+      transition: box-shadow 0.4s;
     }
     .bottom {
       display: flex;
@@ -347,9 +374,21 @@ STEM:
       background-color: white;
       border: 0px;
     }
-    button:hover {
+    button span:hover {
       text-decoration: underline;
     }
+    .close {
+      font-weight: 550;
+      display:block;
+      justify-self: right;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px black;
+    }
+    .close:hover {
+      box-shadow: 0 0 0 2px red;
+      transition: box-shadow 0.5s;
+    }
+    @media screen and (width <= 650px) {
     button [role="tooltip"] {
       visibility: hidden;
       position: absolute;
@@ -358,13 +397,36 @@ STEM:
       transition: visibility 0.5s;
       border-radius: 0.25rem;
       padding: 0.3rem;
-      top: -80px;
+      top: -64px;
       left: -32px;
       z-index: 4;
+    }
+    }
+    @media screen and (width > 650px) {
+    button [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -48px;
+      left: -32px;
+      z-index: 4;
+    }
     }
     dialog {
       border: 1px solid black;
       border-radius: 16px;
+      max-width: 800px;
+    }
+    dialog::backdrop {
+      background-color: black;
+    }
+    .stem-label {
+      font-size: medium;
+      font-weight: 500;
     }
     .stem-services, .software-services {
       list-style: none;
@@ -380,6 +442,34 @@ STEM:
       align-items: center;
       border: 0.5px solid white;
       text-align: center;
+    }
+    .teaching-philosophy {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      width: 80%;
+      justify-self: center;
+    }
+    .stem-services-dialog {
+      list-style: none;
+      padding: 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr
+    }
+    .stem-service-dialog {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 4px;
+      border-radius: 8px;
+      border: 1.2px solid white;
+      box-shadow: 0 0 0 1.2px black;
+    }
+    .stem-service-dialog:hover {
+      box-shadow: 0 0 0 2px #2b73f7;
+      transition: box-shadow 0.5s;
     }
     </style>
     <script type="module">
@@ -552,7 +642,7 @@ STEM:
     </div>
     <div class="videos">
     <iframe
-      class="sim"
+      class="video-mobile sim"
       https://youtu.be/MSf5etK1ojw
       src="https://youtube.com/embed/MSf5etK1ojw?playlist=MSf5etK1ojw&autoplay=1&mute=1&loop=1"
       height=256px
@@ -567,7 +657,7 @@ STEM:
     >
     </iframe>
     <iframe
-      class="sim"
+      class="video-mobile sim"
       src="https://youtube.com/embed/sG_bC1cu2FA?playlist=sG_bC1cu2FA&autoplay=1&mute=1&loop=1"
       height=256px
       loading="eager"
@@ -613,7 +703,9 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span aria-describedby="stem-tutoring-services">STEM Tutoring</span>
+	    <span class="stem-label" aria-describedby="stem-tutoring-services">
+	      STEM Tutoring
+	    </span>
 	    <div role="tooltip" id="stem-tutoring-services">
 	      <ul class="stem-services">
 		<li class="stem-service">
@@ -633,46 +725,69 @@ STEM:
 	    </div>
 	    </button>
 	    <dialog id="stem-dialog" closedby="any">
+	      <button class="close" command="close" commandfor="stem-dialog" autofocus>
+		x
+	      </button>
+	      <div style="display: flex; flex-flow: row wrap; justify-content: space-around; align-items: center; width: 80%; justify-self: center; margin: 8px">
+	      <img
+		class="banner"
+		loading="eager"
+		src="public/logos/stem.png"
+		alt="drawing of Einstein's famous equation written on a green chalk board"
+		height=64px
+	      >
+	      </img>
 	      <h2 style="text-align: center">STEM Tutoring</h2>
-	      <div style="display: flex; align-items: center; justify-content: space-around; border-top: 1px solid black; border-bottom: 1px solid black; width: 80%; justify-self: center">
+	      </div>
+	      <div class="teaching-philosophy">
 	      <h3 style="text-align: center; margin: 16px">Teaching Philosophy</h3>
 	      <p style="text-align: justify; width: 90%; margin: 16px">
-		Students are eager to learn what interest them, and thus, the key to
-		teaching them is to persuade them about the importance of the
-		field of study. After that understanding is easier and the
-		drive to solve problems comes off naturally. In spirit, that's how
-		approach teaching, and that's how I have been teaching over the years
-		because it just works.
+		Students are eager to learn what interest them, and so, my key to
+		teaching them is to persuade them early on about the importance of the
+		field of study. After having students understand the importance of
+		what they are learning, I have seen them engage with the subject
+		more intently out of the own volition. To me there's nothing more
+		rewarding than seeing my students take off on their own and become
+		their own teachers and the teachers of their peers.
 	      </p>
 	      </div>
 	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
-	      <ul style="list-style: none; padding: 0px; display: grid; grid-template-columns: 1fr 1fr">
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+	      <ul class="stem-services-dialog">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One hour session for concept learning and reinforcement
 		    with the student.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One hour session for problem solving with the student.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One to two-hour sessions dedicated to the development of scientific
-		    fair or engineering projects.
+		    fair or engineering project.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    STEM lab projects that could encompass a combination of web
 		    development, embedded devices programming, game development and
-		    other areas of interest to the student.
+		    any other areas of interest to the student.
 		  </span>
 		</li>
 	      </ul>
 	    </dialog>
+	  </li>
+	  <li class="dropdown-item">
+	    <span style="background-color: black; color: white; width: 32px; height: 32px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; border: 1px solid gray; border-radius: 50%; box-sizing: border-box">
+	      A
+	    </span>
+	    <span aria-describedby="english-tutoring-services">English Tutoring</span>
+	    <div role="tooltip" id="english-tutoring-services">
+	      <span style="font-size: small">Conversational English</span>
+	    </div>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -683,7 +798,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Thesis Reviewing</span>
+	    <span class="stem-label">Thesis Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -694,7 +809,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Scientific Article Reviewing</span>
+	    <span class="stem-label">Scientific Article Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -705,7 +820,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Scientific Modelling and Simulation</span>
+	    <span class="stem-label">Scientific Modelling and Simulation</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -717,7 +832,7 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span aria-describedby="software-development-services">
+	    <span class="stem-label" aria-describedby="software-development-services">
 	      Software Development
 	    </span>
 	    <div role="tooltip" id="software-development-services">
@@ -1158,14 +1273,23 @@ STEM:
     </div>
     </div>
     <div class="footer">
-    <section id="notice">
-      <p>Building this webpage with <strong>Real Intelligence</strong>.</p>
+    <section id="aboutme">
+      <p style="text-align: center">
+	I enjoy working at the <em>edge</em> of <strong>multiple disciplines</strong>,
+	the <em>technological</em> and <em>artistic</em> aspects
+	of <strong>software development</strong>, and
+	<span style="text-decoration: underline">photography</span>.
+      </p>
+      <p>
+	This <em>webpage</em> is undergoing development with
+	<strong>Real Intelligence</strong>.
+      </p>
     </section>
     <footer>
       <div class="whatsapp">
 	<a href="https://api.whatsapp.com/send?phone=3052396265">
 	  <img
-	    style="display: block"
+	    class="whatsapp-img"
 	    loading="eager"
 	    src="public/logos/whatsapp.png"
 	    alt="Logo of WhatsApp"
