@@ -404,6 +404,14 @@ STEM:
       width: 80%;
       justify-self: center;
     }
+    .stem-service-dialog {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 4px;
+      border-radius: 4px;
+      border: 1px solid black;
+    }
     </style>
     <script type="module">
     {
@@ -674,24 +682,24 @@ STEM:
 	      </div>
 	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
 	      <ul style="list-style: none; padding: 0px; display: grid; grid-template-columns: 1fr 1fr">
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One hour session for concept learning and reinforcement
 		    with the student.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One hour session for problem solving with the student.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    One to two-hour sessions dedicated to the development of scientific
 		    fair or engineering project.
 		  </span>
 		</li>
-		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		<li class="stem-service-dialog">
 		  <span style="padding: 4px">
 		    STEM lab projects that could encompass a combination of web
 		    development, embedded devices programming, game development and
