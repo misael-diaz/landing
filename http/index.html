@@ -398,6 +398,10 @@ STEM:
     dialog::backdrop {
       background-color: black;
     }
+    .stem-label {
+      font-size: medium;
+      font-weight: 500;
+    }
     .stem-services, .software-services {
       list-style: none;
       display: grid;
@@ -673,7 +677,7 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span aria-describedby="stem-tutoring-services">STEM Tutoring</span>
+	    <span class="stem-label" aria-describedby="stem-tutoring-services">STEM Tutoring</span>
 	    <div role="tooltip" id="stem-tutoring-services">
 	      <ul class="stem-services">
 		<li class="stem-service">
@@ -757,7 +761,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Thesis Reviewing</span>
+	    <span class="stem-label">Thesis Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -768,7 +772,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Scientific Article Reviewing</span>
+	    <span class="stem-label">Scientific Article Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -779,7 +783,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span>Scientific Modelling and Simulation</span>
+	    <span class="stem-label">Scientific Modelling and Simulation</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -791,7 +795,7 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span aria-describedby="software-development-services">
+	    <span class="stem-label" aria-describedby="software-development-services">
 	      Software Development
 	    </span>
 	    <div role="tooltip" id="software-development-services">
