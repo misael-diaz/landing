@@ -15,7 +15,7 @@
 TODO:
 [ ] consider adding a background image, only the border gap of the page would be visible,
 think about it
-[ ] show only one video, the Brownian dynamics video on mobile devices instead of three which is fine for desktop
+[x] show only one video, the Brownian dynamics video on mobile devices instead of three which is fine for desktop
 [ ] tooltips for STEM and software development need also to be adjusted for desktop, the
 current style looks good on mobile
 CONTENT:
@@ -166,6 +166,12 @@ STEM:
       justify-content: space-around;
       align-items: center;
       background-color: black;
+    }
+    @media screen and (width <= 650px) {
+      .video-mobile {
+	position: absolute;
+	visibility: hidden;
+      }
     }
     #nav-wrapper {
       position: relative;
@@ -618,7 +624,7 @@ STEM:
     </div>
     <div class="videos">
     <iframe
-      class="sim"
+      class="video-mobile sim"
       https://youtu.be/MSf5etK1ojw
       src="https://youtube.com/embed/MSf5etK1ojw?playlist=MSf5etK1ojw&autoplay=1&mute=1&loop=1"
       height=256px
@@ -633,7 +639,7 @@ STEM:
     >
     </iframe>
     <iframe
-      class="sim"
+      class="video-mobile sim"
       src="https://youtube.com/embed/sG_bC1cu2FA?playlist=sG_bC1cu2FA&autoplay=1&mute=1&loop=1"
       height=256px
       loading="eager"
