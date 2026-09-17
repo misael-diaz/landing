@@ -18,7 +18,7 @@ something that helps users know what these videos are about from the webpage its
 [ ] consider adding a background image, only the border gap of the page would be visible,
 think about it
 [x] show only one video, the Brownian dynamics video on mobile devices instead of three which is fine for desktop
-[ ] tooltips for STEM and software development need also to be adjusted for desktop, the
+[x] tooltips for STEM and software development need also to be adjusted for desktop, the
 current style looks good on mobile
 CONTENT:
 [-] people interested in your services should be able to see an overview for each service,
@@ -388,6 +388,7 @@ STEM:
       box-shadow: 0 0 0 2px red;
       transition: box-shadow 0.5s;
     }
+    @media screen and (width <= 650px) {
     button [role="tooltip"] {
       visibility: hidden;
       position: absolute;
@@ -396,9 +397,24 @@ STEM:
       transition: visibility 0.5s;
       border-radius: 0.25rem;
       padding: 0.3rem;
-      top: -80px;
+      top: -64px;
       left: -32px;
       z-index: 4;
+    }
+    }
+    @media screen and (width > 650px) {
+    button [role="tooltip"] {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -48px;
+      left: -32px;
+      z-index: 4;
+    }
     }
     dialog {
       border: 1px solid black;
