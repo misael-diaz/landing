@@ -14,10 +14,14 @@
 /*
 TODO:
 CONTENT:
-[ ] people interested in your services should be able to see an overview for each service,
-consider using a tooltip, dialog, or another element to achieve this
+[-] people interested in your services should be able to see an overview for each service,
+consider using a tooltip, dialog, or another element to achieve this. ADD DIALOG TO SHOW
+INFO FOR INTERESTED VIEWERS
+[ ] for experience you may also want to use a tooltip to give visitors a better idea
+of your roles and responsibilities (for instance)
+[ ] add About Me section
 STYLE:
-[ ] add padding to navbar items, this will probably mean to adjust the navbar height
+[x] add padding to navbar items, this will probably mean to adjust the navbar height
 PROJECTS:
 [ ] microbit projects with C/C++, I think it would be a great experience for teaching
 students about the cool stuff that they can do with microbit and so I am liking here
@@ -339,7 +343,14 @@ STEM:
     .icon:hover {
       background-color: white;
     }
-    section [role="tooltip"] {
+    button {
+      background-color: white;
+      border: 0px;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+    button [role="tooltip"] {
       visibility: hidden;
       position: absolute;
       background: #202020;
@@ -350,6 +361,10 @@ STEM:
       top: -80px;
       left: -32px;
       z-index: 4;
+    }
+    dialog {
+      border: 1px solid black;
+      border-radius: 16px;
     }
     .stem-services, .software-services {
       list-style: none;
@@ -597,7 +612,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <section>
+	    <button command="show-modal" commandfor="stem-dialog">
 	    <span aria-describedby="stem-tutoring-services">STEM Tutoring</span>
 	    <div role="tooltip" id="stem-tutoring-services">
 	      <ul class="stem-services">
@@ -616,7 +631,48 @@ STEM:
 		</li>
 	      </ul>
 	    </div>
-	    </section>
+	    </button>
+	    <dialog id="stem-dialog" closedby="any">
+	      <h2 style="text-align: center">STEM Tutoring</h2>
+	      <div style="display: flex; align-items: center; justify-content: space-around; border-top: 1px solid black; border-bottom: 1px solid black; width: 80%; justify-self: center">
+	      <h3 style="text-align: center; margin: 16px">Teaching Philosophy</h3>
+	      <p style="text-align: justify; width: 90%; margin: 16px">
+		Students are eager to learn what interest them, and thus, the key to
+		teaching them is to persuade them about the importance of the
+		field of study. After that understanding is easier and the
+		drive to solve problems comes off naturally. In spirit, that's how
+		approach teaching, and that's how I have been teaching over the years
+		because it just works.
+	      </p>
+	      </div>
+	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
+	      <ul style="list-style: none; padding: 0px; display: grid; grid-template-columns: 1fr 1fr">
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One hour session for concept learning and reinforcement
+		    with the student.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One hour session for problem solving with the student.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    One to two-hour sessions dedicated to the development of scientific
+		    fair or engineering projects.
+		  </span>
+		</li>
+		<li style="display: flex; flex-direction: row; align-items: center; margin: 4px; border-radius: 4px; border: 1px solid black">
+		  <span style="padding: 4px">
+		    STEM lab projects that could encompass a combination of web
+		    development, embedded devices programming, game development and
+		    other areas of interest to the student.
+		  </span>
+		</li>
+	      </ul>
+	    </dialog>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -660,7 +716,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <section>
+	    <button>
 	    <span aria-describedby="software-development-services">
 	      Software Development
 	    </span>
@@ -680,7 +736,7 @@ STEM:
 		</li>
 	      </ul>
 	    </div>
-	  </section>
+	  </button>
 	  </li>
 	</ul>
       </div>
