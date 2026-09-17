@@ -351,10 +351,15 @@ STEM:
       text-decoration: underline;
     }
     .close {
+      font-weight: 550;
       display:block;
       justify-self: right;
       border-radius: 50%;
-      box-shadow: 0 0 0 1px black;
+      box-shadow: 0 0 0 2px black;
+    }
+    .close:hover {
+      box-shadow: 0 0 0 2px red;
+      transition: box-shadow 0.5s;
     }
     button [role="tooltip"] {
       visibility: hidden;
