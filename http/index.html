@@ -310,6 +310,15 @@ STEM:
       width: 100%;
       top: 2px;
     }
+    .whatsapp-img {
+      display: block;
+      box-shadow: 0 0 0 2px white;
+      border-radius: 4px;
+    }
+    .whatsapp-img:hover {
+      box-shadow: 0 0 0 2px #0fd805;
+      transition: box-shadow 0.4s;
+    }
     .bottom {
       display: flex;
       justify-content: space-around;
@@ -1213,7 +1222,7 @@ STEM:
       <div class="whatsapp">
 	<a href="https://api.whatsapp.com/send?phone=3052396265">
 	  <img
-	    style="display: block"
+	    class="whatsapp-img"
 	    loading="eager"
 	    src="public/logos/whatsapp.png"
 	    alt="Logo of WhatsApp"
