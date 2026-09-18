@@ -667,7 +667,6 @@ STEM:
       }
 
       function onClickTranslator(e) {
-	console.log(`value: ${this.value}`);
 	const subtitle = document.getElementById("subtitle");
 	const subtitleEnglish = "Computational Physicist | Chemical Engineer | Software Developer | STEM Educator";
 	const subtitleSpanish = "Físico Computacional | Ingeniero Químico | Desarrollador de Software | Instructor STEM";
@@ -715,6 +714,42 @@ STEM:
 	const proudforgerSpanish = "Estoy construyendo esta página desde cero con precisión absoluta.";
 	text = ("english" == this.value)? proudforgerEnglish : proudforgerSpanish;
 	replaceInnerText(proudforger, text);
+
+	const stem = document.getElementById("stem-text");
+	const stemEnglish = "STEM Tutoring";
+	const stemSpanish = "Instructor STEM";
+	text = ("english" == this.value)? stemEnglish : stemSpanish;
+	replaceInnerText(stem, text);
+
+	const englishTutoring = document.getElementById("english-tutoring-text");
+	const englishTutoringEnglish = "English Tutoring";
+	const englishTutoringSpanish = "Clases de Inglés Conversacional";
+	text = ("english" == this.value)? englishTutoringEnglish : englishTutoringSpanish;
+	replaceInnerText(englishTutoring, text);
+
+	const thesisReviewing = document.getElementById("thesis-reviewing-text");
+	const thesisReviewingEnglish = "Thesis Reviewing";
+	const thesisReviewingSpanish = "Revisor de Tesis";
+	text = ("english" == this.value)? thesisReviewingEnglish : thesisReviewingSpanish;
+	replaceInnerText(thesisReviewing, text);
+
+	const scientificArticleReviewing = document.getElementById("scientific-article-reviewing-text");
+	const scientificArticleReviewingEnglish = "Scientific Article Reviewing";
+	const scientificArticleReviewingSpanish = "Revisor de Artículos Científicos";
+	text = ("english" == this.value)? scientificArticleReviewingEnglish : scientificArticleReviewingSpanish;
+	replaceInnerText(scientificArticleReviewing, text);
+
+	const scientificModelling = document.getElementById("scientific-modelling-text");
+	const scientificModellingEnglish = "Scientific Modelling and Simulation";
+	const scientificModellingSpanish = "Modelamiento y Simulaciones Científicas";
+	text = ("english" == this.value)? scientificModellingEnglish : scientificModellingSpanish;
+	replaceInnerText(scientificModelling, text);
+
+	const softwareDevelopment = document.getElementById("software-development-text");
+	const softwareDevelopmentEnglish = "Software Development";
+	const softwareDevelopmentSpanish = "Desarrollo de Software";
+	text = ("english" == this.value)? softwareDevelopmentEnglish : softwareDevelopmentSpanish;
+	replaceInnerText(softwareDevelopment, text);
 
 	e.stopPropagation();
       }
@@ -853,7 +888,7 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span class="stem-label" aria-describedby="stem-tutoring-services">
+	    <span id="stem-text" class="stem-label" aria-describedby="stem-tutoring-services">
 	      STEM Tutoring
 	    </span>
 	    <div role="tooltip" id="stem-tutoring-services">
@@ -934,7 +969,7 @@ STEM:
 	    <span style="background-color: black; color: white; width: 32px; height: 32px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; border: 1px solid gray; border-radius: 50%; box-sizing: border-box">
 	      A
 	    </span>
-	    <span aria-describedby="english-tutoring-services">English Tutoring</span>
+	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
 	      <span style="font-size: small">Conversational English</span>
 	    </div>
@@ -948,7 +983,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Thesis Reviewing</span>
+	    <span id="thesis-reviewing-text" class="stem-label">Thesis Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -959,7 +994,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Scientific Article Reviewing</span>
+	    <span id="scientific-article-reviewing-text" class="stem-label">Scientific Article Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -970,7 +1005,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Scientific Modelling and Simulation</span>
+	    <span id="scientific-modelling-text" class="stem-label">Scientific Modelling and Simulation</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -982,7 +1017,7 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span class="stem-label" aria-describedby="software-development-services">
+	    <span id="software-development-text" class="stem-label" aria-describedby="software-development-services">
 	      Software Development
 	    </span>
 	    <div role="tooltip" id="software-development-services">
