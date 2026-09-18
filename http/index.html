@@ -704,6 +704,18 @@ STEM:
 	text = ("english" == this.value)? seriesEnglish : seriesSpanish;
 	replaceInnerText(series, text);
 
+	const aboutme = document.getElementById("aboutme-text");
+	const aboutmeEnglish = "I enjoy working at the edge of multiple disciplines, the technological and artistic aspects of software development, and photography.";
+	const aboutmeSpanish = "Disfruto trabajar en la frontera de varias profesiones, los aspectos tecnológicos y artísticos del desarrollo de software y la fotografía.";
+	text = ("english" == this.value)? aboutmeEnglish : aboutmeSpanish;
+	replaceInnerText(aboutme, text);
+
+	const proudforger = document.getElementById("proudforger-text");
+	const proudforgerEnglish = "This webpage is undergoing development with Real Intelligence.";
+	const proudforgerSpanish = "Estoy construyendo esta página desde cero con precisión absoluta.";
+	text = ("english" == this.value)? proudforgerEnglish : proudforgerSpanish;
+	replaceInnerText(proudforger, text);
+
 	e.stopPropagation();
       }
 
@@ -1506,13 +1518,13 @@ STEM:
     </div>
     <div class="footer">
     <section id="aboutme">
-      <p style="text-align: center">
+      <p id="aboutme-text" style="text-align: center">
 	I enjoy working at the <em>edge</em> of <strong>multiple disciplines</strong>,
 	the <em>technological</em> and <em>artistic</em> aspects
 	of <strong>software development</strong>, and
 	<span style="text-decoration: underline">photography</span>.
       </p>
-      <p style="text-align: center">
+      <p id="proudforger-text" style="text-align: center">
 	This <em>webpage</em> is undergoing development with
 	<strong>Real Intelligence</strong>.
       </p>
