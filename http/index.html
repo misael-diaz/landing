@@ -13,7 +13,7 @@
     <style>
 /*
 TODO:
-[ ] the navbar height needs to be adjusted for mobile devices, make it taller so that the
+[x] the navbar height needs to be adjusted for mobile devices, make it taller so that the
 dropdown menu won't clip its content and also that means to adjust the positioning of the
 dropdown menu as well
 [ ] consider adding some description to the youtube videos like an alt for images,
@@ -58,6 +58,7 @@ STEM:
       --img-logo-width: 80px;
       --img-logo-height: var(--img-logo-width);
       --navbar-height: 48px;
+      --navbar-mobile-height: 80px;
       --div-dropdown-height: 256px;
       --container-border-size: 8px;
       --container-mobile-border-size: 1px;
@@ -176,7 +177,7 @@ STEM:
 	visibility: hidden;
       }
     }
-    #nav-wrapper {
+    .nav-wrapper {
       position: relative;
       align-items: center;
       background-color: #cbe9ac;
@@ -188,6 +189,11 @@ STEM:
       left: 0px;
       z-index: 2;
     }
+    @media screen and (width <= 650px) {
+    .nav-wrapper-mobile {
+      height: var(--navbar-mobile-height);
+    }
+    }
     .footer {
       background-color: white;
       box-sizing: border-box;
@@ -198,12 +204,17 @@ STEM:
       top: 0px;
       z-index: 1;
     }
-    #navbar {
+    .navbar {
       display: block;
       width: 100%;
       height: var(--navbar-height);
     }
-    #menubar {
+    @media screen and (width <= 650px) {
+    .navbar-mobile {
+      height: var(--navbar-mobile-height);
+    }
+    }
+    .menubar {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -218,6 +229,11 @@ STEM:
       top: 0px;
       left: 0px;
     }
+    @media screen and (width <= 650px) {
+    .menubar-mobile {
+      height: var(--navbar-mobile-height);
+    }
+    }
     .dropdown-wrapper {
       display: flex;
       width: 100%;
@@ -226,6 +242,11 @@ STEM:
       top: var(--navbar-height);
       z-index: 2;
       transition: outline 0.2s, background-color 0.2s;
+    }
+    @media screen and (width <= 650px) {
+    .dropdown-wrapper-mobile {
+      top: var(--navbar-mobile-height);
+    }
     }
     #aboutme {
       display: flex;
@@ -618,8 +639,8 @@ STEM:
     </script>
   </head>
   <body>
-  <div class="container container-mobile">
-  <div class="inner inner-mobile">
+  <div class="container-mobile container">
+  <div class="inner-mobile inner">
   <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
@@ -666,9 +687,9 @@ STEM:
     </iframe>
     </div>
   </div>
-    <div id="nav-wrapper">
-    <nav id="navbar">
-      <menu id="menubar">
+    <div class="nav-wrapper-mobile nav-wrapper">
+    <nav class="navbar-mobile navbar">
+      <menu class="menubar-mobile menubar">
 	<li class="menu-item" id="services-menu">
 	  <span class="menu-item-label">Professional Services</span>
 	</li>
@@ -691,7 +712,7 @@ STEM:
 	</li>
       </menu>
     </nav>
-    <div id="services" class="dropdown-wrapper dropdown-visibility">
+    <div id="services" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -858,7 +879,7 @@ STEM:
       </div>
     </div>
 
-    <div id="experience" class="dropdown-wrapper dropdown-visibility">
+    <div id="experience" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -973,7 +994,7 @@ STEM:
       </div>
     </div>
 
-    <div id="publications" class="dropdown-wrapper dropdown-visibility">
+    <div id="publications" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1121,7 +1142,7 @@ STEM:
       </div>
     </div>
 
-    <div id="series" class="dropdown-wrapper dropdown-visibility">
+    <div id="series" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1158,7 +1179,7 @@ STEM:
       </div>
     </div>
 
-    <div id="blogs" class="dropdown-wrapper dropdown-visibility">
+    <div id="blogs" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1217,7 +1238,7 @@ STEM:
       </div>
     </div>
 
-    <div id="demos" class="dropdown-wrapper dropdown-visibility">
+    <div id="demos" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
