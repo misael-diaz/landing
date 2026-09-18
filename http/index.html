@@ -519,6 +519,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -526,6 +527,7 @@ STEM:
 	    services.classList.add("outline");
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
@@ -536,6 +538,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -543,6 +546,7 @@ STEM:
 	    experience.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
@@ -553,6 +557,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -560,6 +565,26 @@ STEM:
 	    publications.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if ("Software" === name) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
+	    software.classList.remove("dropdown-visibility");
+	    software.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
@@ -570,6 +595,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -578,6 +604,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -587,6 +614,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -595,6 +623,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -603,6 +632,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -611,6 +641,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -626,6 +657,7 @@ STEM:
       const servicesMenu = document.getElementById("services-menu");
       const experienceMenu = document.getElementById("experience-menu");
       const publicationsMenu = document.getElementById("publications-menu");
+      const softwareMenu = document.getElementById("software-menu");
       const blogsMenu = document.getElementById("blogs-menu");
       const demosMenu = document.getElementById("demos-menu");
       const seriesMenu = document.getElementById("series-menu");
@@ -633,6 +665,7 @@ STEM:
       const services = document.getElementById("services");
       const experience = document.getElementById("experience");
       const publications = document.getElementById("publications");
+      const software = document.getElementById("software");
       const blogs = document.getElementById("blogs");
       const demos = document.getElementById("demos");
       const series = document.getElementById("series");
@@ -640,6 +673,7 @@ STEM:
       servicesMenu.addEventListener("mouseover", onMouseOverListener);
       experienceMenu.addEventListener("mouseover", onMouseOverListener);
       publicationsMenu.addEventListener("mouseover", onMouseOverListener);
+      softwareMenu.addEventListener("mouseover", onMouseOverListener);
       blogsMenu.addEventListener("mouseover", onMouseOverListener);
       demosMenu.addEventListener("mouseover", onMouseOverListener);
       seriesMenu.addEventListener("mouseover", onMouseOverListener);
@@ -647,6 +681,7 @@ STEM:
       services.addEventListener("mouseleave", onMouseLeaveListener);
       experience.addEventListener("mouseleave", onMouseLeaveListener);
       publications.addEventListener("mouseleave", onMouseLeaveListener);
+      software.addEventListener("mouseleave", onMouseLeaveListener);
       blogs.addEventListener("mouseleave", onMouseLeaveListener);
       demos.addEventListener("mouseleave", onMouseLeaveListener);
       series.addEventListener("mouseleave", onMouseLeaveListener);
@@ -715,6 +750,9 @@ STEM:
 	</li>
 	<li class="menu-item" id="publications-menu">
 	  <span class="menu-item-mobile-label menu-item-label">Publications</span>
+	</li>
+	<li class="menu-item" id="software-menu">
+	  <span class="menu-item-mobile-label menu-item-label">Software</span>
 	</li>
 	<li class="menu-item" id="series-menu">
 	  <span class="menu-item-mobile-label menu-item-label">Tech Series</span>
@@ -1152,6 +1190,100 @@ STEM:
 	    <a href="http://dx.doi.org/10.1039/D5ME00062A">
 	      Computational Chemistry Agents
 	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="software" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/hydrogen">Hydrogen</a>
+	      <span style="font-size: small">
+		A lightweight http-server for Linux
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/ComputerVisionEngine">
+		Computer Vision Engine
+	      </a>
+	      <span style="font-size: small">
+		A Python interoperable computer vision engine
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/Demo-BDX">BDX</a>
+	      <span style="font-size: small">
+		Particle Simulator
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/packmol">Packmol CLI</a>
+	      <span style="font-size: small">
+		Adds command-line support to packmol
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <span aria-describedby="ingenuity-description-software">
+		Ingenuity
+	      </span>
+	      <div role="tooltip" id="ingenuity-description-software">
+		<span style="font-size: small">unreleased</span>
+	      </div>
+	      <span style="font-size: small">
+		Engineering Problem Generator for Blackboard
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/ChatParser">
+		Whatsapp SQL Ingestor
+	      </a>
+	      <span style="font-size: small">
+		Ingests Whatsapp chats into SQL databases
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/xf86-input-gamepad">
+		Gamepad Driver
+	      </a>
+	      <span style="font-size: small">
+		X11 Input Driver
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/gnu-linux-xlib-game-dev">
+		Space Invaders
+	      </a>
+	      <span style="font-size: small">
+		Linux game inspired on space invaders
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/handmade-hero">
+		Handmade Hero
+	      </a>
+	      <span style="font-size: small">
+		Ports famous game engine to Linux
+	      </span>
+	    </div>
 	  </li>
 	</ul>
       </div>
