@@ -13,6 +13,11 @@
     <style>
 /*
 TODO:
+[x] the exterior margin needs to be smaller on mobile so that the page won't look too long
+[ ] in the about me section you need to make sure that the notice text is centered, it becomes left justified when the screen is smaller
+[ ] the navbar height needs to be adjusted for mobile devices, make it taller so that the
+dropdown menu won't clip its content and also that means to adjust the positioning of the
+dropdown menu as well
 [ ] consider adding some description to the youtube videos like an alt for images,
 something that helps users know what these videos are about from the webpage itself
 [ ] consider adding a background image, only the border gap of the page would be visible,
@@ -72,6 +77,10 @@ STEM:
       --img-logo-height: var(--img-logo-width);
       --nav-bar-height: 48px;
       --div-dropdown-height: 256px;
+      --container-border-size: 8px;
+      --container-mobile-border-size: 1px;
+      --inner-border-size: 16px;
+      --inner-mobile-border-size: 1px;
       --container-color: #ffffff;
       --inner-color: #ffffff;
       --header-color: #ffffff;
@@ -81,21 +90,31 @@ STEM:
     }
     .container {
       background-color: var(--container-color);
-      border: 8px solid var(--container-color);
+      border: var(--container-border-size) solid var(--container-color);
       border-radius: 8px;
       box-sizing: border-box;
       position: relative;
       top: 0px;
       z-index: 1;
     }
+    @media screen and (width <= 650px) {
+      .container-mobile {
+	border: var(--container-mobile-border-size) solid var(--container-color);
+      }
+    }
     .inner {
       background-color: var(--inner-color);
-      border: 16px solid var(--inner-color);
+      border: var(--inner-border-size) solid var(--inner-color);
       border-radius: 8px;
       box-sizing: border-box;
       position: relative;
       top: 0px;
       z-index: 1;
+    }
+    @media screen and (width <= 650px) {
+      .inner-mobile {
+	border: var(--inner-mobile-border-size) solid var(--inner-color);
+      }
     }
     .main-wrapper {
       display: flex;
@@ -617,8 +636,8 @@ STEM:
     </script>
   </head>
   <body>
-  <div class="container">
-  <div class="inner">
+  <div class="container container-mobile">
+  <div class="inner inner-mobile">
   <div class="main-wrapper">
     <div class="head-wrapper">
       <div class="head">
