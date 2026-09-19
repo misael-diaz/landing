@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
@@ -16,6 +15,7 @@ TODO:
 [x] the navbar height needs to be adjusted for mobile devices, make it taller so that the
 dropdown menu won't clip its content and also that means to adjust the positioning of the
 dropdown menu as well
+[ ] consider adding icons to software listed in the dropdown
 [ ] consider adding some description to the youtube videos like an alt for images,
 something that helps users know what these videos are about from the webpage itself
 [ ] consider adding a background image, only the border gap of the page would be visible,
@@ -137,6 +137,13 @@ STEM:
       justify-content: space-between;
       margin: 0px;
       margin-left: 2px;
+    }
+    .language {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      margin: 8px;
     }
     .logo {
       display: flex;
@@ -434,7 +441,7 @@ STEM:
       transition: visibility 0.5s;
       border-radius: 0.25rem;
       padding: 0.3rem;
-      top: -64px;
+      top: -80px;
       left: -32px;
       z-index: 4;
     }
@@ -515,10 +522,11 @@ STEM:
       function onMouseOverListener(e) {
 	if ("SPAN" === e.target.tagName) {
 	  const { innerText: name } = e.target;
-	  if ("Professional Services" === name) {
+	  if (("Professional Services" === name) || ("Servicios Profesionales" === name)) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -526,16 +534,18 @@ STEM:
 	    services.classList.add("outline");
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
-	  else if ("Experience" === name) {
+	  else if (("Experience" === name) || ("Experiencia" === name)) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -543,16 +553,18 @@ STEM:
 	    experience.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
-	  else if ("Publications" === name) {
+	  else if (("Publications" === name) || ("Publicaciones" === name)) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -560,16 +572,37 @@ STEM:
 	    publications.classList.add("outline");
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
 	    return;
 	  }
-	  else if ("Tech Series" === name) {
+	  else if ("Software" === name) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
+	    const series = document.getElementById("series");
+	    const blogs = document.getElementById("blogs");
+	    const demos = document.getElementById("demos");
+	    software.classList.remove("dropdown-visibility");
+	    software.classList.add("outline");
+	    services.classList.add('dropdown-visibility');
+	    experience.classList.add('dropdown-visibility');
+	    publications.classList.add('dropdown-visibility');
+	    series.classList.add('dropdown-visibility');
+	    blogs.classList.add('dropdown-visibility');
+	    demos.classList.add('dropdown-visibility');
+	    e.stopPropagation();
+	    return;
+	  }
+	  else if (("Tech Series" === name) || ("Series IT" === name)) {
+	    const services = document.getElementById("services");
+	    const experience = document.getElementById("experience");
+	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -578,6 +611,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -587,6 +621,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -595,6 +630,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    demos.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -603,6 +639,7 @@ STEM:
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
+	    const software = document.getElementById("software");
 	    const series = document.getElementById("series");
 	    const blogs = document.getElementById("blogs");
 	    const demos = document.getElementById("demos");
@@ -611,6 +648,7 @@ STEM:
 	    services.classList.add('dropdown-visibility');
 	    experience.classList.add('dropdown-visibility');
 	    publications.classList.add('dropdown-visibility');
+	    software.classList.add('dropdown-visibility');
 	    series.classList.add('dropdown-visibility');
 	    blogs.classList.add('dropdown-visibility');
 	    e.stopPropagation();
@@ -623,9 +661,200 @@ STEM:
 	this.classList.add('dropdown-visibility');
 	this.classList.remove('outline');
       }
+
+      function replaceInnerText(e, text) {
+	e.innerText= text;
+      }
+
+      function onClickTranslator(e) {
+	const subtitle = document.getElementById("subtitle");
+	const subtitleEnglish = "Computational Physicist | Chemical Engineer | Software Developer | STEM Educator";
+	const subtitleSpanish = "Físico Computacional | Ingeniero Químico | Desarrollador de Software | Instructor STEM";
+	let text = ("english" == this.value)? subtitleEnglish : subtitleSpanish;
+	replaceInnerText(subtitle, text);
+
+	const languageLabel = document.getElementById("language-label");
+	const languageLabelEnglish = "Language:";
+	const languageLabelSpanish = "Idioma:";
+	text = ("english" == this.value)? languageLabelEnglish : languageLabelSpanish;
+	replaceInnerText(languageLabel, text);
+
+	const services = document.getElementById("services-label");
+	const servicesEnglish = "Professional Services";
+	const servicesSpanish = "Servicios Profesionales";
+	text = ("english" == this.value)? servicesEnglish : servicesSpanish;
+	replaceInnerText(services, text);
+
+	const experience = document.getElementById("experience-label");
+	const experienceEnglish = "Experience";
+	const experienceSpanish = "Experiencia";
+	text = ("english" == this.value)? experienceEnglish : experienceSpanish;
+	replaceInnerText(experience, text);
+
+	const publications = document.getElementById("publications-label");
+	const publicationsEnglish = "Publications";
+	const publicationsSpanish = "Publicaciones";
+	text = ("english" == this.value)? publicationsEnglish : publicationsSpanish;
+	replaceInnerText(publications, text);
+
+	const series = document.getElementById("series-label");
+	const seriesEnglish = "Tech Series";
+	const seriesSpanish = "Series IT";
+	text = ("english" == this.value)? seriesEnglish : seriesSpanish;
+	replaceInnerText(series, text);
+
+	const aboutme = document.getElementById("aboutme-text");
+	const aboutmeEnglish = "I enjoy working at the edge of multiple disciplines, the technological and artistic aspects of software development, and photography.";
+	const aboutmeSpanish = "Disfruto trabajar en la frontera de varias profesiones, los aspectos tecnológicos y artísticos del desarrollo de software y la fotografía.";
+	text = ("english" == this.value)? aboutmeEnglish : aboutmeSpanish;
+	replaceInnerText(aboutme, text);
+
+	const proudforger = document.getElementById("proudforger-text");
+	const proudforgerEnglish = "This webpage is undergoing development with Real Intelligence.";
+	const proudforgerSpanish = "Estoy construyendo esta página desde cero con precisión absoluta.";
+	text = ("english" == this.value)? proudforgerEnglish : proudforgerSpanish;
+	replaceInnerText(proudforger, text);
+
+	const stem = document.getElementById("stem-text");
+	const stemEnglish = "STEM Tutoring";
+	const stemSpanish = "Instructor STEM";
+	text = ("english" == this.value)? stemEnglish : stemSpanish;
+	replaceInnerText(stem, text);
+
+	const englishTutoring = document.getElementById("english-tutoring-text");
+	const englishTutoringEnglish = "English Tutoring";
+	const englishTutoringSpanish = "Clases de Inglés Conversacional";
+	text = ("english" == this.value)? englishTutoringEnglish : englishTutoringSpanish;
+	replaceInnerText(englishTutoring, text);
+
+	const thesisReviewing = document.getElementById("thesis-reviewing-text");
+	const thesisReviewingEnglish = "Thesis Reviewing";
+	const thesisReviewingSpanish = "Revisor de Tesis";
+	text = ("english" == this.value)? thesisReviewingEnglish : thesisReviewingSpanish;
+	replaceInnerText(thesisReviewing, text);
+
+	const scientificArticleReviewing = document.getElementById("scientific-article-reviewing-text");
+	const scientificArticleReviewingEnglish = "Scientific Article Reviewing";
+	const scientificArticleReviewingSpanish = "Revisor de Artículos Científicos";
+	text = ("english" == this.value)? scientificArticleReviewingEnglish : scientificArticleReviewingSpanish;
+	replaceInnerText(scientificArticleReviewing, text);
+
+	const scientificModelling = document.getElementById("scientific-modelling-text");
+	const scientificModellingEnglish = "Scientific Modelling and Simulation";
+	const scientificModellingSpanish = "Modelamiento y Simulaciones Científicas";
+	text = ("english" == this.value)? scientificModellingEnglish : scientificModellingSpanish;
+	replaceInnerText(scientificModelling, text);
+
+	const softwareDevelopment = document.getElementById("software-development-text");
+	const softwareDevelopmentEnglish = "Software Development";
+	const softwareDevelopmentSpanish = "Desarrollo de Software";
+	text = ("english" == this.value)? softwareDevelopmentEnglish : softwareDevelopmentSpanish;
+	replaceInnerText(softwareDevelopment, text);
+
+	const webDeveloper = document.getElementById("web-developer-text");
+	const webDeveloperEnglish = "Web Developer";
+	const webDeveloperSpanish = "Desarrollador Web";
+	text = ("english" == this.value)? webDeveloperEnglish : webDeveloperSpanish;
+	replaceInnerText(webDeveloper, text);
+
+	const softwareDeveloper = document.getElementById("software-developer-text");
+	const softwareDeveloperEnglish = "Software Developer";
+	const softwareDeveloperSpanish = "Desarrollador de Software";
+	text = ("english" == this.value)? softwareDeveloperEnglish : softwareDeveloperSpanish;
+	replaceInnerText(softwareDeveloper, text);
+
+	const auxiliaryProfessor = document.getElementById("auxiliary-professor-text");
+	const auxiliaryProfessorEnglish = "Auxiliary Professor";
+	const auxiliaryProfessorSpanish = "Profesor Auxiliar";
+	text = ("english" == this.value)? auxiliaryProfessorEnglish : auxiliaryProfessorSpanish;
+	replaceInnerText(auxiliaryProfessor, text);
+
+	const fulltimeProfessor = document.getElementById("fulltime-professor-text");
+	const fulltimeProfessorEnglish = "Fulltime Professor";
+	const fulltimeProfessorSpanish = "Profesor";
+	text = ("english" == this.value)? fulltimeProfessorEnglish : fulltimeProfessorSpanish;
+	replaceInnerText(fulltimeProfessor, text);
+
+	const postdoc = document.getElementById("postdoc-text");
+	const postdocEnglish = "Post-Doctoral Researcher";
+	const postdocSpanish = "Investigador Postdoctoral";
+	text = ("english" == this.value)? postdocEnglish : postdocSpanish;
+	replaceInnerText(postdoc, text);
+
+	const researcher = document.getElementById("researcher-text");
+	const researcherEnglish = "Research Internship";
+	const researcherSpanish = "Investigador";
+	text = ("english" == this.value)? researcherEnglish : researcherSpanish;
+	replaceInnerText(researcher, text);
+
+	const internship = document.getElementById("internship-text");
+	const internshipEnglish = "Research Internship";
+	const internshipSpanish = "Investigador";
+	text = ("english" == this.value)? internshipEnglish : internshipSpanish;
+	replaceInnerText(internship, text);
+
+	const teaching = document.getElementById("teaching-text");
+	const teachingEnglish = "Teaching Assistant";
+	const teachingSpanish = "Asistente de Cátedra";
+	text = ("english" == this.value)? teachingEnglish : teachingSpanish;
+	replaceInnerText(teaching, text);
+
+	const hydrogen = document.getElementById("hydrogen-short-text");
+	const hydrogenEnglish = "A lightweight http-server for Linux";
+	const hydrogenSpanish = "servidor ligero de http para Linux";
+	text = ("english" == this.value)? hydrogenEnglish : hydrogenSpanish;
+	replaceInnerText(hydrogen, text);
+
+	const computerVisionEngine = document.getElementById("cve-short-text");
+	const computerVisionEngineEnglish = "A Python interoperable computer vision engine";
+	const computerVisionEngineSpanish = "motor de visión por computadora";
+	text = ("english" == this.value)? computerVisionEngineEnglish : computerVisionEngineSpanish;
+	replaceInnerText(computerVisionEngine, text);
+
+	const simulator = document.getElementById("bdx-short-text");
+	const simulatorEnglish = "Particle Simulator";
+	const simulatorSpanish = "Simulador de Partículas";
+	text = ("english" == this.value)? simulatorEnglish : simulatorSpanish;
+	replaceInnerText(simulator, text);
+
+	const packmol = document.getElementById("packmol-short-text");
+	const packmolEnglish = "Adds command-line support to packmol";
+	const packmolSpanish = "interface de comandos para packmol";
+	text = ("english" == this.value)? packmolEnglish : packmolSpanish;
+	replaceInnerText(packmol, text);
+
+	const blackboard = document.getElementById("blackboard-short-text");
+	const blackboardEnglish = "Engineering Problem Generator for Blackboard";
+	const blackboardSpanish = "generador de bancos de preguntas para Blackboard";
+	text = ("english" == this.value)? blackboardEnglish : blackboardSpanish;
+	replaceInnerText(blackboard, text);
+
+	const whatsapp = document.getElementById("whatsapp-short-text");
+	const whatsappEnglish = "Ingests Whatsapp chats into SQL databases";
+	const whatsappSpanish = "Ingestor SQL de chats de Whatsapp";
+	text = ("english" == this.value)? whatsappEnglish : whatsappSpanish;
+	replaceInnerText(whatsapp, text);
+
+	const invaders = document.getElementById("invaders-short-text");
+	const invadersEnglish = "Linux game inspired on space invaders";
+	const invadersSpanish = "Videojuego inspirado por space invaders";
+	text = ("english" == this.value)? invadersEnglish : invadersSpanish;
+	replaceInnerText(invaders, text);
+
+	const handmadehero = document.getElementById("handmadehero-short-text");
+	const handmadeheroEnglish = "Ports famous game engine to Linux";
+	const handmadeheroSpanish = "Adaptación de motor de videojuego para Linux";
+	text = ("english" == this.value)? handmadeheroEnglish : handmadeheroSpanish;
+	replaceInnerText(handmadehero, text);
+
+	e.stopPropagation();
+      }
+
+      const language = document.getElementById("language-select");
       const servicesMenu = document.getElementById("services-menu");
       const experienceMenu = document.getElementById("experience-menu");
       const publicationsMenu = document.getElementById("publications-menu");
+      const softwareMenu = document.getElementById("software-menu");
       const blogsMenu = document.getElementById("blogs-menu");
       const demosMenu = document.getElementById("demos-menu");
       const seriesMenu = document.getElementById("series-menu");
@@ -633,13 +862,17 @@ STEM:
       const services = document.getElementById("services");
       const experience = document.getElementById("experience");
       const publications = document.getElementById("publications");
+      const software = document.getElementById("software");
       const blogs = document.getElementById("blogs");
       const demos = document.getElementById("demos");
       const series = document.getElementById("series");
 
+      language.addEventListener("click", onClickTranslator);
+
       servicesMenu.addEventListener("mouseover", onMouseOverListener);
       experienceMenu.addEventListener("mouseover", onMouseOverListener);
       publicationsMenu.addEventListener("mouseover", onMouseOverListener);
+      softwareMenu.addEventListener("mouseover", onMouseOverListener);
       blogsMenu.addEventListener("mouseover", onMouseOverListener);
       demosMenu.addEventListener("mouseover", onMouseOverListener);
       seriesMenu.addEventListener("mouseover", onMouseOverListener);
@@ -647,6 +880,7 @@ STEM:
       services.addEventListener("mouseleave", onMouseLeaveListener);
       experience.addEventListener("mouseleave", onMouseLeaveListener);
       publications.addEventListener("mouseleave", onMouseLeaveListener);
+      software.addEventListener("mouseleave", onMouseLeaveListener);
       blogs.addEventListener("mouseleave", onMouseLeaveListener);
       demos.addEventListener("mouseleave", onMouseLeaveListener);
       series.addEventListener("mouseleave", onMouseLeaveListener);
@@ -660,12 +894,19 @@ STEM:
     <div class="head-wrapper">
       <div class="head">
 	<h2 class="title">Misael Díaz-Maldonado, PhD</h2>
-	<p class="subtitle">
+	<p class="subtitle" id="subtitle">
 	  Computational Physicist |
 	  Chemical Engineer |
 	  Software Developer |
 	  STEM Educator
 	</p>
+      </div>
+      <div class="language">
+	<label for="language-select" id="language-label">Language:</label>
+	<select style="background-color: white" name="language" id="language-select">
+	  <option value="english">English</option>
+	  <option value="spanish">Español</option>
+	</select>
       </div>
       <div class="logo">
 	<img
@@ -706,20 +947,21 @@ STEM:
     <nav class="navbar-mobile navbar">
       <menu class="menubar-mobile menubar">
 	<li class="menu-item" id="services-menu">
-	  <span class="menu-item-mobile-label menu-item-label">
+	  <span id="services-label" class="menu-item-mobile-label menu-item-label">
 	    Professional Services
 	  </span>
 	</li>
-
 	<li class="menu-item" id="experience-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Experience</span>
+	  <span id="experience-label" class="menu-item-mobile-label menu-item-label">Experience</span>
 	</li>
-
 	<li class="menu-item" id="publications-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Publications</span>
+	  <span id="publications-label" class="menu-item-mobile-label menu-item-label">Publications</span>
+	</li>
+	<li class="menu-item" id="software-menu">
+	  <span class="menu-item-mobile-label menu-item-label">Software</span>
 	</li>
 	<li class="menu-item" id="series-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Tech Series</span>
+	  <span id="series-label" class="menu-item-mobile-label menu-item-label">Tech Series</span>
 	</li>
 	<li class="menu-item" id="blogs-menu">
 	  <span class="menu-item-mobile-label menu-item-label">Blogs</span>
@@ -742,7 +984,7 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span class="stem-label" aria-describedby="stem-tutoring-services">
+	    <span id="stem-text" class="stem-label" aria-describedby="stem-tutoring-services">
 	      STEM Tutoring
 	    </span>
 	    <div role="tooltip" id="stem-tutoring-services">
@@ -780,7 +1022,7 @@ STEM:
 	      </div>
 	      <div class="teaching-philosophy">
 	      <h3 style="text-align: center; margin: 16px">Teaching Philosophy</h3>
-	      <p style="text-align: justify; width: 90%; margin: 16px">
+	      <p style="text-align: justify; width: 90%; margin: 16px; max-height: 200px; overflow-y: auto">
 		Students are eager to learn what interest them, and so, my key to
 		teaching them is to persuade them early on about the importance of the
 		field of study. After having students understand the importance of
@@ -823,7 +1065,7 @@ STEM:
 	    <span style="background-color: black; color: white; width: 32px; height: 32px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; border: 1px solid gray; border-radius: 50%; box-sizing: border-box">
 	      A
 	    </span>
-	    <span aria-describedby="english-tutoring-services">English Tutoring</span>
+	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
 	      <span style="font-size: small">Conversational English</span>
 	    </div>
@@ -837,7 +1079,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Thesis Reviewing</span>
+	    <span id="thesis-reviewing-text" class="stem-label">Thesis Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -848,7 +1090,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Scientific Article Reviewing</span>
+	    <span id="scientific-article-reviewing-text" class="stem-label">Scientific Article Reviewing</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -859,7 +1101,7 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span class="stem-label">Scientific Modelling and Simulation</span>
+	    <span id="scientific-modelling-text" class="stem-label">Scientific Modelling and Simulation</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -871,7 +1113,7 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span class="stem-label" aria-describedby="software-development-services">
+	    <span id="software-development-text" class="stem-label" aria-describedby="software-development-services">
 	      Software Development
 	    </span>
 	    <div role="tooltip" id="software-development-services">
@@ -907,7 +1149,7 @@ STEM:
 	      alt="shows brand logo, a Janus droplet under shear flow"
 	      height=32px>
 	    </img>
-	    <span>Web Developer<span>
+	    <span id="web-developer-text">Web Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -921,7 +1163,7 @@ STEM:
 	    <div role="tooltip" id="experience-developer-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Software Developer<span>
+	    <span id="software-developer-text">Software Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -935,7 +1177,7 @@ STEM:
 	    <div role="tooltip" id="experience-UN">
 	      <span>Universidad del Norte</span>
 	    </div>
-	    <span>Auxiliary Professor</span>
+	    <span id="auxiliary-professor-text">Auxiliary Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -949,7 +1191,7 @@ STEM:
 	    <div role="tooltip" id="experience-PUPR">
 	      <span>Polytechnic University of Puerto Rico</span>
 	    </div>
-	    <span>Fulltime Professor</span>
+	    <span id="fulltime-professor-text">Fulltime Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -963,7 +1205,7 @@ STEM:
 	    <div role="tooltip" id="experience-postdoc-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Post-Doctoral Researcher</span>
+	    <span id="postdoc-text">Post-Doctoral Researcher</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -977,7 +1219,7 @@ STEM:
 	    <div role="tooltip" id="experience-ICMM">
 	      <span>Institute of the Continuous Media Mechanics</span>
 	    </div>
-	    <span>Research Internship</span>
+	    <span id="researcher-text">Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -991,7 +1233,7 @@ STEM:
 	    <div role="tooltip" id="experience-PSU">
 	      <span>Penn State University</span>
 	    </div>
-	    <span>Research Internship</span>
+	    <span id="internship-text">Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1005,7 +1247,7 @@ STEM:
 	    <div role="tooltip" id="experience-teaching-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Teaching Assistant</span>
+	    <span id="teaching-text">Teaching Assistant</span>
 	  </li>
 	</ul>
       </div>
@@ -1154,6 +1396,100 @@ STEM:
 	    <a href="http://dx.doi.org/10.1039/D5ME00062A">
 	      Computational Chemistry Agents
 	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+
+    <div id="software" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+      <div class="dropdown">
+	<ul class="dropdown-list">
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/hydrogen">Hydrogen</a>
+	      <span id="hydrogen-short-text" style="font-size: small">
+		A lightweight http-server for Linux
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/ComputerVisionEngine">
+		Computer Vision Engine
+	      </a>
+	      <span id="cve-short-text" style="font-size: small">
+		A Python interoperable computer vision engine
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/Demo-BDX">BDX</a>
+	      <span id="bdx-short-text" style="font-size: small">
+		Particle Simulator
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/packmol">Packmol CLI</a>
+	      <span id="packmol-short-text" style="font-size: small">
+		Adds command-line support to packmol
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <span aria-describedby="ingenuity-description-software">
+		Ingenuity
+	      </span>
+	      <div role="tooltip" id="ingenuity-description-software">
+		<span style="font-size: small">unreleased</span>
+	      </div>
+	      <span id="blackboard-short-text" style="font-size: small">
+		Engineering Problem Generator for Blackboard
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/ChatParser">
+		Whatsapp SQL Ingestor
+	      </a>
+	      <span id="whatsapp-short-text" style="font-size: small">
+		Ingests Whatsapp chats into SQL databases
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/xf86-input-gamepad">
+		Gamepad Driver
+	      </a>
+	      <span style="font-size: small">
+		X11 Input Driver
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/gnu-linux-xlib-game-dev">
+		Space Invaders
+	      </a>
+	      <span id="invaders-short-text" style="font-size: small">
+		Linux game inspired on space invaders
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <div class="dropdown-description">
+	      <a href="https://github.com/misael-diaz/handmade-hero">
+		Handmade Hero
+	      </a>
+	      <span id="handmadehero-short-text" style="font-size: small">
+		Ports famous game engine to Linux
+	      </span>
+	    </div>
 	  </li>
 	</ul>
       </div>
@@ -1313,13 +1649,13 @@ STEM:
     </div>
     <div class="footer">
     <section id="aboutme">
-      <p style="text-align: center">
+      <p id="aboutme-text" style="text-align: center">
 	I enjoy working at the <em>edge</em> of <strong>multiple disciplines</strong>,
 	the <em>technological</em> and <em>artistic</em> aspects
 	of <strong>software development</strong>, and
 	<span style="text-decoration: underline">photography</span>.
       </p>
-      <p style="text-align: center">
+      <p id="proudforger-text" style="text-align: center">
 	This <em>webpage</em> is undergoing development with
 	<strong>Real Intelligence</strong>.
       </p>
