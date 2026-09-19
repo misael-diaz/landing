@@ -468,6 +468,15 @@ STEM:
     dialog::backdrop {
       background-color: black;
     }
+    .stem-header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+      justify-self: center;
+      margin: 8px;
+    }
     .stem-label {
       font-size: medium;
       font-weight: 500;
@@ -1130,7 +1139,7 @@ STEM:
 	      <button class="close" command="close" commandfor="stem-dialog" autofocus>
 		x
 	      </button>
-	      <div style="display: flex; flex-flow: row wrap; justify-content: space-around; align-items: center; width: 80%; justify-self: center; margin: 8px">
+	      <div class="stem-header">
 	      <img
 		class="banner"
 		loading="eager"
