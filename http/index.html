@@ -943,6 +943,12 @@ STEM:
 	text = ("english" == this.value)? gamedevEnglish : gamedevSpanish;
 	replaceInnerText(gamedev, text);
 
+	const tooltipEnglishTutoring = document.getElementById("tooltip-english-tutoring-text");
+	const tooltipEnglishTutoringEnglish = "Conversational English";
+	const tooltipEnglishTutoringSpanish = "Inglés Conversacional";
+	text = ("english" == this.value)? tooltipEnglishTutoringEnglish : tooltipEnglishTutoringSpanish;
+	replaceInnerText(tooltipEnglishTutoring, text);
+
 	e.stopPropagation();
       }
 
@@ -1163,7 +1169,7 @@ STEM:
 	    </span>
 	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
-	      <span style="font-size: small">Conversational English</span>
+	      <span id="tooltip-english-tutoring-text" style="font-size: small">Conversational English</span>
 	    </div>
 	  </li>
 	  <li class="dropdown-item">
