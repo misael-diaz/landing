@@ -952,7 +952,7 @@ int HttpResponseScheduler(
 		pid_t pid = clone(
 			HttpRespond,
 			top_stack,
-			CLONE_PTRACE | CLONE_FILES | SIGCHLD,
+			CLONE_PTRACE | SIGCHLD,
 			data
 		);
 		if (-1 == pid) {
@@ -1409,6 +1409,17 @@ int main() {
 				if (HTTP_FAILURE_RC == rc) {
 					freeaddrinfo(ai);
 					_exit(1);
+				}
+				errno = 0;
+				rc = close(sockfd);
+				if (-1 == rc) {
+					if (errno) {
+						fprintf(
+							stderr,
+							"WARNING main: %s\n",
+							strerror(errno)
+						);
+					}
 				}
 			}
 		}
