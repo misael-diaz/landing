@@ -751,6 +751,54 @@ STEM:
 	text = ("english" == this.value)? softwareDevelopmentEnglish : softwareDevelopmentSpanish;
 	replaceInnerText(softwareDevelopment, text);
 
+	const webDeveloper = document.getElementById("web-developer-text");
+	const webDeveloperEnglish = "Web Developer";
+	const webDeveloperSpanish = "Desarrollador Web";
+	text = ("english" == this.value)? webDeveloperEnglish : webDeveloperSpanish;
+	replaceInnerText(webDeveloper, text);
+
+	const softwareDeveloper = document.getElementById("software-developer-text");
+	const softwareDeveloperEnglish = "Software Developer";
+	const softwareDeveloperSpanish = "Desarrollador de Software";
+	text = ("english" == this.value)? softwareDeveloperEnglish : softwareDeveloperSpanish;
+	replaceInnerText(softwareDeveloper, text);
+
+	const auxiliaryProfessor = document.getElementById("auxiliary-professor-text");
+	const auxiliaryProfessorEnglish = "Auxiliary Professor";
+	const auxiliaryProfessorSpanish = "Profesor Auxiliar";
+	text = ("english" == this.value)? auxiliaryProfessorEnglish : auxiliaryProfessorSpanish;
+	replaceInnerText(auxiliaryProfessor, text);
+
+	const fulltimeProfessor = document.getElementById("fulltime-professor-text");
+	const fulltimeProfessorEnglish = "Fulltime Professor";
+	const fulltimeProfessorSpanish = "Profesor";
+	text = ("english" == this.value)? fulltimeProfessorEnglish : fulltimeProfessorSpanish;
+	replaceInnerText(fulltimeProfessor, text);
+
+	const postdoc = document.getElementById("postdoc-text");
+	const postdocEnglish = "Post-Doctoral Researcher";
+	const postdocSpanish = "Investigador Postdoctoral";
+	text = ("english" == this.value)? postdocEnglish : postdocSpanish;
+	replaceInnerText(postdoc, text);
+
+	const researcher = document.getElementById("researcher-text");
+	const researcherEnglish = "Research Internship";
+	const researcherSpanish = "Investigador";
+	text = ("english" == this.value)? researcherEnglish : researcherSpanish;
+	replaceInnerText(researcher, text);
+
+	const internship = document.getElementById("internship-text");
+	const internshipEnglish = "Research Internship";
+	const internshipSpanish = "Investigador";
+	text = ("english" == this.value)? internshipEnglish : internshipSpanish;
+	replaceInnerText(internship, text);
+
+	const teaching = document.getElementById("teaching-text");
+	const teachingEnglish = "Teaching Assistant";
+	const teachingSpanish = "Asistente de Cátedra";
+	text = ("english" == this.value)? teachingEnglish : teachingSpanish;
+	replaceInnerText(teaching, text);
+
 	e.stopPropagation();
       }
 
@@ -1053,7 +1101,7 @@ STEM:
 	      alt="shows brand logo, a Janus droplet under shear flow"
 	      height=32px>
 	    </img>
-	    <span>Web Developer<span>
+	    <span id="web-developer-text">Web Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1067,7 +1115,7 @@ STEM:
 	    <div role="tooltip" id="experience-developer-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Software Developer<span>
+	    <span id="software-developer-text">Software Developer<span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1081,7 +1129,7 @@ STEM:
 	    <div role="tooltip" id="experience-UN">
 	      <span>Universidad del Norte</span>
 	    </div>
-	    <span>Auxiliary Professor</span>
+	    <span id="auxiliary-professor-text">Auxiliary Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1095,7 +1143,7 @@ STEM:
 	    <div role="tooltip" id="experience-PUPR">
 	      <span>Polytechnic University of Puerto Rico</span>
 	    </div>
-	    <span>Fulltime Professor</span>
+	    <span id="fulltime-professor-text">Fulltime Professor</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1109,7 +1157,7 @@ STEM:
 	    <div role="tooltip" id="experience-postdoc-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Post-Doctoral Researcher</span>
+	    <span id="postdoc-text">Post-Doctoral Researcher</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1123,7 +1171,7 @@ STEM:
 	    <div role="tooltip" id="experience-ICMM">
 	      <span>Institute of the Continuous Media Mechanics</span>
 	    </div>
-	    <span>Research Internship</span>
+	    <span id="researcher-text">Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1137,7 +1185,7 @@ STEM:
 	    <div role="tooltip" id="experience-PSU">
 	      <span>Penn State University</span>
 	    </div>
-	    <span>Research Internship</span>
+	    <span id="internship-text">Research Internship</span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1151,7 +1199,7 @@ STEM:
 	    <div role="tooltip" id="experience-teaching-UPRM">
 	      <span>University of Puerto Rico &ndash; Mayagüez</span>
 	    </div>
-	    <span>Teaching Assistant</span>
+	    <span id="teaching-text">Teaching Assistant</span>
 	  </li>
 	</ul>
       </div>
