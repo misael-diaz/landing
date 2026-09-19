@@ -799,6 +799,54 @@ STEM:
 	text = ("english" == this.value)? teachingEnglish : teachingSpanish;
 	replaceInnerText(teaching, text);
 
+	const hydrogen = document.getElementById("hydrogen-short-text");
+	const hydrogenEnglish = "A lightweight http-server for Linux";
+	const hydrogenSpanish = "servidor ligero de http para Linux";
+	text = ("english" == this.value)? hydrogenEnglish : hydrogenSpanish;
+	replaceInnerText(hydrogen, text);
+
+	const computerVisionEngine = document.getElementById("cve-short-text");
+	const computerVisionEngineEnglish = "A Python interoperable computer vision engine";
+	const computerVisionEngineSpanish = "motor de visión por computadora";
+	text = ("english" == this.value)? computerVisionEngineEnglish : computerVisionEngineSpanish;
+	replaceInnerText(computerVisionEngine, text);
+
+	const simulator = document.getElementById("bdx-short-text");
+	const simulatorEnglish = "Particle Simulator";
+	const simulatorSpanish = "Simulador de Partículas";
+	text = ("english" == this.value)? simulatorEnglish : simulatorSpanish;
+	replaceInnerText(simulator, text);
+
+	const packmol = document.getElementById("packmol-short-text");
+	const packmolEnglish = "Adds command-line support to packmol";
+	const packmolSpanish = "interface de comandos para packmol";
+	text = ("english" == this.value)? packmolEnglish : packmolSpanish;
+	replaceInnerText(packmol, text);
+
+	const blackboard = document.getElementById("blackboard-short-text");
+	const blackboardEnglish = "Engineering Problem Generator for Blackboard";
+	const blackboardSpanish = "generador de bancos de preguntas para Blackboard";
+	text = ("english" == this.value)? blackboardEnglish : blackboardSpanish;
+	replaceInnerText(blackboard, text);
+
+	const whatsapp = document.getElementById("whatsapp-short-text");
+	const whatsappEnglish = "Ingests Whatsapp chats into SQL databases";
+	const whatsappSpanish = "Ingestor SQL de chats de Whatsapp";
+	text = ("english" == this.value)? whatsappEnglish : whatsappSpanish;
+	replaceInnerText(whatsapp, text);
+
+	const invaders = document.getElementById("invaders-short-text");
+	const invadersEnglish = "Linux game inspired on space invaders";
+	const invadersSpanish = "Videojuego inspirado por space invaders";
+	text = ("english" == this.value)? invadersEnglish : invadersSpanish;
+	replaceInnerText(invaders, text);
+
+	const handmadehero = document.getElementById("handmadehero-short-text");
+	const handmadeheroEnglish = "Ports famous game engine to Linux";
+	const handmadeheroSpanish = "Adaptación de motor de videojuego para Linux";
+	text = ("english" == this.value)? handmadeheroEnglish : handmadeheroSpanish;
+	replaceInnerText(handmadehero, text);
+
 	e.stopPropagation();
       }
 
@@ -1359,7 +1407,7 @@ STEM:
 	  <li class="dropdown-item">
 	    <div class="dropdown-description">
 	      <a href="https://github.com/misael-diaz/hydrogen">Hydrogen</a>
-	      <span style="font-size: small">
+	      <span id="hydrogen-short-text" style="font-size: small">
 		A lightweight http-server for Linux
 	      </span>
 	    </div>
@@ -1369,7 +1417,7 @@ STEM:
 	      <a href="https://github.com/misael-diaz/ComputerVisionEngine">
 		Computer Vision Engine
 	      </a>
-	      <span style="font-size: small">
+	      <span id="cve-short-text" style="font-size: small">
 		A Python interoperable computer vision engine
 	      </span>
 	    </div>
@@ -1377,7 +1425,7 @@ STEM:
 	  <li class="dropdown-item">
 	    <div class="dropdown-description">
 	      <a href="https://github.com/misael-diaz/Demo-BDX">BDX</a>
-	      <span style="font-size: small">
+	      <span id="bdx-short-text" style="font-size: small">
 		Particle Simulator
 	      </span>
 	    </div>
@@ -1385,7 +1433,7 @@ STEM:
 	  <li class="dropdown-item">
 	    <div class="dropdown-description">
 	      <a href="https://github.com/misael-diaz/packmol">Packmol CLI</a>
-	      <span style="font-size: small">
+	      <span id="packmol-short-text" style="font-size: small">
 		Adds command-line support to packmol
 	      </span>
 	    </div>
@@ -1398,7 +1446,7 @@ STEM:
 	      <div role="tooltip" id="ingenuity-description-software">
 		<span style="font-size: small">unreleased</span>
 	      </div>
-	      <span style="font-size: small">
+	      <span id="blackboard-short-text" style="font-size: small">
 		Engineering Problem Generator for Blackboard
 	      </span>
 	    </div>
@@ -1408,7 +1456,7 @@ STEM:
 	      <a href="https://github.com/misael-diaz/ChatParser">
 		Whatsapp SQL Ingestor
 	      </a>
-	      <span style="font-size: small">
+	      <span id="whatsapp-short-text" style="font-size: small">
 		Ingests Whatsapp chats into SQL databases
 	      </span>
 	    </div>
@@ -1428,7 +1476,7 @@ STEM:
 	      <a href="https://github.com/misael-diaz/gnu-linux-xlib-game-dev">
 		Space Invaders
 	      </a>
-	      <span style="font-size: small">
+	      <span id="invaders-short-text" style="font-size: small">
 		Linux game inspired on space invaders
 	      </span>
 	    </div>
@@ -1438,7 +1486,7 @@ STEM:
 	      <a href="https://github.com/misael-diaz/handmade-hero">
 		Handmade Hero
 	      </a>
-	      <span style="font-size: small">
+	      <span id="handmadehero-short-text" style="font-size: small">
 		Ports famous game engine to Linux
 	      </span>
 	    </div>
