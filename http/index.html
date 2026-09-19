@@ -985,6 +985,12 @@ STEM:
 	text = ("english" == this.value)? dialogSTEMHeadingEnglish : dialogSTEMHeadingSpanish;
 	replaceInnerText(dialogSTEMHeading, text);
 
+	const dialogTeachingPhilosophy = document.getElementById("dialog-stem-teaching-philosophy-text");
+	const dialogTeachingPhilosophyEnglish = "Teaching Philosophy";
+	const dialogTeachingPhilosophySpanish = "Filosofía de Enseñanza";
+	text = ("english" == this.value)? dialogTeachingPhilosophyEnglish : dialogTeachingPhilosophySpanish;
+	replaceInnerText(dialogTeachingPhilosophy, text);
+
 	const dialogSTEMServices = document.getElementById("dialog-stem-services-text");
 	const dialogSTEMServicesEnglish = "Services";
 	const dialogSTEMServicesSpanish = "Servicios";
@@ -1208,7 +1214,7 @@ STEM:
 	      <h2 id="dialog-stem-text" style="text-align: center">STEM Tutoring</h2>
 	      </div>
 	      <div class="teaching-philosophy">
-	      <h3 style="text-align: start; margin: 16px">
+	      <h3 id="dialog-stem-teaching-philosophy-text" style="text-align: start; margin: 16px">
 		Teaching Philosophy
 	      </h3>
 	      <p class="stem-teaching">
