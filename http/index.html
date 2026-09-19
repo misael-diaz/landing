@@ -847,6 +847,18 @@ STEM:
 	text = ("english" == this.value)? handmadeheroEnglish : handmadeheroSpanish;
 	replaceInnerText(handmadehero, text);
 
+	const legacy = document.getElementById("legacy-short-text");
+	const legacyEnglish = "Developing a Gamepad X11 Input Driver";
+	const legacySpanish = "Desarrollo de un driver de X11 para controles de videojuego";
+	text = ("english" == this.value)? legacyEnglish : legacySpanish;
+	replaceInnerText(legacy, text);
+
+	const frameworkbeater = document.getElementById("frameworkbeater-short-text");
+	const frameworkbeaterEnglish = "Http-Server Development";
+	const frameworkbeaterSpanish = "Desarrollo de un servidor ligero de http desde cero";
+	text = ("english" == this.value)? frameworkbeaterEnglish : frameworkbeaterSpanish;
+	replaceInnerText(frameworkbeater, text);
+
 	e.stopPropagation();
       }
 
@@ -1510,7 +1522,7 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
 		Legacy Code Hero
 	      </a>
-	      <span>Developing a Gamepad X11 Input Driver</span>
+	      <span id="legacy-short-text">Developing a Gamepad X11 Input Driver</span>
 	    <div>
 	  </li>
 	  <li class="dropdown-item">
@@ -1525,7 +1537,7 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
 		Framework Beater
 	      </a>
-	      <span>Http-Server Development</span>
+	      <span id="frameworkbeater-short-text">Http-Server Development</span>
 	    </div>
 	  </li>
 	</ul>
