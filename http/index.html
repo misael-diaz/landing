@@ -877,6 +877,24 @@ STEM:
 	text = ("english" == this.value)? matlabEnglish : matlabSpanish;
 	replaceInnerText(matlab, text);
 
+	const demoCVE = document.getElementById("demo-cve-short-text");
+	const demoCVEEnglish = "Collection of demos on leveraging performant C/C++ code from Python";
+	const demoCVESpanish = "Colección de demos acerca del aprovechamiento de codigo C/C++ optimizado desde Python";
+	text = ("english" == this.value)? demoCVEEnglish : demoCVESpanish;
+	replaceInnerText(demoCVE, text);
+
+	const demoSonicInfinity = document.getElementById("demo-sonic-short-text");
+	const demoSonicInfinityEnglish = "Progessive demos of a game development project written entirely in C from scratch";
+	const demoSonicInfinitySpanish = "Demos progresivos de un proyecto de desarollo de videojuego escrito en C desde cero";
+	text = ("english" == this.value)? demoSonicInfinityEnglish : demoSonicInfinitySpanish;
+	replaceInnerText(demoSonicInfinity, text);
+
+	const demoSpaceInvaders = document.getElementById("demo-space-invaders-short-text");
+	const demoSpaceInvadersEnglish = "Game prototype inspired by Space Invaders that has been coded from scratch";
+	const demoSpaceInvadersSpanish = "Prototipo de videojuego inspirado por Space Invaders que ha sido codificado desde cero";
+	text = ("english" == this.value)? demoSpaceInvadersEnglish : demoSpaceInvadersSpanish;
+	replaceInnerText(demoSpaceInvaders, text);
+
 	e.stopPropagation();
       }
 
@@ -1637,7 +1655,7 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLMH4REoO6mGU">
 	       Computer Vision Engine
 	      </a>
-	      <span>
+	      <span id="demo-cve-short-text">
 		Collection of demos on leveraging performant C/C++ code from Python
 	      <span>
 	    </div>
@@ -1654,7 +1672,7 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">
 	       Sonic The Hedgehog: Infinity Level Game
 	      </a>
-	      <span>Progressive demos of game written in C</span>
+	      <span id="demo-sonic-short-text">Progressive demos of a game development project written entirely in C from scratch</span>
 	    </div>
 	  </li>
 	  <li class="dropdown-item">
@@ -1670,7 +1688,7 @@ STEM:
 	    <a href="https://youtu.be/MSf5etK1ojw">
 	     Space Invaders
 	    </a>
-	    <span>My first attempt of developing a game in C</span>
+	    <span id="demo-space-invaders-short-text">Game prototype inspired by Space Invaders that has been coded from scratch</span>
 	    </div>
 	  </li>
 	</ul>
