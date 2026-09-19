@@ -531,6 +531,20 @@ STEM:
       box-shadow: 0 0 0 2px #2b73f7;
       transition: box-shadow 0.5s;
     }
+    .alphabet-icon {
+      background-color: black;
+      color: white;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid gray;
+      border-radius: 50%;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
     </style>
     <script type="module">
     {
@@ -1199,9 +1213,9 @@ STEM:
 	    </dialog>
 	  </li>
 	  <li class="dropdown-item">
-	    <span style="background-color: black; color: white; width: 32px; height: 32px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; border: 1px solid gray; border-radius: 50%; box-sizing: border-box">
-	      A
-	    </span>
+	    <div class="alphabet-icon">
+	      <span style="display: flex">A</span>
+	    </div>
 	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
 	      <span id="tooltip-english-tutoring-text" style="font-size: small">
