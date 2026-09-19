@@ -979,6 +979,42 @@ STEM:
 	text = ("english" == this.value)? tooltipEnglishTutoringEnglish : tooltipEnglishTutoringSpanish;
 	replaceInnerText(tooltipEnglishTutoring, text);
 
+	const dialogSTEMHeading = document.getElementById("dialog-stem-text");
+	const dialogSTEMHeadingEnglish = "STEM Tutoring";
+	const dialogSTEMHeadingSpanish = "Tutorías STEM";
+	text = ("english" == this.value)? dialogSTEMHeadingEnglish : dialogSTEMHeadingSpanish;
+	replaceInnerText(dialogSTEMHeading, text);
+
+	const dialogSTEMServices = document.getElementById("dialog-stem-services-text");
+	const dialogSTEMServicesEnglish = "Services";
+	const dialogSTEMServicesSpanish = "Servicios";
+	text = ("english" == this.value)? dialogSTEMServicesEnglish : dialogSTEMServicesSpanish;
+	replaceInnerText(dialogSTEMServices, text);
+
+	const dialogServiceTheory = document.getElementById("dialog-stem-service-theory-text");
+	const dialogServiceTheoryEnglish = "One hour session for concept learning and reinforcement with the student.";
+	const dialogServiceTheorySpanish = "Sesion de una hora con el estudiante para reforzar el aprendizaje de conceptos teóricos.";
+	text = ("english" == this.value)? dialogServiceTheoryEnglish : dialogServiceTheorySpanish;
+	replaceInnerText(dialogServiceTheory, text);
+
+	const dialogServicePractice = document.getElementById("dialog-stem-service-practice-text");
+	const dialogServicePracticeEnglish = "One hour session for problem solving with the student.";
+	const dialogServicePracticeSpanish = "Sesion de una hora con el estudiante para el desarrollo de solución de problemas STEM.";
+	text = ("english" == this.value)? dialogServicePracticeEnglish : dialogServicePracticeSpanish;
+	replaceInnerText(dialogServicePractice, text);
+
+	const dialogServiceScienceFair = document.getElementById("dialog-stem-service-science-projects-text");
+	const dialogServiceScienceFairEnglish = "One to two-hour sessions dedicated to the development of scientific fair or engineering project.";
+	const dialogServiceScienceFairSpanish = "Sesiones de una a dos horas para apoyar al estudiante en el desarrollo de proyectos STEM.";
+	text = ("english" == this.value)? dialogServiceScienceFairEnglish : dialogServiceScienceFairSpanish;
+	replaceInnerText(dialogServiceScienceFair, text);
+
+	const dialogServiceLabs = document.getElementById("dialog-stem-service-labs-text");
+	const dialogServiceLabsEnglish = "STEM lab projects that could encompass a combination of web development, embedded devices programming, game development and any other areas of interest to the student.";
+	const dialogServiceLabsSpanish = "Sesiones de una o dos horas de laboratorios STEM que integren desarrollo web, programación de dispositivos embedidos, desarollo de videojuegos, y/o algun otro campo de interés del estudiante";
+	text = ("english" == this.value)? dialogServiceLabsEnglish : dialogServiceLabsSpanish;
+	replaceInnerText(dialogServiceLabs, text);
+
 	e.stopPropagation();
       }
 
@@ -1169,7 +1205,7 @@ STEM:
 		height=64px
 	      >
 	      </img>
-	      <h2 style="text-align: center">STEM Tutoring</h2>
+	      <h2 id="dialog-stem-text" style="text-align: center">STEM Tutoring</h2>
 	      </div>
 	      <div class="teaching-philosophy">
 	      <h3 style="text-align: start; margin: 16px">
@@ -1185,29 +1221,29 @@ STEM:
 		their own teachers and the teachers of their peers.
 	      </p>
 	      </div>
-	      <h3 style="margin-top: 16px; margin-bottom: 8px">
+	      <h3 id="dialog-stem-services-text" style="margin-top: 16px; margin-bottom: 8px">
 		Services
 	      </h3>
 	      <ul class="stem-services-dialog">
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-theory-text" style="padding: 4px">
 		    One hour session for concept learning and reinforcement
 		    with the student.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-practice-text" style="padding: 4px">
 		    One hour session for problem solving with the student.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-science-projects-text" style="padding: 4px">
 		    One to two-hour sessions dedicated to the development of scientific
 		    fair or engineering project.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-labs-text" style="padding: 4px">
 		    STEM lab projects that could encompass a combination of web
 		    development, embedded devices programming, game development and
 		    any other areas of interest to the student.
