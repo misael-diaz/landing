@@ -859,6 +859,24 @@ STEM:
 	text = ("english" == this.value)? frameworkbeaterEnglish : frameworkbeaterSpanish;
 	replaceInnerText(frameworkbeater, text);
 
+	const odyssey = document.getElementById("odyssey-short-text");
+	const odysseyEnglish = "A blog about porting Casey Muratoris's Handmade Hero game to Linux";
+	const odysseySpanish = "Blog acerca de la adaptacion a Linux del videojuego Handmade Hero creador por Casey Muratori";
+	text = ("english" == this.value)? odysseyEnglish : odysseySpanish;
+	replaceInnerText(odyssey, text);
+
+	const networking = document.getElementById("networking-short-text");
+	const networkingEnglish = "Wireless Linux Networking from the command-line";
+	const networkingSpanish = "Conexión a red inalámbrica por comandos en Linux";
+	text = ("english" == this.value)? networkingEnglish : networkingSpanish;
+	replaceInnerText(networking, text);
+
+	const matlab = document.getElementById("matlab-short-text");
+	const matlabEnglish = "Workshop for engineering students";
+	const matlabSpanish = "Taller de soluciones computacionales para estudiantes de ingeniería";
+	text = ("english" == this.value)? matlabEnglish : matlabSpanish;
+	replaceInnerText(matlab, text);
+
 	e.stopPropagation();
       }
 
@@ -1559,7 +1577,7 @@ STEM:
 	      <a href="https://misael-diaz.github.io/handmade-hero/">
 		Handmade Hero Odyssey
 	      </a>
-	      <span>
+	      <span id="odyssey-short-text">
 		A blog about porting Casey Muratori's Handmade Hero game to Linux
 	      </span>
 	    </div>
@@ -1577,7 +1595,7 @@ STEM:
 	      <a href="/blogs/wireless-networking-linux.html">
 		WPA Supplicant
 	      </a>
-	      <span>
+	      <span id="networking-short-text">
 		Wireless Linux Networking from the command-line
 	      </span>
 	    </div>
@@ -1594,7 +1612,7 @@ STEM:
 	      <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
 		Matlab
 	      </a>
-	      <span>
+	      <span id="matlab-short-text">
 		Workshop for engineering students
 	      </span>
 	    </div>
