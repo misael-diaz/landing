@@ -895,6 +895,30 @@ STEM:
 	text = ("english" == this.value)? demoSpaceInvadersEnglish : demoSpaceInvadersSpanish;
 	replaceInnerText(demoSpaceInvaders, text);
 
+	const theory = document.getElementById("theory-text");
+	const theoryEnglish = "theory";
+	const theorySpanish = "teoría";
+	text = ("english" == this.value)? theoryEnglish : theorySpanish;
+	replaceInnerText(theory, text);
+
+	const practice = document.getElementById("practice-text");
+	const practiceEnglish = "practice problems";
+	const practiceSpanish = "sesiones de preguntas de práctica";
+	text = ("english" == this.value)? practiceEnglish : practiceSpanish;
+	replaceInnerText(practice, text);
+
+	const science = document.getElementById("science-text");
+	const scienceEnglish = "science projects";
+	const scienceSpanish = "proyectos de ciencias";
+	text = ("english" == this.value)? scienceEnglish : scienceSpanish;
+	replaceInnerText(science, text);
+
+	const tech = document.getElementById("tech-text");
+	const techEnglish = "tech projects";
+	const techSpanish = "proyectos de informática";
+	text = ("english" == this.value)? techEnglish : techSpanish;
+	replaceInnerText(tech, text);
+
 	e.stopPropagation();
       }
 
@@ -1038,17 +1062,17 @@ STEM:
 	    <div role="tooltip" id="stem-tutoring-services">
 	      <ul class="stem-services">
 		<li class="stem-service">
-		  <span>
+		  <span id="theory-text">
 		    theory
 		  </span>
 		</li>
 		<li class="stem-service">
-		  <span>practice problems</span>
+		  <span id="practice-text">practice problems</span>
 		<li class="stem-service">
-		  <span>science projects</span>
+		  <span id="science-text">science projects</span>
 		</li>
 		<li class="stem-service">
-		  <span>tech projects</span>
+		  <span id="tech-text">tech projects</span>
 		</li>
 	      </ul>
 	    </div>
