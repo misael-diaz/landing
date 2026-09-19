@@ -919,6 +919,30 @@ STEM:
 	text = ("english" == this.value)? techEnglish : techSpanish;
 	replaceInnerText(tech, text);
 
+	const webdev = document.getElementById("webdev-text");
+	const webdevEnglish = "web development";
+	const webdevSpanish = "desarrollo web";
+	text = ("english" == this.value)? webdevEnglish : webdevSpanish;
+	replaceInnerText(webdev, text);
+
+	const scicomp = document.getElementById("scicomp-text");
+	const scicompEnglish = "scientific computing";
+	const scicompSpanish = "computación científica";
+	text = ("english" == this.value)? scicompEnglish : scicompSpanish;
+	replaceInnerText(scicomp, text);
+
+	const lowlevel = document.getElementById("lowlevel-text");
+	const lowlevelEnglish = "low-level programming";
+	const lowlevelSpanish = "programación de sistemas";
+	text = ("english" == this.value)? lowlevelEnglish : lowlevelSpanish;
+	replaceInnerText(lowlevel, text);
+
+	const gamedev = document.getElementById("gamedev-text");
+	const gamedevEnglish = "game development";
+	const gamedevSpanish = "desarrollo de videojuegos";
+	text = ("english" == this.value)? gamedevEnglish : gamedevSpanish;
+	replaceInnerText(gamedev, text);
+
 	e.stopPropagation();
       }
 
@@ -1191,16 +1215,16 @@ STEM:
 	    <div role="tooltip" id="software-development-services">
 	      <ul class="software-services">
 		<li class="software-service">
-		  <span>web development</span>
+		  <span id="webdev-text">web development</span>
 		</li>
 		<li class="software-service">
-		  <span>scientific computing</span>
+		  <span id="scicomp-text">scientific computing</span>
 		</li>
 		<li class="software-service">
-		  <span>low-level programming</span>
+		  <span id="lowlevel-text">low-level programming</span>
 		</li>
 		<li class="software-service">
-		  <span>game development</span>
+		  <span id="gamedev-text">game development</span>
 		</li>
 	      </ul>
 	    </div>
