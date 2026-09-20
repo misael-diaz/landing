@@ -461,6 +461,34 @@ STEM:
       z-index: 4;
     }
     }
+    @media screen and (width <= 650px) {
+    button [role="tooltip"].single {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -16px;
+      left: 4px;
+      z-index: 4;
+    }
+    }
+    @media screen and (width > 650px) {
+    button [role="tooltip"].single {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -2px;
+      left: 0px;
+      z-index: 4;
+    }
+    }
     dialog {
       border: 1px solid black;
       border-radius: 16px;
@@ -1287,7 +1315,7 @@ STEM:
 		aria-describedby="english-tutoring-services">
 		English Tutoring
 	      </span>
-	      <div role="tooltip" id="english-tutoring-services">
+	      <div class="single" role="tooltip" id="english-tutoring-services">
 		<span id="tooltip-english-tutoring-text" style="font-size: small">
 		  Conversational English
 		</span>
