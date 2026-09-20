@@ -418,7 +418,7 @@ STEM:
       background-color: white;
       border: 0px;
     }
-    button span:hover {
+    .has-dialog:hover {
       text-decoration: underline;
     }
     .close {
@@ -486,7 +486,7 @@ STEM:
     }
     .stem-label {
       font-size: medium;
-      font-weight: 500;
+      font-weight: 400;
     }
     .stem-services, .software-services {
       list-style: none;
@@ -1183,7 +1183,7 @@ STEM:
 	    <button command="show-modal" commandfor="stem-dialog">
 	    <span
 	      id="stem-text"
-	      class="stem-label"
+	      class="stem-label has-dialog"
 	      aria-describedby="stem-tutoring-services"
 	    >
 	      STEM Tutoring
@@ -1270,12 +1270,14 @@ STEM:
 	    <div class="alphabet-icon">
 	      <span style="display: flex">A</span>
 	    </div>
-	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
+	    <button>
+	    <span id="english-tutoring-text" class="stem-label" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
 	      <span id="tooltip-english-tutoring-text" style="font-size: small">
 		Conversational English
 	      </span>
 	    </div>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1286,9 +1288,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="thesis-reviewing-text" class="stem-label">
 	      Thesis Reviewing
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1299,9 +1303,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="scientific-article-reviewing-text" class="stem-label">
 	      Scientific Article Reviewing
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1312,9 +1318,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="scientific-modelling-text" class="stem-label">
 	      Scientific Modelling and Simulation
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
