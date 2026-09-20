@@ -468,6 +468,22 @@ STEM:
     dialog::backdrop {
       background-color: black;
     }
+    .stem-header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+      justify-self: center;
+      margin: 8px;
+    }
+    .stem-teaching {
+      text-align: justify;
+      width: 90%;
+      margin: 16px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
     .stem-label {
       font-size: medium;
       font-weight: 500;
@@ -514,6 +530,20 @@ STEM:
     .stem-service-dialog:hover {
       box-shadow: 0 0 0 2px #2b73f7;
       transition: box-shadow 0.5s;
+    }
+    .alphabet-icon {
+      background-color: black;
+      color: white;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid gray;
+      border-radius: 50%;
+      box-sizing: border-box;
+      font-weight: bold;
     }
     </style>
     <script type="module">
@@ -847,6 +877,158 @@ STEM:
 	text = ("english" == this.value)? handmadeheroEnglish : handmadeheroSpanish;
 	replaceInnerText(handmadehero, text);
 
+	const legacy = document.getElementById("legacy-short-text");
+	const legacyEnglish = "Developing a Gamepad X11 Input Driver";
+	const legacySpanish = "Desarrollo de un driver de X11 para controles de videojuego";
+	text = ("english" == this.value)? legacyEnglish : legacySpanish;
+	replaceInnerText(legacy, text);
+
+	const frameworkbeater = document.getElementById("frameworkbeater-short-text");
+	const frameworkbeaterEnglish = "Http-Server Development";
+	const frameworkbeaterSpanish = "Desarrollo de un servidor ligero de http desde cero";
+	text = ("english" == this.value)? frameworkbeaterEnglish : frameworkbeaterSpanish;
+	replaceInnerText(frameworkbeater, text);
+
+	const odyssey = document.getElementById("odyssey-short-text");
+	const odysseyEnglish = "A blog about porting Casey Muratoris's Handmade Hero game to Linux";
+	const odysseySpanish = "Blog acerca de la adaptacion a Linux del videojuego Handmade Hero creador por Casey Muratori";
+	text = ("english" == this.value)? odysseyEnglish : odysseySpanish;
+	replaceInnerText(odyssey, text);
+
+	const networking = document.getElementById("networking-short-text");
+	const networkingEnglish = "Wireless Linux Networking from the command-line";
+	const networkingSpanish = "Conexión a red inalámbrica por comandos en Linux";
+	text = ("english" == this.value)? networkingEnglish : networkingSpanish;
+	replaceInnerText(networking, text);
+
+	const matlab = document.getElementById("matlab-short-text");
+	const matlabEnglish = "Workshop for engineering students";
+	const matlabSpanish = "Taller de soluciones computacionales para estudiantes de ingeniería";
+	text = ("english" == this.value)? matlabEnglish : matlabSpanish;
+	replaceInnerText(matlab, text);
+
+	const demoCVE = document.getElementById("demo-cve-short-text");
+	const demoCVEEnglish = "Collection of demos on leveraging performant C/C++ code from Python";
+	const demoCVESpanish = "Colección de demos acerca del aprovechamiento de codigo C/C++ optimizado desde Python";
+	text = ("english" == this.value)? demoCVEEnglish : demoCVESpanish;
+	replaceInnerText(demoCVE, text);
+
+	const demoSonicInfinity = document.getElementById("demo-sonic-short-text");
+	const demoSonicInfinityEnglish = "Progessive demos of a game development project written entirely in C from scratch";
+	const demoSonicInfinitySpanish = "Demos progresivos de un proyecto de desarollo de videojuego escrito en C desde cero";
+	text = ("english" == this.value)? demoSonicInfinityEnglish : demoSonicInfinitySpanish;
+	replaceInnerText(demoSonicInfinity, text);
+
+	const demoSpaceInvaders = document.getElementById("demo-space-invaders-short-text");
+	const demoSpaceInvadersEnglish = "Game prototype inspired by Space Invaders that has been coded from scratch";
+	const demoSpaceInvadersSpanish = "Prototipo de videojuego inspirado por Space Invaders que ha sido codificado desde cero";
+	text = ("english" == this.value)? demoSpaceInvadersEnglish : demoSpaceInvadersSpanish;
+	replaceInnerText(demoSpaceInvaders, text);
+
+	const theory = document.getElementById("theory-text");
+	const theoryEnglish = "theory";
+	const theorySpanish = "teoría";
+	text = ("english" == this.value)? theoryEnglish : theorySpanish;
+	replaceInnerText(theory, text);
+
+	const practice = document.getElementById("practice-text");
+	const practiceEnglish = "practice problems";
+	const practiceSpanish = "sesiones de preguntas de práctica";
+	text = ("english" == this.value)? practiceEnglish : practiceSpanish;
+	replaceInnerText(practice, text);
+
+	const science = document.getElementById("science-text");
+	const scienceEnglish = "science projects";
+	const scienceSpanish = "proyectos de ciencias";
+	text = ("english" == this.value)? scienceEnglish : scienceSpanish;
+	replaceInnerText(science, text);
+
+	const tech = document.getElementById("tech-text");
+	const techEnglish = "tech projects";
+	const techSpanish = "proyectos de informática";
+	text = ("english" == this.value)? techEnglish : techSpanish;
+	replaceInnerText(tech, text);
+
+	const webdev = document.getElementById("webdev-text");
+	const webdevEnglish = "web development";
+	const webdevSpanish = "desarrollo web";
+	text = ("english" == this.value)? webdevEnglish : webdevSpanish;
+	replaceInnerText(webdev, text);
+
+	const scicomp = document.getElementById("scicomp-text");
+	const scicompEnglish = "scientific computing";
+	const scicompSpanish = "computación científica";
+	text = ("english" == this.value)? scicompEnglish : scicompSpanish;
+	replaceInnerText(scicomp, text);
+
+	const lowlevel = document.getElementById("lowlevel-text");
+	const lowlevelEnglish = "low-level programming";
+	const lowlevelSpanish = "programación de sistemas";
+	text = ("english" == this.value)? lowlevelEnglish : lowlevelSpanish;
+	replaceInnerText(lowlevel, text);
+
+	const gamedev = document.getElementById("gamedev-text");
+	const gamedevEnglish = "game development";
+	const gamedevSpanish = "desarrollo de videojuegos";
+	text = ("english" == this.value)? gamedevEnglish : gamedevSpanish;
+	replaceInnerText(gamedev, text);
+
+	const tooltipEnglishTutoring = document.getElementById("tooltip-english-tutoring-text");
+	const tooltipEnglishTutoringEnglish = "Conversational English";
+	const tooltipEnglishTutoringSpanish = "Inglés Conversacional";
+	text = ("english" == this.value)? tooltipEnglishTutoringEnglish : tooltipEnglishTutoringSpanish;
+	replaceInnerText(tooltipEnglishTutoring, text);
+
+	const dialogSTEMHeading = document.getElementById("dialog-stem-text");
+	const dialogSTEMHeadingEnglish = "STEM Tutoring";
+	const dialogSTEMHeadingSpanish = "Tutorías STEM";
+	text = ("english" == this.value)? dialogSTEMHeadingEnglish : dialogSTEMHeadingSpanish;
+	replaceInnerText(dialogSTEMHeading, text);
+
+	const dialogTeachingPhilosophy = document.getElementById("dialog-stem-teaching-philosophy-text");
+	const dialogTeachingPhilosophyEnglish = "Teaching Philosophy";
+	const dialogTeachingPhilosophySpanish = "Filosofía de Enseñanza";
+	text = ("english" == this.value)? dialogTeachingPhilosophyEnglish : dialogTeachingPhilosophySpanish;
+	replaceInnerText(dialogTeachingPhilosophy, text);
+
+
+	const dialogTeachingPhilosophyDetails = document.getElementById("dialog-stem-teaching-philosophy-details-text");
+	const dialogTeachingPhilosophyDetailsEnglish = "Students are eager to learn what interest them, and so, my key to teaching them is to persuade them early on about the importance of the field of study. After having students understand the importance of what they are learning, I have seen them engage with the subject more intently out of the own volition. To me there's nothing more rewarding than seeing my students take off on their own and become their own teachers and the teachers of their peers.";
+	const dialogTeachingPhilosophyDetailsSpanish = "En mi experiencia docente he visto que los estudiantes se encuentran más dispuestos en aprender acerca de los temas que les interesa. Es por esta razón que mi metodología de enseñanza comienza con una exposición persuasiva de la importancia de los conceptos que están aprendiendo para su desarrollo integral y profesional. Después de lograr esto los estudiantes comienzan a explorar los temas por su propia cuenta y eventualmente se convierten en sus propios instructores y en los instructores de sus compañeros de estudio. El hecho de que el estudiante pueda instruir a sus compañeros es el producto del aprendizaje. No hay nada más recompensante para mí que ver a mis estudiantes adquirir el dominio de los temas de estudio y verlos seguir adelante por sus propios conocimientos y habilidades. Es en ese momento que sé que mi trabajo ha culminado, y mi misión es lograr esto con cada uno de mis estudiantes.";
+	text = ("english" == this.value)? dialogTeachingPhilosophyDetailsEnglish : dialogTeachingPhilosophyDetailsSpanish;
+	replaceInnerText(dialogTeachingPhilosophyDetails, text);
+
+
+	const dialogSTEMServices = document.getElementById("dialog-stem-services-text");
+	const dialogSTEMServicesEnglish = "Services";
+	const dialogSTEMServicesSpanish = "Servicios";
+	text = ("english" == this.value)? dialogSTEMServicesEnglish : dialogSTEMServicesSpanish;
+	replaceInnerText(dialogSTEMServices, text);
+
+	const dialogServiceTheory = document.getElementById("dialog-stem-service-theory-text");
+	const dialogServiceTheoryEnglish = "One hour session for concept learning and reinforcement with the student.";
+	const dialogServiceTheorySpanish = "Sesiones de una hora con el estudiante para reforzar el aprendizaje de conceptos teóricos.";
+	text = ("english" == this.value)? dialogServiceTheoryEnglish : dialogServiceTheorySpanish;
+	replaceInnerText(dialogServiceTheory, text);
+
+	const dialogServicePractice = document.getElementById("dialog-stem-service-practice-text");
+	const dialogServicePracticeEnglish = "One hour session for problem solving with the student.";
+	const dialogServicePracticeSpanish = "Sesiones de una hora con el estudiante para el desarrollo de solución de problemas STEM.";
+	text = ("english" == this.value)? dialogServicePracticeEnglish : dialogServicePracticeSpanish;
+	replaceInnerText(dialogServicePractice, text);
+
+	const dialogServiceScienceFair = document.getElementById("dialog-stem-service-science-projects-text");
+	const dialogServiceScienceFairEnglish = "One to two-hour sessions dedicated to the development of scientific fair or engineering project.";
+	const dialogServiceScienceFairSpanish = "Sesiones de una a dos horas para apoyar al estudiante en el desarrollo de proyectos STEM.";
+	text = ("english" == this.value)? dialogServiceScienceFairEnglish : dialogServiceScienceFairSpanish;
+	replaceInnerText(dialogServiceScienceFair, text);
+
+	const dialogServiceLabs = document.getElementById("dialog-stem-service-labs-text");
+	const dialogServiceLabsEnglish = "STEM lab projects that could encompass a combination of web development, embedded devices programming, game development and any other areas of interest to the student.";
+	const dialogServiceLabsSpanish = "Sesiones de una o dos horas de laboratorios STEM que integren desarrollo web, programación de dispositivos embedidos, desarollo de videojuegos, y/o algun otro campo de interés del estudiante";
+	text = ("english" == this.value)? dialogServiceLabsEnglish : dialogServiceLabsSpanish;
+	replaceInnerText(dialogServiceLabs, text);
+
 	e.stopPropagation();
       }
 
@@ -902,7 +1084,7 @@ STEM:
 	</p>
       </div>
       <div class="language">
-	<label for="language-select" id="language-label">Language:</label>
+	<label for="language-select" id="language-label">Language (Idioma):</label>
 	<select style="background-color: white" name="language" id="language-select">
 	  <option value="english">English</option>
 	  <option value="spanish">Español</option>
@@ -952,26 +1134,41 @@ STEM:
 	  </span>
 	</li>
 	<li class="menu-item" id="experience-menu">
-	  <span id="experience-label" class="menu-item-mobile-label menu-item-label">Experience</span>
+	  <span id="experience-label" class="menu-item-mobile-label menu-item-label">
+	    Experience
+	  </span>
 	</li>
 	<li class="menu-item" id="publications-menu">
-	  <span id="publications-label" class="menu-item-mobile-label menu-item-label">Publications</span>
+	  <span id="publications-label" class="menu-item-mobile-label menu-item-label">
+	    Publications
+	  </span>
 	</li>
 	<li class="menu-item" id="software-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Software</span>
+	  <span class="menu-item-mobile-label menu-item-label">
+	    Software
+	  </span>
 	</li>
 	<li class="menu-item" id="series-menu">
-	  <span id="series-label" class="menu-item-mobile-label menu-item-label">Tech Series</span>
+	  <span id="series-label" class="menu-item-mobile-label menu-item-label">
+	    Tech Series
+	  </span>
 	</li>
 	<li class="menu-item" id="blogs-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Blogs</span>
+	  <span class="menu-item-mobile-label menu-item-label">
+	    Blogs
+	  </span>
 	</li>
 	<li class="menu-item" id="demos-menu">
-	  <span class="menu-item-mobile-label menu-item-label">Demos</span>
+	  <span class="menu-item-mobile-label menu-item-label">
+	    Demos
+	  </span>
 	</li>
       </menu>
     </nav>
-    <div id="services" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+    <div
+      id="services"
+      class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility"
+    >
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -984,23 +1181,27 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span id="stem-text" class="stem-label" aria-describedby="stem-tutoring-services">
+	    <span
+	      id="stem-text"
+	      class="stem-label"
+	      aria-describedby="stem-tutoring-services"
+	    >
 	      STEM Tutoring
 	    </span>
 	    <div role="tooltip" id="stem-tutoring-services">
 	      <ul class="stem-services">
 		<li class="stem-service">
-		  <span>
+		  <span id="theory-text">
 		    theory
 		  </span>
 		</li>
 		<li class="stem-service">
-		  <span>practice problems</span>
+		  <span id="practice-text">practice problems</span>
 		<li class="stem-service">
-		  <span>science projects</span>
+		  <span id="science-text">science projects</span>
 		</li>
 		<li class="stem-service">
-		  <span>tech projects</span>
+		  <span id="tech-text">tech projects</span>
 		</li>
 	      </ul>
 	    </div>
@@ -1009,7 +1210,7 @@ STEM:
 	      <button class="close" command="close" commandfor="stem-dialog" autofocus>
 		x
 	      </button>
-	      <div style="display: flex; flex-flow: row wrap; justify-content: space-around; align-items: center; width: 80%; justify-self: center; margin: 8px">
+	      <div class="stem-header">
 	      <img
 		class="banner"
 		loading="eager"
@@ -1018,11 +1219,13 @@ STEM:
 		height=64px
 	      >
 	      </img>
-	      <h2 style="text-align: center">STEM Tutoring</h2>
+	      <h2 id="dialog-stem-text" style="text-align: center">STEM Tutoring</h2>
 	      </div>
 	      <div class="teaching-philosophy">
-	      <h3 style="text-align: center; margin: 16px">Teaching Philosophy</h3>
-	      <p style="text-align: justify; width: 90%; margin: 16px; max-height: 200px; overflow-y: auto">
+	      <h3 id="dialog-stem-teaching-philosophy-text" style="text-align: start; margin: 16px">
+		Teaching Philosophy
+	      </h3>
+	      <p id="dialog-stem-teaching-philosophy-details-text" class="stem-teaching">
 		Students are eager to learn what interest them, and so, my key to
 		teaching them is to persuade them early on about the importance of the
 		field of study. After having students understand the importance of
@@ -1032,27 +1235,29 @@ STEM:
 		their own teachers and the teachers of their peers.
 	      </p>
 	      </div>
-	      <h3 style="margin-top: 16px; margin-bottom: 8px">Services</h3>
+	      <h3 id="dialog-stem-services-text" style="margin-top: 16px; margin-bottom: 8px">
+		Services
+	      </h3>
 	      <ul class="stem-services-dialog">
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-theory-text" style="padding: 4px">
 		    One hour session for concept learning and reinforcement
 		    with the student.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-practice-text" style="padding: 4px">
 		    One hour session for problem solving with the student.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-science-projects-text" style="padding: 4px">
 		    One to two-hour sessions dedicated to the development of scientific
 		    fair or engineering project.
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span style="padding: 4px">
+		  <span id="dialog-stem-service-labs-text" style="padding: 4px">
 		    STEM lab projects that could encompass a combination of web
 		    development, embedded devices programming, game development and
 		    any other areas of interest to the student.
@@ -1062,12 +1267,14 @@ STEM:
 	    </dialog>
 	  </li>
 	  <li class="dropdown-item">
-	    <span style="background-color: black; color: white; width: 32px; height: 32px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; border: 1px solid gray; border-radius: 50%; box-sizing: border-box">
-	      A
-	    </span>
+	    <div class="alphabet-icon">
+	      <span style="display: flex">A</span>
+	    </div>
 	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
-	      <span style="font-size: small">Conversational English</span>
+	      <span id="tooltip-english-tutoring-text" style="font-size: small">
+		Conversational English
+	      </span>
 	    </div>
 	  </li>
 	  <li class="dropdown-item">
@@ -1079,7 +1286,9 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span id="thesis-reviewing-text" class="stem-label">Thesis Reviewing</span>
+	    <span id="thesis-reviewing-text" class="stem-label">
+	      Thesis Reviewing
+	    </span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1090,7 +1299,9 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span id="scientific-article-reviewing-text" class="stem-label">Scientific Article Reviewing</span>
+	    <span id="scientific-article-reviewing-text" class="stem-label">
+	      Scientific Article Reviewing
+	    </span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1101,7 +1312,9 @@ STEM:
 	      height=32px
 	    >
 	    </img>
-	    <span id="scientific-modelling-text" class="stem-label">Scientific Modelling and Simulation</span>
+	    <span id="scientific-modelling-text" class="stem-label">
+	      Scientific Modelling and Simulation
+	    </span>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1113,22 +1326,26 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span id="software-development-text" class="stem-label" aria-describedby="software-development-services">
+	    <span
+	      id="software-development-text"
+	      class="stem-label"
+	      aria-describedby="software-development-services"
+	    >
 	      Software Development
 	    </span>
 	    <div role="tooltip" id="software-development-services">
 	      <ul class="software-services">
 		<li class="software-service">
-		  <span>web development</span>
+		  <span id="webdev-text">web development</span>
 		</li>
 		<li class="software-service">
-		  <span>scientific computing</span>
+		  <span id="scicomp-text">scientific computing</span>
 		</li>
 		<li class="software-service">
-		  <span>low-level programming</span>
+		  <span id="lowlevel-text">low-level programming</span>
 		</li>
 		<li class="software-service">
-		  <span>game development</span>
+		  <span id="gamedev-text">game development</span>
 		</li>
 	      </ul>
 	    </div>
@@ -1138,7 +1355,10 @@ STEM:
       </div>
     </div>
 
-    <div id="experience" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+    <div
+      id="experience"
+      class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility"
+    >
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1253,7 +1473,10 @@ STEM:
       </div>
     </div>
 
-    <div id="publications" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+    <div
+      id="publications"
+      class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility"
+    >
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1401,7 +1624,10 @@ STEM:
       </div>
     </div>
 
-    <div id="software" class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility">
+    <div
+      id="software"
+      class="dropdown-wrapper-mobile dropdown-wrapper dropdown-visibility"
+    >
       <div class="dropdown">
 	<ul class="dropdown-list">
 	  <li class="dropdown-item">
@@ -1510,7 +1736,9 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLGASMiaB_yw0">
 		Legacy Code Hero
 	      </a>
-	      <span>Developing a Gamepad X11 Input Driver</span>
+	      <span id="legacy-short-text">
+		Developing a Gamepad X11 Input Driver
+	      </span>
 	    <div>
 	  </li>
 	  <li class="dropdown-item">
@@ -1525,7 +1753,9 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLIoYcqced2L0">
 		Framework Beater
 	      </a>
-	      <span>Http-Server Development</span>
+	      <span id="frameworkbeater-short-text">
+		Http-Server Development
+	      </span>
 	    </div>
 	  </li>
 	</ul>
@@ -1547,7 +1777,7 @@ STEM:
 	      <a href="https://misael-diaz.github.io/handmade-hero/">
 		Handmade Hero Odyssey
 	      </a>
-	      <span>
+	      <span id="odyssey-short-text">
 		A blog about porting Casey Muratori's Handmade Hero game to Linux
 	      </span>
 	    </div>
@@ -1565,7 +1795,7 @@ STEM:
 	      <a href="/blogs/wireless-networking-linux.html">
 		WPA Supplicant
 	      </a>
-	      <span>
+	      <span id="networking-short-text">
 		Wireless Linux Networking from the command-line
 	      </span>
 	    </div>
@@ -1582,7 +1812,7 @@ STEM:
 	      <a href="https://www.uprm.edu/inqu/che-seminar-series-introduction-to-computing-with-matlab-misael-diaz-maldonado-uprm/">
 		Matlab
 	      </a>
-	      <span>
+	      <span id="matlab-short-text">
 		Workshop for engineering students
 	      </span>
 	    </div>
@@ -1607,7 +1837,7 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLMH4REoO6mGU">
 	       Computer Vision Engine
 	      </a>
-	      <span>
+	      <span id="demo-cve-short-text">
 		Collection of demos on leveraging performant C/C++ code from Python
 	      <span>
 	    </div>
@@ -1624,7 +1854,10 @@ STEM:
 	      <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">
 	       Sonic The Hedgehog: Infinity Level Game
 	      </a>
-	      <span>Progressive demos of game written in C</span>
+	      <span id="demo-sonic-short-text">
+		Progressive demos of a game development project written entirely in C
+		from scratch
+	      </span>
 	    </div>
 	  </li>
 	  <li class="dropdown-item">
@@ -1640,7 +1873,10 @@ STEM:
 	    <a href="https://youtu.be/MSf5etK1ojw">
 	     Space Invaders
 	    </a>
-	    <span>My first attempt of developing a game in C</span>
+	    <span id="demo-space-invaders-short-text">
+	      Game prototype inspired by Space Invaders that has been coded
+	      from scratch
+	    </span>
 	    </div>
 	  </li>
 	</ul>
