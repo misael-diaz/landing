@@ -66,6 +66,7 @@ STEM:
       --container-mobile-border-size: 1px;
       --inner-border-size: 16px;
       --inner-mobile-border-size: 1px;
+      --navigation-color: #f7baba;
       --container-color: #ffffff;
       --inner-color: #ffffff;
       --header-color: #ffffff;
@@ -197,7 +198,7 @@ STEM:
     .nav-wrapper {
       position: relative;
       align-items: center;
-      background-color: #cbe9ac;
+      background-color: var(--navigation-color);
       border-left: 2px solid black;
       border-right: 2px solid black;
       box-sizing: border-box;
@@ -418,7 +419,7 @@ STEM:
       background-color: white;
       border: 0px;
     }
-    button span:hover {
+    .has-dialog:hover {
       text-decoration: underline;
     }
     .close {
@@ -486,7 +487,7 @@ STEM:
     }
     .stem-label {
       font-size: medium;
-      font-weight: 500;
+      font-weight: 400;
     }
     .stem-services, .software-services {
       list-style: none;
@@ -994,7 +995,7 @@ STEM:
 
 	const dialogTeachingPhilosophyDetails = document.getElementById("dialog-stem-teaching-philosophy-details-text");
 	const dialogTeachingPhilosophyDetailsEnglish = "Students are eager to learn what interest them, and so, my key to teaching them is to persuade them early on about the importance of the field of study. After having students understand the importance of what they are learning, I have seen them engage with the subject more intently out of the own volition. To me there's nothing more rewarding than seeing my students take off on their own and become their own teachers and the teachers of their peers.";
-	const dialogTeachingPhilosophyDetailsSpanish = "En mi experiencia docente he visto que los estudiantes se encuentran más dispuestos en aprender acerca de los temas que les interesa. Es por esta razón que mi metodología de enseñanza comienza con una exposición persuasiva de la importancia de los conceptos que están aprendiendo para su desarrollo integral y profesional. Después de lograr esto los estudiantes comienzan a explorar los temas por su propia cuenta y eventualmente se convierten en sus propios instructores y en los instructores de sus compañeros de estudio. El hecho de que el estudiante pueda instruir a sus compañeros es el producto del aprendizaje. No hay nada más recompensante para mí que ver a mis estudiantes adquirir el dominio de los temas de estudio y verlos seguir adelante por sus propios conocimientos y habilidades. Es en ese momento que sé que mi trabajo ha culminado, y mi misión es lograr esto con cada uno de mis estudiantes.";
+	const dialogTeachingPhilosophyDetailsSpanish = "Los estudiantes aprenden acerca de los temas que les interesa con mayor facilidad. Es por esta razón que mi metodología de enseñanza comienza con una exposición persuasiva de la importancia de los conceptos que están aprendiendo para su desarrollo integral y profesional. Después de lograr esto los estudiantes comienzan a explorar los temas por su propia cuenta y eventualmente se convierten en sus propios instructores y en los instructores de sus compañeros de estudio. El hecho de que el estudiante pueda instruir a sus compañeros es el producto del aprendizaje. No hay nada más recompensante para mí que ver a mis estudiantes adquirir el dominio de los temas de estudio y verlos seguir adelante por sus propios conocimientos y habilidades. Es en ese momento que sé que mi trabajo ha culminado, y mi misión es lograr esto con cada uno de mis estudiantes.";
 	text = ("english" == this.value)? dialogTeachingPhilosophyDetailsEnglish : dialogTeachingPhilosophyDetailsSpanish;
 	replaceInnerText(dialogTeachingPhilosophyDetails, text);
 
@@ -1183,7 +1184,7 @@ STEM:
 	    <button command="show-modal" commandfor="stem-dialog">
 	    <span
 	      id="stem-text"
-	      class="stem-label"
+	      class="stem-label has-dialog"
 	      aria-describedby="stem-tutoring-services"
 	    >
 	      STEM Tutoring
@@ -1270,12 +1271,14 @@ STEM:
 	    <div class="alphabet-icon">
 	      <span style="display: flex">A</span>
 	    </div>
-	    <span id="english-tutoring-text" aria-describedby="english-tutoring-services">English Tutoring</span>
+	    <button>
+	    <span id="english-tutoring-text" class="stem-label" aria-describedby="english-tutoring-services">English Tutoring</span>
 	    <div role="tooltip" id="english-tutoring-services">
 	      <span id="tooltip-english-tutoring-text" style="font-size: small">
 		Conversational English
 	      </span>
 	    </div>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1286,9 +1289,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="thesis-reviewing-text" class="stem-label">
 	      Thesis Reviewing
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1299,9 +1304,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="scientific-article-reviewing-text" class="stem-label">
 	      Scientific Article Reviewing
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
@@ -1312,9 +1319,11 @@ STEM:
 	      height=32px
 	    >
 	    </img>
+	    <button>
 	    <span id="scientific-modelling-text" class="stem-label">
 	      Scientific Modelling and Simulation
 	    </span>
+	    </button>
 	  </li>
 	  <li class="dropdown-item">
 	    <img
