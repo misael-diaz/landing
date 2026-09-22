@@ -33,6 +33,7 @@ PROJECTS:
 students about the cool stuff that they can do with microbit and so I am liking here
 a great resource to get familiarized with building microbit projects with C/C++:
 
+https://mattoppenheim.com/blog/2021/03/getting-started-with-c-on-the-microbit-v2-in-linux/
 https://lancaster-university.github.io/microbit-docs/offline-toolchains/
 
 the task here is to build some projects and add a new Projects item in the navigation
@@ -458,6 +459,34 @@ STEM:
       padding: 0.3rem;
       top: -48px;
       left: -32px;
+      z-index: 4;
+    }
+    }
+    @media screen and (width <= 650px) {
+    button [role="tooltip"].single {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -16px;
+      left: 4px;
+      z-index: 4;
+    }
+    }
+    @media screen and (width > 650px) {
+    button [role="tooltip"].single {
+      visibility: hidden;
+      position: absolute;
+      background: #202020;
+      color: white;
+      transition: visibility 0.5s;
+      border-radius: 0.25rem;
+      padding: 0.3rem;
+      top: -2px;
+      left: 0px;
       z-index: 4;
     }
     }
@@ -1182,30 +1211,30 @@ STEM:
 	    >
 	    </img>
 	    <button command="show-modal" commandfor="stem-dialog">
-	    <span
-	      id="stem-text"
-	      class="stem-label has-dialog"
-	      aria-describedby="stem-tutoring-services"
-	    >
-	      STEM Tutoring
-	    </span>
-	    <div role="tooltip" id="stem-tutoring-services">
-	      <ul class="stem-services">
-		<li class="stem-service">
-		  <span id="theory-text">
-		    theory
-		  </span>
-		</li>
-		<li class="stem-service">
-		  <span id="practice-text">practice problems</span>
-		<li class="stem-service">
-		  <span id="science-text">science projects</span>
-		</li>
-		<li class="stem-service">
-		  <span id="tech-text">tech projects</span>
-		</li>
-	      </ul>
-	    </div>
+	      <span
+		id="stem-text"
+		class="stem-label has-dialog"
+		aria-describedby="stem-tutoring-services"
+	      >
+		STEM Tutoring
+	      </span>
+	      <div role="tooltip" id="stem-tutoring-services">
+		<ul class="stem-services">
+		  <li class="stem-service">
+		    <span id="theory-text">
+		      theory
+		    </span>
+		  </li>
+		  <li class="stem-service">
+		    <span id="practice-text">practice problems</span>
+		  <li class="stem-service">
+		    <span id="science-text">science projects</span>
+		  </li>
+		  <li class="stem-service">
+		    <span id="tech-text">tech projects</span>
+		  </li>
+		</ul>
+	      </div>
 	    </button>
 	    <dialog id="stem-dialog" closedby="any">
 	      <button class="close" command="close" commandfor="stem-dialog" autofocus>
@@ -1223,7 +1252,10 @@ STEM:
 	      <h2 id="dialog-stem-text" style="text-align: center">STEM Tutoring</h2>
 	      </div>
 	      <div class="teaching-philosophy">
-	      <h3 id="dialog-stem-teaching-philosophy-text" style="text-align: start; margin: 16px">
+	      <h3
+		id="dialog-stem-teaching-philosophy-text"
+		style="text-align: start; margin: 16px"
+	      >
 		Teaching Philosophy
 	      </h3>
 	      <p id="dialog-stem-teaching-philosophy-details-text" class="stem-teaching">
@@ -1236,7 +1268,10 @@ STEM:
 		their own teachers and the teachers of their peers.
 	      </p>
 	      </div>
-	      <h3 id="dialog-stem-services-text" style="margin-top: 16px; margin-bottom: 8px">
+	      <h3
+		id="dialog-stem-services-text"
+		style="margin-top: 16px; margin-bottom: 8px"
+	      >
 		Services
 	      </h3>
 	      <ul class="stem-services-dialog">
@@ -1252,7 +1287,10 @@ STEM:
 		  </span>
 		</li>
 		<li class="stem-service-dialog">
-		  <span id="dialog-stem-service-science-projects-text" style="padding: 4px">
+		  <span
+		    id="dialog-stem-service-science-projects-text"
+		    style="padding: 4px"
+		  >
 		    One to two-hour sessions dedicated to the development of scientific
 		    fair or engineering project.
 		  </span>
@@ -1272,12 +1310,17 @@ STEM:
 	      <span style="display: flex">A</span>
 	    </div>
 	    <button>
-	    <span id="english-tutoring-text" class="stem-label" aria-describedby="english-tutoring-services">English Tutoring</span>
-	    <div role="tooltip" id="english-tutoring-services">
-	      <span id="tooltip-english-tutoring-text" style="font-size: small">
-		Conversational English
+	      <span
+		id="english-tutoring-text"
+		class="stem-label"
+		aria-describedby="english-tutoring-services">
+		English Tutoring
 	      </span>
-	    </div>
+	      <div class="single" role="tooltip" id="english-tutoring-services">
+		<span id="tooltip-english-tutoring-text" style="font-size: small">
+		  Conversational English
+		</span>
+	      </div>
 	    </button>
 	  </li>
 	  <li class="dropdown-item">
@@ -1290,9 +1333,9 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span id="thesis-reviewing-text" class="stem-label">
-	      Thesis Reviewing
-	    </span>
+	      <span id="thesis-reviewing-text" class="stem-label">
+		Thesis Reviewing
+	      </span>
 	    </button>
 	  </li>
 	  <li class="dropdown-item">
@@ -1305,9 +1348,9 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span id="scientific-article-reviewing-text" class="stem-label">
-	      Scientific Article Reviewing
-	    </span>
+	      <span id="scientific-article-reviewing-text" class="stem-label">
+		Scientific Article Reviewing
+	      </span>
 	    </button>
 	  </li>
 	  <li class="dropdown-item">
@@ -1320,9 +1363,9 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span id="scientific-modelling-text" class="stem-label">
-	      Scientific Modelling and Simulation
-	    </span>
+	      <span id="scientific-modelling-text" class="stem-label">
+		Scientific Modelling and Simulation
+	      </span>
 	    </button>
 	  </li>
 	  <li class="dropdown-item">
@@ -1335,13 +1378,13 @@ STEM:
 	    >
 	    </img>
 	    <button>
-	    <span
-	      id="software-development-text"
-	      class="stem-label"
-	      aria-describedby="software-development-services"
-	    >
-	      Software Development
-	    </span>
+	      <span
+		id="software-development-text"
+		class="stem-label"
+		aria-describedby="software-development-services"
+	      >
+		Software Development
+	      </span>
 	    <div role="tooltip" id="software-development-services">
 	      <ul class="software-services">
 		<li class="software-service">
