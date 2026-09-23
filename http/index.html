@@ -931,6 +931,12 @@ STEM:
 	text = ("english" == this.value)? networkingEnglish : networkingSpanish;
 	replaceInnerText(networking, text);
 
+	const LinuxMintUpdate = document.getElementById("linuxmintupdate-short-text");
+	const LinuxMintUpdateEnglish = "How to disable the startup notifications from the Linux Mint Updater";
+	const LinuxMintUpdateSpanish = "Cómo desactivar los recordatorios del actualizador del sistema de Linux Mint";
+	text = ("english" == this.value)? LinuxMintUpdateEnglish : LinuxMintUpdateSpanish;
+	replaceInnerText(LinuxMintUpdate, text);
+
 	const matlab = document.getElementById("matlab-short-text");
 	const matlabEnglish = "Workshop for engineering students";
 	const matlabSpanish = "Taller de soluciones computacionales para estudiantes de ingeniería";
@@ -1849,6 +1855,24 @@ STEM:
 	      </a>
 	      <span id="networking-short-text">
 		Wireless Linux Networking from the command-line
+	      </span>
+	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="public/logos/terminal.png"
+	      alt="drawing of a Linux terminal or console"
+	      height=32px
+	    >
+	    </img>
+	    <div class="dropdown-description">
+	      <a href="/blogs/disabling-linuxmint-update-notifications.html">
+		Disable Linux Mint Updater Notifications
+	      </a>
+	      <span id="linuxmintupdate-short-text">
+		How to disable the startup notifications from the Linux Mint Updater
 	      </span>
 	    </div>
 	  </li>

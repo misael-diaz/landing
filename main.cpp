@@ -1231,7 +1231,7 @@ int main() {
 	struct DataModule *modulp = &module;
 	size_t const size_modules = (modno * sizeof(*modulp));
 	size_t const size_modmap = (
-		((size_modules + (pagemask << 1)) & (~pagemask))
+		(((size_modules + (pagemask << 1)) + pagemask) & (~pagemask))
 	);
 	size_t const offset_modname = size_modules;
 	size_t const size_modname = pagemask;
