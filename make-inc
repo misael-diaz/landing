@@ -55,6 +55,7 @@ DEV_CXX = dev.cpp
 UND_CXX = und.cpp
 UN_CXX = un.cpp
 WIRELESS_CXX = wireless.cpp
+LINUXMINTUPDATE_CXX = linuxmintupdate.cpp
 BLOGS_CXX = blogs.cpp
 ROOT_CXX = root.cpp
 
@@ -82,6 +83,7 @@ DEV_SO = modules/dev.so
 UND_SO = modules/und.so
 UN_SO = modules/un.so
 WIRELESS_SO = modules/wireless.so
+LINUXMINTUPDATE_SO = modules/linuxmintupdate.so
 BLOGS_SO = modules/blogs.so
 ROOT_SO = modules/root.so
 
@@ -109,5 +111,6 @@ MODULES = $(FAVICON_SO) \
 	  $(UND_SO) \
 	  $(UN_SO) \
 	  $(WIRELESS_SO) \
+	  $(LINUXMINTUPDATE_SO) \
 	  $(BLOGS_SO) \
 	  $(ROOT_SO)

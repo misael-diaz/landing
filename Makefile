@@ -118,6 +118,10 @@ $(WIRELESS_SO): $(WIRELESS_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(WIRELESS_CXX) -o $(WIRELESS_SO)
 
+$(LINUXMINTUPDATE_SO): $(LINUXMINTUPDATE_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) -fPIC -shared $(LINUXMINTUPDATE_CXX) -o $(LINUXMINTUPDATE_SO)
+
 $(BLOGS_SO): $(BLOGS_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(BLOGS_CXX) -o $(BLOGS_SO)

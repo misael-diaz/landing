@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Misael Díaz-Maldonado">
+    <meta
+      name="description"
+      content="This blog shows you how to disable Linux Mint Update Notifications at startup through the command-line interface."
+    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
+    <link rel="stylesheet" href="/blogs/style-blogs.css"/>
+    <title>Disabling Notifications from the Linux Mint Updater at Startup</title>
+  </head>
+  <body>
+    <div class="page-layout">
+      <header>
+	<div class="head-wrapper">
+	  <div class="head">
+	    <h1 class="title">Misael Díaz-Maldonado, PhD</h1>
+	    <h2 class="subtitle">
+	      Computational Physicist |
+	      Chemical Engineer |
+	      Software Developer |
+	      STEM Educator
+	    </h2>
+	  </div>
+	  <a href="/">
+	    <div class="logo">
+	      <img
+		class="brand brand-effect"
+		loading="eager"
+		src="https://avatars.githubusercontent.com/u/20134959"
+		alt="shows brand logo, a Janus droplet under shear flow"
+	      >
+	      </img>
+	    </div>
+	  </a>
+	</div>
+	<ul class="breadcrumbs">
+	  <li>
+	    <div style="display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center">
+	      <a class="crumb" href="/blogs">
+		Blogs
+	      </a>
+	      <pre style="display: inline"> &gt; </pre>
+	    </div>
+	  </li>
+	    <li>
+	      <a class="crumb" href="/blogs/disabling-linuxmint-update-notifications.html">
+		Disabling Notifications from the Linux Mint Updater at Startup
+	      </a>
+	    </li>
+	</ul>
+      </header>
+      <div class="content-layout">
+	<nav>
+	  <h2>Contents</h2>
+	  <ul class="panel">
+	    <li class="panel-item">
+	      <a class="panel-text" href="#disabling_linux_mint_update">
+		Disabling Notifications from the Linux Mint Updater at Startup
+	      </a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#motivation">Motivation</a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#removing_launcher_from_autostart">
+		Removing the Linux Mint Update Launcher from Autostart
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+	<article>
+	  <h1 id="disabling_linux_mint_update">
+	    Disabling Notifications from the Linux Mint Updater at Startup
+	  </h1>
+	  <section>
+	    <p>
+	      In this article you will learn how to use the command-line interface to
+	      disable the notifications that the Linux Mint System Updater generates at
+	      startup time.
+	    </p>
+	  </section>
+	  <h2 id="motivation">Motivation</h2>
+	  <section>
+	    <p>
+	      I don't know about you but I don't like distractions, especially when I turn
+	      on my computer I don't want reminders about taking care of the system. What
+	      I want is to get my work done. I can do system administration on the
+	      weekends if I need to but it's up to me not up to the system. I know Linux
+	      Mint tries to be considerate on the frequency of the reminders but as you
+	      can see even its level consideration drove me to this point.
+	    </p>
+	  </section>
+	  <h2 id="removing_launcher_from_autostart">
+	    Removing the Linux Mint Update Launcher from Autostart Applications
+	  </h2>
+	  <section>
+	    <p>
+	      Disabling the notifications from the linux mint updater is as simple as
+	      moving a file from one location to another. If you are ready to do this,
+	      follow along it will be brief and swift.
+	    </p>
+	    <p>
+	      Open up your terminal and the switch to the root user with your credentials.
+	      And change directory to <code class="inline">/etc/xdg</code> and create
+	      a new directory, you may call it anyway you want though to place the
+	      Linux Mint Update Manager <code class="inline">linuxmint.desktop</code>.
+	    </p>
+	    <p>
+	      Currently the Linux Mint Update Manager
+	      <code class="inline">linuxmint.desktop</code> should be located in the
+	      <code class="inline">autostart</code> directory and so all that we need to
+	      do is to relocate the autostart file this way:
+	    </p>
+	    <div class="console">
+	      <pre><code>mv autostart/linuxmint.desktop disabled-autostart</code></pre>
+	    </div>
+	    <p>
+	      And that's all folks, you need not take any further action. I assure you
+	      that you won't miss those notifications from your desktop session.
+	    </p>
+	    <p>
+	      A few comments that might be of your interest.
+	      As you can see I have chosen <code class="inline">disabled-autostart</code>
+	      as the directory that will host the Linux Mint Updater if I ever need to
+	      restore the normal behavior it would be easy to remember where it is.
+	      However, I don't see that that day will ever come.
+	    </p>
+	    <p>
+	      This was surely a short one I know but this is one of those things that if
+	      you don't document it somewhere you may forget by the time that you need
+	      to do it again. And so I decided to write
+	      a mini blog about this for my future self. Hopefully this would also help
+	      someone out there on the internet. Cheers!
+	    </p>
+	  </section>
+	</article>
+      </div>
+    </div>
+  </body>
+</html>
