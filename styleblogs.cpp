@@ -11,7 +11,7 @@ as published by the Free Software Foundation.
 
 #include "http.hpp"
 
-#define HTTP_URI_STYLE_BLOGS "/style-blogs"
+#define HTTP_URI_STYLE_BLOGS "/blogs/style-blogs.css"
 #define HTTP_PATH_STYLE_BLOGS (DIRBUILD "/http/blogs/style-blogs.css")
 
 __httpd_extern
