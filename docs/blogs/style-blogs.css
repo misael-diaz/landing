@@ -115,9 +115,6 @@ nav {
   top: 160px;
 }
 .panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   list-style: none;
   overflow-y: auto;
   height: 256px;
