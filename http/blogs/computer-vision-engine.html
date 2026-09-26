@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Misael Díaz-Maldonado">
+    <meta
+      name="description"
+      content="This blog talks about some of the ideas and some key implementation details that were used to develop a custom computer vision engine written entirely in C/C++ from scratch."
+    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
+    <link rel="stylesheet" href="/blogs/style-blogs.css"/>
+    <title>Development of a Computer Vision Engine from Scratch with C/C++</title>
+    <style>
+    .clustering-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 0px;
+      width: 256px;
+      border: 1px solid black;
+    }
+    .pixel {
+      width: 32px;
+      height: 32px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+    .blue {
+      background-color: #00dcff;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="page-layout">
+      <header>
+	<div class="head-wrapper">
+	  <div class="head">
+	    <h1 class="title">Misael Díaz-Maldonado, PhD</h1>
+	    <h2 class="subtitle">
+	      Computational Physicist |
+	      Chemical Engineer |
+	      Software Developer |
+	      STEM Educator
+	    </h2>
+	  </div>
+	  <a href="/">
+	    <div class="logo">
+	      <img
+		class="brand brand-effect"
+		loading="eager"
+		src="https://avatars.githubusercontent.com/u/20134959"
+		alt="shows brand logo, a Janus droplet under shear flow"
+	      >
+	      </img>
+	    </div>
+	  </a>
+	</div>
+	<ul class="breadcrumbs">
+	  <li>
+	    <div style="display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center">
+	      <a class="crumb" href="/blogs">
+		Blogs
+	      </a>
+	      <pre style="display: inline"> &gt; </pre>
+	    </div>
+	  </li>
+	    <li>
+	      <a class="crumb" href="/blogs/computer-vision-engine.html">
+		Development of a Computer Vision Engine from Scratch with C/C++
+	      </a>
+	    </li>
+	</ul>
+      </header>
+      <div class="content-layout">
+	<nav>
+	  <h2>Contents</h2>
+	  <ul class="panel">
+	    <li class="panel-item">
+	      <a class="panel-text" href="#computer_vision_engine_development">
+		Development of a Computer Vision Engine from Scratch with C/C++
+	      </a>
+	      </a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#motivation">Motivation</a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#scope">Scope</a>
+	    </li>
+	  </ul>
+	</nav>
+	<article>
+	  <h1 id="computer_vision_engine_development">
+	    Development of a Computer Vision Engine from Scratch with C/C++
+	  </h1>
+	  <section>
+	    <p>
+	      In this article you will know about some of the core ideas that laid the
+	      foundation to develop my computer vision engine from scratch.
+	    </p>
+	  </section>
+	  <h2 id="motivation">Motivation</h2>
+	  <section>
+	    <p>
+	      The motivation to develop a computer vision engine from scratch in C/C++
+	      came from interacting with mentors and other participants in the
+	      <a href="https://github.com/misael-diaz/CaribeTechArena-Hackathon-2026">CaribeTech hackathon</a>.
+	      One of the mentors asked me to create a talk about interfacing
+	      C/C++ code from Python after he saw my 
+	      <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">game engine demos</a>
+	      featuring Sonic The Hedgehog.
+	      (My favorite videogame character since childhood.)
+	      Of course I was glad to be given the opportunity to talk about writing
+	      performant code that can be called from Python. That was meaningful for me
+	      because during the event I noticed that there is real interest from
+	      developers to write C/C++ code themselves. Why would I object to that,
+	      for I was seeing my past self in them, for learning C/C++ was something
+	      that I have always wanted to do. So being able to teach something about
+	      C/C++ to those developers would be like teaching the things that I wanted
+	      to learn from someone back then.
+	    </p>
+	  </section>
+	  <h2 id="scope">Scope</h2>
+	  <section>
+	    <p>
+	      I figured that writing in great detail about the implementation of the
+	      computer vision engine that I wrote would never be as accurate as actually
+	      reading the source code. In fact, I don't even want to talk about the code,
+	      what I want in this blog is just to share the core ideas that I used to
+	      build my own engine in the context that this is sort of a case study for
+	      Python developers with zero experience with C/C++. The message that I wanted
+	      to send was that you can write "average" C/C++ code and still get
+	      outstanding performance compared to what you would get if you have written
+	      the code in pure Python.
+	    </p>
+	    <p>
+	      That's the reason why I did not research about Computer Vision algorithms to
+	      write my own. Part of the reason of doing that is to find out if I could
+	      come up with an algorithm that does the job and still performs well. And
+	      by performance I meant tracking a videogame character
+	      (in case Sonic The Hedgehog) at target rate of 30 FPS while playing the
+	      game real-time. At 30 FPS the player tracking would look great because
+	      the first installment of the game was released for the Sega Genesis console
+	      and you probably know that it's a pixel art game. Just going to say that
+	      the engine can clock at 60 FPS but at the expense of having the CPU do
+	      more work between frames. I preferred having the CPU sleep as soon as the
+	      frame was finished to keep the CPU usage as low as possible. The engine
+	      is not just performant but energy efficient in some sense.
+	    </p>
+	  </section>
+	  <h2 id="algorithm">Pixel Clustering Algorithm</h2>
+	  <section>
+	    <p>
+	    <strong>
+	      TODO NEED TO TALK ABOUT THE PARTITIONING ALGORITHM ALSO EXPLAIN WHY WE
+	      CARE ABOUT BLUE COLORED PIXELS FOR THIS PARTICULAR COMPUTER VISION ENGINE
+	      AND MANY OTHER THINGS.
+	    </strong>
+	    </p>
+	  <figure>
+	    <div style="display: flex; justify-content: center;">
+	      <div class="clustering-diagram">
+
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="blue pixel">
+		</div>
+		<div class="pixel">
+		</div>
+		<div class="pixel">
+		</div>
+
+	      </div>
+	    </div>
+	    <figcaption style="display: flex; justify-content: center;">
+	      Figure 1: U-shaped pattern of pixels for illustrating when merging is
+	      required.
+	    </figcaption>
+	  </figure>
+	  </section>
+	</article>
+      </div>
+    </div>
+  </body>
+</html>
