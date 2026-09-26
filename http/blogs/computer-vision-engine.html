@@ -87,6 +87,16 @@
 	    <li class="panel-item">
 	      <a class="panel-text" href="#scope">Scope</a>
 	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#learning">
+		Starting your journey to learn C/C++
+	      </a>
+	    </li>
+	    <li class="panel-item">
+	      <a class="panel-text" href="#algorithm">
+		Computer Vision Algorithm
+	      </a>
+	    </li>
 	  </ul>
 	</nav>
 	<article>
@@ -96,47 +106,110 @@
 	  <section>
 	    <p>
 	      In this article you will know about some of the core ideas that laid the
-	      foundation to develop my computer vision engine from scratch.
+	      foundation to develop my computer vision engine from scratch. And by
+	      "engine" I mean the code that provides the core functionality to my
+	      handcrafted Computer Vision Application.
 	    </p>
 	  </section>
 	  <h2 id="motivation">Motivation</h2>
 	  <section>
 	    <p>
 	      The motivation to develop a computer vision engine from scratch in C/C++
-	      came from interacting with mentors and other participants in the
+	      came from interacting with mentors and participants in the
 	      <a href="https://github.com/misael-diaz/CaribeTechArena-Hackathon-2026">CaribeTech hackathon</a>.
 	      One of the mentors asked me to create a talk about interfacing
-	      C/C++ code from Python after he saw my 
+	      C/C++ code with Python after he saw my
 	      <a href="https://www.youtube.com/playlist?list=PLBf01prwSx2U">game engine demos</a>
 	      featuring Sonic The Hedgehog.
 	      (My favorite videogame character since childhood.)
 	      Of course I was glad to be given the opportunity to talk about writing
-	      performant code that can be called from Python. That was meaningful for me
-	      because during the event I noticed that there is real interest from
+	      performant code that can be called from Python. That was meaningful to me
+	      because during the event I noticed that there was real interest from
 	      developers to write C/C++ code themselves. Why would I object to that,
-	      for I was seeing my past self in them, for learning C/C++ was something
-	      that I have always wanted to do. So being able to teach something about
+	      for I was seeing my past self in them? Learning C/C++ was something
+	      that I had always wanted to do when I was a graduate student where
+	      I spent much time writing <a href="https://fortran-lang.org/">Fortran</a>
+	      code. So being able to teach about
 	      C/C++ to those developers would be like teaching the things that I wanted
-	      to learn from someone back then.
+	      to learn from a professional developer back then.
 	    </p>
 	  </section>
 	  <h2 id="scope">Scope</h2>
 	  <section>
 	    <p>
 	      I figured that writing in great detail about the implementation of the
-	      computer vision engine that I wrote would never be as accurate as actually
-	      reading the source code. In fact, I don't even want to talk about the code,
-	      what I want in this blog is just to share the core ideas that I used to
-	      build my own engine in the context that this is sort of a case study for
-	      Python developers with zero experience with C/C++. The message that I wanted
-	      to send was that you can write "average" C/C++ code and still get
-	      outstanding performance compared to what you would get if you have written
-	      the code in pure Python.
+	      computer vision engine that I wrote for the event would never be as
+	      accurate as reading its <a href="https://github.com/misael-diaz/ComputerVisionEngine">source code</a>.
+	      In fact, I don't even want to talk about the code,
+	      what I want to do in this blog is to share the core ideas that led to me
+	      the development of the computer vision engine.
 	    </p>
 	    <p>
-	      That's the reason why I did not research about Computer Vision algorithms to
-	      write my own. Part of the reason of doing that is to find out if I could
-	      come up with an algorithm that does the job and still performs well. And
+	      The main message that I want
+	      to convey here is that even if you write "average" C/C++ code you can still
+	      get outstanding performance compared to what you would get if you have
+	      written the code in pure Python. Of course, this is general
+	      knowledge, everyone knows that applications that compile down to machine
+	      code execute faster.
+	      However, what I want to highlight here is that no matter
+	      what you write in just pure Python it is not going to get significantly
+	      better; on the other hand, when you write C/C++ code you can
+	      affect the overall performance of the code by the way that you write it.
+	      At least knowing what pitfalls to avoid can lead you to
+	      obtain code that performs well (with respect to the performance
+	      requirements of the application or your own criteria).
+	    </p>
+	  </section>
+	  <h2 id="learning">
+	    Starting your journey to learn C/C++
+	  </h2>
+	  <section>
+	    <p>
+	      If you are interested in learning about what pitfalls to avoid to write
+	      performant code and you don't mind doing so in a non-traditional way
+	      (not a structured course, bootcamp, etc.) I would recommend you to
+	      watch Casey Muratori's
+	      <a href="https://mollyrocket.com/#handmade">handmade hero</a> series.
+	      Even though the series has gone into a hiatus you can still watch the
+	      episodes and query about the topics that you may be interested
+	      through the handmade hero
+	      <a href="https://guide.handmadehero.org/">guide page</a>.
+	      I bet you will learn a lot and the best part is that you don't have
+	      to watch the entire series (which spans about 700 episodes) to set you off
+	      on the right track.
+	    </p>
+	    <p>
+	      Just want to add that if you already know how to write code in another
+	      language such as Python you can definitely learn C/C++ to develop
+	      performant software. You already have the foundational knowledge
+	      to develop applications what you need to learn are some aspects of
+	      how computers work, some syntax rules, and getting familiar with
+	      compilers (<a href="https://gcc.gnu.org/">GCC</a> and/or
+	      <a href="https://clang.llvm.org/">clang</a>).
+	      The best advice I can give you is to start reading and
+	      writing C/C++ code, that's the best way to learn.
+	      Most importantly, don't waste time trying to
+	      learn everything that there's is to know; instead, focus your
+	      learning to just what you need to modify pixel on the screen,
+	      parse unicode files, turn on an LED, develop a video game, etc.
+	      just write some code.
+	    </p>
+	  </section>
+	  <h2 id="algorithm">Computer Vision Algorithm</h2>
+	  <section>
+	    <p>
+	      Going back to the main point,
+	      I did not research about Computer Vision algorithms to
+	      write my own; in part, because I wanted to
+	      find out if I could
+	      come up with a <em>simple</em> algorithm that's easy to understand,
+	      does the job, and still performs well.
+	      If the implementation of a simple algorithm yields perfmant code that
+	      means that my initial intuition was correct.
+	      <strong>TODO CONNECT WITH NEXT PARAGRAPH</strong>
+	    </p>
+	    <p>
+	      And
 	      by performance I meant tracking a videogame character
 	      (in case Sonic The Hedgehog) at target rate of 30 FPS while playing the
 	      game real-time. At 30 FPS the player tracking would look great because
