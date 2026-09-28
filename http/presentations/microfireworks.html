@@ -11,11 +11,42 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
     <title>Microfireworks</title>
     <style>
+/*
+TODO:
+[ ] use tooltip to indicate that you are not currently affiliated to those institutions
+*/
+    .layout {
+      display: grid;
+      grid-template-areas: "nav . main";
+      grid-template-columns: 0.8fr 0.2fr 5fr;
+      position: relative;
+      top: 0px;
+    }
+    .panel {
+      grid-area: nav;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      outline: 1px solid black;
+      position: relative;
+      top: 0px;
+    }
+    nav {
+      position: sticky;
+      top: 0px;
+    }
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
       outline: 1px solid black;
+      background-color: white;
+      box-sizing: border-box;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      position: relative;
     }
     .slide-container {
       display: flex;
@@ -34,6 +65,42 @@
       grid-template-rows: 1fr 3fr 1fr;
       height: 100%;
       width: 100%;
+    }
+    .thumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      border: 1.5px solid black;
+      width: 90px;
+      height: 90px;
+      margin: 4px;
+    }
+    .logo {
+      display: block;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      margin-right: 24px;
+      margin-left: 24px;
+    }
+/* NOTE: hides elements that would not fit on smaller screens,
+         position absolute makes sure that those elements do not occupy space
+	 when hidden
+*/
+    @media screen and (width <= 850px) {
+      .hide {
+	position: absolute;
+	visibility: hidden;
+      }
+    }
+    .brand {
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px black;
+      background-color: white;
+    }
+    .brand:hover {
+      box-shadow: 0 0 0 1px blue;
+      transition: 0.2s box-shadow;
     }
     .particle-container {
       grid-area: body;
@@ -68,8 +135,87 @@
     }
     </style>
   </head>
-  <body>
-    <div class="container">
+  <body style="background-color: #d6dcdf">
+    <div class="layout">
+      <aside class="hide panel">
+	<nav>
+	  <ul style="list-style: none; padding: 0px;">
+	    <li class="thumb">
+	      <a href="#title-slide" style="text-decoration: none; color: black;">
+		Title
+	      </a>
+	    </li>
+	    <li class="thumb">
+	      <a href="#model-slide" style="text-decoration: none; color: black;">
+		Model
+	      </a>
+	    </li>
+	    <li class="thumb">
+	      <a href="#conclusions-slide" style="text-decoration: none; color: black;">
+		Conclusions
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+      </aside>
+    <div style="grid-area: main; position: relative; top: 0px;">
+    <div id="title-slide" style="margin-top: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <div style="grid-area: head; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center">
+	    <img
+              loading="eager"
+	      class="logo hide"
+              src="public/logos/UPRM.png"
+              alt="Logo of the University of Puerto Rico - Mayagüez"
+              height=64px
+	    >
+	    </img>
+	    <h1 style="text-align: center; margin: 2px; font-size: 1.5em;">
+	      Light Driven TiO<sub>2</sub>&ndash;Based Reversible Micro&ndash;Fireworks
+	    </h1>
+	    <img
+              loading="eager"
+	      class="logo hide"
+              src="public/logos/PSU.png"
+              alt="Penn State University Logo"
+              height=64px
+	    >
+	    </img>
+	  </div>
+	  <div style="grid-area: body; display: flex; flex-flow: column wrap; justify-content: center; align-items: center;">
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center;">
+	       PLACEHOLDER: International Scientific Research Conference
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center; color: gray;">
+	      University of Puerto Rico &ndash; Mayagüez
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center; color: gray;">
+	      Penn State University
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center;">
+	      Misael Díaz-Maldonado, PhD
+	    </h2>
+	    <h3 style="margin: 8px; font-size: 1.0em; text-align: center; color: gray">
+	      Date: TBD
+	    </h3>
+	  </div>
+	  <div style="grid-area: foot; display: flex; justify-content: center; align-items: center;">
+	    <a href="/">
+	      <img
+		loading="eager"
+		class="logo brand"
+		src="https://avatars.githubusercontent.com/u/20134959"
+		alt="Janus Droplet under shear flow -- author's brand logo"
+		height=64px
+	      >
+	      </img>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div id="model-slide" class="container">
       <div class="slide-container">
 	<div class="slide">
 	  <h2 style="grid-area: head; text-align: center; margin: 8px">Model</h2>
@@ -146,6 +292,23 @@
 	  </div>
 	</div>
       </div>
+    </div>
+    <div id="conclusions-slide" style="margin-bottom: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">Conclusions</h2>
+	  <div style="grid-area: body;">
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span>
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
     </div>
   </body>
 </html>
