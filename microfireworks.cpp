@@ -11,32 +11,32 @@ as published by the Free Software Foundation.
 
 #include "http.hpp"
 
-#define HTTP_URI_PRESENTATIONS "/presentations "
-#define HTTP_PATH_PRESENTATIONS (DIRBUILD "/http/presentations/index.html")
+#define HTTP_URI_MICROFIREWORKS "/presentations/microfireworks.html "
+#define HTTP_PATH_MICROFIREWORKS (DIRBUILD "/http/presentations/microfireworks.html")
 
 __httpd_extern
 __httpd_internal
-int PresentationsHead(
+int MicrofireworksHead(
         struct HttpResponse * const DataResponse,
         struct HttpRequest const * const DataRequest __attribute__((unused))
 ) {
-        return HttpRespondHeadFile(DataResponse, HTTP_PATH_PRESENTATIONS);
+        return HttpRespondHeadFile(DataResponse, HTTP_PATH_MICROFIREWORKS);
 }
 
 __httpd_extern
 __httpd_internal
-int PresentationsGet(
+int MicrofireworksGet(
         struct HttpResponse * const DataResponse,
         struct HttpRequest const * const DataRequest __attribute__((unused))
 ) {
-        return HttpRespondGetFile(DataResponse, HTTP_PATH_PRESENTATIONS);
+        return HttpRespondGetFile(DataResponse, HTTP_PATH_MICROFIREWORKS);
 }
 
 // NOTE: not going to include stddef.h just for NULL, we can use zero instead
-struct HttpModule presentationsModule = {
-	.name = HTTP_URI_PRESENTATIONS,
-	.Head = PresentationsHead,
-	.Get = PresentationsGet,
+struct HttpModule microfireworksModule = {
+	.name = HTTP_URI_MICROFIREWORKS,
+	.Head = MicrofireworksHead,
+	.Get = MicrofireworksGet,
 	.Put = 0,
 	.Post = 0,
 	.Delete = 0

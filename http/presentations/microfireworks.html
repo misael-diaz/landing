@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Misael Díaz-Maldonado">
+    <meta
+      name="description"
+      content="Micro-fireworks slides presented in an international conference."
+    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
+    <title>Microfireworks</title>
+    <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px solid black;
+    }
+    .slide-container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      width: 512px;
+      height: 460px;
+    }
+    .slide {
+      display: grid;
+      grid-template-areas:
+	"head"
+	"body"
+	"foot";
+      grid-template-rows: 1fr 3fr 1fr;
+      height: 100%;
+      width: 100%;
+    }
+    .particle-container {
+      grid-area: body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .particle {
+      border: 1.5px solid black;
+      background-color: #e9e7e7;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      position: relative;
+    }
+    .bath-particle {
+      border: 1.5px solid blue;
+      background-color: #9fe2ff;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+    }
+    .reference {
+      text-decoration: none;
+      color: gray;
+      font-size: small;
+    }
+    .reference:hover {
+      text-decoration: underline;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">Model</h2>
+	    <div class="particle-container">
+	      <div class="particle">
+		<svg xmlns="http://www.w3.org/2000/svg">
+		  <defs>
+		    <!-- NOTE: borrowed arrow marker code exactly as it was from MDN -->
+		    <marker
+		      id="arrow"
+		      viewBox="0 0 10 10"
+		      refX="5"
+		      refY="5"
+		      markerWidth="6"
+		      markerHeight="6"
+		      orient="auto-start-reverse"
+		    >
+		      <!-- attribute `d` was borrowed from MDN exactly as it was shown -->
+		      <path stroke="context-stroke" fill="red" d="M 0 0 L 10 5 L 0 10 Z"/>
+		    </marker>
+		  </defs>
+		  <line
+		    x1="32"
+		    y1="32"
+		    x2="80"
+		    y2="32"
+		    stroke="red"
+		    marker-end="url(#arrow)"
+		  />
+		</svg>
+		<span style="position: absolute; top: -4px; right: -8px">
+		  <em>a</em>
+		</span>
+
+		<div style="top: -16px; right: -32px" class="bath-particle">
+		</div>
+		<div style="bottom: 32px; right: -64px" class="bath-particle">
+		</div>
+		<div style="bottom: -16px; right: -32px" class="bath-particle">
+		</div>
+		<div style="top: -32px; left: 10px" class="bath-particle">
+		</div>
+		<div style="top: -2px; left: -48px" class="bath-particle">
+		</div>
+		<div style="top: 4px; left: -24px" class="bath-particle">
+		</div>
+		<div style="top: -16px; left: -8px" class="bath-particle">
+		</div>
+		<div style="top: -24px; left: -32px" class="bath-particle">
+		  <span style="position: absolute; top: -16px; right: -8px">
+		    <em>b</em>
+		  </span>
+		</div>
+		<div style="bottom: 24px; left: -48px" class="bath-particle">
+		</div>
+		<div style="bottom: 20px; left: -24px" class="bath-particle">
+		</div>
+		<div style="bottom: -28px; left: -12px" class="bath-particle">
+		</div>
+		<div style="bottom: -8px; left: -32px" class="bath-particle">
+		</div>
+		<div style="bottom: -14px; left: -52px" class="bath-particle">
+		</div>
+		<div style="bottom: 4px; left: -72px" class="bath-particle">
+		</div>
+	      </div>
+	    </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span>
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
