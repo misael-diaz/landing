@@ -917,6 +917,12 @@ STEM:
 	text = ("english" == this.value)? frameworkbeaterEnglish : frameworkbeaterSpanish;
 	replaceInnerText(frameworkbeater, text);
 
+	const microfireworks = document.getElementById("microfireworks-short-text");
+	const microfireworksEnglish = "Talk that explains microfireworks from a fundamental perspective";
+	const microfireworksSpanish = "En esta presentación explico la formación de fuegos artificiales microscópicos";
+	text = ("english" == this.value)? microfireworksEnglish : microfireworksSpanish;
+	replaceInnerText(microfireworks, text);
+
 	const odyssey = document.getElementById("odyssey-short-text");
 	const odysseyEnglish = "A blog about porting Casey Muratoris's Handmade Hero game to Linux";
 	const odysseySpanish = "Blog acerca de la adaptacion a Linux del videojuego Handmade Hero creador por Casey Muratori";
@@ -1813,6 +1819,24 @@ STEM:
 		Http-Server Development
 	      </span>
 	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="https://avatars.githubusercontent.com/u/20134959"
+	      alt="shows brand logo, a Janus droplet under shear flow"
+	      height=32px
+	    >
+	    </img>
+	    <div class="dropdown-description">
+	      <a href="/presentations/microfireworks.html">
+		Microfireworks
+	      </a>
+	      <span id="microfireworks-short-text">
+		Talk that explains microfireworks from a fundamental standpoint
+	      </span>
+	    <div>
 	  </li>
 	</ul>
       </div>
