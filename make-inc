@@ -57,6 +57,8 @@ UN_CXX = un.cpp
 WIRELESS_CXX = wireless.cpp
 LINUXMINTUPDATE_CXX = linuxmintupdate.cpp
 COMPUTERVISIONENGINE_CXX = computervisionengine.cpp
+MICROFIREWORKS_CXX = microfireworks.cpp
+PRESENTATIONS_CXX = presentations.cpp
 BLOGS_CXX = blogs.cpp
 ROOT_CXX = root.cpp
 
@@ -86,6 +88,8 @@ UN_SO = modules/un.so
 WIRELESS_SO = modules/wireless.so
 LINUXMINTUPDATE_SO = modules/linuxmintupdate.so
 COMPUTERVISIONENGINE_SO = modules/computervisionengine.so
+MICROFIREWORKS_SO = modules/microfireworks.so
+PRESENTATIONS_SO = modules/presentations.so
 BLOGS_SO = modules/blogs.so
 ROOT_SO = modules/root.so
 
@@ -115,5 +119,7 @@ MODULES = $(FAVICON_SO) \
 	  $(WIRELESS_SO) \
 	  $(LINUXMINTUPDATE_SO) \
 	  $(COMPUTERVISIONENGINE_SO) \
+	  $(MICROFIREWORKS_SO) \
+	  $(PRESENTATIONS_SO) \
 	  $(BLOGS_SO) \
 	  $(ROOT_SO)

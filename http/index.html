@@ -656,7 +656,7 @@ STEM:
 	    e.stopPropagation();
 	    return;
 	  }
-	  else if (("Tech Series" === name) || ("Series IT" === name)) {
+	  else if (("STEM Series" === name) || ("Series STEM" === name)) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
@@ -756,8 +756,8 @@ STEM:
 	replaceInnerText(publications, text);
 
 	const series = document.getElementById("series-label");
-	const seriesEnglish = "Tech Series";
-	const seriesSpanish = "Series IT";
+	const seriesEnglish = "STEM Series";
+	const seriesSpanish = "Series STEM";
 	text = ("english" == this.value)? seriesEnglish : seriesSpanish;
 	replaceInnerText(series, text);
 
@@ -916,6 +916,12 @@ STEM:
 	const frameworkbeaterSpanish = "Desarrollo de un servidor ligero de http desde cero";
 	text = ("english" == this.value)? frameworkbeaterEnglish : frameworkbeaterSpanish;
 	replaceInnerText(frameworkbeater, text);
+
+	const microfireworks = document.getElementById("microfireworks-short-text");
+	const microfireworksEnglish = "Talk that explains microfireworks from a fundamental perspective";
+	const microfireworksSpanish = "En esta presentación explico la formación de fuegos artificiales microscópicos";
+	text = ("english" == this.value)? microfireworksEnglish : microfireworksSpanish;
+	replaceInnerText(microfireworks, text);
 
 	const odyssey = document.getElementById("odyssey-short-text");
 	const odysseyEnglish = "A blog about porting Casey Muratoris's Handmade Hero game to Linux";
@@ -1184,7 +1190,7 @@ STEM:
 	</li>
 	<li class="menu-item" id="series-menu">
 	  <span id="series-label" class="menu-item-mobile-label menu-item-label">
-	    Tech Series
+	    STEM Series
 	  </span>
 	</li>
 	<li class="menu-item" id="blogs-menu">
@@ -1813,6 +1819,24 @@ STEM:
 		Http-Server Development
 	      </span>
 	    </div>
+	  </li>
+	  <li class="dropdown-item">
+	    <img
+	      class="banner"
+	      loading="eager"
+	      src="https://avatars.githubusercontent.com/u/20134959"
+	      alt="shows brand logo, a Janus droplet under shear flow"
+	      height=32px
+	    >
+	    </img>
+	    <div class="dropdown-description">
+	      <a href="/presentations/microfireworks.html">
+		Microfireworks
+	      </a>
+	      <span id="microfireworks-short-text">
+		Talk that explains microfireworks from a fundamental standpoint
+	      </span>
+	    <div>
 	  </li>
 	</ul>
       </div>
