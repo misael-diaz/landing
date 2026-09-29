@@ -89,11 +89,12 @@ TODO:
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 8px;
-      border: 1.5px solid black;
       width: 90px;
       height: 90px;
       margin: 4px;
+    }
+    .scaled {
+      transform: scale(0.2);
     }
     .logo {
       display: block;
@@ -146,6 +147,10 @@ TODO:
       height: 16px;
       position: absolute;
     }
+    .plain {
+      text-decoration: none;
+      color: black;
+    }
     .reference {
       text-decoration: none;
       color: gray;
@@ -155,31 +160,35 @@ TODO:
       text-decoration: underline;
     }
     </style>
+    <script type="module">
+      {
+	const ul = document.querySelector("ul");
+	const main = document.getElementById("main");
+	for (const slide of main.children) {
+	  const clone = slide.cloneNode({deep: true});
+	  clone.id = "cloned-" + clone.id;
+	  clone.classList.add("scaled");
+	  const li = document.createElement("li");
+	  const a = document.createElement("a");
+	  a.href = `#${slide.id}`;
+	  a.classList.add("plain");
+	  a.appendChild(clone);
+	  li.classList.add("thumb");
+	  li.appendChild(a);
+	  ul.appendChild(li);
+	}
+      }
+    </script>
   </head>
   <body style="background-color: #d6dcdf">
     <div class="layout">
       <aside class="panel">
 	<nav>
 	  <ul style="list-style: none; padding: 0px;">
-	    <li class="thumb">
-	      <a href="#title-slide" style="text-decoration: none; color: black;">
-		Title
-	      </a>
-	    </li>
-	    <li class="thumb">
-	      <a href="#model-slide" style="text-decoration: none; color: black;">
-		Model
-	      </a>
-	    </li>
-	    <li class="thumb">
-	      <a href="#conclusions-slide" style="text-decoration: none; color: black;">
-		Conclusions
-	      </a>
-	    </li>
 	  </ul>
 	</nav>
       </aside>
-    <div style="grid-area: main; position: relative; top: 0px;">
+    <div id="main" style="grid-area: main; position: relative; top: 0px;">
     <div id="title-slide" style="margin-top: 0px;" class="container">
       <div class="slide-container">
 	<div class="slide">
