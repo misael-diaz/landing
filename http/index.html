@@ -656,7 +656,7 @@ STEM:
 	    e.stopPropagation();
 	    return;
 	  }
-	  else if (("Tech Series" === name) || ("Series IT" === name)) {
+	  else if (("STEM Series" === name) || ("Series STEM" === name)) {
 	    const services = document.getElementById("services");
 	    const experience = document.getElementById("experience");
 	    const publications = document.getElementById("publications");
@@ -756,8 +756,8 @@ STEM:
 	replaceInnerText(publications, text);
 
 	const series = document.getElementById("series-label");
-	const seriesEnglish = "Tech Series";
-	const seriesSpanish = "Series IT";
+	const seriesEnglish = "STEM Series";
+	const seriesSpanish = "Series STEM";
 	text = ("english" == this.value)? seriesEnglish : seriesSpanish;
 	replaceInnerText(series, text);
 
@@ -1184,7 +1184,7 @@ STEM:
 	</li>
 	<li class="menu-item" id="series-menu">
 	  <span id="series-label" class="menu-item-mobile-label menu-item-label">
-	    Tech Series
+	    STEM Series
 	  </span>
 	</li>
 	<li class="menu-item" id="blogs-menu">
