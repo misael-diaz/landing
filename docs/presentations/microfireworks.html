@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Misael Díaz-Maldonado">
+    <meta
+      name="description"
+      content="Micro-fireworks slides presented in an international conference."
+    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/20134959"/>
+    <title>Microfireworks</title>
+    <style>
+/*
+TODO:
+[ ] use tooltip to indicate that you are not currently affiliated to those institutions
+[ ] make it so that if the screen is too small to disappear the navigation panel while
+    changing the layout to just `main` (grid-template-area: "main")
+*/
+    @media screen and (width > 850px) {
+    .layout {
+      display: grid;
+      grid-template-areas: "nav . main";
+      grid-template-columns: 0.8fr 0.2fr 5fr;
+      position: relative;
+      top: 0px;
+    }
+    .panel {
+      grid-area: nav;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      outline: 1px solid black;
+      max-width: 128px;
+      position: relative;
+      top: 0px;
+    }
+    nav {
+      position: sticky;
+      top: 0px;
+    }
+    }
+    @media screen and (width <= 850px) {
+    .layout {
+      display: grid;
+      grid-template-areas: "main";
+    }
+    .panel {
+      visibility: hidden;
+    }
+    nav {
+      position: absolute;
+      top: 0px;
+    }
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px solid black;
+      background-color: white;
+      box-sizing: border-box;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      max-width: 720px;
+      position: relative;
+    }
+    .slide-container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      width: 512px;
+      height: 460px;
+    }
+    .slide {
+      display: grid;
+      grid-template-areas:
+	"head"
+	"body"
+	"foot";
+      grid-template-rows: 1fr 3fr 1fr;
+      height: 100%;
+      width: 100%;
+    }
+    .thumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90px;
+      height: 90px;
+      margin: 4px;
+    }
+    .scaled {
+      transform: scale(0.2);
+    }
+    .logo {
+      display: block;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      margin-right: 24px;
+      margin-left: 24px;
+    }
+/* NOTE: hides elements that would not fit on smaller screens,
+         position absolute makes sure that those elements do not occupy space
+	 when hidden
+*/
+    @media screen and (width <= 850px) {
+      .hide {
+	position: absolute;
+	visibility: hidden;
+      }
+    }
+    .brand {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px black;
+      background-color: white;
+    }
+    .brand:hover {
+      box-shadow: 0 0 0 1px blue;
+      transition: 0.2s box-shadow;
+    }
+    .particle-container {
+      grid-area: body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .particle {
+      border: 1.5px solid black;
+      background-color: #e9e7e7;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      position: relative;
+    }
+    .bath-particle {
+      border: 1.5px solid blue;
+      background-color: #9fe2ff;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+    }
+    .plain {
+      text-decoration: none;
+      color: black;
+    }
+    .reference {
+      text-decoration: none;
+      color: gray;
+      font-size: small;
+    }
+    .reference:hover {
+      text-decoration: underline;
+    }
+    </style>
+    <script type="module">
+      {
+	const ul = document.querySelector("ul");
+	const main = document.getElementById("main");
+	for (const slide of main.children) {
+	  const clone = slide.cloneNode({deep: true});
+	  clone.id = "cloned-" + clone.id;
+	  clone.classList.add("scaled");
+	  const li = document.createElement("li");
+	  const a = document.createElement("a");
+	  a.href = `#${slide.id}`;
+	  a.classList.add("plain");
+	  a.appendChild(clone);
+	  li.classList.add("thumb");
+	  li.appendChild(a);
+	  ul.appendChild(li);
+	}
+      }
+    </script>
+  </head>
+  <body style="background-color: #d6dcdf">
+    <div class="layout">
+      <aside class="panel">
+	<nav>
+	  <ul style="list-style: none; padding: 0px;">
+	  </ul>
+	</nav>
+      </aside>
+    <div id="main" style="grid-area: main; position: relative; top: 0px;">
+    <div id="title-slide" style="margin-top: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <div style="grid-area: head; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center">
+	    <img
+              loading="eager"
+	      class="logo hide"
+              src="public/logos/UPRM.png"
+              alt="Logo of the University of Puerto Rico - Mayagüez"
+              height=64px
+	    >
+	    </img>
+	    <h1 style="text-align: center; margin-top: 2px margin-bottom: 2px; margin-left: 8px; margin-right: 8px; font-size: 1.5em;">
+	      Light Driven TiO<sub>2</sub>&ndash;Based Reversible Micro&ndash;Fireworks
+	    </h1>
+	    <img
+              loading="eager"
+	      class="logo hide"
+              src="public/logos/PSU.png"
+              alt="Penn State University Logo"
+              height=64px
+	    >
+	    </img>
+	  </div>
+	  <div style="grid-area: body; display: flex; flex-flow: column wrap; justify-content: center; align-items: center;">
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center;">
+	       PLACEHOLDER: International Scientific Research Conference
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center; color: gray;">
+	      University of Puerto Rico &ndash; Mayagüez
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center; color: gray;">
+	      Penn State University
+	    </h2>
+	    <h2 style="margin: 8px; font-size: 1.2em; text-align: center;">
+	      Misael Díaz-Maldonado, PhD
+	    </h2>
+	    <h3 style="margin: 8px; font-size: 1.0em; text-align: center; color: gray">
+	      Date: TBD
+	    </h3>
+	  </div>
+	  <div style="grid-area: foot; display: flex; justify-content: center; align-items: center;">
+	    <a href="/landing">
+	      <img
+		loading="eager"
+		class="logo brand"
+		src="https://avatars.githubusercontent.com/u/20134959"
+		alt="Janus Droplet under shear flow -- author's brand logo"
+		height=64px
+	      >
+	      </img>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div id="model-slide" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">Model</h2>
+	    <div class="particle-container">
+	      <div class="particle">
+		<svg xmlns="http://www.w3.org/2000/svg">
+		  <defs>
+		    <!-- NOTE: borrowed arrow marker code exactly as it was from MDN -->
+		    <marker
+		      id="arrow"
+		      viewBox="0 0 10 10"
+		      refX="5"
+		      refY="5"
+		      markerWidth="6"
+		      markerHeight="6"
+		      orient="auto-start-reverse"
+		    >
+		      <!-- attribute `d` was borrowed from MDN exactly as it was shown -->
+		      <path stroke="context-stroke" fill="red" d="M 0 0 L 10 5 L 0 10 Z"/>
+		    </marker>
+		  </defs>
+		  <line
+		    x1="32"
+		    y1="32"
+		    x2="80"
+		    y2="32"
+		    stroke="red"
+		    marker-end="url(#arrow)"
+		  />
+		</svg>
+		<span style="position: absolute; top: -4px; right: -8px">
+		  <em>a</em>
+		</span>
+
+		<div style="top: -16px; right: -32px" class="bath-particle">
+		</div>
+		<div style="bottom: 32px; right: -64px" class="bath-particle">
+		</div>
+		<div style="bottom: -16px; right: -32px" class="bath-particle">
+		</div>
+		<div style="top: -32px; left: 10px" class="bath-particle">
+		</div>
+		<div style="top: -2px; left: -48px" class="bath-particle">
+		</div>
+		<div style="top: 4px; left: -24px" class="bath-particle">
+		</div>
+		<div style="top: -16px; left: -8px" class="bath-particle">
+		</div>
+		<div style="top: -24px; left: -32px" class="bath-particle">
+		  <span style="position: absolute; top: -16px; right: -8px">
+		    <em>b</em>
+		  </span>
+		</div>
+		<div style="bottom: 24px; left: -48px" class="bath-particle">
+		</div>
+		<div style="bottom: 20px; left: -24px" class="bath-particle">
+		</div>
+		<div style="bottom: -28px; left: -12px" class="bath-particle">
+		</div>
+		<div style="bottom: -8px; left: -32px" class="bath-particle">
+		</div>
+		<div style="bottom: -14px; left: -52px" class="bath-particle">
+		</div>
+		<div style="bottom: 4px; left: -72px" class="bath-particle">
+		</div>
+	      </div>
+	    </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span>
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div id="conclusions-slide" style="margin-bottom: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">Conclusions</h2>
+	  <div style="grid-area: body;">
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span>
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
