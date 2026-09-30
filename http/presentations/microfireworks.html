@@ -13,9 +13,13 @@
     <style>
 /*
 TODO:
+[ ] linting: indent html tags that belong to slides because of the added <div>
 [ ] use tooltip to indicate that you are not currently affiliated to those institutions
 [ ] make it so that if the screen is too small to disappear the navigation panel while
     changing the layout to just `main` (grid-template-area: "main")
+[ ] add empty questions slide and this should preceed the supplementary slides
+[ ] add an empty slide with Supplementary heading that separates the supplementary
+    from the main slides
 */
     @media screen and (width > 850px) {
     .layout {
@@ -189,6 +193,7 @@ TODO:
 	</nav>
       </aside>
     <div id="main" style="grid-area: main; position: relative; top: 0px;">
+
     <div id="title-slide" style="margin-top: 0px;" class="container">
       <div class="slide-container">
 	<div class="slide">
@@ -245,6 +250,36 @@ TODO:
 	</div>
       </div>
     </div>
+
+    <div id="microfireworks-slide" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">
+		  Light&ndash;Driven Reversible Micro&ndash;Fireworks
+	  </h2>
+	  <div style="grid-area: body; display: flex; justify-content: center; align-items: center;">
+	    <img
+              loading="eager"
+	      style="display: block"
+	      width=75%
+              src="/microfireworks/microfireworksframes.png"
+              alt="Frames that demonstrate the UV ligh-driven microfireworks dynamics of silica particles aggregated around a titanium dioxide particle."
+	    >
+	    </img>
+	    <h1 style="text-align: center; margin-top: 2px margin-bottom: 2px; margin-left: 8px; margin-right: 8px; font-size: 1.5em;">
+
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span>
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+
     <div id="model-slide" class="container">
       <div class="slide-container">
 	<div class="slide">
@@ -323,6 +358,7 @@ TODO:
 	</div>
       </div>
     </div>
+
     <div id="conclusions-slide" style="margin-bottom: 0px;" class="container">
       <div class="slide-container">
 	<div class="slide">
@@ -339,6 +375,48 @@ TODO:
 	</div>
       </div>
     </div>
+
+    <div id="supplementary-photocatalysis-mechanism-slide" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">
+		  Supplementary: Photocatalysis Mechanism
+	  </h2>
+	  <div style="grid-area: body; display: flex; justify-content: center; align-items: center;">
+	    <img
+              loading="eager"
+	      style="display: block"
+	      width=85%
+              src="/microfireworks/photocatalysis.png"
+              alt="This is a suppementary image borrowed from the cited article below that shows the photocatalysis mechanism for titanium dioxide particles subjected ultraviolet light."
+	    >
+	    </img>
+	    <h1 style="text-align: center; margin-top: 2px margin-bottom: 2px; margin-left: 8px; margin-right: 8px; font-size: 1.5em;">
+
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+
+	    <ul style="list-style: none; padding: 0px; display: flex; flex-flow: column nowrap; align-items: start; justify-content: space-around;">
+	      <li>
+		<a class="reference" href="https://www.jstor.org/stable/24091987">
+		  <span>
+		    Physics and chemistry of photocatalytic titanium dioxide
+		  </span>
+		</a>
+	      </li>
+	      <li>
+		<a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+		  <span>
+		    Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+		  </span>
+		</a>
+	      </li>
+	    <ul>
+	  </div>
+	</div>
+      </div>
+    </div>
+
     </div>
   </body>
 </html>
