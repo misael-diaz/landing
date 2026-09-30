@@ -4,5 +4,6 @@
 *.obj
 *.bin
 *.png
+*.pdf
 *.jpeg
 *.svg
