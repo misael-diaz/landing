@@ -18,8 +18,8 @@ TODO:
 [ ] consider using tooltip or just state which ones are the oxidation and reduction reactions and I think it's best to state it clearly
 [ ] make it so that if the screen is too small to disappear the navigation panel while
     changing the layout to just `main` (grid-template-area: "main")
-[ ] add empty questions slide and this should preceed the supplementary slides
-[ ] add an empty slide with Supplementary heading that separates the supplementary
+[x] add empty questions slide and this should preceed the supplementary slides
+[x] add an empty slide with Supplementary heading that separates the supplementary
     from the main slides
 */
     @media screen and (width > 850px) {
@@ -416,11 +416,49 @@ TODO:
       </div>
     </div>
 
+    <div id="questions-slide" style="margin-bottom: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">
+	    <span style="color: blue">Questions</span>
+	  </h2>
+	  <div style="grid-area: body;">
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span class="footer-reference">
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div id="supplementary-slide" style="margin-bottom: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">
+	    <span style="color: red">Supplementary Content</span>
+	  </h2>
+	  <div style="grid-area: body;">
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span class="footer-reference">
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+
     <div id="supplementary-photocatalysis-mechanism-slide" class="container">
       <div class="slide-container">
 	<div class="slide">
 	  <h2 style="grid-area: head; text-align: center; margin: 8px">
-		  Supplementary: Photocatalysis Mechanism
+	    Photocatalysis Mechanism
 	  </h2>
 	  <div style="grid-area: body; display: flex; justify-content: center; align-items: center;">
 	    <img
