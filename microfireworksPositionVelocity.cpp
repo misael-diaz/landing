@@ -8,9 +8,10 @@
 )
 
 #define MICROFIREWORKS_MAX_NUMEL 256
+#define MICROFIREWORKS_BUF_SIZE 128
 
 int main(void) {
-	char buf[128];
+	char buf[MICROFIREWORKS_BUF_SIZE];
 	double positions[MICROFIREWORKS_MAX_NUMEL];
 	double velocities[MICROFIREWORKS_MAX_NUMEL];
 	char *ptr_line = NULL;
@@ -53,6 +54,16 @@ int main(void) {
 		}
 
 		bytes_read = getline(&ptr_line, &size_line, file);
+
+		if (MICROFIREWORKS_BUF_SIZE <= size_line) {
+			fprintf(stderr, "%s\n", "line exceeds expected number of bytes");
+			free(ptr_line);
+			ptr_line = NULL;
+			size_line = 0;
+			fclose(file);
+			exit(EXIT_FAILURE);
+		}
+
 		fprintf(stdout, "%s", ptr_line);
 		char *headDelim = strstr(ptr_line, ":");
 		if (!headDelim && (1 < bytes_read)) {
@@ -160,3 +171,7 @@ int main(void) {
 //
 // The header of the data file has either just a new line or a colon (:) with more
 // characters and so it's easy to know when the tabulated data starts.
+//
+// I know that no line in the data file exceeds 80 characters and so a buffer of 128
+// bytes is sufficient. A safety-net has been added just in case this no longer becomes
+// true in the future.
