@@ -20,13 +20,18 @@ int main(void) {
 		exit(EXIT_FAILURE);
 	}
 
+	double width = 0;
+	double height = 0;
 	int idxLine = 0;
 	ssize_t bytes_read = 0;
 	do {
 		char tab = 0;
+		char space = 0;
 		char newLine = 0;
 		double position = 0;
 		double velocity = 0;
+		char widthProp[] = "width:";
+		char heightProp[] = "height:";
 		bytes_read = getline(&ptr_line, &size_line, file);
 		fprintf(stdout, "%s", ptr_line);
 		char *headDelim = strstr(ptr_line, ":");
@@ -42,8 +47,36 @@ int main(void) {
 				fprintf(stdout, "position: %lf velocity: %lf\n", position, velocity);
 			}
 		}
+		else {
+			char *prop = strstr(ptr_line, widthProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(widthProp) - 1), "%c%lf%c", &space, &width, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "width: %lf\n", width);
+			}
+
+			prop = strstr(ptr_line, heightProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(heightProp) - 1), "%c%lf%c", &space, &height, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "height: %lf\n", height);
+			}
+		}
 		++idxLine;
 	} while (-1 != bytes_read);
+
+	if (!width || !height) {
+		fprintf(stderr, "%s\n", "property scan failure");
+		free(ptr_line);
+		ptr_line = NULL;
+		size_line = 0;
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
 
 	free(ptr_line);
 	ptr_line = NULL;
