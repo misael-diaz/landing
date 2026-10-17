@@ -15,6 +15,15 @@
 #define MICROFIREWORKS_BUF_SIZE 128
 
 int main(void) {
+	double D1 = 0;
+	double D2 = 0;
+	double Delta = 0;
+	double sumX = 0;
+	double sumY = 0;
+	double sumXX = 0;
+	double sumXY = 0;
+	double slopeRegression = 0;
+	double interceptRegression = 0;
 	char buf[MICROFIREWORKS_BUF_SIZE];
 	double x[MICROFIREWORKS_MAX_NUMEL];
 	double y[MICROFIREWORKS_MAX_NUMEL];
@@ -164,9 +173,30 @@ int main(void) {
 
 	memcpy(y, velocities, sizeof(velocities));
 
+	sumX = 0;
+	sumY = 0;
+	sumXY = 0;
+	sumXX = 0;
+	// least squares regression
+	for (int i = 0; i != numRows; ++i) {
+		sumX += x[i];
+		sumY += y[i];
+		sumXX += (x[i] * x[i]);
+		sumXY += (x[i] * y[i]);
+	}
+
+	Delta = (sumXX * numRows) - (sumX * sumX);
+	D1 = (sumXY * numRows) - (sumX * sumY);
+	D2 = (sumXX * sumY) - (sumX * sumXY);
+	slopeRegression = D1 / Delta;
+	interceptRegression = D2 / Delta;
+
 	for (int i = 0; i != numRows; ++i) {
 		fprintf(fout, "%lf\t%lf\n", x[i], y[i]);
 	}
+
+	fprintf(stdout, "slope: %lf\n", slopeRegression);
+	fprintf(stdout, "intercept: %lf\n", interceptRegression);
 
 	free(ptr_line);
 	ptr_line = NULL;
