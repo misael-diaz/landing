@@ -7,16 +7,30 @@
 	"public/presentations/microfireworks/data/position-velocity.txt"\
 )
 
+#define MICROFIREWORKS_PATH_OUTPUT (\
+	"public/presentations/microfireworks/data/output.txt"\
+)
+
 #define MICROFIREWORKS_MAX_NUMEL 256
 #define MICROFIREWORKS_BUF_SIZE 128
 
 int main(void) {
 	char buf[MICROFIREWORKS_BUF_SIZE];
+	double x[MICROFIREWORKS_MAX_NUMEL];
+	double y[MICROFIREWORKS_MAX_NUMEL];
 	double positions[MICROFIREWORKS_MAX_NUMEL];
 	double velocities[MICROFIREWORKS_MAX_NUMEL];
 	char *ptr_line = NULL;
 	size_t size_line = 0;
 	errno = 0;
+	FILE *fout = fopen(MICROFIREWORKS_PATH_OUTPUT, "w");
+	if (!fout) {
+		if (errno) {
+			fprintf(stderr, "error: %s\n", strerror(errno));
+		}
+		exit(EXIT_FAILURE);
+	}
+
 	FILE *file = fopen(MICROFIREWORKS_PATH_DATA, "r");
 	if (!file) {
 		if (errno) {
@@ -145,13 +159,20 @@ int main(void) {
 	}
 
 	for (int i = 0; i != numRows; ++i) {
-		fprintf(stdout, "position: %lf\tvelocity: %lf\n", positions[i], velocities[i]);
+		x[i] = (1.0 / positions[i]);
+	}
+
+	memcpy(y, velocities, sizeof(velocities));
+
+	for (int i = 0; i != numRows; ++i) {
+		fprintf(fout, "%lf\t%lf\n", x[i], y[i]);
 	}
 
 	free(ptr_line);
 	ptr_line = NULL;
 	size_line = 0;
 	fclose(file);
+	fclose(fout);
 	return 0;
 }
 
@@ -159,11 +180,11 @@ int main(void) {
 // [x] read the scaling data at the head of the data file
 // [x] define an array of suitable size to store the position velocity data, just count the number of rows in the tabulated section to determine this at runtime
 // [x] perform the scaling from pixels to the position and velocity units
-// [ ] check the limiting cases of pure diffusion c(r) = 1/r and
+// [x] check the limiting cases of pure diffusion c(r) = 1/r and
 //     reaction-diffusion exp(-r)/r; don't forget that you have to determine ln(c_\inf).
 //     Just checking if the data follows a linear trend in any of these is sufficient.
-// [ ] store results in another data file
-// [ ] use gnuplot to plot results
+// [x] store results in another data file
+// [x] use gnuplot to plot results
 //
 // NOTES:
 // Why use Python to spoil all the fun, but seriously a zero-dependency code is always
