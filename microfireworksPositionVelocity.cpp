@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <math.h>
 
 #define MICROFIREWORKS_PATH_DATA (\
 	"public/presentations/microfireworks/data/position-velocity.txt"\
@@ -22,11 +23,20 @@ int main(void) {
 	double sumY = 0;
 	double sumXX = 0;
 	double sumXY = 0;
+	double diff = 0;
+	double avgX = 0;
+	double avgY = 0;
+	double stdX = 0;
+	double stdY = 0;
+	double invStdX = 0;
+	double invStdY = 0;
 	double slopeRegression = 0;
 	double interceptRegression = 0;
 	char buf[MICROFIREWORKS_BUF_SIZE];
 	double x[MICROFIREWORKS_MAX_NUMEL];
 	double y[MICROFIREWORKS_MAX_NUMEL];
+	double mu[MICROFIREWORKS_MAX_NUMEL];
+	double nu[MICROFIREWORKS_MAX_NUMEL];
 	double positions[MICROFIREWORKS_MAX_NUMEL];
 	double velocities[MICROFIREWORKS_MAX_NUMEL];
 	char *ptr_line = NULL;
@@ -191,12 +201,59 @@ int main(void) {
 	slopeRegression = D1 / Delta;
 	interceptRegression = D2 / Delta;
 
+	fprintf(stdout, "slope: %lf\n", slopeRegression);
+	fprintf(stdout, "intercept: %lf\n", interceptRegression);
+
+	// R-squared computation
+	avgX = sumX / numRows;
+	avgY = sumY / numRows;
+
+	diff = 0;
+	for (int i = 0; i != numRows; ++i) {
+		diff += (x[i] - avgX) * (x[i] - avgX);
+	}
+
+	diff /= (numRows - 1);
+	stdX = sqrt(diff);
+	invStdX = 1.0 / stdX;
+
+	diff = 0;
+	for (int i = 0; i != numRows; ++i) {
+		diff += (y[i] - avgY) * (y[i] - avgY);
+	}
+
+	diff /= (numRows - 1);
+	stdY = sqrt(diff);
+	invStdY = 1.0 / stdY;
+
+	for (int i = 0; i != numRows; ++i) {
+		mu[i] = (x[i] - avgX) * invStdX;
+	}
+
+	for (int i = 0; i != numRows; ++i) {
+		nu[i] = (y[i] - avgY) * invStdY;
+	}
+
+	sumX = 0;
+	sumY = 0;
+	sumXY = 0;
+	sumXX = 0;
+	for (int i = 0; i != numRows; ++i) {
+		sumX += mu[i];
+		sumY += nu[i];
+		sumXX += (mu[i] * mu[i]);
+		sumXY += (mu[i] * nu[i]);
+	}
+
+	Delta = (sumXX * numRows) - (sumX * sumX);
+	D1 = (sumXY * numRows) - (sumX * sumY);
+	slopeRegression = D1 / Delta;
+
+	fprintf(stdout, "r-squared: %lf\n", slopeRegression * slopeRegression);
+
 	for (int i = 0; i != numRows; ++i) {
 		fprintf(fout, "%lf\t%lf\n", x[i], y[i]);
 	}
-
-	fprintf(stdout, "slope: %lf\n", slopeRegression);
-	fprintf(stdout, "intercept: %lf\n", interceptRegression);
 
 	free(ptr_line);
 	ptr_line = NULL;
