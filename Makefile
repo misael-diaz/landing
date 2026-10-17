@@ -13,7 +13,7 @@
 
 include make-inc
 
-all: $(SRV_BIN) $(MODULES)
+all: $(SRV_BIN) $(MODULES) $(BINARIES)
 
 $(SRV_BIN): $(SRV_OBJ)
 	$(CC) $(CCOPT) $(SRV_OBJ) -o $(SRV_BIN) $(LNOPT) $(LIBS)
@@ -150,5 +150,8 @@ $(ROOT_SO): $(ROOT_CXX)
 	@mkdir -p modules
 	$(CC) $(CCOPT) -fPIC -shared $(ROOT_CXX) -o $(ROOT_SO)
 
+$(MICROFIREWORKS_POSITION_VELOCITY_BIN): $(MICROFIREWORKS_POSITION_VELOCITY_CXX)
+	@mkdir -p modules
+	$(CC) $(CCOPT) $(MICROFIREWORKS_POSITION_VELOCITY_CXX) -o $(MICROFIREWORKS_POSITION_VELOCITY_BIN)
 clean:
 	rm -f *.o *.obj modules/*.so *.bin

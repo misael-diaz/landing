@@ -59,6 +59,7 @@ LINUXMINTUPDATE_CXX = linuxmintupdate.cpp
 COMPUTERVISIONENGINE_CXX = computervisionengine.cpp
 MICROFIREWORKSFRAMES_CXX = microfireworksframes.cpp
 MICROFIREWORKSPHOTOCATALYSIS_CXX = microfireworksPhotoCatalysis.cpp
+MICROFIREWORKS_POSITION_VELOCITY_CXX = microfireworksPositionVelocity.cpp
 MICROFIREWORKS_CXX = microfireworks.cpp
 PRESENTATIONS_CXX = presentations.cpp
 BLOGS_CXX = blogs.cpp
@@ -97,6 +98,8 @@ PRESENTATIONS_SO = modules/presentations.so
 BLOGS_SO = modules/blogs.so
 ROOT_SO = modules/root.so
 
+MICROFIREWORKS_POSITION_VELOCITY_BIN = microfireworks-position-velocity.bin
+
 MODULES = $(FAVICON_SO) \
 	  $(NEXTJS_SO) \
 	  $(SCIENTIFIC_SO) \
@@ -129,3 +132,5 @@ MODULES = $(FAVICON_SO) \
 	  $(PRESENTATIONS_SO) \
 	  $(BLOGS_SO) \
 	  $(ROOT_SO)
+
+BINARIES = $(MICROFIREWORKS_POSITION_VELOCITY_BIN)
