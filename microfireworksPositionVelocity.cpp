@@ -4,6 +4,10 @@
 #include <errno.h>
 #include <math.h>
 
+#define MICROFIREWORKS_PATH_ALLDATA (\
+	"public/presentations/microfireworks/data/all-position-velocity.txt"\
+)
+
 #define MICROFIREWORKS_PATH_DATA (\
 	"public/presentations/microfireworks/data/position-velocity.txt"\
 )
@@ -14,6 +18,13 @@
 
 #define MICROFIREWORKS_MAX_NUMEL 256
 #define MICROFIREWORKS_BUF_SIZE 128
+
+#define MICROFIREWORKS_BUCKET_START 15
+#define MICROFIREWORKS_BUCKET_END 155
+#define MICROFIREWORKS_BUCKET_STEP 20
+#define MICROFIREWORKS_BUCKET_SIZE (\
+	(MICROFIREWORKS_BUCKET_END - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP\
+)
 
 void linear_regression(void) {
 	double D1 = 0;
@@ -263,8 +274,221 @@ void linear_regression(void) {
 	return;
 }
 
+// we process the position velocity data for plotting position against some average velocity with error bars. To achieve this we put the data into buckets of uniform size to perform the averaging so that we may have around five data points for each position. The logic to do this is fairly easy because you can easily map the position data to a bucket and also count how many points are in the bucket. The latter is useful to compute the average velocity and standard deviation.
+void aggregate(void) {
+	char buf[MICROFIREWORKS_BUF_SIZE];
+	int bucket_count[MICROFIREWORKS_BUCKET_SIZE];
+	double bucket_position[MICROFIREWORKS_BUCKET_SIZE];
+	double bucket_velocity[MICROFIREWORKS_BUCKET_SIZE];
+	double bucket_error[MICROFIREWORKS_BUCKET_SIZE];
+	double positions[MICROFIREWORKS_MAX_NUMEL];
+	double velocities[MICROFIREWORKS_MAX_NUMEL];
+	char *ptr_line = NULL;
+	size_t size_line = 0;
+	double posmin = 0;
+	double posmax = 0;
+	errno = 0;
+
+	FILE *file = fopen(MICROFIREWORKS_PATH_ALLDATA, "r");
+	if (!file) {
+		if (errno) {
+			fprintf(stderr, "error: %s\n", strerror(errno));
+		}
+		exit(EXIT_FAILURE);
+	}
+
+	double xmax = 0;
+	double ymax = 0;
+	double width = 0;
+	double height = 0;
+	int idxLine = 0;
+	int numRows = 0;
+	ssize_t bytes_read = 0;
+	do {
+		char tab = 0;
+		char space = 0;
+		char newLine = 0;
+		double position = 0;
+		double velocity = 0;
+		char xmaxProp[] = "xmax:";
+		char ymaxProp[] = "ymax:";
+		char widthProp[] = "width:";
+		char heightProp[] = "height:";
+
+		fprintf(stdout, "rows: %d\n", numRows);
+		if (MICROFIREWORKS_MAX_NUMEL <= numRows) {
+			fprintf(stderr, "%s\n", "datafile exceeds expected number of rows");
+			free(ptr_line);
+			ptr_line = NULL;
+			size_line = 0;
+			fclose(file);
+			exit(EXIT_FAILURE);
+		}
+
+		bytes_read = getline(&ptr_line, &size_line, file);
+
+		if (MICROFIREWORKS_BUF_SIZE <= size_line) {
+			fprintf(stderr, "%s\n", "line exceeds expected number of bytes");
+			free(ptr_line);
+			ptr_line = NULL;
+			size_line = 0;
+			fclose(file);
+			exit(EXIT_FAILURE);
+		}
+
+		fprintf(stdout, "%s", ptr_line);
+		char *headDelim = strstr(ptr_line, ":");
+		if (!headDelim && (1 < bytes_read)) {
+			memset(buf, 0, sizeof(buf));
+			memcpy(buf, ptr_line, sizeof(buf));
+			buf[sizeof(buf) - 1] = 0;
+			int rc = sscanf(buf, "%lf%c%lf%c", &position, &tab, &velocity, &newLine);
+			if (4 != rc) {
+				fprintf(stderr, "data scan failed at line %d\n", idxLine);
+			}
+			else {
+				fprintf(stdout, "position: %lf velocity: %lf\n", position, velocity);
+			}
+
+			positions[numRows] = position;
+			velocities[numRows] = velocity;
+
+			++numRows;
+		}
+		else {
+			char *prop = strstr(ptr_line, widthProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(widthProp) - 1), "%c%lf%c", &space, &width, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "width: %lf\n", width);
+			}
+
+			prop = strstr(ptr_line, heightProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(heightProp) - 1), "%c%lf%c", &space, &height, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "height: %lf\n", height);
+			}
+
+			prop = strstr(ptr_line, xmaxProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(xmaxProp) - 1), "%c%lf%c", &space, &xmax, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "xmax: %lf\n", xmax);
+			}
+
+			prop = strstr(ptr_line, ymaxProp);
+			if (prop) {
+				int rc = sscanf(prop + (sizeof(ymaxProp) - 1), "%c%lf%c", &space, &ymax, &newLine);
+				if (3 != rc) {
+					fprintf(stderr, "property scan failed at line %d\n", idxLine);
+				}
+				fprintf(stdout, "ymax: %lf\n", ymax);
+			}
+		}
+		++idxLine;
+	} while (-1 != bytes_read);
+
+	if (!xmax || !ymax || !width || !height) {
+		fprintf(stderr, "%s\n", "property scan failure");
+		free(ptr_line);
+		ptr_line = NULL;
+		size_line = 0;
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+
+	double const widthInv = 1.0 / width;
+	double const heightInv = 1.0 / height;
+	double const xscale = xmax * widthInv;
+	double const yscale = ymax * heightInv;
+
+	posmax = -1;
+	for (int i = 0; i != numRows; ++i) {
+		if (positions[i] > posmax) {
+			posmax = positions[i];
+		}
+	}
+
+	posmin = (1 << 16);
+	for (int i = 0; i != numRows; ++i) {
+		if (positions[i] < posmin) {
+			posmin = positions[i];
+		}
+	}
+
+	fprintf(stdout, "min: %lf max: %lf\n", posmin, posmax);
+
+	memset(bucket_position, 0, sizeof(bucket_position));
+	memset(bucket_velocity, 0, sizeof(bucket_velocity));
+	memset(bucket_error, 0, sizeof(bucket_error));
+	memset(bucket_count, 0, sizeof(bucket_count));
+	for (int i = 0; i != numRows; ++i) {
+		int bucket_value = positions[i];
+		int bucket_id = (
+			(bucket_value - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP
+		);
+
+		if (bucket_id < MICROFIREWORKS_BUCKET_SIZE) {
+			bucket_count[bucket_id] += 1;
+			bucket_position[bucket_id] += positions[i];
+			bucket_velocity[bucket_id] += velocities[i];
+		}
+	}
+
+	// computes the average velocity for each bucket
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		if (bucket_count[i]) {
+			bucket_position[i] /= bucket_count[i];
+			bucket_velocity[i] /= bucket_count[i];
+		}
+	}
+
+	for (int i = 0; i != numRows; ++i) {
+
+		int bucket_value = positions[i];
+		int bucket_id = (
+			(bucket_value - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP
+		);
+
+		if (bucket_id < MICROFIREWORKS_BUCKET_SIZE) {
+			double diff = (velocities[i] - bucket_velocity[bucket_id]);
+			double diff2 = diff * diff;
+			bucket_error[bucket_id] += diff2;
+		}
+	}
+
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		if (bucket_count[i]) {
+			bucket_error[i] /= bucket_count[i];
+			bucket_error[i] = sqrt(bucket_error[i]);
+		}
+	}
+
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		bucket_position[i] *= xscale;
+		bucket_velocity[i] *= yscale;
+		bucket_error[i] *= yscale;
+	}
+
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		if (bucket_count[i]) {
+			fprintf(stdout, "bucket-position: %.2lf bucket-velocity: %.2lf bucket-error: %lf bucket-count: %d\n", bucket_position[i], bucket_velocity[i], bucket_error[i], bucket_count[i]);
+		}
+	}
+
+	return;
+}
+
 int main(void) {
-	linear_regression();
+	aggregate();
+//	linear_regression();
 	return 0;
 }
 
