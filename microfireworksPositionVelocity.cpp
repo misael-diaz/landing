@@ -15,7 +15,7 @@
 #define MICROFIREWORKS_MAX_NUMEL 256
 #define MICROFIREWORKS_BUF_SIZE 128
 
-int main(void) {
+void linear_regression(void) {
 	double D1 = 0;
 	double D2 = 0;
 	double Delta = 0;
@@ -260,6 +260,11 @@ int main(void) {
 	size_line = 0;
 	fclose(file);
 	fclose(fout);
+	return;
+}
+
+int main(void) {
+	linear_regression();
 	return 0;
 }
 
