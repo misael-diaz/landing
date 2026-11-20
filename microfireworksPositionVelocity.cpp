@@ -16,12 +16,16 @@
 	"public/presentations/microfireworks/data/output.txt"\
 )
 
+#define MICROFIREWORKS_PATH_BKTOUT (\
+	"public/presentations/microfireworks/data/bucket-output.txt"\
+)
+
 #define MICROFIREWORKS_MAX_NUMEL 256
 #define MICROFIREWORKS_BUF_SIZE 128
 
 #define MICROFIREWORKS_BUCKET_START 15
 #define MICROFIREWORKS_BUCKET_END 155
-#define MICROFIREWORKS_BUCKET_STEP 20
+#define MICROFIREWORKS_BUCKET_STEP 10
 #define MICROFIREWORKS_BUCKET_SIZE (\
 	(MICROFIREWORKS_BUCKET_END - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP\
 )
@@ -288,6 +292,13 @@ void aggregate(void) {
 	double posmin = 0;
 	double posmax = 0;
 	errno = 0;
+	FILE *fout = fopen(MICROFIREWORKS_PATH_BKTOUT, "w");
+	if (!fout) {
+		if (errno) {
+			fprintf(stderr, "error: %s\n", strerror(errno));
+		}
+		exit(EXIT_FAILURE);
+	}
 
 	FILE *file = fopen(MICROFIREWORKS_PATH_ALLDATA, "r");
 	if (!file) {
@@ -483,6 +494,21 @@ void aggregate(void) {
 		}
 	}
 
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		fprintf(
+			fout,
+			"%lf\t%lf\t%lf\n",
+			(1.0 / bucket_position[i]),
+			bucket_velocity[i],
+			bucket_error[i]
+		);
+	}
+
+	free(ptr_line);
+	ptr_line = NULL;
+	size_line = 0;
+	fclose(file);
+	fclose(fout);
 	return;
 }
 
