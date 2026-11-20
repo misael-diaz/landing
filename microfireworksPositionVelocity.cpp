@@ -30,6 +30,9 @@
 	(MICROFIREWORKS_BUCKET_END - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP\
 )
 
+// TODO refactor linear regression code or keep this function as it is and write another
+// version that reads the data from a file and reports the regression data including
+// the goodness of the fit
 void linear_regression(void) {
 	double D1 = 0;
 	double D2 = 0;
