@@ -449,7 +449,7 @@ void aggregate(void) {
 			(bucket_value - MICROFIREWORKS_BUCKET_START) / MICROFIREWORKS_BUCKET_STEP
 		);
 
-		if (bucket_id < MICROFIREWORKS_BUCKET_SIZE) {
+		if ((bucket_id >= 0) && (bucket_id < MICROFIREWORKS_BUCKET_SIZE)) {
 			bucket_count[bucket_id] += 1;
 			bucket_position[bucket_id] += positions[i];
 			bucket_velocity[bucket_id] += velocities[i];
