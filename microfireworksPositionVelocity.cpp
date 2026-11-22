@@ -628,6 +628,43 @@ void load(struct data *points) {
 	return;
 }
 
+void regress(struct data const * const points) {
+	double D1 = 0;
+	double D2 = 0;
+	double Delta = 0;
+	double sumX = 0;
+	double sumY = 0;
+	double sumXX = 0;
+	double sumXY = 0;
+	double slopeRegression = 0;
+	double interceptRegression = 0;
+
+	sumX = 0;
+	sumY = 0;
+	sumXY = 0;
+	sumXX = 0;
+	double *x = points->x;
+	double *y = points->y;
+	int const numel = points->len;
+	for (int i = 0; i != numel; ++i) {
+		sumX += x[i];
+		sumY += y[i];
+		sumXX += (x[i] * x[i]);
+		sumXY += (x[i] * y[i]);
+	}
+
+	Delta = (sumXX * numel) - (sumX * sumX);
+	D1 = (sumXY * numel) - (sumX * sumY);
+	D2 = (sumXX * sumY) - (sumX * sumXY);
+	slopeRegression = D1 / Delta;
+	interceptRegression = D2 / Delta;
+
+	fprintf(stdout, "slope: %lf\n", slopeRegression);
+	fprintf(stdout, "intercept: %lf\n", interceptRegression);
+
+	return;
+}
+
 int main(void) {
 	aggregate();
 	struct data points = {};
@@ -636,12 +673,13 @@ int main(void) {
 	points.len = 0;
 
 	load(&points);
-
 	if (points.len) {
+		regress(&points);
 		free(points.x);
 		free(points.y);
 		points.len = 0;
 	}
+
 //	linear_regression();
 	return 0;
 }
