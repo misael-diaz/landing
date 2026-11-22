@@ -316,6 +316,14 @@ void aggregate(void) {
 		exit(EXIT_FAILURE);
 	}
 
+	FILE *frad = fopen(MICROFIREWORKS_PATH_BUCKET_OUTPUT_RADIAL, "w");
+	if (!frad) {
+		if (errno) {
+			fprintf(stderr, "error: %s\n", strerror(errno));
+		}
+		exit(EXIT_FAILURE);
+	}
+
 	FILE *file = fopen(MICROFIREWORKS_PATH_ALLDATA, "r");
 	if (!file) {
 		if (errno) {
@@ -520,11 +528,24 @@ void aggregate(void) {
 		);
 	}
 
+	for (int i = 0; i != MICROFIREWORKS_BUCKET_SIZE; ++i) {
+		if (bucket_error[i] > 0) {
+			fprintf(
+				frad,
+				"%lf\t%lf\t%lf\n",
+				bucket_position[i],
+				bucket_velocity[i],
+				bucket_error[i]
+			);
+		}
+	}
+
 	free(ptr_line);
 	ptr_line = NULL;
 	size_line = 0;
 	fclose(file);
 	fclose(fout);
+	fclose(frad);
 	return;
 }
 
