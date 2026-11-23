@@ -58,6 +58,7 @@ WIRELESS_CXX = wireless.cpp
 LINUXMINTUPDATE_CXX = linuxmintupdate.cpp
 COMPUTERVISIONENGINE_CXX = computervisionengine.cpp
 MICROFIREWORKSFRAMES_CXX = microfireworksframes.cpp
+MICROFIREWORKSSCALINGANALYSIS_CXX = microfireworksScalingAnalysis.cpp
 MICROFIREWORKSPHOTOCATALYSIS_CXX = microfireworksPhotoCatalysis.cpp
 MICROFIREWORKS_POSITION_VELOCITY_CXX = microfireworksPositionVelocity.cpp
 MICROFIREWORKS_CXX = microfireworks.cpp
@@ -92,6 +93,7 @@ WIRELESS_SO = modules/wireless.so
 LINUXMINTUPDATE_SO = modules/linuxmintupdate.so
 COMPUTERVISIONENGINE_SO = modules/computervisionengine.so
 MICROFIREWORKSFRAMES_SO = modules/microfireworksframes.so
+MICROFIREWORKSSCALINGANALYSIS_SO = modules/microfireworksScalingAnalysis.so
 MICROFIREWORKSPHOTOCATALYSIS_SO = modules/microfireworksPhotoCatalysis.so
 MICROFIREWORKS_SO = modules/microfireworks.so
 PRESENTATIONS_SO = modules/presentations.so
@@ -128,6 +130,7 @@ MODULES = $(FAVICON_SO) \
 	  $(COMPUTERVISIONENGINE_SO) \
 	  $(MICROFIREWORKSPHOTOCATALYSIS_SO) \
 	  $(MICROFIREWORKSFRAMES_SO) \
+	  $(MICROFIREWORKSSCALINGANALYSIS_SO) \
 	  $(MICROFIREWORKS_SO) \
 	  $(PRESENTATIONS_SO) \
 	  $(BLOGS_SO) \
