@@ -458,98 +458,101 @@ TODO:
 	  <h2 style="grid-area: head; text-align: center; margin: 8px">
 		  Scaling Analysis
 	  </h2>
-	  <div style="grid-area: body; display: flex; flex-flow: column nowrap; justify-content: space-around; align-items: center;">
-	    <img
-              loading="eager"
-	      style="display: block"
-	      width=72%
-              src="/microfireworks/microfireworks-scaling.png"
-              alt="Plots that reveals that near the velocity of the silica particles near the TiO2 particle scales with the \nabla ln C_\inf for passive diffusion."
-	    >
-	    </img>
-	    <p style="position: absolute; right: 150px; top: 40px; font-size: 1.5em">
-	      <math>
-		<mi>U</mi>
-		<mphantom> <mtext>.</mtext> </mphantom>
-		<mtext>~</mtext>
-		<mphantom> <mtext>.</mtext> </mphantom>
-		<mi>∇</mi>
-		<mtext>ln</mtext> <msub> <mi>c</mi> <mn><mtext>∞</mtext></mn> </msub>
-		<mphantom> <mtext>.</mtext> </mphantom>
-		<mtext>~</mtext>
-		<mphantom> <mtext>.</mtext> </mphantom>
-		<mn>1</mn> <mo>/</mo> <mi>r</mi>
-	      </math>
-	    </p>
+	  <div style="grid-area: body">
+	    <div style="display: flex; flex-flow: column nowrap; justify-content: space-around; align-items: center; position: relative">
+	      <img
+		loading="eager"
+		style="display: block"
+		width=72%
+		src="/microfireworks/microfireworks-scaling.png"
+		alt="Plots that reveals that near the velocity of the silica particles near the TiO2 particle scales with the \nabla ln C_\inf for passive diffusion."
+	      >
+	      </img>
 
-	    <div style="position: absolute; top: 250px; left: 460px">
-	      <div class="particle">
-		<svg xmlns="http://www.w3.org/2000/svg">
-		  <defs>
-		    <!-- NOTE: borrowed arrow marker code exactly as it was from MDN -->
-		    <marker
-		      id="arrow-inset"
-		      viewBox="0 0 10 10"
-		      refX="5"
-		      refY="5"
-		      markerWidth="6"
-		      markerHeight="6"
-		      orient="auto-start-reverse"
-		    >
-		      <!-- attribute `d` was borrowed from MDN exactly as it was shown -->
-		      <path stroke="context-stroke" fill="red" d="M 0 0 L 10 5 L 0 10 Z"/>
-		    </marker>
-		  </defs>
-		  <line
-		    x1="32"
-		    y1="32"
-		    x2="80"
-		    y2="32"
-		    stroke="red"
-		    marker-end="url(#arrow-inset)"
-		  />
-		</svg>
-		<span style="position: absolute; top: -4px; right: -8px">
-		  <em>a</em>
-		</span>
-
-		<div style="top: -16px; right: -32px" class="bath-particle">
-		</div>
-		<div style="bottom: 32px; right: -64px" class="bath-particle">
-		</div>
-		<div style="bottom: -16px; right: -32px" class="bath-particle">
-		</div>
-		<div style="top: -32px; left: 10px" class="bath-particle">
-		</div>
-		<div style="top: -2px; left: -48px" class="bath-particle">
-		</div>
-		<div style="top: 4px; left: -24px" class="bath-particle">
-		</div>
-		<div style="top: -16px; left: -8px" class="bath-particle">
-		</div>
-		<div style="top: -24px; left: -32px" class="bath-particle">
-		  <span style="position: absolute; top: -16px; right: -8px">
-		    <em>b</em>
+	      <div style="position: absolute; top: anchor(bottom, 55%); left: anchor(right, 65%)">
+		<div class="particle">
+		  <svg xmlns="http://www.w3.org/2000/svg">
+		    <defs>
+		      <!-- NOTE: borrowed arrow marker code exactly as it was from MDN -->
+		      <marker
+			id="arrow-inset"
+			viewBox="0 0 10 10"
+			refX="5"
+			refY="5"
+			markerWidth="6"
+			markerHeight="6"
+			orient="auto-start-reverse"
+		      >
+			<!-- attribute `d` was borrowed from MDN exactly as it was shown -->
+			<path stroke="context-stroke" fill="red" d="M 0 0 L 10 5 L 0 10 Z"/>
+		      </marker>
+		    </defs>
+		    <line
+		      x1="32"
+		      y1="32"
+		      x2="80"
+		      y2="32"
+		      stroke="red"
+		      marker-end="url(#arrow-inset)"
+		    />
+		  </svg>
+		  <span style="position: absolute; top: -4px; right: -8px">
+		    <em>a</em>
 		  </span>
+
+		  <div style="top: -16px; right: -32px" class="bath-particle">
+		  </div>
+		  <div style="bottom: 32px; right: -64px" class="bath-particle">
+		  </div>
+		  <div style="bottom: -16px; right: -32px" class="bath-particle">
+		  </div>
+		  <div style="top: -32px; left: 10px" class="bath-particle">
+		  </div>
+		  <div style="top: -2px; left: -48px" class="bath-particle">
+		  </div>
+		  <div style="top: 4px; left: -24px" class="bath-particle">
+		  </div>
+		  <div style="top: -16px; left: -8px" class="bath-particle">
+		  </div>
+		  <div style="top: -24px; left: -32px" class="bath-particle">
+		    <span style="position: absolute; top: -16px; right: -8px">
+		      <em>b</em>
+		    </span>
+		  </div>
+		  <div style="bottom: 24px; left: -48px" class="bath-particle">
+		  </div>
+		  <div style="bottom: 20px; left: -24px" class="bath-particle">
+		  </div>
+		  <div style="bottom: -28px; left: -12px" class="bath-particle">
+		  </div>
+		  <div style="bottom: -8px; left: -32px" class="bath-particle">
+		  </div>
+		  <div style="bottom: -14px; left: -52px" class="bath-particle">
+		  </div>
+		  <div style="bottom: 4px; left: -72px" class="bath-particle">
+		  </div>
+		  <p style="position: absolute; right: -32px; top: -4px">
+		    <math>
+		      <mi>U</mi>
+		    </math>
+		  </p>
 		</div>
-		<div style="bottom: 24px; left: -48px" class="bath-particle">
-		</div>
-		<div style="bottom: 20px; left: -24px" class="bath-particle">
-		</div>
-		<div style="bottom: -28px; left: -12px" class="bath-particle">
-		</div>
-		<div style="bottom: -8px; left: -32px" class="bath-particle">
-		</div>
-		<div style="bottom: -14px; left: -52px" class="bath-particle">
-		</div>
-		<div style="bottom: 4px; left: -72px" class="bath-particle">
-		</div>
-		<p style="position: absolute; right: -32px; top: -4px">
-		  <math>
-		    <mi>U</mi>
-		  </math>
-		</p>
 	      </div>
+
+	      <p style="position: absolute; top: anchor(bottom, 1%); left: anchor(right, 50%); font-size: 1.5em">
+		<math>
+		  <mi>U</mi>
+		  <mphantom> <mtext>.</mtext> </mphantom>
+		  <mtext>~</mtext>
+		  <mphantom> <mtext>.</mtext> </mphantom>
+		  <mi>∇</mi>
+		  <mtext>ln</mtext> <msub> <mi>c</mi> <mn><mtext>∞</mtext></mn> </msub>
+		  <mphantom> <mtext>.</mtext> </mphantom>
+		  <mtext>~</mtext>
+		  <mphantom> <mtext>.</mtext> </mphantom>
+		  <mn>1</mn> <mo>/</mo> <mi>r</mi>
+		</math>
+	      </p>
 	    </div>
 
 	  </div>
