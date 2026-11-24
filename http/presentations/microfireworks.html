@@ -135,7 +135,8 @@ TODO:
     .particle-container {
       grid-area: body;
       display: flex;
-      justify-content: center;
+      flex-flow: column nowrap;
+      justify-content: space-around;
       align-items: center;
       position: relative;
     }
@@ -390,6 +391,25 @@ TODO:
 		<div style="bottom: 4px; left: -72px" class="bath-particle">
 		</div>
 	      </div>
+	      <p style="font-size: 1.2em">
+		<math>
+		<mfrac> <mi>∂ c</mi> <mi>∂ t</mi> </mfrac>
+		<mo>+</mo>
+		<mtext style="font-weight: bold">v</mtext>
+		<mphantom><mtext>.</mtext></mphantom>
+		<mtext style="font-weight: bold">·</mtext>
+		<mphantom><mtext>.</mtext></mphantom>
+		<mtext style="font-weight: bold">∇</mtext>
+		<mi>c</mi>
+		<mphantom><mtext>.</mtext></mphantom>
+		<mtext>=</mtext>
+		<mphantom><mtext>.</mtext></mphantom>
+		<mi>D</mi>
+		<mphantom><mtext>.</mtext></mphantom>
+		<msup> <mtext>∇</mtext> <mn>2</mn> </msup>
+		<mi>c</mi>
+		</math>
+	      </p>
 	    </div>
 	  <div style="grid-area: foot; display: flex; align-items: end">
 	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
