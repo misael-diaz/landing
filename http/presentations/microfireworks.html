@@ -42,6 +42,11 @@ TODO:
       position: relative;
       top: 0px;
     }
+    .panel-visibility {
+      visibility: hidden;
+      position: absolute;
+      left: 0px;
+    }
     nav {
       overflow-y: auto;
       scollbar-width: thin;
@@ -174,8 +179,21 @@ TODO:
     </style>
     <script type="module">
       {
+
+	function onKeyDownListener(e) {
+	  const aside = document.querySelector("aside");
+	  if ("h" === e.key) {
+	    console.log(`${e.key}`);
+	    aside.classList.toggle("panel-visibility");
+	  }
+	};
+
+	const html = document.querySelector("html");
 	const ul = document.querySelector("ul");
 	const main = document.getElementById("main");
+
+	html.addEventListener("keydown", onKeyDownListener);
+
 	for (const slide of main.children) {
 	  const clone = slide.cloneNode({deep: true});
 	  clone.id = "cloned-" + clone.id;
