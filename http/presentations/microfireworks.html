@@ -82,6 +82,10 @@ TODO:
       margin-bottom: 12px;
       max-width: 720px;
       position: relative;
+      visibility: hidden;
+    }
+    .slide-focus {
+      visibility: visible;
     }
     .slide-container {
       display: flex;
@@ -108,6 +112,9 @@ TODO:
       width: 90px;
       height: 90px;
       margin: 4px;
+    }
+    .thumb-vis {
+      visibility: visible;
     }
     .scaled {
       transform: scale(0.2);
@@ -214,37 +221,61 @@ TODO:
 	    aside.classList.toggle("panel-visibility");
 	  }
 	  else if ("Home" === e.key) {
+	    const curr = main.children[this.priv.pos];
+	    if (curr.classList.contains("slide-focus")) {
+	      curr.classList.toggle("slide-focus");
+	    }
+
 	    this.priv.pos = 0;
 	    this.scroll(0, 0);
 	    const elem = main.children[this.priv.pos];
 	    const rect = elem.getBoundingClientRect();
 	    const offset = rect.y;
+	    elem.classList.toggle("slide-focus");
 	    this.scroll(0, offset);
 	  }
 	  else if ("End" === e.key) {
 	    if (len > 1) {
+	      const curr = main.children[this.priv.pos];
+	      if (curr.classList.contains("slide-focus")) {
+		curr.classList.toggle("slide-focus");
+	      }
+
 	      this.scroll(0, 0);
 	      this.priv.pos = (len - 1);
 	      const elem = main.children[this.priv.pos];
 	      const rect = elem.getBoundingClientRect();
 	      const offset = rect.y;
+	      elem.classList.toggle("slide-focus");
 	      this.scroll(0, offset);
 	    }
 	  }
 	  else if ("ArrowUp" === e.key) {
+	    const curr = main.children[this.priv.pos];
+	    if (curr.classList.contains("slide-focus")) {
+	      curr.classList.toggle("slide-focus");
+	    }
+
 	    this.scroll(0, 0);
 	    this.priv.pos = Math.max(0, this.priv.pos - 1);
 	    const elem = main.children[this.priv.pos];
 	    const rect = elem.getBoundingClientRect();
 	    const offset = rect.y;
+	    elem.classList.toggle("slide-focus");
 	    this.scroll(0, offset);
 	  }
 	  else if ("ArrowDown" === e.key) {
+	    const curr = main.children[this.priv.pos];
+	    if (curr.classList.contains("slide-focus")) {
+	      curr.classList.toggle("slide-focus");
+	    }
+
 	    this.scroll(0, 0);
 	    this.priv.pos = Math.min(len - 1, this.priv.pos + 1);
 	    const elem = main.children[this.priv.pos];
 	    const rect = elem.getBoundingClientRect();
 	    const offset = rect.y;
+	    elem.classList.toggle("slide-focus");
 	    this.scroll(0, offset);
 	  }
 
@@ -265,6 +296,7 @@ TODO:
 	  const clone = slide.cloneNode({deep: true});
 	  fixDuplicateIds(clone);
 	  clone.classList.add("scaled");
+	  clone.classList.add("thumb-vis");
 	  const li = document.createElement("li");
 	  const a = document.createElement("a");
 	  a.href = `#${slide.id}`;
