@@ -183,6 +183,19 @@ TODO:
     <script type="module">
       {
 
+// NOTES: fixes the duplicate ids issue, this is particularly problematic when hiding the navigation panel, any elements that have the same Id will also be hidden from the presentation. This function also makes sure that links are disabled by clearing out the hrefs; you don't want to click on a link in the navigation panel that will take you away from the presentation (that's why we do that). The function does more than one thing but that's fair because this is a costly operation (traverses most of the DOM) so we don't want to do that twice for the sake of having functions do one thing alone. Breaking from that is fine when performance is involved in my book so bear it with me.
+	function fixDuplicateIds(elem) {
+	  for (const child of elem.children) {
+	    fixDuplicateIds(child);
+	  }
+	  if (elem.id) {
+	    elem.id = "clone-" + elem.id;
+	  }
+	  if (elem.href) {
+	    elem.href = "";
+	  }
+	}
+
 // NOTES: handles keyboard events to toggle the navigation panel into view and also to scroll down/up the slides. Of importance it's necessary to scroll to the beginning of the html document via html.scroll(0, 0) so that the positioning of the slides is relative to the beginning; if we don't do that we won't get the effect that we want. I noticed that from experimentation you probably won't find mentioned this anywhere else (such as MDN docs).
 	function onKeyDownListener(e) {
 	  const main = document.getElementById("main");
@@ -250,7 +263,7 @@ TODO:
 	    break;
 	  }
 	  const clone = slide.cloneNode({deep: true});
-	  clone.id = "cloned-" + clone.id;
+	  fixDuplicateIds(clone);
 	  clone.classList.add("scaled");
 	  const li = document.createElement("li");
 	  const a = document.createElement("a");
