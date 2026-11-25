@@ -54,6 +54,7 @@ PSU_CXX = psu.cpp
 DEV_CXX = dev.cpp
 UND_CXX = und.cpp
 UN_CXX = un.cpp
+POINTER_CXX = pointer.cpp
 WIRELESS_CXX = wireless.cpp
 LINUXMINTUPDATE_CXX = linuxmintupdate.cpp
 COMPUTERVISIONENGINE_CXX = computervisionengine.cpp
@@ -90,6 +91,7 @@ PSU_SO = modules/psu.so
 DEV_SO = modules/dev.so
 UND_SO = modules/und.so
 UN_SO = modules/un.so
+POINTER_SO = modules/pointer.so
 WIRELESS_SO = modules/wireless.so
 LINUXMINTUPDATE_SO = modules/linuxmintupdate.so
 COMPUTERVISIONENGINE_SO = modules/computervisionengine.so
@@ -118,6 +120,7 @@ MODULES = $(FAVICON_SO) \
 	  $(GMAIL_SO) \
 	  $(HERO_SO) \
 	  $(UPRM_SO) \
+	  $(POINTER_SO) \
 	  $(STYLEBLOGS_SO) \
 	  $(STEM_SO) \
 	  $(PUPR_SO) \

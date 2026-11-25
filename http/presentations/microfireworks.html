@@ -25,6 +25,9 @@ TODO:
     html {
       overflow-y: scroll;
     }
+    .laser {
+      cursor: url("/cursor/pointer.png"), default;
+    }
     @media screen and (width > 850px) {
     .layout {
       display: grid;
@@ -247,6 +250,9 @@ TODO:
 	      const thumb = a.children[0];
 	      thumb.classList.toggle("thumb-vis");
 	    }
+	  }
+	  else if ("l" === e.key) {
+	    this.classList.toggle("laser");
 	  }
 	  else if ("m" === e.key) {
 	    for (const slide of main.children) {
