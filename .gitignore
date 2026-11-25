@@ -3,6 +3,8 @@
 *.swo
 *.obj
 *.bin
+*.svg
+*.txt
 *.png
 *.pdf
 *.jpeg
