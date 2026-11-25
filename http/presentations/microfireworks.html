@@ -270,7 +270,9 @@ TODO:
 	    const rect = elem.getBoundingClientRect();
 	    const offset = rect.y;
 	    if (MODE_PRESENT == this.priv.mode) {
-	      elem.classList.toggle("slide-focus");
+	      if (!elem.classList.contains("slide-focus")) {
+		elem.classList.toggle("slide-focus");
+	      }
 	    }
 	    this.scroll(0, offset);
 	  }
@@ -291,7 +293,9 @@ TODO:
 	      const rect = elem.getBoundingClientRect();
 	      const offset = rect.y;
 	      if (MODE_PRESENT == this.priv.mode) {
-		elem.classList.toggle("slide-focus");
+		if (!elem.classList.contains("slide-focus")) {
+		  elem.classList.toggle("slide-focus");
+		}
 	      }
 	      this.scroll(0, offset);
 	    }
