@@ -353,7 +353,6 @@ TODO:
 
 	html.addEventListener("keydown", onKeyDownListener);
 
-// FIXME nested elements that have ids need to be renamed, for instance the arrow head in svg images. This matters because hidding the panel means that the arrow head will also be hidden and this is clearly a BUG (a minor one but needs to be fixed)
 // NOTE: the onKeyDownListener needs to be updated if you decide to change the nesting, in particular the hiding panel feature is going to be affected
 	let pos = 0;
 	for (const slide of main.children) {
