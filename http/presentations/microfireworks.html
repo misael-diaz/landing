@@ -187,7 +187,8 @@ TODO:
 	function onKeyDownListener(e) {
 	  const main = document.getElementById("main");
 	  const aside = document.querySelector("aside");
-	  const len = main.children.length;
+	  // ignores the NULL slide at the end so that the last slide shows properly in presentation mode
+	  const len = main.children.length - 1;
 
 // TODO: this.priv.pos needs to be updated if the user uses the navigation panel for UX
 	  if (!this.priv) {
@@ -245,6 +246,9 @@ TODO:
 
 // FIXME nested elements that have ids need to be renamed, for instance the arrow head in svg images. This matters because hidding the panel means that the arrow head will also be hidden and this is clearly a BUG (a minor one but needs to be fixed)
 	for (const slide of main.children) {
+	  if ("null-slide" === slide.id) {
+	    break;
+	  }
 	  const clone = slide.cloneNode({deep: true});
 	  clone.id = "cloned-" + clone.id;
 	  clone.classList.add("scaled");
@@ -734,6 +738,25 @@ TODO:
 		</a>
 	      </li>
 	    <ul>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div id="null-slide" style="visibility: hidden; margin-bottom: 0px;" class="container">
+      <div class="slide-container">
+	<div class="slide">
+	  <h2 style="grid-area: head; text-align: center; margin: 8px">
+	    <span style="color: blue">NULL</span>
+	  </h2>
+	  <div style="grid-area: body;">
+	  </div>
+	  <div style="grid-area: foot; display: flex; align-items: end">
+	    <a class="reference" href="https://doi.org/10.1002/adfm.201000063">
+	      <span class="footer-reference">
+		Light-Driven Titanium-Dioxide-Based Reversible Microfireworks
+	      </span>
+	    </a>
 	  </div>
 	</div>
       </div>
