@@ -208,11 +208,6 @@ TODO:
 	  const html = document.querySelector("html");
 	  const main = document.getElementById("main");
 
-	  if (!html.priv) {
-	    html.priv = {
-	    pos: 0
-	    }
-	  }
 	  const curr = main.children[html.priv.pos];
 	  if (curr.classList.contains("slide-focus")) {
 	    curr.classList.toggle("slide-focus");
@@ -308,6 +303,12 @@ TODO:
 	const html = document.querySelector("html");
 	const ul = document.querySelector("ul");
 	const main = document.getElementById("main");
+
+	if (!html.priv) {
+	  html.priv = {
+	    pos: 0,
+	  }
+	}
 
 	html.addEventListener("keydown", onKeyDownListener);
 
