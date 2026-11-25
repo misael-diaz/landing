@@ -5,6 +5,7 @@
 *.bin
 *.svg
 *.txt
+*.tmp
 *.png
 *.pdf
 *.jpeg
