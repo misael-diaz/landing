@@ -203,6 +203,28 @@ TODO:
 	  }
 	}
 
+// NOTES: updates the internal slide index position for UX, if we don't then hitting the arrow keys would bring another slide into view and that would surprise our users
+	function onClick(e) {
+	  const html = document.querySelector("html");
+	  const main = document.getElementById("main");
+
+	  if (!html.priv) {
+	    html.priv = {
+	    pos: 0
+	    }
+	  }
+	  const curr = main.children[html.priv.pos];
+	  if (curr.classList.contains("slide-focus")) {
+	    curr.classList.toggle("slide-focus");
+	  }
+
+	  html.priv.pos = e.currentTarget.iref;
+	  const elem = main.children[html.priv.pos];
+	  elem.classList.toggle("slide-focus");
+
+	  e.stopPropagation();
+	}
+
 // NOTES: handles keyboard events to toggle the navigation panel into view and also to scroll down/up the slides. Of importance it's necessary to scroll to the beginning of the html document via html.scroll(0, 0) so that the positioning of the slides is relative to the beginning; if we don't do that we won't get the effect that we want. I noticed that from experimentation you probably won't find mentioned this anywhere else (such as MDN docs).
 	function onKeyDownListener(e) {
 	  const main = document.getElementById("main");
@@ -289,19 +311,23 @@ TODO:
 	html.addEventListener("keydown", onKeyDownListener);
 
 // FIXME nested elements that have ids need to be renamed, for instance the arrow head in svg images. This matters because hidding the panel means that the arrow head will also be hidden and this is clearly a BUG (a minor one but needs to be fixed)
+	let pos = 0;
 	for (const slide of main.children) {
 	  if ("null-slide" === slide.id) {
 	    break;
 	  }
+	  slide.pos = pos++;
 	  const clone = slide.cloneNode({deep: true});
 	  fixDuplicateIds(clone);
 	  clone.classList.add("scaled");
 	  clone.classList.add("thumb-vis");
 	  const li = document.createElement("li");
 	  const a = document.createElement("a");
+	  a.iref = slide.pos;
 	  a.href = `#${slide.id}`;
 	  a.classList.add("plain");
 	  a.appendChild(clone);
+	  a.addEventListener("click", onClick);
 	  li.classList.add("thumb");
 	  li.appendChild(a);
 	  ul.appendChild(li);
