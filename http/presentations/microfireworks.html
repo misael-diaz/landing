@@ -232,17 +232,12 @@ TODO:
 	  // ignores the NULL slide at the end so that the last slide shows properly in presentation mode
 	  const len = main.children.length - 1;
 
-// TODO: this.priv.pos needs to be updated if the user uses the navigation panel for UX
-	  if (!this.priv) {
-	    this.priv = {
-	      pos: 0
-	    };
-	  }
-
 	  if ("h" === e.key) {
 	    aside.classList.toggle("panel-visibility");
 	  }
 	  else if ("Home" === e.key) {
+	    // NOTE: prevents default because if the user hits Home the slide view should be exactly the same as if the user reached there with the arrow keys; failing to do so ends up showing the document margins (not what the user would expect).
+	    e.preventDefault();
 	    const curr = main.children[this.priv.pos];
 	    if (curr.classList.contains("slide-focus")) {
 	      curr.classList.toggle("slide-focus");
@@ -257,6 +252,8 @@ TODO:
 	    this.scroll(0, offset);
 	  }
 	  else if ("End" === e.key) {
+	    // NOTE: prevents default because we don't want to scroll all the way to the end but only to the last slide with content
+	    e.preventDefault();
 	    if (len > 1) {
 	      const curr = main.children[this.priv.pos];
 	      if (curr.classList.contains("slide-focus")) {
@@ -273,6 +270,8 @@ TODO:
 	    }
 	  }
 	  else if ("ArrowUp" === e.key) {
+	    // NOTE: prevents default for no jitters in slide transitioning
+	    e.preventDefault();
 	    const curr = main.children[this.priv.pos];
 	    if (curr.classList.contains("slide-focus")) {
 	      curr.classList.toggle("slide-focus");
@@ -287,6 +286,8 @@ TODO:
 	    this.scroll(0, offset);
 	  }
 	  else if ("ArrowDown" === e.key) {
+	    // NOTE: prevents default for no jitters in slide transitioning
+	    e.preventDefault();
 	    const curr = main.children[this.priv.pos];
 	    if (curr.classList.contains("slide-focus")) {
 	      curr.classList.toggle("slide-focus");
