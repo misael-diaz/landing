@@ -333,7 +333,7 @@ TODO:
 	};
 
 	const html = document.querySelector("html");
-	const ul = document.querySelector("ul");
+	const menu = document.querySelector("menu");
 	const main = document.getElementById("main");
 
 	if (!html.priv) {
@@ -365,7 +365,7 @@ TODO:
 	  a.addEventListener("click", onClick);
 	  li.classList.add("thumb");
 	  li.appendChild(a);
-	  ul.appendChild(li);
+	  menu.appendChild(li);
 	  // NOTE: don't want the thumbnails to be in this class
 	  slide.classList.add("slide-show");
 	}
@@ -376,8 +376,8 @@ TODO:
     <div class="layout">
       <aside class="panel">
 	<nav>
-	  <ul style="list-style: none; padding: 0px;">
-	  </ul>
+	  <menu style="list-style: none; padding: 0px;">
+	  </menu>
 	</nav>
       </aside>
     <div id="main" style="grid-area: main; position: relative; top: 0px;">
